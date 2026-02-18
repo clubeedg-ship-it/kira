@@ -5,18 +5,17 @@
 Kanban columns by status. Scoped per-project or per-area.
 
 ## Columns
-Default: Todo | In Progress | Waiting | Review | Done
+- Todo | In Progress | Waiting | Review | Done
 
 ## Interactions
-- Drag-and-drop between columns (updates status)
-- Click card → task detail panel
+- Drag-and-drop between columns
+- Click card to open task detail
 - Quick-add at top of any column
-- Column WIP limits (optional)
-- Swimlanes by: priority, executor, milestone
+- Filter by: executor type, priority, agent
+- Swimlanes option: group by milestone or by executor
 
 ## TODO
 - Wireframe
-- Card anatomy (title, priority badge, executor avatar, due date, tags)
-- Drag feedback and animation
-- Filtering controls
-- Mobile: horizontal scroll columns
+- Card component spec (title, priority badge, executor avatar, due date)
+- Column header with count
+- Empty column state

@@ -4,14 +4,17 @@
 
 Inline document preview with metadata sidebar.
 
-## Features
-- PDFs, images, markdown, code — all viewable inline
-- Metadata sidebar: summary, entities, related docs, access log
-- Linked context: task that produced this, agent, conversations
-- Version timeline navigation
+## Supported Formats
+- PDF: inline viewer
+- Markdown: rendered preview
+- Images: gallery view
+- Code: syntax-highlighted
+- Other: download prompt
 
-## TODO
-- Wireframe
-- Supported file types and renderers
-- Metadata sidebar layout
-- Mobile behavior
+## Metadata Sidebar
+- AI-generated summary
+- Key entities extracted
+- Related documents
+- Which task/agent produced this
+- Version history link
+- Conversations that reference this

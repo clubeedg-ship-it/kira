@@ -2,21 +2,18 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 6
 
-Mobile-first views in order of importance:
-
+## Mobile-first Views (Priority Order)
 1. **Chat** — Primary mobile interaction
-2. **Inbox** — Swipe-to-approve input queue
-3. **Today** — Scrollable daily agenda
-4. **Quick Capture** — Widget/shortcut from anywhere
+2. **Inbox** — Swipe-to-approve input queue items
+3. **Today** — Scrollable daily agenda with time blocks
+4. **Quick Capture** — Widget/shortcut from anywhere on phone
 5. **Notifications** — Smart batched updates
 
-## Navigation Pattern
+## Navigation
 - Bottom tab bar: Chat | Inbox | Today | More
-- "More" opens: Operations, Documents, Knowledge, Settings
+- More menu: Operations, Documents, Knowledge, Settings
 
-## TODO
-- Navigation wireframe
-- Tab bar icon set
-- Gesture language (swipe, long-press, shake)
-- Offline behavior
-- Push notification strategy
+## What's NOT on Mobile
+- Timeline/Gantt view (too complex)
+- Knowledge graph explorer (desktop only)
+- Full agent monitor (simplified status only)

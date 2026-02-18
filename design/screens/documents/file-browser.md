@@ -4,16 +4,21 @@
 
 Main document view — NOT a tree. Grid/list with smart filters.
 
-## Features
-- Grid view (thumbnails) and list view (detailed rows)
-- Smart filters: by project, by agent, by type, by date, by area
-- Search with semantic matching
-- Drag-and-drop upload
-- Breadcrumb navigation within project hierarchy
-- Sorting: name, date, size, relevance
+## View Modes
+- Grid (card thumbnails)
+- List (compact rows)
+
+## Filters
+- By project (from SOP hierarchy)
+- By area
+- By type (PDF, doc, image, code)
+- By creator (agent name, human)
+- By date range
+- By smart collection
 
 ## TODO
-- Wireframe (grid + list modes)
-- Filter panel design
-- Upload interaction
-- Empty state
+- Wireframe for grid and list modes
+- Sort options
+- Search integration
+- Drag-and-drop upload
+- Bulk actions

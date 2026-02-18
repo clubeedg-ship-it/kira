@@ -4,15 +4,9 @@
 
 Document evolution timeline.
 
-## Features
-- Timeline view of all versions
-- Author attribution (agent vs human edits)
-- Diff view between versions
-- Restore previous version
-- Branch tracking (agent draft → human edit → final)
-
-## TODO
-- Timeline UI wireframe
-- Diff rendering approach
-- Storage strategy for versions
-- Automatic vs manual versioning rules
+## Shows
+- Timeline of all versions
+- Who created each version (agent name or human)
+- Diff between versions (for text-based docs)
+- Restore to previous version
+- Branch point: when human edited an agent draft

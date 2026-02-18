@@ -1,12 +1,18 @@
-# Push Notifications — Mobile
+# Push Notification Strategy
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 6
 
-Push notification strategy and grouping.
+## Notification Tiers
+- **Immediate:** Critical input queue items, urgent messages
+- **Batched (hourly):** Normal priority items, agent completions
+- **Daily digest:** Summary of day's activity, tomorrow's plan
 
-## TODO
-- Notification categories and priority levels
-- Grouping rules (by project, by area, by channel)
-- DND schedule integration
-- Action buttons on notifications (approve, reply, snooze)
-- Badge count strategy
+## Grouping
+- Group by project
+- Group by channel
+- Collapse similar notifications
+
+## DND Rules
+- Respect system DND
+- Custom quiet hours per area
+- Override for critical items only

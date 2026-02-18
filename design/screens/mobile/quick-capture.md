@@ -1,17 +1,15 @@
-# Quick Capture — Mobile
+# Quick Capture
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 6
 
-Widget and share-sheet integration for capturing tasks from anywhere on phone.
+Widget and share-sheet integration for capturing tasks from anywhere.
 
 ## Entry Points
-- Home screen widget (tap to capture)
-- Share sheet (share text/link/image → Kira)
-- Notification action ("Add task" from any notification)
-- Siri/voice shortcut
+- Home screen widget (1-tap to capture)
+- Share sheet (share from any app → Kira)
+- Notification action (reply-to-capture)
 
-## TODO
-- Widget design (iOS + Android)
-- Share sheet processing pipeline
-- Quick capture UI (minimal: title + optional project)
-- Auto-classification of captured items
+## Capture Flow
+- Text input + optional voice
+- Auto-classification (project, area, executor)
+- Lands in inbox for triage if ambiguous

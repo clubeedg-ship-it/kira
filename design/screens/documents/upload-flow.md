@@ -6,19 +6,13 @@ How documents enter the system.
 
 ## Entry Points
 1. Manual upload (drag-and-drop, file picker)
-2. Agent output (saved to VDR during task execution)
+2. Agent output (auto-saved to VDR with project tag)
 3. Email attachment (extracted by triage engine)
 4. Chat attachment (user sends file in conversation)
 5. API upload (external integrations)
 
-## Processing Pipeline
-- Auto-tag with project context (if uploaded during task/project context)
-- AI metadata extraction (summary, entities, type classification)
-- Thumbnail generation
-- Full-text indexing for search
-
-## TODO
-- Upload UI wireframe
-- Progress indicators
-- Duplicate detection
-- Storage limits and quotas
+## Auto-enrichment on Upload
+- Generate summary
+- Extract entities
+- Link to project (if context available)
+- Generate thumbnail

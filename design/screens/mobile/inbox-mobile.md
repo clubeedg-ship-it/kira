@@ -2,16 +2,16 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 6
 
-Tinder-style card swipe for input queue items.
+Tinder-style card swipe for input queue.
 
-## Interaction Pattern
-- Swipe right = Approve
-- Swipe left = Dismiss/Snooze
-- Tap = Open detail view
-- Long press = More options
+## Interaction
+- Swipe right = approve
+- Swipe left = dismiss/snooze
+- Tap = expand detail
+- Pull down = refresh
 
-## TODO
-- Card design for each input queue type (verify/decide/create)
-- Swipe animations and feedback
-- Batch mode toggle
-- Filter controls (compact)
+## Card Content
+- Type badge (verify/decide/create)
+- Agent name
+- Title + preview
+- Action buttons at bottom

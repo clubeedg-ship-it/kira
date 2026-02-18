@@ -6,7 +6,7 @@ Card component: thumbnail, title, metadata, quick actions.
 
 ## Anatomy
 - Thumbnail (auto-generated for PDFs, images; icon for others)
-- Title + file type badge
-- Metadata: size, last modified, author/agent, project link
-- Quick actions: preview, download, share, move
-- Tags from AI enrichment
+- Title
+- Metadata: type, size, last modified, created by (agent/human)
+- Tags: project, area, auto-generated
+- Quick actions: open, download, share, delete
