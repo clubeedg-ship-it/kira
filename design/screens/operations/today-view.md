@@ -2,24 +2,24 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 1
 
-Just today's scheduled tasks with time blocks.
+Daily execution view — just today's scheduled tasks with time blocks.
 
 ## Layout
 - Vertical timeline (morning to evening)
-- Time blocks as colored regions
-- Tasks placed within their time blocks
-- Unscheduled tasks in sidebar/bottom
-- Top 3 priorities highlighted
+- Time blocks as colored sections (mapped to areas)
+- Tasks within each time block
+- Calendar events interspersed
+- Top 3 priorities highlighted at the top
 - Input queue count badge
 
 ## Interactions
-- Drag task to reschedule within day
-- Click task → task detail
-- Mark complete with checkbox
-- Quick-add inline
+- Drag tasks between time blocks
+- Check off tasks (inline status change)
+- Click task to open detail
+- Quick-add to current time block
 
 ## TODO
-- Wireframe (desktop + mobile)
-- Time block component spec
-- Task-within-block card design
-- Overflow handling (too many tasks for block)
+- Wireframe
+- Time block color mapping
+- How unscheduled tasks appear
+- Overflow handling (too many tasks for a time block)

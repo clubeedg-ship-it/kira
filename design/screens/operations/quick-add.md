@@ -1,22 +1,16 @@
 # Quick Add
 
-> **Status:** 🔴 SCAFFOLD | **Phase:** 1
+> **Status:** 🔴 SCAFFOLD | **Phase:** 3
 
 Keyboard-driven fast task creation.
 
 ## Trigger
-- Global hotkey (Cmd+K or similar)
-- "+" button in any operations view
-- Inline at top of board columns
+- Global keyboard shortcut (Cmd+K or Ctrl+K)
+- Opens command palette style input
 
-## Fields (minimal)
-- Title (required)
-- Project (auto-suggested from current context)
-- Priority (keyboard shortcut: !1 !2 !3)
-- Due date (natural language: "tomorrow", "next friday")
-- Executor hint ("@agent" prefix)
-
-## TODO
-- Command palette design
-- Auto-classification behavior
-- Natural language parsing examples
+## Features
+- Natural language input: "Research email platforms for Client X #ai-receptionist !high due:friday"
+- Auto-parse: project tag, priority, due date, context
+- Tab to select suggested project/area
+- Enter to create
+- Auto-classification runs after creation

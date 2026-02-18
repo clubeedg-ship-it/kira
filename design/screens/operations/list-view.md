@@ -2,17 +2,13 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 3
 
-Flat filtered list with hierarchy breadcrumbs (like Things 3 / Todoist).
+Filterable flat list with hierarchy breadcrumbs.
 
-## Features
-- Flat task list with breadcrumb: Area > Objective > Project
-- Inline editing (click title, click status)
-- Multi-select for batch actions
-- Grouping by: project, area, due date, priority, executor
-- Sorting by: priority score, due date, created date, title
+## Layout
+- Compact rows with: checkbox, title, project breadcrumb, priority, due date, executor
+- Sortable columns
+- Grouping options: by project, by area, by status, by due date
+- Inline editing (click to edit title, status, priority)
 
-## TODO
-- Wireframe
-- Row anatomy
-- Filter/group/sort controls
-- Keyboard navigation
+## Filters
+- Area, project, status, priority, executor type, due date range, tags

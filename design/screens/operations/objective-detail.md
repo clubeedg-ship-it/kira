@@ -2,16 +2,11 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 3
 
-Objective with key results, progress charts.
+Objective view with key results and progress charts.
 
-## Sections
-- Objective header: title, quarter, area, status
-- Key results list with progress bars and current/target values
-- Child projects with status badges
-- Progress chart over time
-- Related decisions from decision log
-
-## TODO
-- Wireframe
-- Progress chart component spec
-- Key result inline editing
+## Shows
+- Objective title, description, quarter
+- Key results list with progress bars (current vs target)
+- Child projects (cards or list)
+- Timeline: start date to end date with progress marker
+- Related decisions and principles

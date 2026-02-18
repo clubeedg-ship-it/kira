@@ -2,21 +2,23 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 3
 
-Templated view for daily/weekly/quarterly reviews.
+Templated views for daily/weekly/quarterly review ceremonies.
 
-## Review Types
-- **Daily:** Checklist of today's tasks, completions, blockers
-- **Weekly:** Project status matrix, input queue health, principles captured
-- **Monthly:** Objective progress vs expected, key result trends
-- **Quarterly:** Score objectives, set new ones, area review
+## Daily Review Template
+- What did I complete today?
+- What's carrying over to tomorrow?
+- Any blockers?
+- Input queue: anything stale?
 
-## Interaction
-- Guided flow (step-by-step)
-- Pre-filled with agent-generated data
-- Human adds notes, makes decisions
-- Decisions auto-logged to decision log
+## Weekly Review Template (Friday)
+- Project status check (on track / at risk / blocked)
+- Input queue audit
+- Dependency bottleneck check
+- Principle capture (decisions → principles?)
+- Next week planning
 
-## TODO
-- Wireframe for each review type
-- Template definitions
-- Progress indicators within review
+## Quarterly Review Template
+- Score outgoing objectives
+- Set new objectives + key results
+- Decompose into projects
+- Assign owners

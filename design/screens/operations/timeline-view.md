@@ -4,16 +4,16 @@
 
 Gantt-style showing projects and milestones over time.
 
-## Features
+## Layout
 - Horizontal timeline (weeks/months)
-- Projects as bars with milestone markers
-- Dependencies shown as arrows between bars
-- Color coding by area or status
-- Zoom levels: week, month, quarter
-- Today marker
+- Rows: projects grouped by area
+- Bars: project duration (start → deadline)
+- Milestone diamonds on the timeline
+- Dependency arrows between projects
+- Today marker (vertical line)
 
-## TODO
-- Wireframe
-- Interaction: drag to reschedule
-- Dependency arrow rendering
-- Mobile behavior (probably read-only)
+## Interactions
+- Drag to reschedule
+- Zoom: day/week/month/quarter
+- Click project bar to open detail
+- Filter by area

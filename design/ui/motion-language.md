@@ -2,14 +2,10 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 0
 
----
-
 ## TODO
-- Transition durations (fast: 150ms, normal: 250ms, slow: 400ms)
-- Easing curves (ease-out for enter, ease-in for exit)
-- Micro-interactions: button press, toggle, checkbox, drag-and-drop
-- Loading states: skeleton screens, shimmer, spinner
-- Progress indicators: determinate bar, indeterminate, step progress
-- Page transitions: fade, slide, none
-- Agent activity animations (typing indicator, working pulse)
-- Celebration animations (task complete, level up, streak)
+- Transition types: page transitions, panel open/close, card expand
+- Micro-interactions: button press, checkbox toggle, drag feedback
+- Loading states: skeleton screens, shimmer, progress indicators
+- Notification animations: slide-in toast, badge pulse
+- Drag-and-drop: ghost card, drop zone highlight, snap-to-position
+- Real-time updates: smooth value changes (progress bars, counters)
