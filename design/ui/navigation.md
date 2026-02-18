@@ -1,6 +1,7 @@
 # Navigation & Information Architecture
 
-> **Status:** 🟡 PARTIAL | **Phase:** 0
+> **Status:** 🟡 PARTIAL
+> **Phase:** 1
 > **Updates:** `design/dashboard/component-map.md`
 
 ---
@@ -8,37 +9,28 @@
 ## Primary Navigation (Left Sidebar)
 
 ```
-🏠 Command Center   ← Morning brief, today's priorities, active agents
-📥 Inbox            ← Unified inbox (all channels + input queue)
-💬 Chat             ← Direct conversation with Kira
-📋 Operations       ← SOP engine: areas, objectives, projects, tasks
-📄 Documents        ← VDR (redesigned)
-🧠 Knowledge        ← Memory graph explorer
-📊 Dashboards       ← Custom widget dashboards
-⚙️ Settings         ← Agents, channels, schedule, preferences
+🏠 Command Center    → /                → Morning brief, priorities, active agents
+📥 Inbox             → /inbox           → Unified inbox + input queue
+💬 Chat              → /chat            → Direct conversation with Kira
+📋 Operations        → /operations      → SOP: areas, objectives, projects, tasks
+📄 Documents         → /documents       → VDR (redesigned)
+🧠 Knowledge         → /knowledge       → Memory graph explorer
+📊 Dashboards        → /dashboards      → Custom widget dashboards
+⚙️ Settings          → /settings        → Agents, channels, schedule, preferences
 ```
 
-## Operations Sub-Routes
-- `/operations` → default to Today View
-- `/operations/today` → Today View
-- `/operations/board/:projectId` → Kanban Board
-- `/operations/list` → Filtered List
-- `/operations/timeline/:areaId` → Gantt Timeline
-- `/operations/area/:areaId` → Area Deep-Dive
-- `/operations/review/:reviewId` → Review Ceremony
-- `/operations/task/:taskId` → Task Detail (or slide-over)
-- `/operations/project/:projectId` → Project Detail
-- `/operations/objective/:objectiveId` → Objective Detail
+## Operations Sub-routes
+```
+/operations                    → Default: Today view
+/operations/board/:projectId   → Kanban for project
+/operations/list               → Filtered list view
+/operations/timeline/:areaId   → Gantt view
+/operations/area/:areaId       → Area deep-dive
+/operations/review/:reviewId   → Review ceremony
+```
 
 ## Routing Pattern
-- Hash-based routing (SvelteKit or custom)
-- Slide-over panels for detail views (don't leave current context)
-- Breadcrumb: always shows Area > Objective > Project > Task path
+- Desktop: sidebar always visible, content fills remaining space
+- Mobile: bottom tab bar (Chat, Inbox, Today, More)
 - Deep links: every entity has a shareable URL
-
-## TODO
-- Full sitemap with all routes
-- Sidebar collapse/expand behavior
-- Mobile navigation (bottom tab bar)
-- Keyboard shortcuts for navigation
-- URL structure finalization
+- Modal routing: task/project details open as side panels
