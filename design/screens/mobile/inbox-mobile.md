@@ -4,9 +4,14 @@
 
 Tinder-style card swipe for input queue items.
 
+## Interaction Pattern
+- Swipe right = Approve
+- Swipe left = Dismiss/Snooze
+- Tap = Open detail view
+- Long press = More options
+
 ## TODO
-- Card stack UI
-- Swipe gestures (right=approve, left=dismiss, up=defer)
-- Card anatomy per type (verify, decide, create)
-- Filter tabs (all, verify, decide, create)
-- Badge count on tab bar
+- Card design for each input queue type (verify/decide/create)
+- Swipe animations and feedback
+- Batch mode toggle
+- Filter controls (compact)

@@ -2,11 +2,12 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 6
 
-Full-screen chat with bottom navigation.
+Full-screen chat with bottom navigation. Primary mobile interaction.
 
 ## TODO
-- Layout (full-screen, input bar at bottom, nav bar)
-- Message bubbles (text, cards, agent status)
-- Quick actions from messages (create task, save to memory)
-- Voice input button
+- Full-screen layout with input bar
+- Bottom nav integration
+- Inline task creation from messages
+- Agent status indicators
+- Voice input button placement
 - Attachment handling

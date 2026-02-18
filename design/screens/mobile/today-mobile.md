@@ -5,9 +5,8 @@
 Scrollable daily agenda with tasks and time blocks.
 
 ## TODO
-- Timeline layout (vertical scrolling)
-- Time block visualization
-- Task cards within blocks
-- Swipe actions on tasks (complete, reschedule)
+- Timeline layout (vertical scroll, time markers)
+- Task cards within time blocks
 - Pull-to-refresh
-- Integration with device calendar
+- Swipe actions on tasks (complete, reschedule)
+- Empty state

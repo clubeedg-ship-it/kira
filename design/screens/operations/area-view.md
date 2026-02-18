@@ -4,10 +4,15 @@
 
 Single area deep-dive: its objectives, projects, progress.
 
+## Sections
+- Area header: name, icon, standard description
+- Current quarter objectives with key result progress bars
+- Active projects list with status badges
+- Agent assignments for this area
+- Time blocks allocated to this area
+- Recent activity feed
+
 ## TODO
-- Area header (name, icon, standard, status)
-- Objectives list with progress bars
-- Projects grid/list under each objective
-- Key results summary
-- Agent assignment overview
-- Area-level metrics/charts
+- Wireframe
+- Data sources for each section
+- Navigation to/from other views

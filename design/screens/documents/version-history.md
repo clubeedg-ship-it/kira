@@ -4,9 +4,15 @@
 
 Document evolution timeline.
 
-## TODO
-- Version timeline UI (vertical timeline)
-- Diff view between versions
+## Features
+- Timeline view of all versions
 - Author attribution (agent vs human edits)
+- Diff view between versions
 - Restore previous version
-- Auto-versioning on agent edits
+- Branch tracking (agent draft → human edit → final)
+
+## TODO
+- Timeline UI wireframe
+- Diff rendering approach
+- Storage strategy for versions
+- Automatic vs manual versioning rules

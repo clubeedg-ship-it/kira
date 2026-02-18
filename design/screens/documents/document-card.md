@@ -4,9 +4,9 @@
 
 Card component: thumbnail, title, metadata, quick actions.
 
-## TODO
-- Card anatomy wireframe
-- Thumbnail generation logic
-- Metadata display (type, size, date, author, project)
-- Quick actions (preview, download, share, delete)
-- Hover/selected states
+## Anatomy
+- Thumbnail (auto-generated for PDFs, images; icon for others)
+- Title + file type badge
+- Metadata: size, last modified, author/agent, project link
+- Quick actions: preview, download, share, move
+- Tags from AI enrichment

@@ -2,13 +2,21 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 1
 
-Kanban columns by status — per-project or per-area.
+Kanban columns by status. Scoped per-project or per-area.
+
+## Columns
+Default: Todo | In Progress | Waiting | Review | Done
+
+## Interactions
+- Drag-and-drop between columns (updates status)
+- Click card → task detail panel
+- Quick-add at top of any column
+- Column WIP limits (optional)
+- Swimlanes by: priority, executor, milestone
 
 ## TODO
-- Column definitions (maps to task status machine)
-- Card anatomy (title, priority badge, executor icon, due date)
-- Drag-and-drop between columns (triggers state transition)
-- Column WIP limits (optional)
-- Swimlanes (by project, by executor)
-- Quick-add at top of column
+- Wireframe
+- Card anatomy (title, priority badge, executor avatar, due date, tags)
+- Drag feedback and animation
 - Filtering controls
+- Mobile: horizontal scroll columns

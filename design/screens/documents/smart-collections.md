@@ -4,8 +4,17 @@
 
 Auto-generated and custom collection definitions.
 
+## Auto-Generated Collections
+- "All research outputs" (agent_type = research)
+- "Drafts pending review" (input_queue type = verify, has deliverable)
+- "This week's deliverables" (created_at within 7 days)
+- Per-client/per-project collections
+
+## Custom Collections
+- User-defined filter rules saved as named collections
+- Shareable collection definitions
+
 ## TODO
-- Default collections (all research, all drafts, this week's deliverables)
-- Collection rules engine (filters that define membership)
-- Custom collection creation UI
+- Collection definition schema
+- UI for creating/editing collections
 - Collection card in file browser

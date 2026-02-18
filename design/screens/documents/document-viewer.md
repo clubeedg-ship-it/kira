@@ -4,9 +4,14 @@
 
 Inline document preview with metadata sidebar.
 
+## Features
+- PDFs, images, markdown, code — all viewable inline
+- Metadata sidebar: summary, entities, related docs, access log
+- Linked context: task that produced this, agent, conversations
+- Version timeline navigation
+
 ## TODO
-- Supported formats (PDF, markdown, images, code, HTML)
-- Preview rendering per format
-- Metadata sidebar layout (summary, entities, related docs, history)
-- Navigation (prev/next in collection)
-- Actions (edit, download, version history, link to task)
+- Wireframe
+- Supported file types and renderers
+- Metadata sidebar layout
+- Mobile behavior
