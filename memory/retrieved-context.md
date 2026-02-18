@@ -1,5 +1,5 @@
 # Context
-*Updated: 2026-02-18T14:39:21.795Z*
+*Updated: 2026-02-18T20:59:21.841Z*
 
 ## Key Entities
 - **ZenithCred** (company)
@@ -9,11 +9,11 @@
 - **SentinAgro** (company)
 
 ## Recent
-- Real estate agency reduces time on property descriptions
-- Fireflies.ai records, transcribes, summarizes calls
-- OttoGen advised implement these tools within 2 weeks for less than €200/month
-- MKB has performance targets for Week 1-2, Week 3-4, Week 5-6
-- property listing was automated by OttoGen's system
+- assistant thinks All checks passed according to HEARTBEAT.md
+- overall status reflects all systems nominal
+- Memory usage range 0.5% to 1.8%
+- Gateway status running with active state and RPC probe OK
+- Qbic Fund check size seed and early-stage
 
 ## Refined Context
-[Wed 2026-02-18 13:33 UTC] [WebUI] I don't know whats api bv
+On February 18, 2026, 5:57 UTC, consider adding a section to the script page detailing whether Oopuo (HubSpot) handles email sending and warmup processes, or if these tasks are managed separately through other platforms like Light Panels integrated with Mood Interfaces.
