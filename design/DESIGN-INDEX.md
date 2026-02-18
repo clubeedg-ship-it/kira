@@ -94,6 +94,9 @@ These files remain in place and are referenced by the new structure:
 - `multi-agent-system.md` — Agent orchestration (needs SOP integration update)
 - `autonomy-levels.md` — Agent autonomy framework
 - `cron-system.md` — Scheduled agent tasks
+- `dgm-self-improvement.md` — Self-improvement loops
+- `self-evolution.md` — System evolution
+- `widget-agent.md` — Widget generation agent
 
 ### `design/memory/`
 - `4-layer-system.md` — Core memory architecture ✅
@@ -105,6 +108,7 @@ These files remain in place and are referenced by the new structure:
 ### `design/dashboard/`
 - `chat-ui.md` — Chat interface (needs SOP integration section)
 - `component-map.md` — Component mapping (needs navigation update)
+- `interactive-widgets.md` — Widget system
 - `knowledge-graph.md` — Knowledge graph UI (needs temporal + SOP update)
 - `settings.md` — Settings UI (needs SOP + inbox expansion)
 - `tasks-goals.md` — **SUPERSEDED by sop-engine/**
@@ -113,6 +117,10 @@ These files remain in place and are referenced by the new structure:
 ### `design/gamification/`
 - `user-engagement.md` — XP & progression (needs SOP XP integration)
 - `task-gathering.md` — Task extraction pipeline
+- `agent-guidance.md` — Agent guidance system
+
+### `design-v2/`
+- 21 numbered specs — Original v2 design. Many superseded by new structure. Key ones that remain relevant: auth (04), billing (19), onboarding (21).
 
 ---
 
