@@ -9,7 +9,7 @@
 
 ```
 🏠 Command Center   ← Morning brief, today's priorities, active agents
-📥 Inbox            ← Unified inbox (all channels + input queue merged)
+📥 Inbox            ← Unified inbox (all channels + input queue)
 💬 Chat             ← Direct conversation with Kira
 📋 Operations       ← SOP engine: areas, objectives, projects, tasks
 📄 Documents        ← VDR (redesigned)
@@ -19,24 +19,26 @@
 ```
 
 ## Operations Sub-Routes
-```
-/operations
-  /today          ← Today view (default)
-  /board/:id      ← Kanban for project or area
-  /list           ← Filtered list view
-  /timeline/:id   ← Gantt for area
-  /areas          ← All areas overview
-  /areas/:id      ← Single area deep-dive
-  /reviews        ← Review view
-  /tasks/:id      ← Task detail
-  /projects/:id   ← Project detail
-  /objectives/:id ← Objective detail
-```
+- `/operations` → default to Today View
+- `/operations/today` → Today View
+- `/operations/board/:projectId` → Kanban Board
+- `/operations/list` → Filtered List
+- `/operations/timeline/:areaId` → Gantt Timeline
+- `/operations/area/:areaId` → Area Deep-Dive
+- `/operations/review/:reviewId` → Review Ceremony
+- `/operations/task/:taskId` → Task Detail (or slide-over)
+- `/operations/project/:projectId` → Project Detail
+- `/operations/objective/:objectiveId` → Objective Detail
+
+## Routing Pattern
+- Hash-based routing (SvelteKit or custom)
+- Slide-over panels for detail views (don't leave current context)
+- Breadcrumb: always shows Area > Objective > Project > Task path
+- Deep links: every entity has a shareable URL
 
 ## TODO
-- Complete routing table for all views
-- Sidebar collapsed state (icons only)
-- Mobile bottom tab bar mapping
-- Deep-link URL patterns
-- Breadcrumb generation rules
-- Active state highlighting logic
+- Full sitemap with all routes
+- Sidebar collapse/expand behavior
+- Mobile navigation (bottom tab bar)
+- Keyboard shortcuts for navigation
+- URL structure finalization

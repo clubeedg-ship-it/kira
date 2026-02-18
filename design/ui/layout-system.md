@@ -2,10 +2,13 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 0
 
+---
+
 ## TODO
-- Grid system (12-column? CSS Grid areas?)
-- Responsive breakpoints (mobile, tablet, desktop, wide)
-- Sidebar behavior (collapsible, width, mobile drawer)
-- Content area max-width
-- Panel layouts (single, split, triple)
+- Grid system (12-column or flexible)
+- Responsive breakpoints (mobile: 375+, tablet: 768+, desktop: 1024+, wide: 1440+)
+- Sidebar behavior (collapsible, pinned, overlay on mobile)
 - Navigation patterns (sidebar + top bar, breadcrumbs)
+- Content area max-width and padding
+- Panel system (main + detail slide-over)
+- Mobile layout strategy (bottom nav, full-screen views)
