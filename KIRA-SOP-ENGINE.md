@@ -12,40 +12,23 @@
 
 Kira has excellent AI plumbing — 4-layer memory, sub-agent spawning, conversation mining, task-gathering from documents. But the data model these feed into is flat: a `tasks` table and a `goals` table with no hierarchy, no relationships, no agent ownership, no dependency graph, and no classification of what requires human input versus what agents can execute autonomously.
 
-This document defines the **Operating System Data Model** — a composable framework drawing from GTD, P.A.R.A., OKRs, EOS, and Dalio's Principles-based approach. The design is deterministic first, AI-enhanced second: if you stripped away every AI feature, the data model alone should be a functional project management and life operating system.
+This document defines the **Operating System Data Model** — a composable framework drawing from GTD, P.A.R.A., OKRs, EOS, and Dalio's Principles-based approach.
 
 ---
 
 ## 2. The Hierarchy (Five Layers)
 
-Every entity in the system lives at one of five layers. Each layer has exactly one parent type (except L0) and can contain children from the layer below.
-
 ```
-L0  VISION           Why do I exist? Where am I going?
- │                   Horizon: 5-25 years. Never "completes."
- │
-L1  AREAS            What am I responsible for?
- │                   Ongoing domains. Health, Business-X, Relationships.
- │                   These never complete — they have a "standard" to maintain.
- │
-L2  OBJECTIVES       What do I want to achieve this quarter?
- │                   Time-bounded (default: 12 weeks). Has Key Results.
- │                   Maps to OKRs / EOS Rocks / 12-Week-Year goals.
- │
+L0  VISION           Why do I exist? Where am I going? (5-25 years)
+L1  AREAS            What am I responsible for? (ongoing domains)
+L2  OBJECTIVES       What do I want to achieve this quarter? (time-bounded)
 L3  PROJECTS         What bounded work will achieve the objective?
- │                   Has a deliverable, owner (human or agent), deadline, status.
- │                   Decomposes into milestones.
- │
-L4  TASKS            What's the next physical action?
- │                   Atomic. Has context, energy level, duration estimate.
- │                   Classified: agent-executable vs human-required.
+L4  TASKS            What's the next physical action? (atomic)
 ```
 
-### Why This Matters
-
-- **Every task traces upward.** If a task doesn't connect to a project → objective → area → vision, it's either misclassified or shouldn't exist.
-- **Agent assignment happens at L3.** Projects have owners. An agent owns a project the same way a team lead would.
-- **Review cadence maps to layers.** Daily = L4. Weekly = L3. Monthly = L2. Quarterly = L1-L2. Annual = L0.
+- Every task traces upward. Orphan tasks are the #1 productivity killer.
+- Agent assignment happens at L3. Projects have owners.
+- Review cadence maps to layers: Daily=L4, Weekly=L3, Monthly=L2, Quarterly=L1-L2, Annual=L0.
 
 ---
 
@@ -54,9 +37,7 @@ L4  TASKS            What's the next physical action?
 ### 3.1 Core Hierarchy
 
 ```sql
--- ============================================
 -- L0: VISION
--- ============================================
 CREATE TABLE vision (
   id          TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   statement   TEXT NOT NULL,
@@ -67,9 +48,7 @@ CREATE TABLE vision (
   updated_at  TEXT DEFAULT (datetime('now'))
 );
 
--- ============================================
 -- L1: AREAS OF RESPONSIBILITY
--- ============================================
 CREATE TABLE areas (
   id          TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   vision_id   TEXT REFERENCES vision(id),
@@ -83,9 +62,7 @@ CREATE TABLE areas (
   updated_at  TEXT DEFAULT (datetime('now'))
 );
 
--- ============================================
 -- L2: OBJECTIVES (Quarterly)
--- ============================================
 CREATE TABLE objectives (
   id          TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   area_id     TEXT NOT NULL REFERENCES areas(id),
@@ -114,9 +91,7 @@ CREATE TABLE key_results (
   updated_at   TEXT DEFAULT (datetime('now'))
 );
 
--- ============================================
 -- L3: PROJECTS
--- ============================================
 CREATE TABLE projects (
   id           TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   objective_id TEXT REFERENCES objectives(id),
@@ -147,9 +122,7 @@ CREATE TABLE milestones (
   created_at  TEXT DEFAULT (datetime('now'))
 );
 
--- ============================================
 -- L4: TASKS
--- ============================================
 CREATE TABLE tasks (
   id            TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   project_id    TEXT REFERENCES projects(id),
@@ -158,36 +131,25 @@ CREATE TABLE tasks (
   description   TEXT,
   status        TEXT DEFAULT 'todo',
   priority      INTEGER DEFAULT 2,
-  
-  -- EXECUTION CLASSIFICATION
   executor_type TEXT DEFAULT 'human',
   executor_id   TEXT,
   requires_input TEXT DEFAULT 'no',
-  
-  -- SCHEDULING
   due_date      TEXT,
   scheduled_date TEXT,
   time_block_id TEXT REFERENCES time_blocks(id),
   duration_est  INTEGER,
-  
-  -- GTD CONTEXT
   context       TEXT,
   energy        TEXT DEFAULT 'medium',
-  
-  -- METADATA
   source        TEXT,
   source_ref    TEXT,
   tags          TEXT,
   sort_order    REAL DEFAULT 0,
-  
   created_at    TEXT DEFAULT (datetime('now')),
   updated_at    TEXT DEFAULT (datetime('now')),
   completed_at  TEXT
 );
 
--- ============================================
--- DEPENDENCIES (DAG between tasks/projects)
--- ============================================
+-- DEPENDENCIES (DAG)
 CREATE TABLE dependencies (
   id            TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(8)))),
   blocker_type  TEXT NOT NULL,
@@ -277,7 +239,7 @@ CREATE TABLE reviews (
 );
 ```
 
-### 3.4 Knowledge & Decisions (Dalio-style)
+### 3.4 Knowledge & Decisions
 
 ```sql
 CREATE TABLE principles (
@@ -340,195 +302,126 @@ CREATE INDEX idx_decisions_principle ON decisions(principle_id);
 
 ## 4. The Machine: How It Runs
 
-### 4.1 The Operating Rhythm
+### 4.1 Operating Rhythm
 
 ```
 06:00  DAILY STARTUP (agent-driven)
-       ├── Pull today's scheduled tasks
-       ├── Check input_queue for pending items
-       ├── Check dependencies: did any blockers clear overnight?
-       ├── Generate "Top 3" priorities (weighted: deadline × blocking × priority)
-       ├── Check agent work log: what completed while you slept?
-       └── Present Morning Brief
+       - Pull today's scheduled tasks
+       - Check input_queue for pending items
+       - Check dependencies: did any blockers clear?
+       - Generate Top 3 priorities (weighted scoring)
+       - Check agent work log: overnight completions
+       - Present Morning Brief
 
        THROUGHOUT DAY
-       ├── Tasks flow through: todo → in_progress → review → done
-       ├── Agents work their assigned tasks autonomously
-       ├── When agents hit 'verify'/'decide' items → input_queue
-       ├── User processes input_queue during scheduled time_blocks
-       └── New tasks captured from conversations → classified → placed in hierarchy
+       - Tasks flow: todo -> in_progress -> review -> done
+       - Agents work assigned tasks autonomously
+       - verify/decide items -> input_queue
+       - User processes input_queue during time_blocks
+       - New tasks captured -> classified -> placed in hierarchy
 
 20:00  DAILY CLOSE (agent-driven)
-       ├── Summarize: tasks completed, tasks remaining
-       ├── Update key_results with new metrics
-       ├── Move unfinished scheduled tasks → tomorrow or re-prioritize
-       ├── Log to reviews table (daily type)
-       └── Queue tomorrow's tasks
+       - Summarize completions and remaining
+       - Update key_results with new metrics
+       - Move unfinished tasks -> tomorrow
+       - Log to reviews table
 
 FRIDAY WEEKLY REVIEW (agent-assisted, human-led)
-       ├── All projects: status check (on track / at risk / blocked)
-       ├── Input queue: anything stale? Escalate or dismiss
-       ├── Dependencies: any bottlenecks forming?
-       ├── Principles: any decisions this week that should become principles?
-       ├── Next week: pre-schedule time blocks, assign agent work
-       └── Log to reviews table (weekly type)
+       - All projects: status check
+       - Input queue: anything stale?
+       - Dependencies: bottlenecks?
+       - Principles: decisions -> principles?
+       - Next week: schedule time blocks, assign agents
 
-QUARTER-END QUARTERLY PLANNING
-       ├── Score outgoing objectives (completed / failed / deferred)
-       ├── Review areas: any new area? Any area to archive?
-       ├── Set new objectives + key results for next quarter
-       ├── Decompose objectives into projects
-       ├── Assign project owners (human or agent)
-       └── Log to reviews table (quarterly type)
+QUARTER-END PLANNING
+       - Score outgoing objectives
+       - Set new objectives + key results
+       - Decompose into projects
+       - Assign owners (human or agent)
 ```
 
 ### 4.2 Task Classification Engine
 
 ```
 NEW TASK CAPTURED
-    │
-    ├─→ Does it have a clear project?
-    │   ├── YES → Assign to project
-    │   └── NO  → Place in INBOX (project_id = NULL)
-    │            Agent proposes project assignment in input_queue
-    │
-    ├─→ Can an agent do this?
-    │   ├── Pattern: "research X"          → executor_type = 'agent', requires_input = 'verify'
-    │   ├── Pattern: "draft email to X"    → executor_type = 'agent', requires_input = 'verify'
-    │   ├── Pattern: "compare options for" → executor_type = 'agent', requires_input = 'decide'
-    │   ├── Pattern: "call/meet/negotiate" → executor_type = 'human', requires_input = 'create'
-    │   ├── Pattern: "setup/configure X"   → executor_type = 'agent', requires_input = 'verify'
-    │   ├── Pattern: "design/create X"     → executor_type = 'ambiguous'
-    │   └── DEFAULT                        → executor_type = 'human'
-    │
-    ├─→ Priority scoring:
-    │   score = (deadline_urgency × 3) + (blocking_count × 2) + (explicit_priority × 1)
-    │
-    └─→ Scheduling:
-        If agent-executable → immediately assign to agent
-        If human-required → schedule into next available time_block
-        If ambiguous → enter input_queue for human classification
+  |
+  +-> Clear project? YES -> assign / NO -> Inbox (agent proposes)
+  +-> Agent-executable?
+  |   research -> agent, requires_input: verify
+  |   draft -> agent, requires_input: verify
+  |   compare -> agent, requires_input: decide
+  |   call/meet -> human, requires_input: create
+  |   ambiguous -> input_queue for classification
+  |
+  +-> Priority score:
+  |   (deadline_urgency x 3) + (blocking_count x 2.5)
+  |   + (explicit_priority x 1.5) + (area_weight x 1.0)
+  |
+  +-> Scheduling:
+      agent-executable -> assign immediately
+      human-required -> next available time_block
+      ambiguous -> input_queue
 ```
 
-### 4.3 Agent Orchestration Model
+### 4.3 Agent Orchestration
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    ORCHESTRATOR AGENT (Kira COO)         │
-│                                                           │
-│  Responsibilities:                                        │
-│  - Morning brief generation                              │
-│  - Task classification and routing                       │
-│  - Input queue management                                │
-│  - Review cadence enforcement                            │
-│  - Agent assignment and load balancing                   │
-│  - Escalation handling                                   │
-└────────────────────────┬────────────────────────────────┘
-                         │
-         ┌───────────────┼───────────────┐
-         │               │               │
-    ┌────┴────┐    ┌────┴────┐    ┌────┴────┐
-    │RESEARCH │    │ COMMS   │    │  CODE   │
-    │ AGENT   │    │ AGENT   │    │ AGENT   │
-    └────┬────┘    └────┬────┘    └────┬────┘
-         │               │               │
-         ▼               ▼               ▼
-    ┌─────────────────────────────────────────┐
-    │          AGENT WORK CYCLE               │
-    │                                          │
-    │  1. Pick highest-priority assigned task  │
-    │  2. Check dependencies (all clear?)      │
-    │  3. Execute task                         │
-    │  4. Save output to VDR                   │
-    │  5. Log to agent_work_log                │
-    │  6. If requires_input != 'no':           │
-    │     → Create input_queue entry           │
-    │     → Task status = 'waiting'            │
-    │  7. If requires_input == 'no':           │
-    │     → Task status = 'done'               │
-    │  8. Check: did this unblock anything?    │
-    │  9. Pick next task                       │
-    └─────────────────────────────────────────┘
-```
+Orchestrator (Kira COO) assigns work to specialist agents (research, comms, code). Each agent follows the work cycle:
 
-### 4.4 The Input Queue (Your Control Surface)
+1. Pick highest-priority assigned task
+2. Check dependencies (all clear?)
+3. Execute task
+4. Save output to VDR
+5. Log to agent_work_log
+6. If requires_input != 'no': create input_queue entry, task -> 'waiting'
+7. If requires_input == 'no': task -> 'done'
+8. Check: did this unblock anything?
+9. Pick next task
 
-The **single place** where everything that needs your attention surfaces.
+### 4.4 The Input Queue
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  INPUT QUEUE                                    Feb 18  │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  🔴 VERIFY (Agent did the work, you approve)             │
-│  ├── Research: Best email platform for client X          │
-│  │   Agent: research-agent │ Output: /vdr/research/...  │
-│  │   [Approve] [Redo] [Edit] [Dismiss]                  │
-│  │                                                       │
-│  🟡 DECIDE (Agent presents options, you choose)          │
-│  ├── Pricing: 3 options for receptionist monthly plan    │
-│  │   Option A: €49/mo │ B: €79/mo │ C: €59/mo + setup  │
-│  │   [A] [B] [C] [Need more info] [Defer]              │
-│  │                                                       │
-│  🟢 CREATE (Only you can do this)                        │
-│  ├── Call: Follow up with dentist lead                   │
-│  │   Scheduled: Today 14:00-14:30 (Sales time block)    │
-│  │   [Done] [Reschedule] [Delegate]                     │
-│  │                                                       │
-│  ⚪ CLASSIFY (Ambiguous — help the system learn)         │
-│  ├── "Update landing page copy" — agent or human?        │
-│  │   [Agent can draft] [I'll do it] [Split it]          │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
+The single place where everything needing human attention surfaces:
+
+- **VERIFY** — Agent did the work, you approve/redo/edit
+- **DECIDE** — Agent presents options, you choose
+- **CREATE** — Only you can do this (calls, meetings, creative work)
+- **CLASSIFY** — Ambiguous items needing human categorization
 
 ---
 
-## 5. End-to-End Example
+## 5. Integration Points
 
-**User says:** "I want to set up email sales for a client"
-
-1. **Conversation mining** detects goal with implicit decomposition
-2. **Orchestrator** creates hierarchy: Objective → Project → 4 Milestones → 12 Tasks
-3. **Classification** assigns executor types (agent/human/ambiguous)
-4. **Agents start immediately** on Milestone 1 (no dependencies)
-5. **Input queue** surfaces completed research for human review
-6. **Human approves** → dependencies cascade → Milestone 2 unblocks
-7. **Parallel execution** — agents work Milestone 3 while human does Milestone 2
-
----
-
-## 6. Integration Points
-
-- **Tasks/Goals:** Flat tables replaced by this hierarchy
-- **Operating Framework:** Priority stack becomes function of area weights + dependency graph
+- **Replaces:** `design-v2/10-tasks-goals.md` flat schema
 - **Memory:** Knowledge graph enriched with principles, decisions, project context
-- **Agent System:** Sub-agents map to agents table, work log replaces informal tracking
-- **Dashboard:** Input queue becomes THE primary view (80% of time spent here)
+- **Agents:** Sub-agent sessions tagged with agent_id and task_id
+- **Dashboard:** Input queue becomes the primary view (80% of daily interaction)
 
 ---
 
-## 7. What Makes This "Deterministic"
+## 6. What Makes This "Deterministic"
 
 1. **What to work on next** — Priority scoring formula produces deterministic ordering
 2. **Who does what** — Executor classification is rule-based first, AI-enhanced second
-3. **When things happen** — Review cadence is fixed (Friday = weekly review)
-4. **How decisions are made** — Principles table means recurring decisions don't require fresh thinking
-5. **Where things go** — Every output has a home: VDR, input_queue, agent_work_log
+3. **When things happen** — Review cadence is fixed (Friday=weekly, quarter-end=planning)
+4. **How decisions are made** — Principles table means recurring decisions follow rules
+5. **Where things go** — Every output has a home: VDR, input_queue, or agent_work_log
 
 The AI makes all of this 10x faster. But strip the AI away and you still have a functioning project management system.
 
 ---
 
-## 8. Implementation Order
+## 7. Implementation Order
 
-1. Schema migration — Replace flat tasks/goals with hierarchy
-2. Seed data — Create vision, areas, current objectives
-3. Classification engine — Wire task-gathering to classifier
-4. Input queue — Build dashboard view (daily driver)
-5. Agent registry — Register sub-agents in agents table
-6. Review cadence — Auto-create reviews, build templates
-7. Time blocks — Model weekly schedule
-8. Dependencies — Wire up DAG and cascade logic
-9. Principles — Start capturing decisions as principles
-10. Decision log — Track outcomes, feed back into confidence
+1. Schema migration (replace flat tasks/goals)
+2. Seed data (vision, areas, current objectives)
+3. Classification engine (task-gathering -> classifier)
+4. Input queue (dashboard view — daily driver)
+5. Agent registry (register sub-agents)
+6. Review cadence (auto-create reviews)
+7. Time blocks (model weekly schedule)
+8. Dependencies (DAG + cascade logic)
+9. Principles (capture decisions as principles)
+10. Decision log (track outcomes, feed back to confidence)
+
+---
+
+*This is the layer Kira is missing. Everything else — memory, agents, gamification, widgets — is enhancement on top of this foundation. Build the machine first. Then make it intelligent.*
