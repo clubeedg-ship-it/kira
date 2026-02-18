@@ -1,15 +1,30 @@
-# Task Detail
+# Task Detail Panel
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 1
 
-Full task detail panel/modal.
+Full task detail — slide-over panel or modal.
+
+## Fields
+- Title (editable inline)
+- Status (dropdown with state machine constraints)
+- Priority (0-3 selector)
+- Project (breadcrumb: Area > Objective > Project)
+- Executor type + assigned agent/human
+- Requires input classification (no/verify/decide/create)
+- Due date + scheduled date
+- Time block assignment
+- Duration estimate
+- Context (@computer, @phone, etc.)
+- Energy level (low/medium/high)
+- Dependencies (blocks / blocked by)
+- Tags
+- Source (conversation, document, manual)
+- Description (rich text)
+- Activity log (status changes, agent work)
+- Linked documents
 
 ## TODO
-- Header (title, status badge, priority badge)
-- Metadata section (project breadcrumb, executor, due date, context, energy)
-- Description (markdown editor)
-- Dependencies (blocks/blocked-by with links)
-- Activity log (status changes, agent work, comments)
-- Related documents
-- Subtask support (or link to child tasks?)
-- Actions: change status, reassign, reschedule, delete
+- Wireframe
+- Panel vs modal behavior
+- Mobile layout
+- Keyboard shortcuts within detail

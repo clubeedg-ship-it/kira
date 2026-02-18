@@ -4,12 +4,22 @@
 
 Just today's scheduled tasks with time blocks.
 
-## TODO
+## Layout
 - Vertical timeline (morning to evening)
-- Time blocks as colored bands (mapped to areas)
+- Time blocks as colored regions
 - Tasks placed within their time blocks
-- Unscheduled tasks in sidebar/bottom ("available" pool)
-- Drag tasks into time blocks
-- Current time indicator
-- Quick complete (checkbox)
-- Overflow handling (too many tasks for the day)
+- Unscheduled tasks in sidebar/bottom
+- Top 3 priorities highlighted
+- Input queue count badge
+
+## Interactions
+- Drag task to reschedule within day
+- Click task → task detail
+- Mark complete with checkbox
+- Quick-add inline
+
+## TODO
+- Wireframe (desktop + mobile)
+- Time block component spec
+- Task-within-block card design
+- Overflow handling (too many tasks for block)

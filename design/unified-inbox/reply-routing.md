@@ -4,10 +4,15 @@
 
 Composing and sending replies from the dashboard.
 
+## Features
+- Reply to any message from unified inbox
+- Route through correct channel (reply to WhatsApp via WhatsApp)
+- AI draft assistance (Kira suggests reply)
+- Template library for common responses
+- Schedule send (reply at optimal time)
+
 ## TODO
-- Reply composer UI (channel-aware formatting)
-- Channel selection (reply via same channel or switch)
-- Draft saving
-- Agent-assisted reply drafting
-- Approval flow for agent-drafted replies
-- Delivery confirmation / read receipts where available
+- Reply composer UI
+- Channel-specific constraints (character limits, media support)
+- Draft review flow (agent drafts, human approves)
+- Sent message tracking

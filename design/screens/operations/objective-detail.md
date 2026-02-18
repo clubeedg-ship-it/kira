@@ -4,9 +4,14 @@
 
 Objective with key results, progress charts.
 
-## TODO
-- Header (title, quarter, area, status, overall progress)
+## Sections
+- Objective header: title, quarter, area, status
 - Key results list with progress bars and current/target values
-- Projects under this objective
-- Timeline to deadline
-- History log (key result updates over time)
+- Child projects with status badges
+- Progress chart over time
+- Related decisions from decision log
+
+## TODO
+- Wireframe
+- Progress chart component spec
+- Key result inline editing

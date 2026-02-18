@@ -1,13 +1,13 @@
 # Unified Inbox — Triage Engine
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 5
-> **See also:** `design/backend/triage-engine.md` (backend pipeline)
+> **See also:** `design/backend/triage-engine.md`
 
 Classification pipeline: urgency, area, action extraction.
+This is the inbox-specific view of the backend triage pipeline.
 
 ## TODO
-- Urgency classification rules (keyword, sender, time, channel)
-- Area assignment logic
-- Action extraction (tasks, deadlines, questions, FYIs)
-- Auto-linking to existing projects/tasks
-- Learning from user corrections
+- Urgency classification rubric
+- Area assignment heuristics
+- Action item extraction patterns
+- Integration with SOP task creation

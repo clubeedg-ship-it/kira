@@ -4,9 +4,13 @@
 
 Grouping related messages across channels.
 
+## Thread Detection
+- Same channel: native thread/reply-to linking
+- Cross-channel: entity matching (same person, same topic, same project)
+- Conversation continuity: if user discusses same topic across WhatsApp and email
+
 ## TODO
-- Thread detection within single channel
-- Cross-channel thread linking (same person, same topic)
-- Contact unification (map phone, email, username to one identity)
-- Conversation context window for triage
-- Thread status (active, resolved, stale)
+- Thread linking algorithm
+- Cross-channel identity resolution
+- Thread UI in inbox (collapsed/expanded)
+- Thread summary generation

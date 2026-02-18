@@ -4,10 +4,19 @@
 
 Keyboard-driven fast task creation.
 
+## Trigger
+- Global hotkey (Cmd+K or similar)
+- "+" button in any operations view
+- Inline at top of board columns
+
+## Fields (minimal)
+- Title (required)
+- Project (auto-suggested from current context)
+- Priority (keyboard shortcut: !1 !2 !3)
+- Due date (natural language: "tomorrow", "next friday")
+- Executor hint ("@agent" prefix)
+
 ## TODO
-- Keyboard shortcut trigger (Cmd+K or similar)
-- Inline input with auto-complete (project, area, tags)
-- Natural language parsing ("Research X for Project Y by Friday")
-- Suggested project assignment
-- Executor type suggestion
-- Submit and continue (add multiple without closing)
+- Command palette design
+- Auto-classification behavior
+- Natural language parsing examples

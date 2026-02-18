@@ -4,10 +4,15 @@
 
 Flat filtered list with hierarchy breadcrumbs (like Things 3 / Todoist).
 
+## Features
+- Flat task list with breadcrumb: Area > Objective > Project
+- Inline editing (click title, click status)
+- Multi-select for batch actions
+- Grouping by: project, area, due date, priority, executor
+- Sorting by: priority score, due date, created date, title
+
 ## TODO
-- Row anatomy (checkbox, title, project breadcrumb, priority, due, executor)
-- Hierarchy breadcrumbs (Area > Objective > Project)
-- Inline editing (click title to edit)
-- Multi-select for batch operations
-- Sort/filter controls
-- Grouping options (by project, by area, by date, by status)
+- Wireframe
+- Row anatomy
+- Filter/group/sort controls
+- Keyboard navigation

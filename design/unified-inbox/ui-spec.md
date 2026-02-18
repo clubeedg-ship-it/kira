@@ -1,12 +1,11 @@
 # Unified Inbox — UI Spec
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 5
-> **See:** `design/screens/inbox.md` for the main inbox screen spec.
+> **See:** `design/screens/inbox.md` for the primary inbox screen design.
 
-This file covers inbox-specific UI patterns not in the main screen spec.
+This file points to the screen spec. Channel-specific UI considerations live here.
 
 ## TODO
-- Channel-specific message rendering (email vs WhatsApp vs Telegram)
-- Inline reply experience per channel
-- Attachment previews
-- Contact cards
+- Channel-specific message rendering (email vs chat vs Discord embed)
+- Attachment preview per channel type
+- Reply composer variations per channel

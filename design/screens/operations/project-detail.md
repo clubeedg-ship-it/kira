@@ -2,13 +2,19 @@
 
 > **Status:** 🔴 SCAFFOLD | **Phase:** 3
 
-Full project detail with milestones.
+Full project detail with milestones, tasks, and agent work.
 
-## TODO
-- Header (title, owner, status, priority, deadline, area > objective breadcrumb)
-- Milestone timeline/checklist
-- Task list per milestone
+## Sections
+- Project header: title, owner (human/agent), status, deadline, priority
+- Milestone timeline with progress
+- Task list grouped by milestone
 - Dependency graph visualization
 - Agent work log for this project
-- Documents/deliverables linked to project
+- Documents linked to this project
 - Activity feed
+
+## TODO
+- Wireframe
+- Milestone timeline component
+- Dependency graph mini-view
+- Owner assignment UI
