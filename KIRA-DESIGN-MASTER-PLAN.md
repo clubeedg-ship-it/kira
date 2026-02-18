@@ -14,7 +14,7 @@ Each design item has a status:
 - ✅ **DESIGNED** — Spec exists in repo and is complete enough to build from
 - 🟡 **PARTIAL** — Spec exists but has gaps, needs revision or expansion
 - 🔴 **MISSING** — No spec exists, must be written from scratch
-- 🔵 **NEW** — New requirement not in original design scope
+- 🔵 **NEW** — New requirement not in original design scope (added from this session)
 
 Each section ends with a concrete deliverable: what file to create/update and what it must contain.
 
@@ -26,188 +26,136 @@ Each section ends with a concrete deliverable: what file to create/update and wh
 
 The deterministic operating system that replaces the flat tasks/goals schema. Five-layer tree: Vision → Areas → Objectives → Projects → Tasks. With agent assignment, executor classification, dependency DAG, input queue, time blocks, review cadence, principles engine, and decision log.
 
-**New spec:** `KIRA-SOP-ENGINE.md`
+**Existing:** `design-v2/10-tasks-goals.md` (flat, insufficient)
+**New spec:** `KIRA-SOP-ENGINE.md` (created this session)
+**Remaining work:**
+- Define exact API endpoints for CRUD on each entity ✅
+- Define cascade rules (delete project → what happens to tasks?) ✅
+- Define the "inbox" flow for orphan tasks (no project assigned) ✅
+- Define priority scoring formula precisely (weights, normalization) ✅
+- Define how quarterly planning ceremony works in the UI ✅
+- State machine diagrams for each entity's status transitions ✅
 
-**Deliverable:** `design/sop-engine/` directory:
-```
-design/sop-engine/
-├── data-model.md          — Full SQLite schema
-├── state-machines.md       — Status transition diagrams
-├── priority-algorithm.md   — Scoring formula, weights, examples
-├── cascade-rules.md        — What happens when parent entities change
-├── api-endpoints.md        — REST API for all SOP entities
-└── review-cadence.md       — How daily/weekly/quarterly reviews work
-```
+**Deliverable:** `design/sop-engine/` directory — ✅ ALL COMPLETE
 
 ### 1.2 Memory System — From File-Based to Graph-Native 🟡 PARTIAL
 
-4-layer memory is architecturally sound. Missing: temporal reasoning, entity disambiguation, confidence decay, proactive injection, cross-session continuity, heartbeat memory.
+Your 4-layer memory is architecturally sound but the implementation is duct tape.
 
-**Deliverable:** `design/memory/v2/` directory:
-```
-design/memory/v2/
-├── temporal-graph.md         — Temporal dimensions, time-travel queries
-├── entity-resolution.md      — Disambiguation pipeline
-├── confidence-decay.md       — How facts age, reinforcement mechanics
-├── proactive-injection.md    — Event-driven context loading
-├── sub-agent-distillation.md — Auto-extracting knowledge from agent work
-└── heartbeat-memory.md       — Separate memory maintenance process
-```
+**Existing specs:** `design/memory/` — All ✅
+**New specs needed:** `design/memory/v2/` — 🔴 SCAFFOLDED
 
-### 1.3 Unified Inbox — Message Aggregation Layer 🔴 MISSING
+- Temporal reasoning, entity disambiguation, confidence decay
+- Proactive memory injection, sub-agent distillation, heartbeat memory
+
+### 1.3 Unified Inbox — Message Aggregation Layer 🔴 SCAFFOLDED
 
 All inbound messages across ALL channels feed through a single processing pipeline.
-
-```
-Email ───┐
-WhatsApp──┤
-Telegram──┤──→ UNIFIED INBOX ──→ TRIAGE ENGINE ──→ Input Queue / Direct Chat
-Discord ──┤
-Signal ──┘
-```
-
-**Deliverable:** `design/unified-inbox/` directory:
-```
-design/unified-inbox/
-├── message-schema.md        — Normalized format for all channels
-├── bridges.md               — Per-channel bridge requirements
-├── triage-engine.md         — Classification pipeline
-├── notification-rules.md    — What surfaces immediately, what batches
-├── thread-tracking.md       — Grouping related messages
-├── reply-routing.md         — Composing replies from dashboard
-└── ui-spec.md               — Dashboard inbox view
-```
+**Deliverable:** `design/unified-inbox/` — 7 files scaffolded
 
 ---
 
 ## PART 2: FRONTEND — UX/UI DESIGN
 
-### 2.1 Design System & Visual Language 🔴 MISSING
-
-**Deliverable:** `design/ui/` — design-system.md, component-library.md, iconography.md, layout-system.md, motion-language.md
+### 2.1 Design System & Visual Language 🔴 SCAFFOLDED
+**Deliverable:** `design/ui/` — 6 files scaffolded
 
 ### 2.2 Navigation & Information Architecture 🟡 PARTIAL
+**Deliverable:** `design/ui/navigation.md` — partial (routes defined)
 
-Primary navigation (left sidebar):
-```
-🏠 Command Center   ← Morning brief, today's priorities, active agents
-📥 Inbox            ← Unified inbox (all channels + input queue)
-💬 Chat             ← Direct conversation with Kira
-📋 Operations       ← SOP engine: areas, objectives, projects, tasks
-📄 Documents        ← VDR (redesigned)
-🧠 Knowledge        ← Memory graph explorer
-📊 Dashboards       ← Custom widget dashboards
-⚙️ Settings         ← Agents, channels, schedule, preferences
-```
+### 2.3 Command Center (Home Screen) 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/command-center.md`
 
-### 2.3 Command Center (Home Screen) 🔴 MISSING
-
-Mission control dashboard showing: Top 3 priorities, input queue badge, active agents, key result progress, blockers.
-
-### 2.4 Unified Inbox UI 🔴 MISSING
-
-Two-column layout merging external messages and internal input queue.
+### 2.4 Unified Inbox UI 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/inbox.md`
 
 ### 2.5 Chat UI 🟡 PARTIAL
+**Deliverable:** Update `design/dashboard/chat-ui.md` with SOP integration section
 
-Existing `design/dashboard/chat-ui.md` needs SOP integration section.
+### 2.6 Operations View (SOP Engine UI) 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/operations/` — 10 files scaffolded
 
-### 2.6 Operations View (SOP Engine UI) 🔴 MISSING
-
-View modes: Board, List, Timeline, Area, Today, Review.
-
-**Deliverable:** `design/screens/operations/` — board-view.md, list-view.md, timeline-view.md, area-view.md, today-view.md, review-view.md, task-detail.md, project-detail.md, objective-detail.md, quick-add.md
-
-### 2.7 Documents / VDR (Redesigned) 🟡 PARTIAL
-
-**Deliverable:** `design/screens/documents/` — file-browser.md, document-viewer.md, smart-collections.md, upload-flow.md, version-history.md, document-card.md
+### 2.7 Documents / VDR (Redesigned) 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/documents/` — 6 files scaffolded
 
 ### 2.8 Knowledge Graph Explorer 🟡 PARTIAL
+**Deliverable:** Update `design/dashboard/knowledge-graph.md`
 
-Needs temporal slider, SOP overlay, confidence visualization.
-
-### 2.9 Agent Monitor 🔴 MISSING
-
-Live view of all active agents: status, current task, progress, cost, controls.
+### 2.9 Agent Monitor 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/agent-monitor.md`
 
 ### 2.10 Settings 🟡 PARTIAL
+**Deliverable:** Update `design/dashboard/settings.md`
 
-Needs SOP config, inbox channels, agent management, notification preferences.
-
-### 2.11 Mobile Experience 🔴 MISSING
-
-**Deliverable:** `design/screens/mobile/` — mobile-strategy.md, chat-mobile.md, inbox-mobile.md, today-mobile.md, quick-capture.md, notifications.md
+### 2.11 Mobile Experience 🔴 SCAFFOLDED
+**Deliverable:** `design/screens/mobile/` — 6 files scaffolded
 
 ---
 
 ## PART 3: BACKEND LOGIC
 
-### 3.1 Heartbeat as Separate Process 🔵 NEW
+### 3.1 Heartbeat as Separate Process 🔴 SCAFFOLDED
+**Deliverable:** `design/backend/heartbeat-process.md`
 
-Separate cron-driven process: memory maintenance, inbox triage, agent work check, schedule check, review triggers, morning/evening brief generation.
+### 3.2 Triage Engine 🔴 SCAFFOLDED
+**Deliverable:** `design/backend/triage-engine.md`
 
-### 3.2 Triage Engine 🔴 MISSING
+### 3.3 Agent Orchestration with SOP Engine 🔴 SCAFFOLDED
+**Deliverable:** `design/backend/sop-agent-integration.md`
 
-Pipeline: Normalize → Classify → Extract → Match → Route → Store. Haiku-tier, < 500ms.
+### 3.4 Real-time Event System 🔴 SCAFFOLDED
+**Deliverable:** `design/backend/event-system.md`
 
-### 3.3 Agent Orchestration with SOP Engine 🟡 PARTIAL
-
-Agents registered in agents table, assigned to areas, work log feeds SOP engine.
-
-### 3.4 Real-time Event System 🟡 PARTIAL
-
-Events: AGENT_STATUS_CHANGED, TASK_STATUS_CHANGED, INPUT_QUEUE_ITEM_ADDED, MESSAGE_RECEIVED, REVIEW_DUE, KEY_RESULT_UPDATED, DEPENDENCY_UNBLOCKED, DOCUMENT_ADDED, MEMORY_UPDATED, NOTIFICATION.
-
-### 3.5 API Specification (Complete) 🟡 PARTIAL
-
-**Deliverable:** `design/api/v3-complete.md` — single source of truth for all endpoints.
+### 3.5 API Specification (Complete) 🔴 SCAFFOLDED
+**Deliverable:** `design/api/v3-complete.md`
 
 ---
 
 ## PART 4: GAMIFICATION & ENGAGEMENT
 
 ### 4.1 XP & Progression System 🟡 PARTIAL
-
-Needs SOP-integrated XP sources: task completion, review completion, principle creation, input queue processing.
+**Deliverable:** Update `design/gamification/user-engagement.md`
 
 ### 4.2 Onboarding / First Run 🟡 PARTIAL
-
-Needs SOP setup guide, channel connection, agent introduction.
+**Deliverable:** Update `design-v2/21-onboarding-experience.md`
 
 ---
 
 ## PART 5: DESIGN EXECUTION ORDER
 
-### Phase 0: Foundation (Do First)
-1. `design/ui/design-system.md`
-2. `design/sop-engine/data-model.md` ✅
-3. `design/sop-engine/state-machines.md` ✅
-4. `design/sop-engine/api-endpoints.md` ✅
+### Phase 0: Foundation ✅ COMPLETE
+1. `design/sop-engine/data-model.md` ✅
+2. `design/sop-engine/state-machines.md` ✅
+3. `design/sop-engine/priority-algorithm.md` ✅
+4. `design/sop-engine/cascade-rules.md` ✅
+5. `design/sop-engine/api-endpoints.md` ✅
+6. `design/sop-engine/review-cadence.md` ✅
 
-### Phase 1: Core Screens
-5. `design/screens/command-center.md`
-6. `design/screens/inbox.md`
-7. `design/screens/operations/today-view.md`
-8. `design/screens/operations/task-detail.md`
-9. `design/screens/operations/board-view.md`
+### Phase 1: Core Screens (Next)
+7. `design/ui/design-system.md` — Visual foundation
+8. `design/screens/command-center.md` — Home screen
+9. `design/screens/inbox.md` — Unified inbox
+10. `design/screens/operations/today-view.md` — Daily execution
+11. `design/screens/operations/task-detail.md` — Single task
+12. `design/screens/operations/board-view.md` — Kanban
 
 ### Phase 2: Backend Logic
-10. `design/backend/heartbeat-process.md`
-11. `design/backend/triage-engine.md`
-12. `design/backend/sop-agent-integration.md`
-13. `design/backend/event-system.md`
+13. `design/backend/heartbeat-process.md`
+14. `design/backend/triage-engine.md`
+15. `design/backend/sop-agent-integration.md`
+16. `design/backend/event-system.md`
 
 ### Phase 3: Advanced Screens
-14-18. Timeline, area, review views, VDR redesign, agent monitor
+17–22. Timeline, area, review, documents, agent monitor
 
 ### Phase 4: Memory & Knowledge
-19-22. Temporal graph, heartbeat memory, proactive injection, knowledge graph updates
+23–28. Temporal graph, entity resolution, confidence decay, proactive injection
 
 ### Phase 5: Unified Inbox Infrastructure
-23-25. Bridges, triage engine, reply routing
+29–31. Bridges, triage engine, reply routing
 
 ### Phase 6: Mobile & Polish
-26-29. Mobile views, gamification, onboarding, full API spec
+32–35. Mobile views, gamification, onboarding, full API spec
 
 ---
 
@@ -216,12 +164,15 @@ Needs SOP setup guide, channel connection, agent introduction.
 | Category | Files | Status |
 |----------|-------|--------|
 | SOP Engine | 6 | ✅ Designed |
-| Memory v2 | 6 | 🔴 Scaffold |
-| Unified Inbox | 7 | 🔴 Scaffold |
-| UI Foundation | 6 | 🔴 Scaffold |
-| Screen Specs | ~18 | 🔴 Scaffold |
-| Backend Logic | 4 | 🔴 Scaffold |
-| Updates to Existing | ~8 | 🟡 Revisions |
-| **TOTAL** | **~54 design documents** | |
+| Memory v2 | 6 | 🔴 Scaffolded |
+| Unified Inbox | 7 | 🔴 Scaffolded |
+| UI Foundation | 6 | 🔴 Scaffolded |
+| Screen Specs | ~18 | 🔴 Scaffolded |
+| Backend Logic | 4 | 🔴 Scaffolded |
+| Mobile | 6 | 🔴 Scaffolded |
+| API | 1 | 🔴 Scaffolded |
+| **TOTAL** | **~54** | **6 designed, 48 scaffolded** |
 
-Every one of these docs should be complete enough that a coding agent can implement from it without asking questions.
+---
+
+*Full original design plan with detailed requirements for each section is in the project knowledge base.*
