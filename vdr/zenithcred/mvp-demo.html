@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZenithCred — Corporate Wellness Gamification</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{zen:'#22c55e','zen-dark':'#16a34a','zen-glow':'#4ade80'}}}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*{font-family:'Inter',sans-serif}
+body{background:#0a0f1a}
+.glow{box-shadow:0 0 30px rgba(34,197,94,.15)}
+.glow-text{text-shadow:0 0 20px rgba(34,197,94,.4)}
+.pulse-ring{animation:pulseRing 2s ease-out infinite}
+@keyframes pulseRing{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.float{animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.breathe{animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+.slide-up{animation:slideUp .5s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.bar-fill{animation:barGrow 1.2s ease-out forwards}
+@keyframes barGrow{from{width:0}}
+.fade-in{animation:fadeIn .4s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.tab-active{border-bottom:2px solid #22c55e;color:#22c55e}
+.card{background:linear-gradient(135deg,#111827 0%,#1a2235 100%);border:1px solid rgba(34,197,94,.1)}
+.card:hover{border-color:rgba(34,197,94,.3);box-shadow:0 0 20px rgba(34,197,94,.08)}
+.bio-wave{position:relative;height:120px;overflow:hidden}
+.wave-line{fill:none;stroke:#22c55e;stroke-width:2}
+.token-icon{background:linear-gradient(135deg,#22c55e,#16a34a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0f1a}
+::-webkit-scrollbar-thumb{background:#1e293b;border-radius:3px}
+.progress-ring{transform:rotate(-90deg)}
+.light-panel{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.light-cell{width:100%;aspect-ratio:1;border-radius:4px;transition:all .6s ease}
+</style>
+</head>
+<body class="min-h-screen text-gray-100">
+
+<!-- Nav -->
+<nav class="border-b border-gray-800/50 backdrop-blur-sm bg-[#0a0f1a]/80 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-br from-zen to-emerald-400 flex items-center justify-center font-bold text-black text-lg">Z</div>
+<div>
+<span class="text-xl font-bold">Zenith<span class="text-zen">Cred</span></span>
+<span class="text-[10px] ml-2 px-2 py-0.5 rounded-full bg-zen/10 text-zen font-medium uppercase tracking-wider">Live Demo</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-sm text-gray-400">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-zen animate-pulse"></span>247 employees online</div>
+<div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-xs font-medium">AD</div>
+</div>
+</div>
+</nav>
+
+<!-- Tabs -->
+<div class="max-w-7xl mx-auto px-6 mt-6">
+<div class="flex gap-1 border-b border-gray-800/50" id="tabs">
+<button onclick="showTab('dashboard')" class="tab-btn px-5 py-3 text-sm font-medium transition-all text-gray-400 hover:text-gray-200 border-b-2 border-transparent" data-tab="dashboard">🏢 Company Dashboard</button>
+<button onclick="showTab('employee')" class="tab-btn px-5 py-3 text-sm font-medium transition-all text-gray-400 hover:text-gray-200 border-b-2 border-transparent" data-tab="employee">👤 Employee View</button>
+<button onclick="showTab('leaderboard')" class="tab-btn px-5 py-3 text-sm font-medium transition-all text-gray-400 hover:text-gray-200 border-b-2 border-transparent" data-tab="leaderboard">🏆 Leaderboard</button>
+<button onclick="showTab('biofeedback')" class="tab-btn px-5 py-3 text-sm font-medium transition-all text-gray-400 hover:text-gray-200 border-b-2 border-transparent" data-tab="biofeedback">💚 Biofeedback Panel</button>
+</div>
+</div>
+
+<!-- Content -->
+<div class="max-w-7xl mx-auto px-6 py-8" id="content">
+
+<!-- DASHBOARD -->
+<div id="tab-dashboard" class="tab-content hidden">
+<div class="slide-up">
+<h2 class="text-2xl font-bold mb-1">Company Wellness Overview</h2>
+<p class="text-gray-500 mb-8 text-sm">Real-time wellness metrics for Acme Corp — 312 employees</p>
+
+<div class="grid grid-cols-4 gap-4 mb-8">
+<div class="card rounded-2xl p-6 transition-all">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-3">Wellness Score</div>
+<div class="text-4xl font-bold text-zen glow-text" id="companyScore">0</div>
+<div class="text-xs text-zen mt-1">▲ 12% vs last month</div>
+</div>
+<div class="card rounded-2xl p-6 transition-all">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-3">Active Today</div>
+<div class="text-4xl font-bold">247</div>
+<div class="text-xs text-gray-500 mt-1">of 312 employees</div>
+</div>
+<div class="card rounded-2xl p-6 transition-all">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-3">Tokens Minted (24h)</div>
+<div class="text-4xl font-bold text-amber-400">18.4K</div>
+<div class="text-xs text-amber-400/60 mt-1">⚡ 234 transactions/hr</div>
+</div>
+<div class="card rounded-2xl p-6 transition-all">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-3">Stress Reduction</div>
+<div class="text-4xl font-bold text-purple-400">31%</div>
+<div class="text-xs text-purple-400/60 mt-1">avg. since deployment</div>
+</div>
+</div>
+
+<!-- Token Economy -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="card rounded-2xl p-6 col-span-2">
+<h3 class="font-semibold mb-4 text-sm">Token Economy — Weekly Activity</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3"><span class="text-xs text-gray-500 w-20">Breathing</span><div class="flex-1 bg-gray-800 rounded-full h-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-zen to-emerald-400 rounded-full bar-fill" style="width:78%"></div></div><span class="text-xs font-medium w-12 text-right">4.2K</span></div>
+<div class="flex items-center gap-3"><span class="text-xs text-gray-500 w-20">Walking</span><div class="flex-1 bg-gray-800 rounded-full h-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full bar-fill" style="width:62%"></div></div><span class="text-xs font-medium w-12 text-right">3.1K</span></div>
+<div class="flex items-center gap-3"><span class="text-xs text-gray-500 w-20">Team</span><div class="flex-1 bg-gray-800 rounded-full h-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-500 to-pink-400 rounded-full bar-fill" style="width:45%"></div></div><span class="text-xs font-medium w-12 text-right">2.3K</span></div>
+<div class="flex items-center gap-3"><span class="text-xs text-gray-500 w-20">Meditation</span><div class="flex-1 bg-gray-800 rounded-full h-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full bar-fill" style="width:35%"></div></div><span class="text-xs font-medium w-12 text-right">1.8K</span></div>
+</div>
+</div>
+<div class="card rounded-2xl p-6">
+<h3 class="font-semibold mb-4 text-sm">Token Circulation</h3>
+<div class="text-center py-4">
+<div class="text-5xl font-bold text-amber-400 mb-1">1.2M</div>
+<div class="text-xs text-gray-500 mb-4">Total tokens in circulation</div>
+<div class="space-y-2 text-left text-xs">
+<div class="flex justify-between text-gray-400"><span>Earned today</span><span class="text-zen">+18,400</span></div>
+<div class="flex justify-between text-gray-400"><span>Redeemed today</span><span class="text-red-400">-4,200</span></div>
+<div class="flex justify-between text-gray-400"><span>Avg per employee</span><span class="text-white">3,846</span></div>
+<div class="flex justify-between text-gray-400"><span>Redemption rate</span><span class="text-white">22.8%</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Department breakdown -->
+<div class="card rounded-2xl p-6">
+<h3 class="font-semibold mb-4 text-sm">Department Wellness Scores</h3>
+<div class="grid grid-cols-5 gap-4">
+<div class="text-center"><div class="text-2xl font-bold text-zen">89</div><div class="text-[11px] text-gray-500 mt-1">Engineering</div><div class="w-full bg-gray-800 rounded-full h-1.5 mt-2"><div class="h-full bg-zen rounded-full" style="width:89%"></div></div></div>
+<div class="text-center"><div class="text-2xl font-bold text-zen">84</div><div class="text-[11px] text-gray-500 mt-1">Design</div><div class="w-full bg-gray-800 rounded-full h-1.5 mt-2"><div class="h-full bg-zen rounded-full" style="width:84%"></div></div></div>
+<div class="text-center"><div class="text-2xl font-bold text-amber-400">76</div><div class="text-[11px] text-gray-500 mt-1">Sales</div><div class="w-full bg-gray-800 rounded-full h-1.5 mt-2"><div class="h-full bg-amber-400 rounded-full" style="width:76%"></div></div></div>
+<div class="text-center"><div class="text-2xl font-bold text-zen">82</div><div class="text-[11px] text-gray-500 mt-1">Marketing</div><div class="w-full bg-gray-800 rounded-full h-1.5 mt-2"><div class="h-full bg-zen rounded-full" style="width:82%"></div></div></div>
+<div class="text-center"><div class="text-2xl font-bold text-amber-400">71</div><div class="text-[11px] text-gray-500 mt-1">Operations</div><div class="w-full bg-gray-800 rounded-full h-1.5 mt-2"><div class="h-full bg-amber-400 rounded-full" style="width:71%"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- EMPLOYEE VIEW -->
+<div id="tab-employee" class="tab-content hidden">
+<div class="slide-up">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zen to-emerald-400 flex items-center justify-center text-2xl font-bold text-black">SR</div>
+<div>
+<h2 class="text-2xl font-bold">Sarah Rodriguez</h2>
+<p class="text-gray-500 text-sm">Senior Designer · Design Team · Level 12</p>
+</div>
+<div class="ml-auto text-right">
+<div class="text-3xl font-bold text-amber-400">2,847 <span class="text-lg">🪙</span></div>
+<div class="text-xs text-gray-500">Lifetime: 14,320 tokens</div>
+</div>
+</div>
+
+<div class="grid grid-cols-4 gap-4 mb-8">
+<div class="card rounded-2xl p-5 text-center">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Wellness Score</div>
+<div class="relative inline-block">
+<svg class="progress-ring w-24 h-24" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="42" fill="none" stroke="#1e293b" stroke-width="8"/>
+<circle cx="50" cy="50" r="42" fill="none" stroke="#22c55e" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="37" stroke-linecap="round" class="transition-all duration-1000"/>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-2xl font-bold">86</div>
+</div>
+</div>
+<div class="card rounded-2xl p-5">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Stress Level</div>
+<div class="flex items-end gap-1 h-12 mb-2" id="stressBars"></div>
+<div class="text-xs"><span class="text-zen font-medium">Low</span> · HRV: 68ms</div>
+</div>
+<div class="card rounded-2xl p-5">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Today's Activity</div>
+<div class="text-3xl font-bold mb-1">7</div>
+<div class="text-xs text-gray-500">micro-wellness moments</div>
+<div class="text-xs text-zen mt-1">🔥 5-day streak</div>
+</div>
+<div class="card rounded-2xl p-5">
+<div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Rank</div>
+<div class="text-3xl font-bold mb-1">#14</div>
+<div class="text-xs text-gray-500">of 312 employees</div>
+<div class="text-xs text-zen mt-1">▲ 3 positions this week</div>
+</div>
+</div>
+
+<!-- Active Challenges -->
+<h3 class="font-semibold mb-4 text-sm">Active Challenges</h3>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="card rounded-2xl p-5 border-l-4 border-l-zen">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xl">🧘</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-zen/10 text-zen">+50 tokens</span>
+</div>
+<div class="font-medium text-sm mb-1">Mindful Monday</div>
+<div class="text-xs text-gray-500 mb-3">Complete 3 breathing exercises today</div>
+<div class="w-full bg-gray-800 rounded-full h-2"><div class="h-full bg-zen rounded-full transition-all" style="width:66%"></div></div>
+<div class="text-[11px] text-gray-500 mt-1">2 of 3 completed</div>
+</div>
+<div class="card rounded-2xl p-5 border-l-4 border-l-blue-500">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xl">🚶</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400">+100 tokens</span>
+</div>
+<div class="font-medium text-sm mb-1">Walk & Talk</div>
+<div class="text-xs text-gray-500 mb-3">Host 2 walking meetings this week</div>
+<div class="w-full bg-gray-800 rounded-full h-2"><div class="h-full bg-blue-500 rounded-full transition-all" style="width:50%"></div></div>
+<div class="text-[11px] text-gray-500 mt-1">1 of 2 completed</div>
+</div>
+<div class="card rounded-2xl p-5 border-l-4 border-l-purple-500">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xl">👥</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400">+200 tokens</span>
+</div>
+<div class="font-medium text-sm mb-1">Team Zen</div>
+<div class="text-xs text-gray-500 mb-3">Get 5 teammates to score 80+</div>
+<div class="w-full bg-gray-800 rounded-full h-2"><div class="h-full bg-purple-500 rounded-full transition-all" style="width:80%"></div></div>
+<div class="text-[11px] text-gray-500 mt-1">4 of 5 teammates</div>
+</div>
+</div>
+
+<!-- Recent tokens -->
+<h3 class="font-semibold mb-4 text-sm">Recent Token Activity</h3>
+<div class="card rounded-2xl divide-y divide-gray-800/50">
+<div class="flex items-center justify-between px-5 py-3"><div class="flex items-center gap-3"><span class="text-lg">🧘</span><div><div class="text-sm">Breathing Exercise</div><div class="text-xs text-gray-500">2 min session · 14:32</div></div></div><span class="text-zen text-sm font-medium">+15 🪙</span></div>
+<div class="flex items-center justify-between px-5 py-3"><div class="flex items-center gap-3"><span class="text-lg">🚶</span><div><div class="text-sm">Walking Meeting</div><div class="text-xs text-gray-500">with Mark T. · 11:00</div></div></div><span class="text-zen text-sm font-medium">+40 🪙</span></div>
+<div class="flex items-center justify-between px-5 py-3"><div class="flex items-center gap-3"><span class="text-lg">💆</span><div><div class="text-sm">Desk Stretch Break</div><div class="text-xs text-gray-500">5 min · 09:45</div></div></div><span class="text-zen text-sm font-medium">+10 🪙</span></div>
+<div class="flex items-center justify-between px-5 py-3"><div class="flex items-center gap-3"><span class="text-lg">🏆</span><div><div class="text-sm">Challenge Bonus: Consistency</div><div class="text-xs text-gray-500">5-day streak reward</div></div></div><span class="text-amber-400 text-sm font-medium">+75 🪙</span></div>
+</div>
+</div>
+</div>
+
+<!-- LEADERBOARD -->
+<div id="tab-leaderboard" class="tab-content hidden">
+<div class="slide-up">
+<h2 class="text-2xl font-bold mb-1">Team Leaderboard</h2>
+<p class="text-gray-500 mb-8 text-sm">Weekly rankings · Resets Monday 00:00</p>
+
+<!-- Top 3 podium -->
+<div class="grid grid-cols-3 gap-4 mb-8 items-end">
+<div class="card rounded-2xl p-6 text-center">
+<div class="text-3xl mb-2">🥈</div>
+<div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-black font-bold mb-2">MK</div>
+<div class="font-semibold text-sm">Marcus Kim</div>
+<div class="text-xs text-gray-500 mb-2">Engineering</div>
+<div class="text-lg font-bold text-amber-400">3,240 🪙</div>
+<div class="text-xs text-gray-500">Score: 94</div>
+</div>
+<div class="card rounded-2xl p-6 text-center glow border-zen/20 pb-8">
+<div class="text-3xl mb-2">👑</div>
+<div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-black font-bold text-lg mb-2">JL</div>
+<div class="font-semibold">Jessica Liu</div>
+<div class="text-xs text-gray-500 mb-2">Design</div>
+<div class="text-2xl font-bold text-amber-400">4,120 🪙</div>
+<div class="text-xs text-gray-500">Score: 97</div>
+<div class="text-[10px] px-2 py-0.5 rounded-full bg-zen/10 text-zen mt-2 inline-block">🔥 12-day streak</div>
+</div>
+<div class="card rounded-2xl p-6 text-center">
+<div class="text-3xl mb-2">🥉</div>
+<div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-black font-bold mb-2">AT</div>
+<div class="font-semibold text-sm">Alex Torres</div>
+<div class="text-xs text-gray-500 mb-2">Marketing</div>
+<div class="text-lg font-bold text-amber-400">2,980 🪙</div>
+<div class="text-xs text-gray-500">Score: 91</div>
+</div>
+</div>
+
+<!-- Rest of leaderboard -->
+<div class="card rounded-2xl divide-y divide-gray-800/50">
+<div class="flex items-center px-5 py-3 bg-zen/5 rounded-t-2xl"><span class="w-8 text-sm font-medium text-gray-500">#</span><span class="flex-1 text-xs font-medium text-gray-500 uppercase tracking-wider">Employee</span><span class="w-20 text-xs font-medium text-gray-500 text-center uppercase tracking-wider">Score</span><span class="w-24 text-xs font-medium text-gray-500 text-right uppercase tracking-wider">Tokens</span><span class="w-20 text-xs font-medium text-gray-500 text-right uppercase tracking-wider">Streak</span></div>
+<div class="flex items-center px-5 py-3 hover:bg-white/[.02]"><span class="w-8 text-sm font-medium text-gray-400">4</span><div class="flex-1 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-medium">RP</div><div><div class="text-sm">Rachel Park</div><div class="text-xs text-gray-500">Sales</div></div></div><span class="w-20 text-center text-sm font-medium">89</span><span class="w-24 text-right text-sm text-amber-400">2,710</span><span class="w-20 text-right text-xs text-gray-400">🔥 8d</span></div>
+<div class="flex items-center px-5 py-3 hover:bg-white/[.02]"><span class="w-8 text-sm font-medium text-gray-400">5</span><div class="flex-1 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-medium">DW</div><div><div class="text-sm">David Wang</div><div class="text-xs text-gray-500">Engineering</div></div></div><span class="w-20 text-center text-sm font-medium">88</span><span class="w-24 text-right text-sm text-amber-400">2,590</span><span class="w-20 text-right text-xs text-gray-400">🔥 6d</span></div>
+<div class="flex items-center px-5 py-3 hover:bg-white/[.02]"><span class="w-8 text-sm font-medium text-gray-400">6</span><div class="flex-1 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-medium">EN</div><div><div class="text-sm">Emma Nielsen</div><div class="text-xs text-gray-500">Operations</div></div></div><span class="w-20 text-center text-sm font-medium">87</span><span class="w-24 text-right text-sm text-amber-400">2,430</span><span class="w-20 text-right text-xs text-gray-400">🔥 4d</span></div>
+<div class="flex items-center px-5 py-3 hover:bg-white/[.02]"><span class="w-8 text-sm font-medium text-gray-400">7</span><div class="flex-1 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-medium">TJ</div><div><div class="text-sm">Tyler Johnson</div><div class="text-xs text-gray-500">Design</div></div></div><span class="w-20 text-center text-sm font-medium">86</span><span class="w-24 text-right text-sm text-amber-400">2,280</span><span class="w-20 text-right text-xs text-gray-400">🔥 9d</span></div>
+<div class="flex items-center px-5 py-3 hover:bg-white/[.02] bg-zen/5 rounded-b-2xl"><span class="w-8 text-sm font-medium text-zen">14</span><div class="flex-1 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-zen to-emerald-400 flex items-center justify-center text-xs font-bold text-black">SR</div><div><div class="text-sm font-medium text-zen">Sarah Rodriguez <span class="text-[10px] text-gray-500">(You)</span></div><div class="text-xs text-gray-500">Design</div></div></div><span class="w-20 text-center text-sm font-medium">86</span><span class="w-24 text-right text-sm text-amber-400">2,847</span><span class="w-20 text-right text-xs text-gray-400">🔥 5d</span></div>
+</div>
+
+<!-- Team challenge -->
+<div class="card rounded-2xl p-6 mt-6 border-zen/20">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-semibold text-sm">🎯 Active Team Challenge: Zen Week</h3>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-400">3 days left</span>
+</div>
+<p class="text-xs text-gray-500 mb-3">Company-wide: Get average wellness score above 85. Reward: 500 bonus tokens per employee.</p>
+<div class="w-full bg-gray-800 rounded-full h-3"><div class="h-full bg-gradient-to-r from-zen to-emerald-400 rounded-full transition-all" style="width:81%"></div></div>
+<div class="flex justify-between text-xs text-gray-500 mt-1"><span>Current: 81.2</span><span>Target: 85.0</span></div>
+</div>
+</div>
+</div>
+
+<!-- BIOFEEDBACK -->
+<div id="tab-biofeedback" class="tab-content hidden">
+<div class="slide-up">
+<h2 class="text-2xl font-bold mb-1">Live Biofeedback Panel</h2>
+<p class="text-gray-500 mb-8 text-sm">Real-time sensor data · Simulated stress → calm transition</p>
+
+<div class="grid grid-cols-2 gap-6 mb-8">
+<!-- Light Panel -->
+<div class="card rounded-2xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-semibold text-sm">Interactive Light Panel</h3>
+<span class="text-xs text-gray-500" id="panelState">State: Monitoring</span>
+</div>
+<div class="light-panel mb-4" id="lightPanel"></div>
+<div class="flex gap-2 mt-4">
+<button onclick="triggerStress()" class="px-4 py-2 text-xs rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-all font-medium">Simulate Stress</button>
+<button onclick="triggerCalm()" class="px-4 py-2 text-xs rounded-lg bg-zen/10 text-zen hover:bg-zen/20 transition-all font-medium">Trigger Calm</button>
+<button onclick="triggerBreathing()" class="px-4 py-2 text-xs rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-all font-medium">Breathing Mode</button>
+</div>
+</div>
+
+<!-- Vitals -->
+<div class="card rounded-2xl p-6">
+<h3 class="font-semibold text-sm mb-4">Live Biometrics</h3>
+<div class="space-y-5">
+<div>
+<div class="flex justify-between text-xs mb-1"><span class="text-gray-500">Heart Rate</span><span class="font-mono" id="hrValue">72 BPM</span></div>
+<svg width="100%" height="50" id="hrWave"><polyline class="wave-line" stroke="#22c55e"/></svg>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1"><span class="text-gray-500">HRV (Heart Rate Variability)</span><span class="font-mono" id="hrvValue">68 ms</span></div>
+<div class="w-full bg-gray-800 rounded-full h-3"><div class="h-full bg-zen rounded-full transition-all duration-1000" id="hrvBar" style="width:68%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1"><span class="text-gray-500">Skin Conductance (GSR)</span><span class="font-mono" id="gsrValue">2.4 μS</span></div>
+<div class="w-full bg-gray-800 rounded-full h-3"><div class="h-full bg-blue-500 rounded-full transition-all duration-1000" id="gsrBar" style="width:24%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1"><span class="text-gray-500">Breathing Rate</span><span class="font-mono" id="brValue">14 /min</span></div>
+<div class="w-full bg-gray-800 rounded-full h-3"><div class="h-full bg-purple-500 rounded-full transition-all duration-1000" id="brBar" style="width:46%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2"><span class="text-gray-500">Composite Stress Index</span><span class="font-mono font-bold" id="stressLabel">Low</span></div>
+<div class="flex gap-1">
+<div class="h-3 flex-1 rounded bg-zen" id="s1"></div>
+<div class="h-3 flex-1 rounded bg-zen/40" id="s2"></div>
+<div class="h-3 flex-1 rounded bg-gray-800" id="s3"></div>
+<div class="h-3 flex-1 rounded bg-gray-800" id="s4"></div>
+<div class="h-3 flex-1 rounded bg-gray-800" id="s5"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Token earning animation area -->
+<div class="card rounded-2xl p-6" id="tokenEarnArea">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-semibold text-sm">Session Log</h3>
+<span class="text-xs text-gray-500" id="sessionTimer">00:00</span>
+</div>
+<div class="space-y-2 text-xs" id="sessionLog">
+<div class="flex items-center gap-2 text-gray-500"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span>Sensors connected. Awaiting interaction...</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="max-w-7xl mx-auto px-6 py-8 mt-8 border-t border-gray-800/30 flex items-center justify-between text-xs text-gray-600">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded bg-gradient-to-br from-zen to-emerald-400 flex items-center justify-center font-bold text-black text-[10px]">Z</div>
+ZenithCred v0.9 MVP · Patent Pending
+</div>
+<div>Corporate Wellness Gamification Platform · © 2026</div>
+</footer>
+
+<script>
+// Tab switching
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('tab-active'); b.classList.add('text-gray-400'); });
+  document.getElementById('tab-' + name).classList.remove('hidden');
+  const btn = document.querySelector(`[data-tab="${name}"]`);
+  btn.classList.add('tab-active');
+  btn.classList.remove('text-gray-400');
+  if (name === 'biofeedback') startBioWave();
+  if (name === 'dashboard') animateScore();
+  if (name === 'employee') initStressBars();
+}
+
+// Animate company score
+function animateScore() {
+  const el = document.getElementById('companyScore');
+  let v = 0;
+  const iv = setInterval(() => { v += 2; el.textContent = v; if (v >= 82) { el.textContent = 82; clearInterval(iv); }}, 20);
+}
+
+// Stress bars for employee view
+function initStressBars() {
+  const c = document.getElementById('stressBars');
+  if (c.children.length) return;
+  const vals = [30,45,60,40,25,35,20,28,22,18,15,20];
+  vals.forEach((v,i) => {
+    const bar = document.createElement('div');
+    bar.className = 'flex-1 rounded-sm transition-all duration-500';
+    bar.style.height = v + '%';
+    bar.style.background = v > 50 ? '#ef4444' : v > 30 ? '#eab308' : '#22c55e';
+    bar.style.animationDelay = i * 50 + 'ms';
+    c.appendChild(bar);
+  });
+}
+
+// Light panel
+const GRID = 8;
+const lightPanel = document.getElementById('lightPanel');
+const cells = [];
+for (let i = 0; i < GRID * GRID; i++) {
+  const cell = document.createElement('div');
+  cell.className = 'light-cell';
+  cell.style.background = '#1e293b';
+  lightPanel.appendChild(cell);
+  cells.push(cell);
+}
+
+let panelMode = 'idle';
+function setCell(i, color, opacity = 1) {
+  cells[i].style.background = color;
+  cells[i].style.opacity = opacity;
+}
+
+function triggerStress() {
+  panelMode = 'stress';
+  document.getElementById('panelState').textContent = 'State: Stress Detected!';
+  document.getElementById('panelState').className = 'text-xs text-red-400';
+  addLog('⚠️ Elevated stress detected — HR: 95 BPM, GSR spike');
+  updateVitals(95, 35, 5.8, 22, 'High');
+  cells.forEach((c, i) => {
+    setTimeout(() => {
+      c.style.background = `hsl(${Math.random()*20}, 80%, ${40+Math.random()*20}%)`;
+      c.style.transition = 'all 0.3s';
+    }, i * 30);
+  });
+  updateStressIndex(4);
+}
+
+function triggerCalm() {
+  panelMode = 'calm';
+  document.getElementById('panelState').textContent = 'State: Calm';
+  document.getElementById('panelState').className = 'text-xs text-zen';
+  addLog('✅ Calm state restored — wellness tokens earned: +25 🪙');
+  updateVitals(68, 72, 1.8, 12, 'Low');
+  const cx = 3.5, cy = 3.5;
+  cells.forEach((c, i) => {
+    const x = i % GRID, y = Math.floor(i / GRID);
+    const d = Math.sqrt((x-cx)**2 + (y-cy)**2);
+    setTimeout(() => {
+      const l = Math.max(20, 50 - d * 8);
+      c.style.background = `hsl(142, 70%, ${l}%)`;
+      c.style.transition = 'all 0.8s ease';
+    }, d * 120);
+  });
+  updateStressIndex(1);
+}
+
+function triggerBreathing() {
+  panelMode = 'breathing';
+  document.getElementById('panelState').textContent = 'State: Breathing Exercise';
+  document.getElementById('panelState').className = 'text-xs text-blue-400';
+  addLog('🧘 Breathing exercise started — follow the light pattern');
+  updateVitals(72, 65, 2.4, 6, 'Relaxing');
+  let step = 0;
+  const breathe = () => {
+    if (panelMode !== 'breathing') return;
+    const expanding = step % 2 === 0;
+    const cx = 3.5, cy = 3.5;
+    cells.forEach((c, i) => {
+      const x = i % GRID, y = Math.floor(i / GRID);
+      const d = Math.sqrt((x-cx)**2 + (y-cy)**2);
+      const maxD = expanding ? 5 : 1.5;
+      const inRange = d <= maxD;
+      c.style.background = inRange ? `hsl(200, 60%, ${45 - d * 5}%)` : '#1e293b';
+      c.style.transition = 'all 2s ease';
+    });
+    step++;
+    if (step < 8) setTimeout(breathe, 2500);
+    else { addLog('✅ Breathing exercise complete — +15 🪙 earned'); triggerCalm(); }
+  };
+  breathe();
+  updateStressIndex(2);
+}
+
+function updateVitals(hr, hrv, gsr, br, label) {
+  document.getElementById('hrValue').textContent = hr + ' BPM';
+  document.getElementById('hrvValue').textContent = hrv + ' ms';
+  document.getElementById('gsrValue').textContent = gsr.toFixed(1) + ' μS';
+  document.getElementById('brValue').textContent = br + ' /min';
+  document.getElementById('stressLabel').textContent = label;
+  document.getElementById('stressLabel').className = 'font-mono font-bold ' + (label === 'High' ? 'text-red-400' : label === 'Low' ? 'text-zen' : 'text-blue-400');
+  document.getElementById('hrvBar').style.width = hrv + '%';
+  document.getElementById('gsrBar').style.width = (gsr * 10) + '%';
+  document.getElementById('brBar').style.width = (br / 30 * 100) + '%';
+}
+
+function updateStressIndex(level) {
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('s' + i);
+    if (i <= level) {
+      el.className = 'h-3 flex-1 rounded transition-all duration-500 ' + (level >= 4 ? 'bg-red-500' : level >= 3 ? 'bg-amber-500' : 'bg-zen');
+    } else {
+      el.className = 'h-3 flex-1 rounded bg-gray-800 transition-all duration-500';
+    }
+  }
+}
+
+// Session log
+function addLog(msg) {
+  const log = document.getElementById('sessionLog');
+  const div = document.createElement('div');
+  div.className = 'flex items-center gap-2 fade-in';
+  const dot = msg.includes('⚠️') ? 'bg-red-400' : msg.includes('✅') ? 'bg-zen' : 'bg-blue-400';
+  div.innerHTML = `<span class="w-1.5 h-1.5 rounded-full ${dot} flex-shrink-0"></span><span class="text-gray-300">${new Date().toLocaleTimeString().slice(0,5)} — ${msg}</span>`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+// HR Wave
+let wavePoints = Array(60).fill(25);
+let waveFrame;
+function startBioWave() {
+  if (waveFrame) return;
+  const svg = document.getElementById('hrWave');
+  const poly = svg.querySelector('polyline');
+  const w = svg.clientWidth || 400;
+  function frame() {
+    wavePoints.shift();
+    const base = panelMode === 'stress' ? 15 : 25;
+    const amp = panelMode === 'stress' ? 18 : 10;
+    wavePoints.push(base + Math.sin(Date.now() / (panelMode === 'stress' ? 150 : 300)) * amp + Math.random() * 4);
+    const pts = wavePoints.map((y, i) => `${(i / 59) * w},${y}`).join(' ');
+    poly.setAttribute('points', pts);
+    poly.style.stroke = panelMode === 'stress' ? '#ef4444' : '#22c55e';
+    waveFrame = requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+// Session timer
+let sessionStart = Date.now();
+setInterval(() => {
+  const s = Math.floor((Date.now() - sessionStart) / 1000);
+  const el = document.getElementById('sessionTimer');
+  if (el) el.textContent = `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+}, 1000);
+
+// Init
+showTab('dashboard');
+</script>
+</body>
+</html>

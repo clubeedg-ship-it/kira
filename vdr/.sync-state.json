@@ -1,0 +1,514 @@
+{
+  "abura-cosmetics-sales-research-CRITIQUE.md": {
+    "mtime": "1770044210121.13",
+    "notionPageId": "302a6c94-88ca-817f-941e-d641fc1ca84b"
+  },
+  "abura-cosmetics-sales-research-v2.md": {
+    "mtime": "1770044418531.4807",
+    "notionPageId": "302a6c94-88ca-8100-9ce9-d2b324327649"
+  },
+  "abura-cosmetics-sales-research.md": {
+    "mtime": "1770041405817.9739",
+    "notionPageId": "302a6c94-88ca-8166-b458-d7ab75deb600"
+  },
+  "agent-scaling-architecture.md": {
+    "mtime": "1770386067924.6428",
+    "notionPageId": "302a6c94-88ca-818f-80e4-e27c40505465"
+  },
+  "billion-dollar-math.md": {
+    "mtime": "1770518449369.9722",
+    "notionPageId": "302a6c94-88ca-81bb-853e-d162e3268052"
+  },
+  "bot-triagem-gestacional-mvp.md": {
+    "mtime": "1770049100479.2266",
+    "notionPageId": "302a6c94-88ca-8181-afac-cebbb4f4fd11"
+  },
+  "bullet-journal-goal-system.md": {
+    "mtime": "1770052609007.566",
+    "notionPageId": "302a6c94-88ca-817c-998f-d09a08bdb1da"
+  },
+  "bullet-journal-setup.md": {
+    "mtime": "1770052777300.8435",
+    "notionPageId": "302a6c94-88ca-81ed-bb7b-dd74c08f6598"
+  },
+  "ceo-daily-routine-framework.md": {
+    "mtime": "1770386025414.6255",
+    "notionPageId": "302a6c94-88ca-81db-9b83-dba1a520ca76"
+  },
+  "chimera-deep-strategy.md": {
+    "mtime": "1770514790145.7446",
+    "notionPageId": "302a6c94-88ca-81db-bed2-fac611c1a06c"
+  },
+  "cuttingedge-deep-strategy.md": {
+    "mtime": "1770514737760.9233",
+    "notionPageId": "302a6c94-88ca-817f-8b0b-f38f08554c54"
+  },
+  "cuttingedge-ux-strategy.md": {
+    "mtime": "1770044313998.8164",
+    "notionPageId": "302a6c94-88ca-811d-a275-ef37a9e47851"
+  },
+  "iam-chain-outreach.md": {
+    "mtime": "1770584623574.9353",
+    "notionPageId": "302a6c94-88ca-8171-ab8c-d0236d10e506"
+  },
+  "iam-cold-outreach-templates.md": {
+    "mtime": "1770498232428.993",
+    "notionPageId": "302a6c94-88ca-81aa-8cd0-e17b41d6ce03"
+  },
+  "iam-deep-strategy.md": {
+    "mtime": "1770522000478.2192",
+    "notionPageId": "302a6c94-88ca-8129-832f-f8e5909f366d"
+  },
+  "iam-email-outreach-tools-research.md": {
+    "mtime": "1770046640026.0315",
+    "notionPageId": "302a6c94-88ca-8194-a9d8-da353284e701"
+  },
+  "iam-kindergarten-email-templates.md": {
+    "mtime": "1770584525048.1982",
+    "notionPageId": "302a6c94-88ca-812b-ad49-d24e320dd0ee"
+  },
+  "iam-kindergarten-prospect-list.md": {
+    "mtime": "1770498182569.1062",
+    "notionPageId": "302a6c94-88ca-811d-824e-da3db14aea33"
+  },
+  "iam-landing-page-copy.md": {
+    "mtime": "1770498283861.8433",
+    "notionPageId": "302a6c94-88ca-81d1-9bf4-e3b3c2bbdbfb"
+  },
+  "iam-roi-calculator.md": {
+    "mtime": "1770584571101.1404",
+    "notionPageId": "302a6c94-88ca-819c-b0ca-db602a0b1b7b"
+  },
+  "iam-sales-one-pager.md": {
+    "mtime": "1770498264703.2715",
+    "notionPageId": "302a6c94-88ca-813e-a7f2-f1686b6d1798"
+  },
+  "iam-website-refactor-prompt-v2.md": {
+    "mtime": "1770309309199.807",
+    "notionPageId": "302a6c94-88ca-81c5-ba8d-e8df9a5b662e"
+  },
+  "iam-website-refactor-prompt.md": {
+    "mtime": "1770214576242.055",
+    "notionPageId": "302a6c94-88ca-81d0-b3c8-e74f183621da"
+  },
+  "iam-website-review.md": {
+    "mtime": "1770516600874.177",
+    "notionPageId": "302a6c94-88ca-81de-a258-c5acf10ea082"
+  },
+  "kira-ops-deep-strategy.md": {
+    "mtime": "1770514805582.3972",
+    "notionPageId": "302a6c94-88ca-815c-b388-d855e7691ee1"
+  },
+  "kira-scaling-playbook.md": {
+    "mtime": "1770386243825.7751",
+    "notionPageId": "302a6c94-88ca-816e-859b-f5a1b5d0bb5e"
+  },
+  "notion-calendar-populated.md": {
+    "mtime": "1770052689797.7822",
+    "notionPageId": "302a6c94-88ca-815a-be51-dc0b23963b97"
+  },
+  "notion-cleanup-log.md": {
+    "mtime": "1770486398462.6643",
+    "notionPageId": "302a6c94-88ca-81a7-8922-c0f10581bd2b"
+  },
+  "notion-full-update-log.md": {
+    "mtime": "1770636903233.4998",
+    "notionPageId": "302a6c94-88ca-81bc-b6bb-e576b10cb6d0"
+  },
+  "notion-goals-fix-log.md": {
+    "mtime": "1770486984763.3596",
+    "notionPageId": "302a6c94-88ca-8185-8a23-da88d58227df"
+  },
+  "notion-pm-setup-log.md": {
+    "mtime": "1770481096861.2942",
+    "notionPageId": "302a6c94-88ca-8195-a9ce-e6e47b9ea9cf"
+  },
+  "notion-population-log.md": {
+    "mtime": "1770488125972.221",
+    "notionPageId": "302a6c94-88ca-8194-874f-c9a8c7256dd0"
+  },
+  "notion-project-template.md": {
+    "mtime": "1770636903228.4998",
+    "notionPageId": "302a6c94-88ca-81f9-8596-d2891d48c294"
+  },
+  "notion-restructure-log.md": {
+    "mtime": "1770050392420.4216",
+    "notionPageId": "302a6c94-88ca-819b-a15f-ea84da6d040a"
+  },
+  "notion-template-applied.md": {
+    "mtime": "1770636903232.4998",
+    "notionPageId": "302a6c94-88ca-81c5-ae50-f46af1a45e61"
+  },
+  "notion-vdr-sync-log.md": {
+    "mtime": "1770490419553.1956",
+    "notionPageId": "302a6c94-88ca-81cb-b71c-f062c290180c"
+  },
+  "oopuo-company-input-output-matrix.md": {
+    "mtime": "1770386073112.523",
+    "notionPageId": "302a6c94-88ca-81f9-b452-fc7df5083515"
+  },
+  "oopuo-multi-company-os-research.md": {
+    "mtime": "1770386063053.7554",
+    "notionPageId": "302a6c94-88ca-810f-ac9c-e3575e639190"
+  },
+  "oopuo-structure-workshop.md": {
+    "mtime": "1770049971139.0762",
+    "notionPageId": "302a6c94-88ca-8162-9e20-d513fe5fc254"
+  },
+  "ottogen-ai-audit-template.md": {
+    "mtime": "1770584572339.1118",
+    "notionPageId": "302a6c94-88ca-81f0-a3f0-dae97a92aefa"
+  },
+  "ottogen-audit-call-script.md": {
+    "mtime": "1770635717057.6914",
+    "notionPageId": "302a6c94-88ca-8126-97de-c8854218de17"
+  },
+  "ottogen-brand-strategy.md": {
+    "mtime": "1770048708760.439",
+    "notionPageId": "302a6c94-88ca-812b-b7a3-ca21e7c3d0ae"
+  },
+  "ottogen-deep-strategy.md": {
+    "mtime": "1770521992900.3918",
+    "notionPageId": "302a6c94-88ca-810e-ab88-f824df3020fa"
+  },
+  "ottogen-email-sequence.md": {
+    "mtime": "1770584509826.5479",
+    "notionPageId": "302a6c94-88ca-819c-a9a8-c1f108bc4b00"
+  },
+  "ottogen-first-10-clients-playbook.md": {
+    "mtime": "1770498311050.2354",
+    "notionPageId": "302a6c94-88ca-812d-a8aa-ec8dea2c77a4"
+  },
+  "ottogen-landing-page-copy.md": {
+    "mtime": "1770498209668.5012",
+    "notionPageId": "302a6c94-88ca-813a-a06e-f01872c1dfa3"
+  },
+  "ottogen-linkedin-dm-templates.md": {
+    "mtime": "1770584485048.1172",
+    "notionPageId": "302a6c94-88ca-8188-8567-f5f83fbb1dd7"
+  },
+  "ottogen-service-menu.md": {
+    "mtime": "1770584538216.8955",
+    "notionPageId": "302a6c94-88ca-8146-a5a5-cfb1e9212fc7"
+  },
+  "ottogen-service-packages.md": {
+    "mtime": "1770498152581.7754",
+    "notionPageId": "302a6c94-88ca-810a-bb27-d470c77eaeb3"
+  },
+  "ottogen-website-design.md": {
+    "mtime": "1770635756678.7695",
+    "notionPageId": "302a6c94-88ca-814d-878e-c7604c7ae748"
+  },
+  "pipeline-tracker-design.md": {
+    "mtime": "1770636903231.4998",
+    "notionPageId": "302a6c94-88ca-81b7-b317-c31cf1ba4c53"
+  },
+  "project-management-research.md": {
+    "mtime": "1770636903230.4998",
+    "notionPageId": "302a6c94-88ca-8149-82c8-c088221e0d48"
+  },
+  "sales-automation-research.md": {
+    "mtime": "1770489535404.6055",
+    "notionPageId": "302a6c94-88ca-8123-8048-d3425d5bb668"
+  },
+  "sentinagro-deep-strategy.md": {
+    "mtime": "1770514748922.672",
+    "notionPageId": "302a6c94-88ca-81ee-b401-fc67014e38a8"
+  },
+  "sentinagro-financial-projection.md": {
+    "mtime": "1770636535677.6384",
+    "notionPageId": "302a6c94-88ca-8129-a23a-c8faec97fa4d"
+  },
+  "skill-supply-chain-security.md": {
+    "mtime": "1770386052019.0105",
+    "notionPageId": "302a6c94-88ca-8164-931e-d501ec917b89"
+  },
+  "strategic-roadmap-2026.md": {
+    "mtime": "1770520189593.1956",
+    "notionPageId": "302a6c94-88ca-8154-8c9f-ff593623ad5c"
+  },
+  "team-framework-per-company.md": {
+    "mtime": "1770386182463.0183",
+    "notionPageId": "302a6c94-88ca-81ec-a73c-f0a9e0da4c04"
+  },
+  "tools-inventory-per-company.md": {
+    "mtime": "1770386207614.511",
+    "notionPageId": "302a6c94-88ca-8176-9ef6-f8ae2ac17b0d"
+  },
+  "ui-ux-ceo-dashboard-spec.md": {
+    "mtime": "1770386133494.1272",
+    "notionPageId": "302a6c94-88ca-81cc-8c7c-faf3bb5159fe"
+  },
+  "vm-infrastructure-audit.md": {
+    "mtime": "1770386000703.1965",
+    "notionPageId": "302a6c94-88ca-8129-9778-e64b205605c1"
+  },
+  "voice-llm-research.md": {
+    "mtime": "1770056818170.3176",
+    "notionPageId": "302a6c94-88ca-81d3-a777-d6b2e043fbac"
+  },
+  "zenithcred-business-model-CRITIQUE.md": {
+    "mtime": "1770044237796.5144",
+    "notionPageId": "302a6c94-88ca-81a9-9804-cae75cf063ed"
+  },
+  "zenithcred-business-model-v2.md": {
+    "mtime": "1770044424700.3425",
+    "notionPageId": "302a6c94-88ca-81f0-b069-cb15bb59086b"
+  },
+  "zenithcred-business-model.md": {
+    "mtime": "1770043714403.0261",
+    "notionPageId": "302a6c94-88ca-8138-9da7-d1f7e62aa6a9"
+  },
+  "zenithcred-deep-strategy.md": {
+    "mtime": "1770522016628.8513",
+    "notionPageId": "302a6c94-88ca-81bf-a880-cef80b22ecfe"
+  },
+  "zenithcred-exec-summary.md": {
+    "mtime": "1770584529407.098",
+    "notionPageId": "302a6c94-88ca-81a4-8508-d75e3ff45e9d"
+  },
+  "zenithcred-feasibility-research.md": {
+    "mtime": "1770042439993.2063",
+    "notionPageId": "302a6c94-88ca-8194-a779-ef7752855e17"
+  },
+  "zenithcred-investor-one-pager.md": {
+    "mtime": "1770584487004.0723",
+    "notionPageId": "302a6c94-88ca-81e1-b664-e092e1d8371c"
+  },
+  "zenithcred-investor-outreach-sequence.md": {
+    "mtime": "1770498301703.4443",
+    "notionPageId": "302a6c94-88ca-817b-a467-d9efe31c93df"
+  },
+  "zenithcred-investor-target-list.md": {
+    "mtime": "1770498237143.8875",
+    "notionPageId": "302a6c94-88ca-815d-9f3f-fa5ec174ac7d"
+  },
+  "abura/abura-cosmetics-sales-research-CRITIQUE.md": {
+    "mtime": "1770044210121.13",
+    "notionPageId": "302a6c94-88ca-817a-83c0-d2f69cecc5d7"
+  },
+  "abura/abura-cosmetics-sales-research-v2.md": {
+    "mtime": "1770044418531.4807",
+    "notionPageId": "302a6c94-88ca-81e3-b406-e4d6da351e88"
+  },
+  "abura/abura-cosmetics-sales-research.md": {
+    "mtime": "1770041405817.9739",
+    "notionPageId": "302a6c94-88ca-8132-afa7-c1db91312409"
+  },
+  "chimera/chimera-deep-strategy.md": {
+    "mtime": "1770514790145.7446",
+    "notionPageId": "302a6c94-88ca-813e-a46a-ec2cc9842dde"
+  },
+  "cuttingedge/cuttingedge-deep-strategy.md": {
+    "mtime": "1770514737760.9233",
+    "notionPageId": "302a6c94-88ca-8171-97f2-dba34beac18e"
+  },
+  "cuttingedge/cuttingedge-ux-strategy.md": {
+    "mtime": "1770044313998.8164",
+    "notionPageId": "302a6c94-88ca-8124-931d-ff8a2fa5775a"
+  },
+  "iam/iam-chain-outreach.md": {
+    "mtime": "1770584623574.9353",
+    "notionPageId": "302a6c94-88ca-8178-b9e0-df6b9426bd37"
+  },
+  "iam/iam-cold-outreach-templates.md": {
+    "mtime": "1770498232428.993",
+    "notionPageId": "302a6c94-88ca-8196-b72e-cb38e206a112"
+  },
+  "iam/iam-deep-strategy.md": {
+    "mtime": "1770522000478.2192",
+    "notionPageId": "302a6c94-88ca-8194-a902-f3a91c18e051"
+  },
+  "iam/iam-email-infrastructure-research.md": {
+    "mtime": "1770638037953.7722",
+    "notionPageId": "302a6c94-88ca-81e6-bcee-e73f27e845a1"
+  },
+  "iam/iam-email-outreach-tools-research.md": {
+    "mtime": "1770046640026.0315",
+    "notionPageId": "302a6c94-88ca-81e2-819b-dd918e2fe57f"
+  },
+  "iam/iam-kindergarten-email-templates.md": {
+    "mtime": "1770584525048.1982",
+    "notionPageId": "302a6c94-88ca-816d-8b12-fd7961635bc2"
+  },
+  "iam/iam-kindergarten-prospect-list.md": {
+    "mtime": "1770498182569.1062",
+    "notionPageId": "302a6c94-88ca-81b2-9cbb-eed35060e9d9"
+  },
+  "iam/iam-landing-page-copy.md": {
+    "mtime": "1770498283861.8433",
+    "notionPageId": "302a6c94-88ca-81c5-b184-cc6c7d080a64"
+  },
+  "iam/iam-roi-calculator.md": {
+    "mtime": "1770584571101.1404",
+    "notionPageId": "302a6c94-88ca-817a-8caf-ddbbad184b5b"
+  },
+  "iam/iam-sales-one-pager.md": {
+    "mtime": "1770498264703.2715",
+    "notionPageId": "302a6c94-88ca-81f1-aaa1-e5414cac77c3"
+  },
+  "iam/iam-website-refactor-prompt-v2.md": {
+    "mtime": "1770309309199.807",
+    "notionPageId": "302a6c94-88ca-81e1-82c8-c9546a683c2d"
+  },
+  "iam/iam-website-refactor-prompt.md": {
+    "mtime": "1770214576242.055",
+    "notionPageId": "302a6c94-88ca-8177-aaba-d59cb2cfcb87"
+  },
+  "iam/iam-website-review.md": {
+    "mtime": "1770516600874.177",
+    "notionPageId": "302a6c94-88ca-8137-af4d-c901b0411ea1"
+  },
+  "oopuo/kira-ops-deep-strategy.md": {
+    "mtime": "1770514805582.3972",
+    "notionPageId": "302a6c94-88ca-81e7-be80-eb24d1724945"
+  },
+  "oopuo/kira-scaling-playbook.md": {
+    "mtime": "1770386243825.7751",
+    "notionPageId": "302a6c94-88ca-8131-8a72-dfaeb6be0f5d"
+  },
+  "oopuo/oopuo-company-input-output-matrix.md": {
+    "mtime": "1770386073112.523",
+    "notionPageId": "302a6c94-88ca-8131-8055-d3692fd6902e"
+  },
+  "oopuo/oopuo-multi-company-os-research.md": {
+    "mtime": "1770386063053.7554",
+    "notionPageId": "302a6c94-88ca-818e-92a5-d3fccd8a7878"
+  },
+  "oopuo/oopuo-structure-workshop.md": {
+    "mtime": "1770049971139.0762",
+    "notionPageId": "302a6c94-88ca-81f4-bf83-f39cc3a659da"
+  },
+  "ottogen/ottogen-ai-audit-template.md": {
+    "mtime": "1770584572339.1118",
+    "notionPageId": "302a6c94-88ca-81bc-a9cb-e24a9f7d90f0"
+  },
+  "ottogen/ottogen-audit-call-script.md": {
+    "mtime": "1770651746728.9563",
+    "notionPageId": "302a6c94-88ca-81c7-8d63-f8beabbde926"
+  },
+  "ottogen/ottogen-brand-strategy.md": {
+    "mtime": "1770048708760.439",
+    "notionPageId": "302a6c94-88ca-816f-a82d-f04d3690a85d"
+  },
+  "ottogen/ottogen-deep-strategy.md": {
+    "mtime": "1770521992900.3918",
+    "notionPageId": "302a6c94-88ca-8118-b759-d2cb18f3a7ed"
+  },
+  "ottogen/ottogen-email-sequence.md": {
+    "mtime": "1770584509826.5479",
+    "notionPageId": "302a6c94-88ca-81b2-a15d-f294adcdcda9"
+  },
+  "ottogen/ottogen-first-10-clients-playbook.md": {
+    "mtime": "1770498311050.2354",
+    "notionPageId": "302a6c94-88ca-81c8-a312-f2e3d2ebf87a"
+  },
+  "ottogen/ottogen-landing-page-copy.md": {
+    "mtime": "1770498209668.5012",
+    "notionPageId": "302a6c94-88ca-816b-b136-f88e99b3442e"
+  },
+  "ottogen/ottogen-linkedin-dm-templates.md": {
+    "mtime": "1770584485048.1172",
+    "notionPageId": "302a6c94-88ca-8174-9323-d0dae6eb7e84"
+  },
+  "ottogen/ottogen-service-menu.md": {
+    "mtime": "1770584538216.8955",
+    "notionPageId": "302a6c94-88ca-815d-b113-d529e62cf3fe"
+  },
+  "ottogen/ottogen-service-packages.md": {
+    "mtime": "1770498152581.7754",
+    "notionPageId": "302a6c94-88ca-8153-8e92-fabfd2530408"
+  },
+  "ottogen/ottogen-website-design.md": {
+    "mtime": "1770635756678.7695",
+    "notionPageId": "302a6c94-88ca-8146-8c44-e9db2a11cd35"
+  },
+  "ottogen/ottogen-website-v2-notes.md": {
+    "mtime": "1770637191394.0186",
+    "notionPageId": "302a6c94-88ca-81bc-a397-d0b6874db1e6"
+  },
+  "ottogen/ottogen-website-v3-notes.md": {
+    "mtime": "1770637653882.5264",
+    "notionPageId": "302a6c94-88ca-8161-bd85-fe9b3dbdc0c4"
+  },
+  "sentinagro/sentinagro-deep-strategy.md": {
+    "mtime": "1770514748922.672",
+    "notionPageId": "302a6c94-88ca-814f-8759-e7ff40389bd4"
+  },
+  "sentinagro/sentinagro-financial-projection.md": {
+    "mtime": "1770636535677.6384",
+    "notionPageId": "302a6c94-88ca-8197-a80e-eb941dbb43cf"
+  },
+  "sentinagro/sentnagro-deck.md": {
+    "mtime": "1770421956483.375",
+    "notionPageId": "302a6c94-88ca-8188-b09c-c479e40e2e16"
+  },
+  "zenithcred/zenithcred-business-model-CRITIQUE.md": {
+    "mtime": "1770044237796.5144",
+    "notionPageId": "302a6c94-88ca-8138-a5cb-f7a79d89cfd6"
+  },
+  "zenithcred/zenithcred-business-model-v2.md": {
+    "mtime": "1770044424700.3425",
+    "notionPageId": "302a6c94-88ca-81e7-a9a8-c0d5e115632a"
+  },
+  "zenithcred/zenithcred-business-model.md": {
+    "mtime": "1770043714403.0261",
+    "notionPageId": "302a6c94-88ca-8194-af95-f3b420dd623d"
+  },
+  "zenithcred/zenithcred-deck.md": {
+    "mtime": "1770421916635.2708",
+    "notionPageId": "302a6c94-88ca-8157-9fe7-ed9d3139e0ab"
+  },
+  "zenithcred/zenithcred-deep-strategy.md": {
+    "mtime": "1770522016628.8513",
+    "notionPageId": "302a6c94-88ca-81b1-a28c-cfba1b107325"
+  },
+  "zenithcred/zenithcred-exec-summary.md": {
+    "mtime": "1770584529407.098",
+    "notionPageId": "302a6c94-88ca-813e-b097-c92f5878c44e"
+  },
+  "zenithcred/zenithcred-feasibility-research.md": {
+    "mtime": "1770042439993.2063",
+    "notionPageId": "302a6c94-88ca-815e-803f-eb5ce64831eb"
+  },
+  "zenithcred/zenithcred-investor-one-pager.md": {
+    "mtime": "1770584487004.0723",
+    "notionPageId": "302a6c94-88ca-8179-82b7-f74eb8977f5f"
+  },
+  "zenithcred/zenithcred-investor-outreach-sequence.md": {
+    "mtime": "1770498301703.4443",
+    "notionPageId": "302a6c94-88ca-811e-9053-c8e0fa127608"
+  },
+  "zenithcred/zenithcred-investor-target-list.md": {
+    "mtime": "1770498237143.8875",
+    "notionPageId": "302a6c94-88ca-813c-9b3e-f553902d311f"
+  },
+  "zenithcred/zenithcred-investor-targets.md": {
+    "mtime": "1770584574511.062",
+    "notionPageId": "302a6c94-88ca-8108-8b0d-d1a36495538d"
+  },
+  "zenithcred/zenithcred-marketing-strategy-CRITIQUE.md": {
+    "mtime": "1770044204592.253",
+    "notionPageId": "302a6c94-88ca-81b8-af78-d89e15b57e17"
+  },
+  "zenithcred/zenithcred-marketing-strategy-v2.md": {
+    "mtime": "1770044472589.2703",
+    "notionPageId": "302a6c94-88ca-8157-9df1-e76a5da4d88a"
+  },
+  "zenithcred/zenithcred-marketing-strategy.md": {
+    "mtime": "1770043726184.7566",
+    "notionPageId": "302a6c94-88ca-818b-b70f-f0be3089425a"
+  },
+  "zenithcred/zenithcred-pitch-deck-FULL.md": {
+    "mtime": "1770386196636.733",
+    "notionPageId": "302a6c94-88ca-81a1-984c-ca163873a6eb"
+  },
+  "zenithcred/zenithcred-pitch-deck-outline.md": {
+    "mtime": "1770377139822.0889",
+    "notionPageId": "302a6c94-88ca-81a6-a508-fe20ed8c7c5e"
+  },
+  "zenithcred/zenithcred-pitch-deck-speaker-notes.md": {
+    "mtime": "1770498440033.348",
+    "notionPageId": "302a6c94-88ca-810a-b046-c5b5f6a56176"
+  }
+}

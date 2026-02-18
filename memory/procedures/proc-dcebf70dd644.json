@@ -1,0 +1,19 @@
+{
+  "id": "proc-dcebf70dd644",
+  "name": "Heartbeat Quick Checks",
+  "created": "2026-02-08T01:38:51.263Z",
+  "updated": "2026-02-08T01:38:51.263Z",
+  "version": 1,
+  "trigger": "Every heartbeat",
+  "steps": [
+    "Check Gateway status",
+    "Check Sub-agent inbox",
+    "Check Chimera activity",
+    "Check Moltbook engagement"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "proc-857a8f9ae0a7",
+  "name": "Failure Handling",
+  "created": "2026-02-07T17:20:30.701Z",
+  "updated": "2026-02-07T17:20:30.701Z",
+  "version": 1,
+  "trigger": "when failure occurs",
+  "steps": [
+    "Handle failure",
+    "Handle uncertainty"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

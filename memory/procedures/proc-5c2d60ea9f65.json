@@ -1,0 +1,19 @@
+{
+  "id": "proc-5c2d60ea9f65",
+  "name": "Add Custom Telegram Command",
+  "created": "2026-02-07T22:09:48.369Z",
+  "updated": "2026-02-07T22:09:48.369Z",
+  "version": 1,
+  "trigger": "When a user requests a custom command feature",
+  "steps": [
+    "Create the script file (e.g., scripts/random_number.py) with the required logic.",
+    "Modify the clawdbot.json configuration file.",
+    "Add an entry to channels.telegram.customCommands with the command name and description.",
+    "Restart the gateway service to apply the configuration changes."
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

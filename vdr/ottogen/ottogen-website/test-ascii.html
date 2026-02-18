@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+<style>
+body{margin:0;background:#050510;color:#fff;font-family:sans-serif}
+section{position:relative;height:100vh;display:flex;align-items:center;justify-content:center}
+.ascii-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ascii-bg canvas{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.3}
+h1{position:relative;z-index:2;font-size:3rem}
+</style>
+</head><body>
+<section>
+  <div class="ascii-bg"><canvas id="test"></canvas></div>
+  <h1>ASCII Test</h1>
+</section>
+<script>
+const c = document.getElementById('test');
+const ctx = c.getContext('2d');
+
+// Debug info
+const info = document.createElement('div');
+info.style.cssText = 'position:fixed;top:10px;left:10px;z-index:999;color:lime;font-size:14px;font-family:monospace;background:rgba(0,0,0,.8);padding:10px';
+document.body.appendChild(info);
+
+function init() {
+  const w = c.clientWidth;
+  const h = c.clientHeight;
+  info.textContent = `clientW:${w} clientH:${h} offsetW:${c.offsetWidth} offsetH:${c.offsetHeight} parentW:${c.parentElement.clientWidth} parentH:${c.parentElement.clientHeight}`;
+  
+  c.width = w || window.innerWidth;
+  c.height = h || window.innerHeight;
+  
+  info.textContent += ` | canvas.width:${c.width} canvas.height:${c.height}`;
+  
+  const fs = 14;
+  const cols = Math.floor(c.width / (fs * 0.6));
+  const rows = Math.floor(c.height / fs);
+  
+  let t = 0;
+  function draw() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.font = fs + 'px monospace';
+    ctx.textBaseline = 'top';
+    
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const v = Math.sin(col * 0.1 + t + row * 0.05) * 0.5 + 0.5;
+        if (v > 0.3) {
+          ctx.fillStyle = `rgba(0,85,255,${v * 0.3})`;
+          ctx.fillText('~', col * fs * 0.6, row * fs);
+        }
+      }
+    }
+    t += 0.03;
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+requestAnimationFrame(init);
+</script>
+</body></html>

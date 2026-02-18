@@ -1,0 +1,19 @@
+{
+  "id": "proc-69200f6304fe",
+  "name": "Manual Ollama Installation",
+  "created": "2026-02-07T16:01:40.502Z",
+  "updated": "2026-02-07T16:01:40.502Z",
+  "version": 1,
+  "trigger": "When automatic update fails or version mismatch occurs",
+  "steps": [
+    "Locate extracted tar file (e.g., ollama-linux-amd64.tar.zst)",
+    "Extract files to /tmp/bin/ollama",
+    "Copy binary to /usr/local/bin/ollama",
+    "Restart Ollama service"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

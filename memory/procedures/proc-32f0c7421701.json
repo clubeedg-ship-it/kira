@@ -1,0 +1,20 @@
+{
+  "id": "proc-32f0c7421701",
+  "name": "Docker Build and Container Recreate",
+  "created": "2026-02-08T03:09:32.566Z",
+  "updated": "2026-02-08T03:09:32.566Z",
+  "version": 1,
+  "trigger": "System execution",
+  "steps": [
+    "Name image to docker.io/library/docker-email-automation",
+    "Resolve provenance for metadata file",
+    "Build image docker-email-automation",
+    "Recreate container omiximo-email-automation",
+    "Start container omiximo-email-automation"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

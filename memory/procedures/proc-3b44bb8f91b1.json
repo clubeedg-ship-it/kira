@@ -1,0 +1,18 @@
+{
+  "id": "proc-3b44bb8f91b1",
+  "name": "Operating Framework",
+  "created": "2026-02-07T16:18:59.471Z",
+  "updated": "2026-02-07T16:18:59.471Z",
+  "version": 1,
+  "trigger": "Framework creation",
+  "steps": [
+    "Define Operating Modes (Autonomous, Checkpoint, Approval)",
+    "Establish Daily Rhythm",
+    "Set Priority Stack"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

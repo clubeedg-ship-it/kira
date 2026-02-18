@@ -1,0 +1,19 @@
+{
+  "id": "proc-82104b0da90b",
+  "name": "Update Ollama Model",
+  "created": "2026-02-07T16:50:00.988Z",
+  "updated": "2026-02-07T16:50:00.988Z",
+  "version": 1,
+  "trigger": "User requests small model for summarization",
+  "steps": [
+    "List available models",
+    "Attempt to pull requested model (e.g., qwen3:0.6b)",
+    "If failed, attempt alternative (e.g., qwen2.5:0.5b)",
+    "Verify download success"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

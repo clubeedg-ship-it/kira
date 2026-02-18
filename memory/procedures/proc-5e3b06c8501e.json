@@ -1,0 +1,18 @@
+{
+  "id": "proc-5e3b06c8501e",
+  "name": "Memory Flush",
+  "created": "2026-02-07T16:02:01.530Z",
+  "updated": "2026-02-07T16:02:01.530Z",
+  "version": 1,
+  "trigger": "Pre-compaction memory flush",
+  "steps": [
+    "Store durable memories to memory/YYYY-MM-DD.md",
+    "Create memory/ directory if needed",
+    "Commit to git if changes exist"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "proc-5a29228ec407",
+  "name": "Task Pre-Digester Workflow",
+  "created": "2026-02-11T18:01:22.930Z",
+  "updated": "2026-02-11T18:01:22.930Z",
+  "version": 1,
+  "trigger": "cron job execution",
+  "steps": [
+    "Query Notion Tasks DB with filters (Assignee = Otto, Status = Todo or In Progress, Due Date = today or overdue)",
+    "For each task, research and prepare a step-by-step guide, key findings, resources, time estimate, and done criteria",
+    "Send formatted guide via Telegram"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

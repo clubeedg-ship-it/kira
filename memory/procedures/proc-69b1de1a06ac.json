@@ -1,0 +1,19 @@
+{
+  "id": "proc-69b1de1a06ac",
+  "name": "connect_to_imap",
+  "created": "2026-02-07T23:09:33.531Z",
+  "updated": "2026-02-07T23:09:33.531Z",
+  "version": 1,
+  "trigger": "IMAPClient.connect() method call",
+  "steps": [
+    "Load password from .secrets/email_password.enc using key from .secrets/email.key",
+    "Establish SSL connection to imap.hostnet.nl:993",
+    "Login with info@omiximo.nl and password",
+    "Return True if successful, raise ConnectionError if failed"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

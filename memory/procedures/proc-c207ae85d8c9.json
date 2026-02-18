@@ -1,0 +1,19 @@
+{
+  "id": "proc-c207ae85d8c9",
+  "name": "Notion reorganization",
+  "created": "2026-02-07T15:57:47.163Z",
+  "updated": "2026-02-07T15:57:47.163Z",
+  "version": 1,
+  "trigger": "when Notion organization plan is ready",
+  "steps": [
+    "Move all project pages (Chimera, OttoGen, ZenithCred, SentinAgro, IAM, etc.) into the Projects database",
+    "Create an Oopuo umbrella entry",
+    "Link Areas to Projects",
+    "Clean up floating pages"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

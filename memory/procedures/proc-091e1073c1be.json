@@ -1,0 +1,17 @@
+{
+  "id": "proc-091e1073c1be",
+  "name": "Tool Fallback Strategy",
+  "created": "2026-02-07T21:06:13.418Z",
+  "updated": "2026-02-07T21:06:13.418Z",
+  "version": 1,
+  "trigger": "when tools break (e.g., Ollama)",
+  "steps": [
+    "Switch to direct usage (e.g., vLLM)",
+    "Use big models for extraction, tiny models for summaries"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,11 @@
+{
+  "dispatches": [
+    {
+      "timestamp": "2026-02-02T10:52:02.532Z",
+      "jobId": "54f9fd3b-ef7d-4dae-a560-f950a575be6b",
+      "message": "Create a simple hello world script",
+      "type": "create",
+      "user": "otto"
+    }
+  ]
+}

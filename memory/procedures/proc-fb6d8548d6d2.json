@@ -1,0 +1,16 @@
+{
+  "id": "proc-fb6d8548d6d2",
+  "name": "Run Weekly Reflection",
+  "created": "2026-02-07T21:08:14.907Z",
+  "updated": "2026-02-07T21:08:14.907Z",
+  "version": 1,
+  "trigger": "Weekly or after failures",
+  "steps": [
+    "Run node ~/clawd/scripts/memory/reflection.js run 7"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

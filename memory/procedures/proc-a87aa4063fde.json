@@ -1,0 +1,17 @@
+{
+  "id": "proc-a87aa4063fde",
+  "name": "Retrieve Last Day Sales",
+  "created": "2026-02-08T02:39:36.229Z",
+  "updated": "2026-02-08T02:39:36.229Z",
+  "version": 1,
+  "trigger": "User command",
+  "steps": [
+    "Run `./ctl.sh sales` or `python scripts/last_day_sales.py --hours 24`",
+    "Script outputs sales orders with items and revenue"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

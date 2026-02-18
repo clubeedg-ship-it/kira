@@ -1,0 +1,16 @@
+{
+  "id": "proc-677e2ade156c",
+  "name": "Run Reflection",
+  "created": "2026-02-07T17:49:13.039Z",
+  "updated": "2026-02-07T17:49:13.039Z",
+  "version": 1,
+  "trigger": "Weekly or after failures",
+  "steps": [
+    "Run node ~/clawd/scripts/memory/reflection.js run 7"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

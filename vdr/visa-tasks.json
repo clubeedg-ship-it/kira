@@ -1,0 +1,130 @@
+[
+  {
+    "title": "🚨 Consult Immigration Lawyer (NL)",
+    "description": "URGENT: Consult a Dutch immigration lawyer about current status in Netherlands, overstay risk, and best exit strategy. This must happen BEFORE any travel. Get advice on whether overstay will affect entrepreneur visa application. Budget: €2,000-5,000.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-02-28"
+  },
+  {
+    "title": "Register Dutch Company (KvK/BV)",
+    "description": "Set up Dutch business entity — either eenmanszaak (sole proprietorship, €75, in-person at KvK) or BV (via notary, €500-1,500). BV is more credible for IND. Need BSN and valid ID. Must be done while still in NL.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-03-15"
+  },
+  {
+    "title": "Open Dutch Business Bank Account",
+    "description": "Open business bank account (ING, ABN AMRO, Bunq). Deposit minimum €4,500 (must remain). Show €25,000 startup equity. Requires KvK registration. Some banks need in-person verification — do before leaving NL.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-03-31"
+  },
+  {
+    "title": "Write Business Plan for IND/RVO",
+    "description": "Comprehensive business plan addressing all RVO scoring criteria (Personal Experience ≥30pts, Business Plan ≥30pts, Added Value ≥30pts). Must show €50K first-year revenue projection. Get certified by Dutch accountant. Consider hiring consultant (€1,000-3,000). 20-40 pages with evidence.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-15"
+  },
+  {
+    "title": "Obtain Criminal Record Certificate",
+    "description": "Get clean criminal record certificate from country of nationality. Must be recent (usually <3 months old) and apostilled/legalized. Translated to Dutch/English if needed.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-01"
+  },
+  {
+    "title": "Find Dutch Accountant/Bookkeeper",
+    "description": "Engage a registered Dutch accountant to certify 2-year financial projections and opening balance sheet for IND application. They must be willing to work remotely once Otto is in Brazil. Budget: €500-1,500.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-03-15"
+  },
+  {
+    "title": "Gather Reference Letters & Contracts",
+    "description": "Collect letters of intent, signed contracts, and reference letters from Dutch/EU clients or partners. These support the business plan and RVO scoring. The more Dutch economic connections, the better.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-15"
+  },
+  {
+    "title": "Arrange Dutch Address for Registration",
+    "description": "Secure a Dutch address for mail and official correspondence. Options: friend's address, virtual office, or rented accommodation. Needed for KvK registration and IND correspondence.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-03-15"
+  },
+  {
+    "title": "Plan Schengen Exit Route",
+    "description": "Decide exit strategy: Option A) UK via Hook of Holland ferry (best flights to Brazil). Option B) Serbia by car via Austria/Hungary (clean non-Schengen stamp). Get immigration lawyer advice on which is safest given current status. Book ferry/accommodations.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-15"
+  },
+  {
+    "title": "Book Flight: Non-Schengen → Brazil",
+    "description": "Book flight from exit country to Brazil (São Paulo preferred — Dutch consulate is there). London direct ~€400-600, Belgrade via connection ~€400-600. Arriving ~May 2026.",
+    "priority": "P2",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-20"
+  },
+  {
+    "title": "Book São Paulo Consulate Appointment",
+    "description": "Schedule MVV application appointment at Dutch Consulate-General São Paulo (netherlandsworldwide.nl). Appointments fill quickly — book as early as possible. Bring all original documents + copies.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-05-15"
+  },
+  {
+    "title": "Submit MVV Application at Consulate",
+    "description": "Attend appointment at São Paulo consulate. Submit IND form 7558, all documents, biometrics. Pay €423 fee within 3 weeks. Processing: 90 days (up to 6 months). Have lawyer on standby for IND questions.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-06-01"
+  },
+  {
+    "title": "Plan Brazil → Argentina Travel",
+    "description": "Book travel from Brazil to Argentina. Flight São Paulo → Buenos Aires ~€100-250, or bus ~€50-120 (30-36h). Both visa-free for Dutch/Brazilian passport. Consider Iguazu Falls stopover.",
+    "priority": "P2",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "title": "Arrange Dutch Health Insurance",
+    "description": "Research and arrange Dutch basisverzekering (mandatory health insurance, ~€120-150/month). Can be activated upon return to NL with residence permit. Having a plan/letter of intent strengthens application.",
+    "priority": "P2",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-05-01"
+  },
+  {
+    "title": "Collect MVV & Return to Netherlands",
+    "description": "Once IND approves (est. Aug-Nov 2026): collect MVV sticker at São Paulo consulate within 3 months of approval letter. Book return flight to Netherlands. Enter NL within MVV validity. Register at IND desk within 2 weeks.",
+    "priority": "P0",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-11-01"
+  },
+  {
+    "title": "Prepare Document Travel Pack",
+    "description": "Before leaving NL: Organize all originals + copies in travel folder. Include passport, KvK extract, bank statements, business plan, criminal record cert, diplomas, reference letters, CV, photos, IND forms. Digital backup on USB + cloud.",
+    "priority": "P1",
+    "company": "Personal",
+    "status": "todo",
+    "dueDate": "2026-04-25"
+  }
+]

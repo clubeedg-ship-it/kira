@@ -1,0 +1,75 @@
+{
+  "period": {
+    "days": 7,
+    "since": "2026-01-30T11:22:28.540Z",
+    "until": "2026-02-06T11:22:28.541Z"
+  },
+  "stats": {
+    "total": 16,
+    "successes": 8,
+    "failures": 0,
+    "highImportance": 8,
+    "successRate": 0.5
+  },
+  "typeBreakdown": {
+    "milestone": {
+      "success": 3,
+      "total": 3
+    },
+    "{\"type\":\"milestone\",\"summary\":\"Dashboard live at copilot.zenithcred.com - Otto can see cognitive state in real-time\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"dashboard\",\"monitoring\",\"milestone\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "task": {
+      "success": 5,
+      "total": 5
+    },
+    "{\"type\":\"task\",\"summary\":\"Built real-time cognitive dashboard at port 3847 - live monitoring of episodes, blackboard, reflections\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"dashboard\",\"monitoring\",\"ui\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"milestone\",\"summary\":\"First autonomous local inference test - qwen2.5:32b responding in 250ms, self-reflection working\",\"outcome\":\"success\",\"importance\":9,\"tags\":[\"memory\",\"4090\",\"autonomy\",\"milestone\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"milestone\",\"summary\":\"Implemented full 3-layer cognitive memory architecture with 4090 GPU integration\",\"outcome\":\"success\",\"importance\":9,\"tags\":[\"memory\",\"architecture\",\"4090\",\"milestone\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Created IAM Sales Playbook with Apollo/Instantly/Vapi setup\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"iam\",\"sales\",\"automation\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Created OttoGen 4-class webinar curriculum\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"ottogen\",\"content\",\"curriculum\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Built IAM Sales Quest gamification in Notion\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"iam\",\"sales\",\"notion\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Launched Oopuo $1B mission - created full org structure\",\"outcome\":\"success\",\"importance\":9,\"tags\":[\"oopuo\",\"milestone\"]}": {
+      "success": 0,
+      "total": 1
+    }
+  },
+  "insights": [
+    {
+      "type": "success_pattern",
+      "content": "Strong in: milestone, 4090, dashboard, monitoring, memory",
+      "confidence": 0.8
+    },
+    {
+      "type": "high_performer",
+      "content": "milestone tasks at 100% success - document procedures",
+      "confidence": 0.9
+    },
+    {
+      "type": "high_performer",
+      "content": "task tasks at 100% success - document procedures",
+      "confidence": 0.9
+    }
+  ],
+  "recommendations": [],
+  "timestamp": "2026-02-06T11:22:28.541Z"
+}

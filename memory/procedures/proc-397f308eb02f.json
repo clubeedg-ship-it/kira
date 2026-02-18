@@ -1,0 +1,19 @@
+{
+  "id": "proc-397f308eb02f",
+  "name": "Daily Financial Review",
+  "created": "2026-02-07T16:02:34.555Z",
+  "updated": "2026-02-07T16:02:34.555Z",
+  "version": 1,
+  "trigger": "Daily (Morning Routine)",
+  "steps": [
+    "Review cash position vs 13-week forecast",
+    "Check burn rate alerts",
+    "Review AR aging for overdue accounts (>90 days)",
+    "Check AP urgent items"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

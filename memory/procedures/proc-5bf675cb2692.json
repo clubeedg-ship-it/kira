@@ -1,0 +1,21 @@
+{
+  "id": "proc-5bf675cb2692",
+  "name": "Infrastructure Audit",
+  "created": "2026-02-07T15:48:21.829Z",
+  "updated": "2026-02-07T15:48:21.829Z",
+  "version": 1,
+  "trigger": "When user asks about system status or background work",
+  "steps": [
+    "Check Ollama models",
+    "Check for specific models (GLM4.7)",
+    "Check for CLI tools (Codex, OpenCode)",
+    "Check memory system status (Episodes, Procedures, Graph DB)",
+    "Check code TODOs",
+    "Report missing components and pending tasks"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

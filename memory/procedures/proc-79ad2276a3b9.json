@@ -1,0 +1,19 @@
+{
+  "id": "proc-79ad2276a3b9",
+  "name": "Browser Frontend Check",
+  "created": "2026-02-08T03:40:07.020Z",
+  "updated": "2026-02-08T03:40:07.020Z",
+  "version": 1,
+  "trigger": "when frontend issue is reported",
+  "steps": [
+    "Attempt to connect to browser control server",
+    "Navigate to URL (e.g., http://localhost:1441)",
+    "Capture screenshot",
+    "Check for specific elements (e.g., Profitability tab)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

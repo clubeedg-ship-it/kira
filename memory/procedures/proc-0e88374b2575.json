@@ -1,0 +1,18 @@
+{
+  "id": "proc-0e88374b2575",
+  "name": "Run Memory Manager",
+  "created": "2026-02-07T21:08:14.907Z",
+  "updated": "2026-02-07T21:08:14.907Z",
+  "version": 1,
+  "trigger": "Heartbeat or Active Conversation",
+  "steps": [
+    "Check context usage",
+    "Run curator if usage > 75%",
+    "Sync memory"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-a44d5b1eb175",
+  "name": "Run Curator",
+  "created": "2026-02-07T21:07:45.177Z",
+  "updated": "2026-02-07T21:07:45.177Z",
+  "version": 1,
+  "trigger": "When context usage exceeds 50% or every 50 messages",
+  "steps": [
+    "Check token usage against threshold",
+    "Run curator with qwen3:14b model",
+    "Process uncurated messages",
+    "Update curator-state.json"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

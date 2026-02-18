@@ -1,0 +1,17 @@
+{
+  "id": "proc-cb021c1d6104",
+  "name": "Fix Stock Deduction Logic",
+  "created": "2026-02-08T01:09:57.531Z",
+  "updated": "2026-02-08T01:09:57.531Z",
+  "version": 1,
+  "trigger": "When processing orders",
+  "steps": [
+    "Replace PATCH /stock/{id}/ with POST /stock/remove/",
+    "Ensure stock movement history is created"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

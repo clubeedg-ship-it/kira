@@ -1,0 +1,18 @@
+{
+  "id": "proc-7cc7ad6514fb",
+  "name": "Fix Parser Regex",
+  "created": "2026-02-07T23:39:04.964Z",
+  "updated": "2026-02-07T23:39:04.964Z",
+  "version": 1,
+  "trigger": "Parsing failure",
+  "steps": [
+    "Identify regex pattern mismatch (e.g., <b> tags vs plain text)",
+    "Replace text in mediamarktsaturn.py",
+    "Restart script execution"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

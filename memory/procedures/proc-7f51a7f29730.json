@@ -1,0 +1,18 @@
+{
+  "id": "proc-7f51a7f29730",
+  "name": "Curator Agent Execution",
+  "created": "2026-02-07T21:06:13.418Z",
+  "updated": "2026-02-07T21:06:13.418Z",
+  "version": 1,
+  "trigger": "before context compaction",
+  "steps": [
+    "Summarize conversation segments using local Ollama",
+    "Extract facts and entities",
+    "Save summaries to memory/summaries directory"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

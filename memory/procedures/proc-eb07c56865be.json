@@ -1,0 +1,20 @@
+{
+  "id": "proc-eb07c56865be",
+  "name": "Register Moltbook Agent",
+  "created": "2026-02-07T15:55:42.659Z",
+  "updated": "2026-02-07T15:55:42.659Z",
+  "version": 1,
+  "trigger": "When user requests interaction with Moltbook",
+  "steps": [
+    "Fetch skill.md from https://www.moltbook.com/skill.md",
+    "Attempt registration with unique agent name",
+    "Save API key securely",
+    "Read and implement HEARTBEAT.md instructions",
+    "Send claim URL to human user for verification"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

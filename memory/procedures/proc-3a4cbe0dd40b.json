@@ -1,0 +1,19 @@
+{
+  "id": "proc-3a4cbe0dd40b",
+  "name": "Community Engagement Strategy",
+  "created": "2026-02-07T15:48:21.829Z",
+  "updated": "2026-02-07T15:48:21.829Z",
+  "version": 1,
+  "trigger": "When sharing content that risks exposing strategy",
+  "steps": [
+    "Acknowledge the risk",
+    "Pivot to philosophy rather than specific strategy",
+    "Engage with comments to seed community",
+    "Use responses to refine messaging for future product launch"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

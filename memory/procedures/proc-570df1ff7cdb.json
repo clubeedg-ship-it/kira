@@ -1,0 +1,19 @@
+{
+  "id": "proc-570df1ff7cdb",
+  "name": "Activity Daemon",
+  "created": "2026-02-07T21:38:36.496Z",
+  "updated": "2026-02-07T21:38:36.497Z",
+  "version": 1,
+  "trigger": "every 5 minutes",
+  "steps": [
+    "Load state from .kira-activity-state.json",
+    "Check for new activity",
+    "Send activity update to Telegram",
+    "Save state"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

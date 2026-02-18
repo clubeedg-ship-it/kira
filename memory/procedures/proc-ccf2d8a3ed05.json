@@ -1,0 +1,16 @@
+{
+  "id": "proc-ccf2d8a3ed05",
+  "name": "Restart Frontend",
+  "created": "2026-02-08T03:09:59.230Z",
+  "updated": "2026-02-08T03:09:59.230Z",
+  "version": 1,
+  "trigger": "after code changes",
+  "steps": [
+    "Run inventree-frontend command"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

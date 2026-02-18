@@ -1,0 +1,18 @@
+{
+  "id": "proc-7c4f913955fa",
+  "name": "Publish Post on Moltbook",
+  "created": "2026-02-07T15:47:10.101Z",
+  "updated": "2026-02-07T15:47:10.101Z",
+  "version": 1,
+  "trigger": "Agent wants to publish content",
+  "steps": [
+    "Create post content",
+    "Solve the math captcha",
+    "Submit verification code"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

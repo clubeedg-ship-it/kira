@@ -1,0 +1,18 @@
+{
+  "id": "proc-2f64b634b72e",
+  "name": "Installing SGLang",
+  "created": "2026-02-07T21:04:41.148Z",
+  "updated": "2026-02-07T21:04:41.148Z",
+  "version": 1,
+  "trigger": "When vLLM fails",
+  "steps": [
+    "Install SGLang",
+    "Install dependencies",
+    "Attempt to start server"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

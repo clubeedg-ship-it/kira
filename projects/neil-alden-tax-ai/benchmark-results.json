@@ -1,0 +1,107 @@
+[
+  {
+    "model": "moonshotai/kimi-k2.5",
+    "prompt": "Treaty Analysis (Royalties BR-NL)",
+    "error": "User not found.",
+    "elapsed": 349,
+    "excerpt": null
+  },
+  {
+    "model": "moonshotai/kimi-k2.5",
+    "prompt": "Formal Legal Opinion (DE services)",
+    "error": "User not found.",
+    "elapsed": 49,
+    "excerpt": null
+  },
+  {
+    "model": "moonshotai/kimi-k2.5",
+    "prompt": "Quick Q&A (Dividends BR-JP)",
+    "error": "User not found.",
+    "elapsed": 38,
+    "excerpt": null
+  },
+  {
+    "model": "minimax/minimax-m1-80k",
+    "prompt": "Treaty Analysis (Royalties BR-NL)",
+    "error": "User not found.",
+    "elapsed": 40,
+    "excerpt": null
+  },
+  {
+    "model": "minimax/minimax-m1-80k",
+    "prompt": "Formal Legal Opinion (DE services)",
+    "error": "User not found.",
+    "elapsed": 40,
+    "excerpt": null
+  },
+  {
+    "model": "minimax/minimax-m1-80k",
+    "prompt": "Quick Q&A (Dividends BR-JP)",
+    "error": "User not found.",
+    "elapsed": 41,
+    "excerpt": null
+  },
+  {
+    "model": "thudm/glm-z1-32b",
+    "prompt": "Treaty Analysis (Royalties BR-NL)",
+    "error": "User not found.",
+    "elapsed": 41,
+    "excerpt": null
+  },
+  {
+    "model": "thudm/glm-z1-32b",
+    "prompt": "Formal Legal Opinion (DE services)",
+    "error": "User not found.",
+    "elapsed": 47,
+    "excerpt": null
+  },
+  {
+    "model": "thudm/glm-z1-32b",
+    "prompt": "Quick Q&A (Dividends BR-JP)",
+    "error": "User not found.",
+    "elapsed": 41,
+    "excerpt": null
+  },
+  {
+    "model": "qwen/qwen3-32b",
+    "prompt": "Treaty Analysis (Royalties BR-NL)",
+    "error": "User not found.",
+    "elapsed": 40,
+    "excerpt": null
+  },
+  {
+    "model": "qwen/qwen3-32b",
+    "prompt": "Formal Legal Opinion (DE services)",
+    "error": "User not found.",
+    "elapsed": 39,
+    "excerpt": null
+  },
+  {
+    "model": "qwen/qwen3-32b",
+    "prompt": "Quick Q&A (Dividends BR-JP)",
+    "error": "User not found.",
+    "elapsed": 38,
+    "excerpt": null
+  },
+  {
+    "model": "deepseek/deepseek-r1",
+    "prompt": "Treaty Analysis (Royalties BR-NL)",
+    "error": "User not found.",
+    "elapsed": 65,
+    "excerpt": null
+  },
+  {
+    "model": "deepseek/deepseek-r1",
+    "prompt": "Formal Legal Opinion (DE services)",
+    "error": "User not found.",
+    "elapsed": 38,
+    "excerpt": null
+  },
+  {
+    "model": "deepseek/deepseek-r1",
+    "prompt": "Quick Q&A (Dividends BR-JP)",
+    "error": "User not found.",
+    "elapsed": 48,
+    "excerpt": null
+  }
+]

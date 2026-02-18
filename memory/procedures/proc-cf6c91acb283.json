@@ -1,0 +1,18 @@
+{
+  "id": "proc-cf6c91acb283",
+  "name": "Separate Activity Log from Memory System",
+  "created": "2026-02-07T16:01:40.502Z",
+  "updated": "2026-02-07T16:01:40.502Z",
+  "version": 1,
+  "trigger": "When user requests distinct roles for logging vs memory",
+  "steps": [
+    "Write kira-status.js script for quick status updates",
+    "Disable memory-watcher.service",
+    "Reserve GLM-4.7-Flash for deep extraction only"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

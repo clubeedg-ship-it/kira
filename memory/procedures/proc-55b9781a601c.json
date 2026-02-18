@@ -1,0 +1,21 @@
+{
+  "id": "proc-55b9781a601c",
+  "name": "Generator-Critic-Refiner Loop",
+  "created": "2026-02-08T01:38:51.263Z",
+  "updated": "2026-02-08T01:38:51.263Z",
+  "version": 1,
+  "trigger": "When a task description is provided",
+  "steps": [
+    "Spawn producer sub-agent (via OpenClaw)",
+    "Read output file",
+    "Spawn CRITIC agent to review against criteria (Completeness, Accuracy, Actionability, Quality)",
+    "If score < threshold, spawn REFINER agent with original output + critique",
+    "Save final output + critique log",
+    "Update Notion task status"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

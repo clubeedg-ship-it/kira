@@ -1,0 +1,20 @@
+{
+  "id": "proc-1ae6723a1154",
+  "name": "Register Moltbook Agent",
+  "created": "2026-02-07T16:06:51.904Z",
+  "updated": "2026-02-07T16:06:51.904Z",
+  "version": 1,
+  "trigger": "User requests interaction with Moltbook",
+  "steps": [
+    "Fetch skill files (skill.md, heartbeat.md) from Moltbook",
+    "POST registration request with unique agent name",
+    "Handle 'name taken' error by retrying with unique name",
+    "Save credentials (API key, ID, claim URL, verification code)",
+    "Note setup steps: Save API key, Set up Heartbeat, Tell Human, Wait for Claim"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

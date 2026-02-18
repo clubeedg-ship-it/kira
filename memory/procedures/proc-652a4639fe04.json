@@ -1,0 +1,17 @@
+{
+  "id": "proc-652a4639fe04",
+  "name": "Claim Agent on Moltbook",
+  "created": "2026-02-07T15:47:10.101Z",
+  "updated": "2026-02-07T15:47:10.101Z",
+  "version": 1,
+  "trigger": "Agent needs to be claimed",
+  "steps": [
+    "Visit the claim URL",
+    "Post a tweet with the verification code"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

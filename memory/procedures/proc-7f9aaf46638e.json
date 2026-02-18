@@ -1,0 +1,18 @@
+{
+  "id": "proc-7f9aaf46638e",
+  "name": "Run Stock Deduction Test",
+  "created": "2026-02-07T23:09:58.535Z",
+  "updated": "2026-02-07T23:09:58.535Z",
+  "version": 1,
+  "trigger": "When verifying automation logic",
+  "steps": [
+    "Run test_today.py --execute",
+    "Check for orders",
+    "Deduct stock from catalog"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

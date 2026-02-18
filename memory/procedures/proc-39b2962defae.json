@@ -1,0 +1,19 @@
+{
+  "id": "proc-39b2962defae",
+  "name": "Create Ollama model from LM Studio GGUF",
+  "created": "2026-02-07T18:45:41.638Z",
+  "updated": "2026-02-07T18:45:41.638Z",
+  "version": 1,
+  "trigger": "Executed by dawn-pra",
+  "steps": [
+    "Parsing GGUF",
+    "Using existing layers",
+    "Writing manifest",
+    "Success"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Control — Oopuo</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0a0f; color:#c8c8d0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; display:flex; height:100vh; overflow:hidden; }
+  
+  /* Sidebar */
+  .sidebar { width:260px; background:#0e0e18; border-right:1px solid #1a1a2e; display:flex; flex-direction:column; flex-shrink:0; }
+  .sidebar-header { padding:16px; border-bottom:1px solid #1a1a2e; }
+  .sidebar-header h1 { font-size:1rem; color:#fff; }
+  .sidebar-header .sub { font-size:.7rem; color:#555; margin-top:2px; }
+  .agent-list { flex:1; overflow-y:auto; padding:8px; }
+  .agent-card { padding:10px 12px; border-radius:8px; cursor:pointer; margin-bottom:4px; transition:all .15s; border:1px solid transparent; }
+  .agent-card:hover { background:#14142a; }
+  .agent-card.active { background:#14142a; border-color:#4a9eff33; }
+  .agent-card .name { font-size:.85rem; font-weight:600; color:#e8e8f0; display:flex; align-items:center; gap:6px; }
+  .agent-card .name .emoji { font-size:1rem; }
+  .agent-card .info { font-size:.7rem; color:#555; margin-top:3px; }
+  .agent-card .info .sessions { color:#4a9eff; }
+  .agent-card .badge { display:inline-block; font-size:.6rem; padding:1px 6px; border-radius:8px; margin-left:auto; }
+  .agent-card .badge.online { background:#0a2a0a; color:#2d8; }
+  .agent-card .badge.idle { background:#2a2a0a; color:#da2; }
+
+  /* Main area */
+  .main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+  .toolbar { padding:10px 16px; border-bottom:1px solid #1a1a2e; display:flex; align-items:center; gap:12px; background:#0e0e18; }
+  .toolbar .agent-title { font-size:.95rem; font-weight:600; color:#fff; }
+  .toolbar .agent-model { font-size:.7rem; color:#555; }
+  .toolbar button { background:#1a1a2e; color:#c8c8d0; border:1px solid #2a2a3e; padding:5px 10px; border-radius:6px; font-size:.75rem; cursor:pointer; }
+  .toolbar button:hover { border-color:#4a9eff; }
+  .toolbar button.live { background:#0a2a0a; border-color:#2d8; color:#2d8; }
+  .toolbar .spacer { flex:1; }
+  .toolbar .status { font-size:.7rem; color:#555; }
+  .toolbar .status.on { color:#2d8; }
+
+  /* Session tabs */
+  .session-tabs { display:flex; gap:2px; padding:6px 16px; border-bottom:1px solid #1a1a2e; background:#0c0c16; overflow-x:auto; }
+  .session-tab { padding:4px 10px; font-size:.7rem; color:#666; border-radius:4px; cursor:pointer; white-space:nowrap; }
+  .session-tab:hover { color:#aaa; background:#14142a; }
+  .session-tab.active { color:#4a9eff; background:#14142a; }
+
+  /* Chat log */
+  .log { flex:1; overflow-y:auto; padding:12px 16px; display:flex; flex-direction:column; gap:3px; }
+  .msg { padding:8px 14px; border-radius:6px; font-size:.85rem; line-height:1.5; white-space:pre-wrap; word-break:break-word; max-width:95%; }
+  .msg.user { background:#111125; border-left:3px solid #4a9eff; }
+  .msg.assistant { background:#0f1a0f; border-left:3px solid #2d8; }
+  .msg .meta { font-size:.65rem; color:#444; margin-bottom:2px; display:flex; gap:8px; }
+  .msg .meta .role { font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
+  .msg.user .meta .role { color:#4a9eff; }
+  .msg.assistant .meta .role { color:#2d8; }
+  .empty { color:#444; text-align:center; padding:40px; font-style:italic; }
+
+  /* Stats bar */
+  .stats-bar { padding:8px 16px; border-top:1px solid #1a1a2e; background:#0e0e18; display:flex; gap:20px; font-size:.7rem; color:#555; }
+  .stats-bar .stat { display:flex; align-items:center; gap:4px; }
+  .stats-bar .stat .val { color:#aaa; font-weight:600; }
+
+  ::-webkit-scrollbar { width:5px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:#2a2a3e; border-radius:3px; }
+
+  @media (max-width: 700px) {
+    .sidebar { width:60px; }
+    .agent-card .info, .agent-card .name span:not(.emoji) { display:none; }
+    .agent-card .name .emoji { font-size:1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h1>🦞 Agents</h1>
+    <div class="sub">Multi-agent control panel</div>
+  </div>
+  <div class="agent-list" id="agentList">
+    <div class="empty" style="padding:20px;font-size:.8rem">Loading agents...</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="toolbar">
+    <span class="agent-title" id="agentTitle">Select an agent</span>
+    <span class="agent-model" id="agentModel"></span>
+    <span class="spacer"></span>
+    <button id="liveBtn" onclick="toggleLive()">▶ Live</button>
+    <button onclick="fetchLog()">⟳ Refresh</button>
+    <button id="translateBtn" onclick="toggleTranslate()">🌐 EN</button>
+    <span class="status" id="statusText">idle</span>
+  </div>
+  <div class="session-tabs" id="sessionTabs"></div>
+  <div class="log" id="log">
+    <div class="empty">← Select an agent to view conversations</div>
+  </div>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat">Messages: <span class="val" id="statMsgs">0</span></div>
+    <div class="stat">Sessions: <span class="val" id="statSessions">0</span></div>
+    <div class="stat">Last active: <span class="val" id="statLast">—</span></div>
+  </div>
+</div>
+
+<script>
+const AGENTS_META = {
+  'main': { emoji: '⚡', name: 'Kira', desc: 'Main agent — Otto\'s AI partner', model: 'claude-opus-4-6' },
+  'stella-debts': { emoji: '⚖️', name: 'Vic', desc: 'Tax debt management learner', model: 'claude-sonnet-4-5' },
+  'nova': { emoji: '🌟', name: 'Nova', desc: 'AI life partner demo', model: 'claude-sonnet-4-5' }
+};
+
+let currentAgent = null;
+let currentSession = null;
+let liveInterval = null;
+let allSessions = {};
+let translateEnabled = true;
+
+async function loadAgents() {
+  try {
+    const res = await fetch('/api/agents');
+    const agents = await res.json();
+    const el = document.getElementById('agentList');
+    el.innerHTML = agents.map(id => {
+      const meta = AGENTS_META[id] || { emoji: '🤖', name: id, desc: '', model: '?' };
+      return `<div class="agent-card" data-agent="${id}" onclick="selectAgent('${id}')">
+        <div class="name"><span class="emoji">${meta.emoji}</span><span>${meta.name}</span><span class="badge online">●</span></div>
+        <div class="info">${meta.desc}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('agentList').innerHTML = `<div class="empty">Error loading agents</div>`;
+  }
+}
+
+async function selectAgent(agentId) {
+  currentAgent = agentId;
+  currentSession = null;
+  
+  // Update sidebar
+  document.querySelectorAll('.agent-card').forEach(c => c.classList.toggle('active', c.dataset.agent === agentId));
+  
+  // Update toolbar
+  const meta = AGENTS_META[agentId] || { emoji: '🤖', name: agentId, model: '?' };
+  document.getElementById('agentTitle').textContent = `${meta.emoji} ${meta.name}`;
+  document.getElementById('agentModel').textContent = meta.model;
+  
+  await fetchLog();
+}
+
+async function fetchLog() {
+  if (!currentAgent) return;
+  try {
+    const res = await fetch(`/api/log?agent=${currentAgent}&limit=200&translate=${translateEnabled}`);
+    const data = await res.json();
+    
+    // Group by session
+    const sessions = {};
+    for (const m of (data.messages || [])) {
+      const s = m.session || 'default';
+      if (!sessions[s]) sessions[s] = [];
+      sessions[s].push(m);
+    }
+    allSessions = sessions;
+    
+    // Render session tabs
+    const sessionIds = Object.keys(sessions);
+    if (!currentSession && sessionIds.length) currentSession = sessionIds[sessionIds.length - 1];
+    
+    const tabsEl = document.getElementById('sessionTabs');
+    tabsEl.innerHTML = sessionIds.map(s => {
+      const count = sessions[s].length;
+      const last = sessions[s][sessions[s].length - 1];
+      const time = last?.ts ? new Date(last.ts).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : '';
+      const label = s.substring(0, 8);
+      return `<div class="session-tab ${s === currentSession ? 'active' : ''}" onclick="selectSession('${s}')">${label}… (${count}) ${time}</div>`;
+    }).join('');
+    
+    renderMessages(sessions[currentSession] || []);
+    
+    // Stats
+    const allMsgs = data.messages || [];
+    document.getElementById('statMsgs').textContent = allMsgs.length;
+    document.getElementById('statSessions').textContent = sessionIds.length;
+    const lastMsg = allMsgs[allMsgs.length - 1];
+    document.getElementById('statLast').textContent = lastMsg?.ts ? new Date(lastMsg.ts).toLocaleString() : '—';
+  } catch(e) {
+    document.getElementById('log').innerHTML = `<div class="empty">Error: ${e.message}</div>`;
+  }
+}
+
+function selectSession(sessionId) {
+  currentSession = sessionId;
+  document.querySelectorAll('.session-tab').forEach(t => t.classList.toggle('active', t.textContent.startsWith(sessionId.substring(0, 8))));
+  renderMessages(allSessions[sessionId] || []);
+}
+
+function renderMessages(messages) {
+  const el = document.getElementById('log');
+  if (!messages.length) {
+    el.innerHTML = '<div class="empty">No messages in this session yet.</div>';
+    return;
+  }
+  const wasAtBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 30;
+  
+  const meta = AGENTS_META[currentAgent] || { name: 'AI' };
+  el.innerHTML = messages.map(m => {
+    const time = m.ts ? new Date(m.ts).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' }) : '';
+    const date = m.ts ? new Date(m.ts).toLocaleDateString() : '';
+    const text = m.text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const original = m.original && m.original !== m.text ? m.original.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+    const roleName = m.role === 'user' ? 'User' : meta.name;
+    const tooltip = original ? ` title="${original}"` : '';
+    return `<div class="msg ${m.role}"${tooltip}><div class="meta"><span class="role">${roleName}</span><span>${date} ${time}</span>${original ? '<span style="color:#4a9eff;font-size:.6rem">translated</span>' : ''}</div>${text}</div>`;
+  }).join('');
+  
+  if (wasAtBottom) el.scrollTop = el.scrollHeight;
+}
+
+function toggleLive() {
+  const btn = document.getElementById('liveBtn');
+  const st = document.getElementById('statusText');
+  if (liveInterval) {
+    clearInterval(liveInterval);
+    liveInterval = null;
+    btn.textContent = '▶ Live';
+    btn.classList.remove('live');
+    st.textContent = 'idle';
+    st.classList.remove('on');
+  } else {
+    liveInterval = setInterval(fetchLog, 3000);
+    btn.textContent = '⏸ Pause';
+    btn.classList.add('live');
+    st.textContent = 'live';
+    st.classList.add('on');
+    fetchLog();
+  }
+}
+
+function toggleTranslate() {
+  translateEnabled = !translateEnabled;
+  const btn = document.getElementById('translateBtn');
+  btn.textContent = translateEnabled ? '🌐 EN' : '🌐 Off';
+  btn.classList.toggle('live', translateEnabled);
+  fetchLog();
+}
+
+// Init
+loadAgents();
+</script>
+</body>
+</html>

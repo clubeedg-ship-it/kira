@@ -1,0 +1,20 @@
+{
+  "id": "proc-d1650540f99c",
+  "name": "download_glm_model",
+  "created": "2026-02-07T17:50:15.728Z",
+  "updated": "2026-02-07T17:50:15.728Z",
+  "version": 1,
+  "trigger": "when downloading glm-4.7-flash",
+  "steps": [
+    "Check network speed",
+    "Verify aria2c installation and version",
+    "Write download script to ~/clawd/scripts/",
+    "Start aria2c process for specific shards",
+    "Monitor progress via PID"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

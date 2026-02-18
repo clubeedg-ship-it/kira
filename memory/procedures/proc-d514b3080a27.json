@@ -1,0 +1,17 @@
+{
+  "id": "proc-d514b3080a27",
+  "name": "Update Memory Watcher",
+  "created": "2026-02-07T16:01:06.751Z",
+  "updated": "2026-02-07T16:01:06.751Z",
+  "version": 1,
+  "trigger": "New model available",
+  "steps": [
+    "Replace text in ~/clawd/scripts/memory/memory-watcher.js",
+    "Start memory-watcher.service"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "proc-685e2083bdcb",
+  "name": "Load GLM model via transformers",
+  "created": "2026-02-07T21:05:15.985Z",
+  "updated": "2026-02-07T21:05:15.985Z",
+  "version": 1,
+  "trigger": "when using transformers library",
+  "steps": [
+    "Install accelerate library",
+    "Run from_pretrained method"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-060f97791493",
+  "name": "OMIXIMO EMAIL-TO-INVENTORY TEST",
+  "created": "2026-02-08T00:38:58.882Z",
+  "updated": "2026-02-08T00:38:58.882Z",
+  "version": 1,
+  "trigger": "Looking back 24 hours",
+  "steps": [
+    "Initialize InvenTree client",
+    "Test email connection",
+    "Search for marketplace emails",
+    "Deduct stock (EXECUTING mode)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

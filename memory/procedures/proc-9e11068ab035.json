@@ -1,0 +1,20 @@
+{
+  "id": "proc-9e11068ab035",
+  "name": "Sync Config",
+  "created": "2026-02-08T03:09:59.230Z",
+  "updated": "2026-02-08T03:09:59.230Z",
+  "version": 1,
+  "trigger": "on config save",
+  "steps": [
+    "Frontend edits config",
+    "Config saved to localStorage",
+    "localStorage synced to Backend API",
+    "Backend API writes to File",
+    "Email Automation reads File"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

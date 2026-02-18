@@ -1,0 +1,16 @@
+{
+  "id": "proc-6fa974f02c4c",
+  "name": "View Logs",
+  "created": "2026-02-08T01:09:37.774Z",
+  "updated": "2026-02-08T01:09:37.774Z",
+  "version": 1,
+  "trigger": "When debugging is needed",
+  "steps": [
+    "docker logs -f omiximo-email-automation"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

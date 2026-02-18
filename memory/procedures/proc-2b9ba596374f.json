@@ -1,0 +1,20 @@
+{
+  "id": "proc-2b9ba596374f",
+  "name": "Download GLM-4.7-Flash Model",
+  "created": "2026-02-07T18:11:19.367Z",
+  "updated": "2026-02-07T18:11:19.367Z",
+  "version": 1,
+  "trigger": "When downloading the GLM-4.7-Flash model",
+  "steps": [
+    "Use aria2c to download shards (48 total)",
+    "Wait for download to complete (59GB)",
+    "Download config files (tokenizer.json, tokenizer_config.json, generation_config.json, config.json)",
+    "Test with vLLM",
+    "Wire up to memory system"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,16 @@
+{
+  "id": "proc-af0b90b6c8e4",
+  "name": "Log Episodic Memory",
+  "created": "2026-02-07T17:49:13.038Z",
+  "updated": "2026-02-07T17:49:13.038Z",
+  "version": 1,
+  "trigger": "Every heartbeat",
+  "steps": [
+    "Run node ~/clawd/scripts/memory/memory-core.js log with type, summary, outcome, importance, and tags"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

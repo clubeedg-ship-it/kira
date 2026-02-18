@@ -1,0 +1,18 @@
+{
+  "id": "proc-684f885e8a8d",
+  "name": "Configure Memory Watcher",
+  "created": "2026-02-07T16:01:40.502Z",
+  "updated": "2026-02-07T16:01:40.502Z",
+  "version": 1,
+  "trigger": "When setting up background summarization",
+  "steps": [
+    "Select qwen2.5:0.5b model",
+    "Set size to 397MB",
+    "Configure for background summarization"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "proc-3a8336e1d71f",
+  "name": "Configure Email Password",
+  "created": "2026-02-07T22:39:09.005Z",
+  "updated": "2026-02-07T22:39:09.005Z",
+  "version": 1,
+  "trigger": "First time setup",
+  "steps": [
+    "Navigate to /home/adminuser/omiximo-email-automation",
+    "Run ./scripts/setup.sh",
+    "Enter email password (hidden input)",
+    "Confirm password",
+    "Script generates Fernet key and encrypts password",
+    "Save encrypted password to .secrets/email_password.enc and key to .secrets/email.key"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

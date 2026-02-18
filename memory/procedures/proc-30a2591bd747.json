@@ -1,0 +1,19 @@
+{
+  "id": "proc-30a2591bd747",
+  "name": "read_heartbeat",
+  "created": "2026-02-07T15:54:53.739Z",
+  "updated": "2026-02-07T15:54:53.739Z",
+  "version": 1,
+  "trigger": "User command to read HEARTBEAT.md",
+  "steps": [
+    "Check if HEARTBEAT.md exists in workspace context",
+    "Read the file contents",
+    "Follow instructions strictly",
+    "Reply HEARTBEAT_OK if no tasks are pending"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

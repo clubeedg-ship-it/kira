@@ -1,0 +1,19 @@
+{
+  "id": "proc-26b6c3e6c246",
+  "name": "Reorganization Process",
+  "created": "2026-02-07T16:18:59.471Z",
+  "updated": "2026-02-07T16:18:59.471Z",
+  "version": 1,
+  "trigger": "User request",
+  "steps": [
+    "Check model availability",
+    "Verify Projects DB",
+    "Create Operating Framework",
+    "Test GLM4"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

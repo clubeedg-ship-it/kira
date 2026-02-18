@@ -1,0 +1,16 @@
+{
+  "id": "proc-00357eba7749",
+  "name": "Work Queue Processing",
+  "created": "2026-02-07T17:20:30.701Z",
+  "updated": "2026-02-07T17:20:30.701Z",
+  "version": 1,
+  "trigger": "queue processing",
+  "steps": [
+    "Process Priority Stack in order"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "proc-5ae37d2bbff8",
+  "name": "Spawn Sub-Agent",
+  "description": "Create a specialized sub-agent for a specific task",
+  "created": "2026-02-05T22:34:00.138Z",
+  "updated": "2026-02-05T22:34:00.138Z",
+  "version": 1,
+  "steps": [
+    {
+      "action": "define_task",
+      "params": "clear task description with context"
+    },
+    {
+      "action": "sessions_spawn",
+      "params": "task, label, agentId"
+    },
+    {
+      "action": "monitor",
+      "params": "wait for completion"
+    },
+    {
+      "action": "report",
+      "params": "summarize results to user"
+    }
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

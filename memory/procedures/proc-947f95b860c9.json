@@ -1,0 +1,18 @@
+{
+  "id": "proc-947f95b860c9",
+  "name": "Run Coding Agent",
+  "created": "2026-02-07T18:54:16.760Z",
+  "updated": "2026-02-07T18:54:16.760Z",
+  "version": 1,
+  "trigger": "When needing to run Codex, Claude Code, OpenCode, or Pi",
+  "steps": [
+    "Use bash tool with pty:true",
+    "Set command to the specific agent command",
+    "Optionally set workdir, background, timeout, or elevated parameters"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

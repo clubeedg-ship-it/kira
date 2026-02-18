@@ -1,0 +1,20 @@
+{
+  "id": "proc-47e4efd69ac2",
+  "name": "Configure Environment Variables",
+  "created": "2026-02-07T22:39:09.006Z",
+  "updated": "2026-02-07T22:39:09.006Z",
+  "version": 1,
+  "trigger": "Before running automation",
+  "steps": [
+    "Edit .env file",
+    "Set INVENTREE_API_URL",
+    "Set INVENTREE_USERNAME",
+    "Set INVENTREE_PASSWORD",
+    "Set IMAP_EMAIL"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

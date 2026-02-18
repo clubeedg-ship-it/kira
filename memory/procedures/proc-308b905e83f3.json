@@ -1,0 +1,19 @@
+{
+  "id": "proc-308b905e83f3",
+  "name": "Docker Setup",
+  "created": "2026-02-08T00:39:59.122Z",
+  "updated": "2026-02-08T00:39:59.122Z",
+  "version": 1,
+  "trigger": "When containerizing the automation",
+  "steps": [
+    "Create Dockerfile using python:3.11-slim base",
+    "Create docker-compose.yml with environment variables for credentials and volume mounts",
+    "Create .env template for IMAP/InvenTree credentials",
+    "Create entrypoint.sh to run src/main.py as daemon and check for secrets"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-b6e20fd61e04",
+  "name": "Context monitoring and curator trigger",
+  "created": "2026-02-07T21:06:48.957Z",
+  "updated": "2026-02-07T21:06:48.957Z",
+  "version": 1,
+  "trigger": "Heartbeat or active conversation",
+  "steps": [
+    "Check token usage",
+    "If usage > 75%, run curator agent",
+    "Extract facts and episodes from oldest 75% of messages",
+    "Normalize entity names"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

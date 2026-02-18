@@ -1,0 +1,610 @@
+#!/usr/bin/env node
+/**
+ * NLP + Graph Retrieval Layer for Kira
+ * 
+ * Three core operations:
+ * 1. EXTRACT — Pull entities + relationships from conversation in real-time
+ * 2. ENRICH  — Given a query, retrieve relevant context from graph + embeddings
+ * 3. EMBED   — Generate and store vector embeddings for semantic search
+ * 
+ * Architecture:
+ *   Message → extract() → graph.db (entities, relations, facts)
+ *   Query   → enrich()  → { entities, relations, facts, similar } → LLM context
+ *   Text    → embed()   → embeddings table (cosine similarity search)
+ * 
+ * Uses:
+ *   - Ollama nomic-embed-text for embeddings (local, no API cost)
+ *   - Ollama qwen3:8b / OpenRouter for entity extraction (structured output)
+ *   - SQLite unified.db for storage (WAL mode, concurrent reads)
+ */
+
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const http = require('http');
+const https = require('https');
+const Database = require('/home/adminuser/chimera/node_modules/better-sqlite3');
+
+const DB_PATH = path.join(__dirname, '../../memory/unified.db');
+const OLLAMA_URL = 'http://localhost:11434';
+const EMBED_MODEL = 'nomic-embed-text';
+const EXTRACT_MODEL = process.env.EXTRACT_MODEL || 'granite3.3:2b'; // small model to save GPU for other tasks
+
+// ── DATABASE ────────────────────────────────────────────
+
+function getDb() {
+  const db = new Database(DB_PATH);
+  db.pragma('journal_mode = WAL');
+  db.pragma('busy_timeout = 5000');
+  return db;
+}
+
+function ensureEmbeddingsTable(db) {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS embeddings (
+      id TEXT PRIMARY KEY,
+      source_type TEXT NOT NULL,  -- 'entity', 'fact', 'message', 'chunk'
+      source_id TEXT,             -- reference to source table
+      text TEXT NOT NULL,
+      vector BLOB NOT NULL,       -- Float32Array as binary
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX IF NOT EXISTS idx_embeddings_source ON embeddings(source_type, source_id);
+  `);
+}
+
+// ── OLLAMA HELPERS ──────────────────────────────────────
+
+function ollamaRequest(endpoint, body) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(body);
+    const req = http.request(`${OLLAMA_URL}${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
+    }, res => {
+      let buf = '';
+      res.on('data', c => buf += c);
+      res.on('end', () => {
+        try { resolve(JSON.parse(buf)); }
+        catch { reject(new Error(`Ollama parse error: ${buf.slice(0, 200)}`)); }
+      });
+    });
+    req.on('error', reject);
+    req.setTimeout(60000, () => { req.destroy(); reject(new Error('Ollama timeout')); });
+    req.write(data);
+    req.end();
+  });
+}
+
+async function getEmbedding(text) {
+  const trimmed = text.slice(0, 8000); // nomic context limit
+  const res = await ollamaRequest('/api/embeddings', { model: EMBED_MODEL, prompt: trimmed });
+  if (!res.embedding) throw new Error('No embedding returned');
+  return new Float32Array(res.embedding);
+}
+
+async function llmExtract(systemPrompt, userMessage) {
+  const res = await ollamaRequest('/api/chat', {
+    model: EXTRACT_MODEL,
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userMessage }
+    ],
+    stream: false,
+    options: { temperature: 0.1, num_predict: 2048 }
+  });
+  return res.message?.content || '';
+}
+
+// ── VECTOR OPERATIONS ───────────────────────────────────
+
+function cosineSimilarity(a, b) {
+  let dot = 0, normA = 0, normB = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    normA += a[i] * a[i];
+    normB += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(normA) * Math.sqrt(normB) || 1);
+}
+
+function vectorToBuffer(vec) {
+  return Buffer.from(vec.buffer, vec.byteOffset, vec.byteLength);
+}
+
+function bufferToVector(buf) {
+  return new Float32Array(buf.buffer, buf.byteOffset, buf.byteLength / 4);
+}
+
+// ── MESSAGE CLEANING ────────────────────────────────────
+
+function stripMessageMeta(text) {
+  // Strip Telegram metadata: [Telegram User (@handle) id:... timestamp]
+  let clean = text.replace(/^\[Telegram\s+[^\]]+\]\s*/i, '');
+  // Strip [message_id: ...]
+  clean = clean.replace(/\[message_id:\s*\d+\]\s*/g, '');
+  // Strip [Queued messages...] blocks
+  clean = clean.replace(/\[Queued messages[^\]]*\]\s*/g, '');
+  // Strip System: prefix
+  clean = clean.replace(/^System:\s*/i, '');
+  // Strip leading timestamps
+  clean = clean.replace(/^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}[^\]]*\]\s*/, '');
+  return clean.trim();
+}
+
+// ── EXTRACT — Entity + Relationship extraction ─────────
+
+const EXTRACT_PROMPT = `You are an entity/relationship extractor. Given a conversation message, extract structured data.
+
+Rules:
+- Extract ONLY concrete entities (people, companies, products, technologies, locations, concepts with specific names)
+- Extract relationships between entities mentioned in the SAME message
+- Extract facts (subject-predicate-object triples)
+- Skip vague references ("it", "this", "that")
+- Skip common words that aren't named entities
+- Be precise: use exact names as mentioned
+
+Respond ONLY with valid JSON, no explanation:
+{
+  "entities": [
+    {"name": "exact name", "type": "person|company|product|technology|concept|location|project|tool|event", "description": "one line"}
+  ],
+  "relations": [
+    {"source": "entity name", "target": "entity name", "type": "relationship type", "description": "one line"}
+  ],
+  "facts": [
+    {"subject": "entity name", "predicate": "verb/relationship", "object": "value or entity"}
+  ]
+}
+
+If nothing meaningful to extract, return: {"entities":[],"relations":[],"facts":[]}
+
+Message:
+`;
+
+async function extract(message, role = 'user') {
+  if (!message || message.length < 10) return { entities: [], relations: [], facts: [] };
+  
+  // Skip system/heartbeat messages
+  if (message.startsWith('Read HEARTBEAT') || message === 'HEARTBEAT_OK' || message === 'NO_REPLY') {
+    return { entities: [], relations: [], facts: [] };
+  }
+
+  const cleanMsg = stripMessageMeta(message);
+  if (cleanMsg.length < 10) return { entities: [], relations: [], facts: [] };
+  
+  let raw;
+  try {
+    raw = await llmExtract(EXTRACT_PROMPT, `[${role}]: ${cleanMsg.slice(0, 4000)}`);
+  } catch (e) {
+    console.error('[extract] LLM error:', e.message);
+    return { entities: [], relations: [], facts: [] };
+  }
+
+  // Parse JSON from response (handle markdown code blocks)
+  let parsed;
+  try {
+    const jsonMatch = raw.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) return { entities: [], relations: [], facts: [] };
+    parsed = JSON.parse(jsonMatch[0]);
+  } catch (e) {
+    console.error('[extract] Parse error:', raw.slice(0, 200));
+    return { entities: [], relations: [], facts: [] };
+  }
+
+  return {
+    entities: Array.isArray(parsed.entities) ? parsed.entities : [],
+    relations: Array.isArray(parsed.relations) ? parsed.relations : [],
+    facts: Array.isArray(parsed.facts) ? parsed.facts : []
+  };
+}
+
+function storeExtracted(db, extracted, messageId) {
+  const now = new Date().toISOString();
+  let stored = { entities: 0, relations: 0, facts: 0 };
+
+  const upsertEntity = db.prepare(`
+    INSERT INTO entities (id, type, name, description, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?)
+    ON CONFLICT(id) DO UPDATE SET
+      updated_at = excluded.updated_at,
+      description = COALESCE(excluded.description, entities.description)
+  `);
+
+  const insertRelation = db.prepare(`
+    INSERT OR IGNORE INTO relations (id, source_id, target_id, type, properties, timestamp)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  const insertFact = db.prepare(`
+    INSERT OR IGNORE INTO facts (id, subject_id, predicate, object, source, timestamp)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  // Store entities
+  for (const e of extracted.entities) {
+    if (!e.name || !e.type) continue;
+    const id = 'ent-' + crypto.createHash('md5').update(e.name.toLowerCase()).digest('hex').slice(0, 12);
+    try {
+      upsertEntity.run(id, e.type, e.name, e.description || null, now, now);
+      stored.entities++;
+    } catch (err) { /* skip duplicates */ }
+  }
+
+  // Store relations
+  for (const r of extracted.relations) {
+    if (!r.source || !r.target || !r.type) continue;
+    const srcId = 'ent-' + crypto.createHash('md5').update(r.source.toLowerCase()).digest('hex').slice(0, 12);
+    const tgtId = 'ent-' + crypto.createHash('md5').update(r.target.toLowerCase()).digest('hex').slice(0, 12);
+    const relId = 'rel-' + crypto.createHash('md5').update(`${srcId}-${r.type}-${tgtId}`).digest('hex').slice(0, 12);
+    try {
+      insertRelation.run(relId, srcId, tgtId, r.type, JSON.stringify({ description: r.description }), now);
+      stored.relations++;
+    } catch (err) { /* skip duplicates */ }
+  }
+
+  // Store facts
+  for (const f of extracted.facts) {
+    if (!f.subject || !f.predicate || !f.object) continue;
+    const subId = 'ent-' + crypto.createHash('md5').update(f.subject.toLowerCase()).digest('hex').slice(0, 12);
+    const factId = 'fact-' + crypto.createHash('md5').update(`${f.subject}-${f.predicate}-${f.object}`).digest('hex').slice(0, 12);
+    try {
+      insertFact.run(factId, subId, f.predicate, f.object, messageId || 'live', now);
+      stored.facts++;
+    } catch (err) { /* skip duplicates */ }
+  }
+
+  return stored;
+}
+
+// ── EMBED — Generate embeddings for all unembedded content ──
+
+async function embedAll(db) {
+  ensureEmbeddingsTable(db);
+
+  let count = 0;
+
+  // Embed entities
+  const entities = db.prepare(`
+    SELECT e.id, e.name, e.type, e.description FROM entities e
+    WHERE NOT EXISTS (SELECT 1 FROM embeddings em WHERE em.source_type = 'entity' AND em.source_id = e.id)
+  `).all();
+
+  const insertEmbed = db.prepare(`
+    INSERT OR REPLACE INTO embeddings (id, source_type, source_id, text, vector, created_at)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  for (const e of entities) {
+    const text = `${e.type}: ${e.name}. ${e.description || ''}`.trim();
+    try {
+      const vec = await getEmbedding(text);
+      const id = 'emb-' + crypto.createHash('md5').update(text).digest('hex').slice(0, 12);
+      insertEmbed.run(id, 'entity', e.id, text, vectorToBuffer(vec), new Date().toISOString());
+      count++;
+      if (count % 20 === 0) console.log(`[embed] ${count} entities embedded...`);
+    } catch (err) {
+      console.error(`[embed] Failed to embed entity ${e.name}:`, err.message);
+    }
+  }
+
+  // Embed facts
+  const facts = db.prepare(`
+    SELECT f.id, f.subject_id, f.predicate, f.object FROM facts f
+    WHERE NOT EXISTS (SELECT 1 FROM embeddings em WHERE em.source_type = 'fact' AND em.source_id = f.id)
+    LIMIT 500
+  `).all();
+
+  for (const f of facts) {
+    const entity = db.prepare('SELECT name FROM entities WHERE id = ?').get(f.subject_id);
+    const text = `${entity?.name || f.subject_id} ${f.predicate} ${f.object}`;
+    try {
+      const vec = await getEmbedding(text);
+      const id = 'emb-' + crypto.createHash('md5').update(text).digest('hex').slice(0, 12);
+      insertEmbed.run(id, 'fact', f.id, text, vectorToBuffer(vec), new Date().toISOString());
+      count++;
+    } catch (err) {
+      console.error(`[embed] Failed to embed fact:`, err.message);
+    }
+  }
+
+  return count;
+}
+
+// ── ENRICH — Query the graph for relevant context ───────
+
+async function enrich(query, opts = {}) {
+  const db = getDb();
+  ensureEmbeddingsTable(db);
+  query = stripMessageMeta(query);
+  const maxResults = opts.maxResults || 15;
+  const result = {
+    entities: [],
+    relations: [],
+    facts: [],
+    similar: [],
+    context: ''  // Pre-formatted context string for LLM injection
+  };
+
+  // 1. Direct text search (fast, no embedding needed)
+  const like = `%${query}%`;
+  const directEntities = db.prepare(`
+    SELECT id, name, type, description FROM entities
+    WHERE name LIKE ? OR description LIKE ?
+    LIMIT 10
+  `).all(like, like);
+  result.entities.push(...directEntities);
+
+  // 2. Get relations for found entities
+  const entityIds = result.entities.map(e => e.id);
+  if (entityIds.length > 0) {
+    const placeholders = entityIds.map(() => '?').join(',');
+    const rels = db.prepare(`
+      SELECT r.type, r.properties,
+        s.name as source_name, s.type as source_type,
+        t.name as target_name, t.type as target_type
+      FROM relations r
+      JOIN entities s ON r.source_id = s.id
+      JOIN entities t ON r.target_id = t.id
+      WHERE r.source_id IN (${placeholders}) OR r.target_id IN (${placeholders})
+      LIMIT 30
+    `).all(...entityIds, ...entityIds);
+    result.relations.push(...rels);
+  }
+
+  // 3. Get facts for found entities
+  if (entityIds.length > 0) {
+    const placeholders = entityIds.map(() => '?').join(',');
+    const facts = db.prepare(`
+      SELECT f.predicate, f.object, e.name as subject_name
+      FROM facts f
+      LEFT JOIN entities e ON f.subject_id = e.id
+      WHERE f.subject_id IN (${placeholders})
+      LIMIT 20
+    `).all(...entityIds);
+    result.facts.push(...facts);
+  }
+
+  // 4. Semantic search via embeddings
+  //    Fix 1: Raised threshold from 0.3 → 0.65 to filter noise
+  //    Fix 2: Recency bias — newer results scored higher
+  //    Fix 3: Entity-type context filtering — disambiguate polysemous terms
+  try {
+    const queryVec = await getEmbedding(query);
+    const allEmbeddings = db.prepare('SELECT source_type, source_id, text, vector, created_at FROM embeddings').all();
+    
+    // Detect query domain for entity-type filtering (Fix 3)
+    const queryLower = query.toLowerCase();
+    const domainHints = {
+      graph: /\b(graph|node|edge|entity|relation|knowledge|orphan|connect|cluster|neo4j|sqlite)\b/,
+      network: /\b(network|firewall|port|ufw|ssh|ip|dns|server|proxy|tunnel)\b/,
+      code: /\b(code|function|script|bug|error|module|import|class|api|endpoint)\b/,
+      business: /\b(company|investor|revenue|pitch|client|customer|sales|funding|valuation)\b/,
+      infra: /\b(docker|pm2|systemd|service|daemon|process|container|deploy)\b/,
+    };
+    const activeDomains = Object.entries(domainHints)
+      .filter(([, re]) => re.test(queryLower))
+      .map(([domain]) => domain);
+
+    // Domain-specific text patterns to boost/penalize
+    const domainBoost = {
+      graph: /\b(graph|node|entity|relation|edge|triple|knowledge|orphan|connected|cluster)\b/i,
+      network: /\b(firewall|ufw|port|ssh|ip|0\.0\.0\.0|127\.0\.0\.1|tunnel|dns|network)\b/i,
+      code: /\b(function|class|module|import|require|script|error|bug|test|commit)\b/i,
+      business: /\b(investor|revenue|pitch|company|client|funding|valuation|seed|round)\b/i,
+      infra: /\b(docker|pm2|systemd|service|daemon|container|deploy|restart)\b/i,
+    };
+    
+    const now = Date.now();
+    const DAY_MS = 86400000;
+
+    const scored = allEmbeddings.map(row => {
+      const baseSimilarity = cosineSimilarity(queryVec, bufferToVector(row.vector));
+      
+      // Fix 2: Recency bias — exponential decay over 14 days
+      // Recent messages get up to 15% boost, old ones get penalized
+      const createdAt = row.created_at ? new Date(row.created_at).getTime() : now - (14 * DAY_MS);
+      const ageMs = Math.max(0, now - createdAt);
+      const ageDays = ageMs / DAY_MS;
+      const recencyBoost = Math.max(-0.05, 0.15 * Math.exp(-ageDays / 7)); // +15% for today, decays to ~0 by day 14, -5% floor for ancient
+      
+      // Fix 3: Domain relevance boost/penalty
+      let domainScore = 0;
+      if (activeDomains.length > 0) {
+        const textLower = row.text.toLowerCase();
+        let matchesQueryDomain = false;
+        let matchesOtherDomain = false;
+        
+        for (const domain of activeDomains) {
+          if (domainBoost[domain]?.test(textLower)) matchesQueryDomain = true;
+        }
+        // Check if result matches a DIFFERENT domain than the query
+        for (const [domain, re] of Object.entries(domainBoost)) {
+          if (!activeDomains.includes(domain) && re.test(textLower)) {
+            matchesOtherDomain = true;
+          }
+        }
+        
+        if (matchesQueryDomain) domainScore = 0.08;  // Boost same-domain results
+        else if (matchesOtherDomain) domainScore = -0.10;  // Penalize cross-domain noise
+      }
+      
+      return {
+        type: row.source_type,
+        id: row.source_id,
+        text: row.text,
+        score: baseSimilarity + recencyBoost + domainScore,
+        rawSimilarity: baseSimilarity,
+        recencyBoost,
+        domainScore,
+      };
+    })
+    .filter(s => s.score > 0.65)  // Fix 1: threshold 0.3 → 0.65
+    .sort((a, b) => b.score - a.score)
+    .slice(0, maxResults);
+
+    result.similar = scored;
+  } catch (e) {
+    console.error('[enrich] Embedding search failed:', e.message);
+    // Continue without semantic search — text search still works
+  }
+
+  // 5. Build context string for LLM
+  const lines = [];
+  
+  if (result.entities.length > 0) {
+    lines.push('## Known Entities');
+    for (const e of result.entities) {
+      lines.push(`- **${e.name}** (${e.type})${e.description ? ': ' + e.description : ''}`);
+    }
+  }
+
+  if (result.relations.length > 0) {
+    lines.push('\n## Relationships');
+    const seen = new Set();
+    for (const r of result.relations) {
+      const key = `${r.source_name}-${r.type}-${r.target_name}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      lines.push(`- ${r.source_name} —[${r.type}]→ ${r.target_name}`);
+    }
+  }
+
+  if (result.facts.length > 0) {
+    lines.push('\n## Known Facts');
+    const seen = new Set();
+    for (const f of result.facts) {
+      const key = `${f.subject_name}-${f.predicate}-${f.object}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      lines.push(`- ${f.subject_name || '?'} ${f.predicate} ${f.object}`);
+    }
+  }
+
+  if (result.similar.length > 0) {
+    lines.push('\n## Semantically Related');
+    for (const s of result.similar.slice(0, 8)) {
+      const breakdown = s.rawSimilarity !== undefined
+        ? ` (sim:${(s.rawSimilarity * 100).toFixed(0)}% rec:${s.recencyBoost > 0 ? '+' : ''}${(s.recencyBoost * 100).toFixed(0)}% dom:${s.domainScore > 0 ? '+' : ''}${(s.domainScore * 100).toFixed(0)}%)`
+        : '';
+      lines.push(`- [${(s.score * 100).toFixed(0)}%${breakdown}] ${s.text}`);
+    }
+  }
+
+  result.context = lines.join('\n');
+  db.close();
+  return result;
+}
+
+// ── PROCESS MESSAGE — Full pipeline: extract + store + embed ──
+
+async function processMessage(message, role = 'user', messageId = null) {
+  const db = getDb();
+  ensureEmbeddingsTable(db);
+  const ts = Date.now();
+
+  // 1. Extract entities/relations/facts
+  const extracted = await extract(message, role);
+  const stored = storeExtracted(db, extracted, messageId);
+
+  // 2. Embed the message itself for future retrieval (strip metadata for cleaner matching)
+  const cleanMessage = stripMessageMeta(message);
+  if (cleanMessage.length > 20) {
+    try {
+      const vec = await getEmbedding(cleanMessage.slice(0, 4000));
+      const id = 'emb-msg-' + (messageId || crypto.createHash('md5').update(message).digest('hex').slice(0, 12));
+      const insertEmbed = db.prepare(`
+        INSERT OR REPLACE INTO embeddings (id, source_type, source_id, text, vector, created_at)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `);
+      insertEmbed.run(id, 'message', messageId || id, message.slice(0, 2000), vectorToBuffer(vec), new Date().toISOString());
+    } catch (e) {
+      console.error('[process] Embed message failed:', e.message);
+    }
+  }
+
+  // 3. Embed any new entities we just extracted
+  for (const e of extracted.entities) {
+    if (!e.name) continue;
+    const entId = 'ent-' + crypto.createHash('md5').update(e.name.toLowerCase()).digest('hex').slice(0, 12);
+    const text = `${e.type}: ${e.name}. ${e.description || ''}`.trim();
+    try {
+      const existing = db.prepare('SELECT 1 FROM embeddings WHERE source_type = ? AND source_id = ?').get('entity', entId);
+      if (!existing) {
+        const vec = await getEmbedding(text);
+        const embId = 'emb-' + crypto.createHash('md5').update(text).digest('hex').slice(0, 12);
+        db.prepare(`INSERT OR REPLACE INTO embeddings (id, source_type, source_id, text, vector, created_at) VALUES (?, ?, ?, ?, ?, ?)`)
+          .run(embId, 'entity', entId, text, vectorToBuffer(vec), new Date().toISOString());
+      }
+    } catch (e2) { /* skip */ }
+  }
+
+  db.close();
+  const elapsed = Date.now() - ts;
+  
+  return {
+    extracted,
+    stored,
+    elapsed,
+    summary: `Extracted ${stored.entities}E/${stored.relations}R/${stored.facts}F in ${elapsed}ms`
+  };
+}
+
+// ── CLI ─────────────────────────────────────────────────
+
+async function main() {
+  const cmd = process.argv[2];
+  const arg = process.argv.slice(3).join(' ');
+
+  switch (cmd) {
+    case 'extract': {
+      const result = await extract(arg);
+      console.log(JSON.stringify(result, null, 2));
+      break;
+    }
+    case 'process': {
+      const result = await processMessage(arg);
+      console.log(result.summary);
+      console.log(JSON.stringify(result.extracted, null, 2));
+      break;
+    }
+    case 'enrich': {
+      const result = await enrich(arg);
+      console.log(result.context || 'No relevant context found.');
+      break;
+    }
+    case 'embed-all': {
+      const db = getDb();
+      const count = await embedAll(db);
+      console.log(`Embedded ${count} items`);
+      db.close();
+      break;
+    }
+    case 'status': {
+      const db = getDb();
+      ensureEmbeddingsTable(db);
+      const entities = db.prepare('SELECT COUNT(*) as c FROM entities').get().c;
+      const relations = db.prepare('SELECT COUNT(*) as c FROM relations').get().c;
+      const facts = db.prepare('SELECT COUNT(*) as c FROM facts').get().c;
+      const embeddings = db.prepare('SELECT COUNT(*) as c FROM embeddings').get().c;
+      console.log(`Entities: ${entities} | Relations: ${relations} | Facts: ${facts} | Embeddings: ${embeddings}`);
+      db.close();
+      break;
+    }
+    default:
+      console.log('Usage: nlp-graph-layer.js <command> [args]');
+      console.log('Commands:');
+      console.log('  extract <message>    Extract entities/relations/facts from text');
+      console.log('  process <message>    Full pipeline: extract + store + embed');
+      console.log('  enrich <query>       Retrieve relevant context for a query');
+      console.log('  embed-all            Generate embeddings for all unembedded content');
+      console.log('  status               Show counts');
+  }
+}
+
+main().catch(e => { console.error(e); process.exit(1); });
+
+// Export for use as module
+module.exports = { extract, enrich, processMessage, embedAll, getDb, ensureEmbeddingsTable };

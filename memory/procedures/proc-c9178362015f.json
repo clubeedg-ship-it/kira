@@ -1,0 +1,31 @@
+{
+  "id": "proc-c9178362015f",
+  "name": "Update Notion Page",
+  "description": "Add content to a Notion project page",
+  "created": "2026-02-05T22:34:00.193Z",
+  "updated": "2026-02-05T22:34:00.194Z",
+  "version": 1,
+  "steps": [
+    {
+      "action": "get_api_key",
+      "params": "~/.config/notion/api_key"
+    },
+    {
+      "action": "get_page_id",
+      "params": "search or known ID"
+    },
+    {
+      "action": "create_blocks",
+      "params": "format content as Notion blocks"
+    },
+    {
+      "action": "patch_children",
+      "params": "append blocks to page"
+    }
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

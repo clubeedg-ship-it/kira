@@ -1,0 +1,19 @@
+{
+  "id": "proc-50426fcdc07b",
+  "name": "Testing Sales Order Integration",
+  "created": "2026-02-08T02:09:15.281Z",
+  "updated": "2026-02-08T02:09:15.281Z",
+  "version": 1,
+  "trigger": "After code integration",
+  "steps": [
+    "Rebuild Docker container",
+    "Run dry run test (--dry-run) to check stock and orders",
+    "Run execution test (--execute) to create real Sales Orders",
+    "Verify Sales Orders in InvenTree"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

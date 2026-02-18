@@ -1,0 +1,21 @@
+{
+  "id": "proc-268eb6909eea",
+  "name": "Project Structure Audit",
+  "created": "2026-02-07T16:02:01.530Z",
+  "updated": "2026-02-07T16:02:01.530Z",
+  "version": 1,
+  "trigger": "Housekeeping request",
+  "steps": [
+    "Check project structure",
+    "Review memory files",
+    "Check synergy between files",
+    "Audit VM structure",
+    "Review skills and vulnerabilities",
+    "Research tunneling multiple companies"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

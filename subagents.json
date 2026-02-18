@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "projectMappings": {},
+  "activeAgents": [],
+  "defaults": {
+    "checkpoints": ["review-before-commit"],
+    "idleTimeoutMs": 7200000,
+    "maxConcurrent": 3
+  }
+}

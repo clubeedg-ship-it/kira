@@ -1,0 +1,26 @@
+{
+  "name": "voice-layer",
+  "version": "1.0.0",
+  "description": "Voice-first NLP interface for Kira",
+  "type": "module",
+  "main": "voice-layer.js",
+  "bin": {
+    "voice-layer": "./voice-layer.js",
+    "voice-server": "./server.js",
+    "voice-test": "./test.js"
+  },
+  "scripts": {
+    "start": "node voice-layer.js",
+    "server": "node server.js",
+    "test": "node test.js",
+    "read": "node voice-layer.js read",
+    "respond": "node voice-layer.js respond",
+    "query": "node voice-layer.js query"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "form-data": "^4.0.0"
+  },
+  "keywords": ["voice", "nlp", "kira", "telegram"],
+  "author": "Otto + Kira"
+}

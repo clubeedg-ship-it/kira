@@ -1,0 +1,18 @@
+{
+  "id": "proc-303d8a32dfe7",
+  "name": "Package Installation",
+  "created": "2026-02-07T18:11:46.197Z",
+  "updated": "2026-02-07T18:11:46.197Z",
+  "version": 1,
+  "trigger": "When model architecture is not recognized or dependency conflicts arise",
+  "steps": [
+    "Uninstall current transformers version",
+    "Install specific transformers version (e.g., 5.1.0 or 4.57.6)",
+    "Install other dependencies (huggingface-hub, typer-slim)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

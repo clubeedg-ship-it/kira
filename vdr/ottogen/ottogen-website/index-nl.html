@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OttoGen — AI voor Jouw Bedrijf</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Ik breng AI naar bedrijven die geen tijd hebben om het zelf uit te zoeken. Bespaar 10-15 uur per week met praktische AI-oplossingen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0055ff;--blue-glow:#0066ff40;--bg:#050510;--bg2:#0a0a1a;
+  --surface:#111128;--surface-hover:#16163a;--text:#f0f0f5;--text2:#9898b0;
+  --radius:16px;--max:1200px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-snap-type:none}
+*{-webkit-overflow-scrolling:touch}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.15;font-weight:700}
+a{color:var(--blue);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ASCII BACKGROUNDS */
+.ascii-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ascii-bg pre{position:absolute;top:0;left:0;width:100%;height:100%;margin:0;padding:0;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.1;color:rgba(0,85,255,.3);overflow:hidden;white-space:pre;user-select:none;will-change:contents;contain:strict}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(5,5,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
+.logo span{color:var(--blue)}
+.logo-icon{flex-shrink:0}
+nav ul{display:flex;gap:32px;list-style:none}
+nav ul a{color:var(--text2);font-size:.9rem;font-weight:500;transition:color .2s}
+nav ul a:hover{color:#fff}
+.nav-cta{background:var(--blue);color:#fff!important;padding:10px 24px;border-radius:50px;font-weight:600;font-size:.9rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 24px var(--blue-glow)}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,85,255,.12);border:1px solid rgba(0,85,255,.25);border-radius:50px;padding:8px 20px;font-size:.85rem;color:var(--blue);font-weight:500;margin-bottom:32px}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);letter-spacing:-.03em;margin-bottom:24px}
+.hero h1 .gradient{background:linear-gradient(135deg,#fff 0%,var(--blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--text2);max-width:600px;margin:0 auto 40px;line-height:1.7}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:50px;font-size:1rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .25s;border:none}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 40px var(--blue-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,85,255,.35)}
+.btn-secondary{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text2);font-size:.8rem;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-hint svg{width:24px;height:24px;stroke:var(--text2)}
+
+/* SECTIONS */
+section{padding:120px 0;position:relative}
+.section-label{font-size:.85rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.section-title{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.02em;margin-bottom:20px}
+.section-subtitle{font-size:1.1rem;color:var(--text2);max-width:600px;line-height:1.7}
+.section-header{text-align:center;margin-bottom:72px;position:relative;z-index:2}
+.section-header .section-subtitle{margin:0 auto}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* TOOL MARQUEE */
+.tool-marquee{padding:60px 0;background:var(--bg);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);overflow:hidden;position:relative}
+.tool-marquee p{text-align:center;color:var(--text2);font-size:.8rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:28px;font-weight:500;position:relative;z-index:2}
+.marquee-track{display:flex;gap:60px;animation:marquee 25s linear infinite;width:max-content;position:relative;z-index:2}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tool-logo{display:flex;align-items:center;gap:10px;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;white-space:nowrap;opacity:.5;transition:opacity .3s}
+.tool-logo:hover{opacity:1}
+.tool-logo svg{width:28px;height:28px;flex-shrink:0}
+
+/* PAIN SECTION */
+.pain{background:var(--bg);position:relative;overflow:hidden}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+.pain-text .section-title{text-align:left}
+.pain-text .section-subtitle{max-width:none}
+.pain-quote{font-size:1.5rem;font-weight:600;font-family:'Space Grotesk',sans-serif;color:#fff;line-height:1.4;margin-top:32px;padding-left:24px;border-left:3px solid var(--blue)}
+.pain-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:400px}
+.pain-circle{width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(0,85,255,.2),transparent 70%);border:1px solid rgba(0,85,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.pain-circle .big-num{font-size:4rem;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--blue)}
+.pain-circle p{color:var(--text2);font-size:.95rem;margin-top:8px}
+
+/* AI SYSTEMS — Connection Hub */
+.systems-section{background:var(--bg2);padding:100px 0;position:relative;overflow:hidden}
+.systems-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.systems-text{position:relative;z-index:2}
+.systems-text h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:20px;letter-spacing:-.02em}
+.systems-text p{color:var(--text2);font-size:1.05rem;line-height:1.8;margin-bottom:16px}
+.systems-text .highlight{color:var(--blue);font-weight:600}
+
+/* Hub Visual */
+.hub-visual{position:relative;width:100%;max-width:460px;aspect-ratio:1;margin:0 auto}
+.hub-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;color:#fff;font-family:'Space Grotesk',sans-serif;z-index:3;box-shadow:0 0 40px var(--blue-glow),0 0 80px rgba(0,85,255,.15)}
+.hub-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(0,85,255,.1);transform:translate(-50%,-50%)}
+.hub-ring-1{width:200px;height:200px;animation:hubPulse 4s ease-in-out infinite}
+.hub-ring-2{width:320px;height:320px;animation:hubPulse 4s ease-in-out infinite .5s}
+.hub-ring-3{width:420px;height:420px;animation:hubPulse 4s ease-in-out infinite 1s}
+@keyframes hubPulse{0%,100%{opacity:.3;border-color:rgba(0,85,255,.08)}50%{opacity:1;border-color:rgba(0,85,255,.2)}}
+.hub-node{position:absolute;width:52px;height:52px;border-radius:14px;background:var(--surface);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--text2);font-weight:700;font-family:'JetBrains Mono',monospace;z-index:3;text-align:center;line-height:1.2;transition:all .3s}
+.hub-node:hover{border-color:var(--blue);box-shadow:0 0 20px var(--blue-glow);transform:scale(1.1)}
+.hub-line{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
+
+/* CHAT INTERFACE */
+.ai-demo{background:var(--bg);padding:100px 0;overflow:hidden;position:relative}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.chat-phone{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;max-width:420px;margin:0 auto}
+.chat-header{display:flex;align-items:center;gap:12px;padding:16px 20px;background:rgba(0,0,0,.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.chat-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0}
+.chat-header-info h4{font-size:.95rem;font-weight:600;color:#fff}
+.chat-header-info span{font-size:.75rem;color:#28c840}
+.chat-body{padding:16px;height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:rgba(5,5,16,.6)}
+.chat-msg{max-width:85%;display:flex;flex-direction:column;gap:4px;opacity:0;animation:chatIn .4s forwards}
+.chat-msg.user{align-self:flex-end}
+.chat-msg.ai{align-self:flex-start}
+.chat-bubble{padding:10px 14px;border-radius:16px;font-size:.9rem;line-height:1.5;position:relative}
+.chat-msg.user .chat-bubble{background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.chat-msg.ai .chat-bubble{background:var(--surface);color:var(--text);border:1px solid rgba(255,255,255,.06);border-bottom-left-radius:4px}
+.chat-time{font-size:.65rem;color:var(--text2);padding:0 4px}
+.chat-msg.user .chat-time{text-align:right}
+.chat-read{font-size:.6rem;color:var(--blue);text-align:right;padding-right:4px}
+@keyframes chatIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.chat-card{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px;margin-top:8px}
+.chat-card-row{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.8rem;color:var(--text2)}
+.chat-card-row strong{color:#fff;font-size:.95rem}
+.chat-card-stats{display:flex;gap:12px;margin-top:8px;font-size:.75rem;color:var(--text2)}
+.chat-card-stats span{display:flex;align-items:center;gap:4px}
+.chat-progress{width:100%;height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:8px;overflow:hidden}
+.chat-progress-fill{height:100%;background:linear-gradient(90deg,#28c840,#28c840);border-radius:3px;animation:progressGrow 1.5s ease forwards}
+@keyframes progressGrow{from{width:0}to{width:var(--pw,60%)}}
+.chat-thumbs{display:flex;gap:6px;margin-top:8px}
+.chat-thumb{width:44px;height:44px;border-radius:8px;background:var(--surface);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.chat-collapsed{margin-top:8px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 12px;font-size:.8rem;color:var(--text2);cursor:pointer;display:flex;align-items:center;gap:6px}
+.chat-collapsed::before{content:'▶';font-size:.6rem;color:var(--blue)}
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 16px;background:var(--surface);border-radius:16px;border-bottom-left-radius:4px;border:1px solid rgba(255,255,255,.06);opacity:0}
+.chat-typing.visible{opacity:1}
+.chat-typing span{width:7px;height:7px;background:var(--text2);border-radius:50%;animation:typingBounce 1.4s infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(0,0,0,.3);border-top:1px solid rgba(255,255,255,.06)}
+.chat-input-bar input{flex:1;background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:50px;padding:10px 16px;color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;outline:none}
+.chat-input-bar button{width:36px;height:36px;border-radius:50%;background:var(--blue);border:none;color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* SERVICES */
+.services{background:var(--bg2);position:relative;overflow:hidden}
+.service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:2}
+.service-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:40px 32px;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .35s}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(0,85,255,.2);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.service-card:hover::before{opacity:1}
+.service-icon{width:56px;height:56px;border-radius:14px;background:rgba(0,85,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.service-icon svg{width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.service-card h3{font-size:1.4rem;margin-bottom:8px}
+.service-price{color:var(--blue);font-weight:600;font-size:1rem;margin-bottom:16px}
+.service-card p{color:var(--text2);font-size:.95rem;line-height:1.7}
+.service-card.featured{border-color:rgba(0,85,255,.3);background:linear-gradient(180deg,rgba(0,85,255,.06) 0%,var(--surface) 100%)}
+.popular-tag{position:absolute;top:16px;right:16px;background:var(--blue);color:#fff;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:50px}
+
+/* FEATURE TABS */
+.feature-tabs{background:var(--bg);padding:120px 0;position:relative;overflow:hidden}
+.tabs-container{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.tab-buttons{display:flex;gap:4px;background:var(--surface);border-radius:12px;padding:4px;margin-bottom:40px}
+.tab-btn{flex:1;padding:14px 24px;border:none;background:transparent;color:var(--text2);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:500;border-radius:10px;cursor:pointer;transition:all .3s}
+.tab-btn.active{background:var(--blue);color:#fff;box-shadow:0 4px 20px var(--blue-glow)}
+.tab-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,.05)}
+.tab-panel{display:none;animation:fadeTab .4s ease}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@keyframes fadeTab{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.tab-content h3{font-size:1.6rem;margin-bottom:16px;font-family:'Space Grotesk',sans-serif}
+.tab-content p{color:var(--text2);font-size:1rem;line-height:1.8;margin-bottom:12px}
+.tab-content ul{list-style:none;margin-top:16px}
+.tab-content ul li{color:var(--text2);font-size:.95rem;padding:8px 0;padding-left:24px;position:relative}
+.tab-content ul li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:600}
+.tab-visual{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px;min-height:280px;display:flex;align-items:center;justify-content:center}
+.tab-visual .metric{text-align:center}
+.tab-visual .metric-num{font-size:3.5rem;font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blue);line-height:1}
+.tab-visual .metric-label{color:var(--text2);font-size:.9rem;margin-top:8px}
+.tab-visual .metric-bar{width:100%;height:8px;background:rgba(255,255,255,.06);border-radius:4px;margin-top:20px;overflow:hidden}
+.tab-visual .metric-fill{height:100%;background:linear-gradient(90deg,var(--blue),#7c3aed);border-radius:4px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+/* PROCESS STEPS — Rich Cards */
+.steps{background:var(--bg2);padding:120px 0;position:relative;overflow:hidden}
+.step-card{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:48px;padding:40px;background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:20px;position:relative;z-index:2;transition:border-color .3s}
+.step-card:hover{border-color:rgba(0,85,255,.15)}
+.step-card:last-child{margin-bottom:0}
+.step-card:nth-child(even){direction:rtl}
+.step-card:nth-child(even) > *{direction:ltr}
+.step-card-text{position:relative}
+.step-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,85,255,.1);border:1px solid rgba(0,85,255,.2);border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:var(--blue);font-family:'JetBrains Mono',monospace;margin-bottom:20px}
+.step-card-text h3{font-size:clamp(1.3rem,2.5vw,1.8rem);margin-bottom:12px;font-family:'Space Grotesk',sans-serif}
+.step-card-text p{color:var(--text2);font-size:.95rem;line-height:1.7}
+.step-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.step-pill{background:rgba(0,85,255,.08);border:1px solid rgba(0,85,255,.15);border-radius:50px;padding:4px 12px;font-size:.75rem;color:var(--blue);font-weight:500}
+
+/* Step Visuals */
+.step-visual{position:relative;width:100%;aspect-ratio:4/3;max-width:400px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+
+/* Step 1: Radar */
+.radar-container{position:relative;width:300px;height:300px}
+.radar-circle{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(0,85,255,.15);transform:translate(-50%,-50%)}
+.radar-circle:nth-child(1){width:100%;height:100%}
+.radar-circle:nth-child(2){width:70%;height:70%}
+.radar-circle:nth-child(3){width:40%;height:40%}
+.radar-beam{position:absolute;top:50%;left:50%;width:50%;height:2px;background:linear-gradient(90deg,rgba(0,85,255,.8),transparent);transform-origin:left center;animation:radarSpin 3s linear infinite}
+@keyframes radarSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.radar-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue);animation:radarBlink 3s ease-in-out infinite}
+.radar-dot:nth-child(5){top:22%;left:65%;animation-delay:0s}
+.radar-dot:nth-child(6){top:58%;left:25%;animation-delay:1s}
+.radar-dot:nth-child(7){top:38%;left:72%;animation-delay:2s}
+.radar-dot-label{position:absolute;font-size:.65rem;color:var(--blue);font-family:'JetBrains Mono',monospace;white-space:nowrap;padding:2px 6px;background:rgba(0,85,255,.1);border-radius:4px;pointer-events:none}
+@keyframes radarBlink{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+/* Step 2: Connection Diagram */
+.connect-container{position:relative;width:320px;height:320px}
+.connect-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.7rem;color:#fff;font-family:'Space Grotesk',sans-serif;z-index:2;box-shadow:0 0 30px var(--blue-glow)}
+.connect-node{position:absolute;width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;z-index:2}
+.connect-node svg{width:20px;height:20px;stroke:var(--text2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.connect-node:nth-child(2){top:8%;left:50%;transform:translateX(-50%)}
+.connect-node:nth-child(3){top:50%;right:4%;transform:translateY(-50%)}
+.connect-node:nth-child(4){bottom:8%;left:50%;transform:translateX(-50%)}
+.connect-node:nth-child(5){top:50%;left:4%;transform:translateY(-50%)}
+.connect-line{position:absolute;top:50%;left:50%;width:50%;height:2px;transform-origin:left center;z-index:1}
+.connect-line::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,var(--blue),transparent);animation:lineFlow 2s ease-in-out infinite}
+.connect-line:nth-child(6){transform:rotate(-90deg)}
+.connect-line:nth-child(7){transform:rotate(0deg)}
+.connect-line:nth-child(8){transform:rotate(90deg)}
+.connect-line:nth-child(9){transform:rotate(180deg)}
+@keyframes lineFlow{0%,100%{opacity:.2}50%{opacity:1}}
+.connect-line:nth-child(7)::after{animation-delay:.5s}
+.connect-line:nth-child(8)::after{animation-delay:1s}
+.connect-line:nth-child(9)::after{animation-delay:1.5s}
+
+/* Step 3: Chat bubbles */
+.bubbles-container{position:relative;width:300px;height:300px}
+.task-bubble{position:absolute;background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 14px;font-size:.75rem;color:var(--text2);display:flex;align-items:center;gap:8px;opacity:0;animation:bubblePop .5s forwards;white-space:nowrap}
+.task-bubble .emoji{font-size:1rem}
+.task-bubble:nth-child(1){top:10%;left:5%;animation-delay:0s}
+.task-bubble:nth-child(2){top:30%;right:5%;animation-delay:.8s}
+.task-bubble:nth-child(3){top:55%;left:10%;animation-delay:1.6s}
+.task-bubble:nth-child(4){bottom:10%;right:10%;animation-delay:2.4s}
+@keyframes bubblePop{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+/* Step 4: Growing chart */
+.chart-container{position:relative;width:300px;height:240px;display:flex;align-items:flex-end;gap:16px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.chart-bar{flex:1;background:linear-gradient(180deg,var(--blue),rgba(0,85,255,.3));border-radius:8px 8px 0 0;animation:growBar 1.5s ease forwards;transform-origin:bottom}
+.chart-bar:nth-child(1){animation-delay:0s}
+.chart-bar:nth-child(2){animation-delay:.2s}
+.chart-bar:nth-child(3){animation-delay:.4s}
+.chart-bar:nth-child(4){animation-delay:.6s}
+.chart-bar:nth-child(5){animation-delay:.8s}
+.chart-bar:nth-child(6){animation-delay:1s}
+@keyframes growBar{from{height:0}to{height:var(--h,50%)}}
+.chart-trend{position:absolute;top:0;right:0;font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#28c840}
+.chart-trend-sub{position:absolute;top:36px;right:0;font-size:.8rem;color:var(--text2)}
+
+/* STATS */
+.stats{background:var(--bg);padding:80px 0;position:relative}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;position:relative;z-index:2}
+.stat-num{font-size:clamp(2.5rem,4vw,3.5rem);font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blue)}
+.stat-label{color:var(--text2);font-size:.9rem;margin-top:4px}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg2);position:relative;overflow:hidden}
+.testimonial-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:2}
+.testimonial-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:36px 32px;transition:all .3s}
+.testimonial-card:hover{border-color:rgba(0,85,255,.15)}
+.stars{color:#f5a623;font-size:1.1rem;margin-bottom:16px;letter-spacing:2px}
+.testimonial-card blockquote{color:var(--text2);font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:20px}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:#fff}
+.author-info h4{font-size:.95rem;font-weight:600}
+.author-info p{font-size:.8rem;color:var(--text2)}
+
+/* ABOUT */
+.about{background:var(--bg);position:relative;overflow:hidden}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;position:relative;z-index:2}
+.about-photo{width:100%;max-width:400px;aspect-ratio:1;border-radius:var(--radius);background:linear-gradient(135deg,var(--surface),rgba(0,85,255,.1));border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:6rem;filter:grayscale(0)}
+.about-text .section-title{text-align:left}
+.about-text p{color:var(--text2);font-size:1.05rem;line-height:1.8;margin-bottom:16px}
+.about-text p strong{color:#fff}
+
+/* CTA */
+.cta-section{background:var(--bg2);padding:140px 0;text-align:center;position:relative;overflow:hidden}
+.cta-section .section-title{font-size:clamp(2.2rem,4.5vw,3.5rem);margin-bottom:20px;position:relative;z-index:2}
+.cta-section p{color:var(--text2);font-size:1.15rem;max-width:500px;margin:0 auto 40px;line-height:1.7;position:relative;z-index:2}
+.cta-section .section-label{position:relative;z-index:2}
+.cta-section .btn{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid rgba(255,255,255,.06);padding:48px 0}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer p{color:var(--text2);font-size:.85rem}
+footer a{color:var(--text2);font-size:.85rem;transition:color .2s}
+footer a:hover{color:#fff}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .service-cards,.testimonial-cards{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .pain-grid,.about-grid,.systems-grid,.demo-grid{grid-template-columns:1fr;gap:48px}
+  .step-card,.step-card:nth-child(even){grid-template-columns:1fr;direction:ltr;gap:32px;padding:28px}
+  .step-card:nth-child(even) > *{direction:ltr}
+  .pain-visual{display:none}
+  .tab-panel.active{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav ul.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(5,5,16,.95);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+  nav ul.nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .service-cards,.testimonial-cards{grid-template-columns:1fr}
+  section{padding:80px 0}
+  .hero{min-height:90vh;padding:100px 24px 60px}
+  .tab-buttons{flex-direction:column}
+  .marquee-track{gap:40px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo"><svg class="logo-icon" width="42" height="42" viewBox="0 0 240 240"><defs><filter id="lg"><feGaussianBlur stdDeviation="4"/></filter></defs><circle cx="120" cy="120" r="72" fill="none" stroke="#0055ff" stroke-width="2.5" opacity=".18" stroke-dasharray="6 6"/><line x1="68" y1="72" x2="172" y2="68" stroke="#0055ff" stroke-width="2.5" opacity=".4"/><line x1="172" y1="68" x2="178" y2="168" stroke="#0055ff" stroke-width="2.5" opacity=".4"/><line x1="178" y1="168" x2="80" y2="182" stroke="#0055ff" stroke-width="2.5" opacity=".4"/><line x1="80" y1="182" x2="55" y2="120" stroke="#0055ff" stroke-width="2.5" opacity=".4"/><line x1="55" y1="120" x2="68" y2="72" stroke="#0055ff" stroke-width="2.5" opacity=".4"/><circle cx="68" cy="72" r="12" fill="#0055ff" filter="url(#lg)"/><circle cx="172" cy="68" r="12" fill="#0055ff" filter="url(#lg)"/><circle cx="178" cy="168" r="12" fill="#0055ff" filter="url(#lg)"/><circle cx="80" cy="182" r="12" fill="#0055ff" filter="url(#lg)"/><circle cx="55" cy="120" r="12" fill="#0055ff" filter="url(#lg)"/><circle cx="120" cy="120" r="7" fill="#fff"/></svg>Otto<span>Gen</span></a>
+    <ul class="nav-links">
+      <li><a href="#systems">AI-Systemen</a></li>
+      <li><a href="#services">Prijzen</a></li>
+      <li><a href="#how">Werkwijze</a></li>
+      <li><a href="#about">Over Ons</a></li>
+      <li><a href="#contact" class="nav-cta">Plan een Gratis Gesprek</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- HERO (ASCII waves background) -->
+<section class="hero">
+  <div class="ascii-bg"><pre id="ascii-hero"></pre></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal">Momenteel nieuwe pilotpartners aan het onboarden</div>
+    <h1 class="reveal reveal-delay-1">AI-systemen die<br><span class="gradient">jouw bedrijf draaien</span><br>terwijl jij het laat groeien</h1>
+    <p class="reveal reveal-delay-2">Geen code. Geen gedoe. Gewoon slimme AI-systemen die je bedrijfsvoering, sales en content automatiseren — zodat je stopt met tijd ruilen voor geld.</p>
+    <div class="btn-group reveal reveal-delay-3">
+      <a href="#contact" class="btn btn-primary">Plan een Gratis Gesprek →</a>
+      <a href="#systems" class="btn btn-secondary">Bekijk Hoe Het Werkt</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+<!-- TOOL MARQUEE -->
+<div class="tool-marquee">
+  <p>Aangedreven door toonaangevende AI-technologie</p>
+  <div class="marquee-track" id="marquee">
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 8v6l4 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>OpenAI</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M14 10v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Make</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M6 14l6-8v6h4l-6 8v-6H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Zapier</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><rect x="5" y="5" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 11h18M11 11v12" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Notion</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M8 18l4-8 4 4 4-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Apollo.io</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 14a4 4 0 008 0" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="11" r="1" fill="currentColor"/><circle cx="18" cy="11" r="1" fill="currentColor"/></svg>Retell.ai</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M14 4l8 5v10l-8 5-8-5V9l8-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Claude</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M4 8h20M4 14h20M4 20h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Google Sheets</div>
+    <!-- Duplicate for infinite scroll -->
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 8v6l4 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>OpenAI</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M14 10v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Make</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M6 14l6-8v6h4l-6 8v-6H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Zapier</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><rect x="5" y="5" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 11h18M11 11v12" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Notion</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M8 18l4-8 4 4 4-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Apollo.io</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 14a4 4 0 008 0" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="11" r="1" fill="currentColor"/><circle cx="18" cy="11" r="1" fill="currentColor"/></svg>Retell.ai</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M14 4l8 5v10l-8 5-8-5V9l8-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Claude</div>
+    <div class="tool-logo"><svg viewBox="0 0 28 28"><path d="M4 8h20M4 14h20M4 20h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Google Sheets</div>
+  </div>
+</div>
+
+<!-- PAIN (ASCII scattered particles bg) -->
+<section class="pain">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="pain-grid">
+      <div class="pain-text reveal">
+        <p class="section-label">Het Probleem</p>
+        <h2 class="section-title">Je hebt gehoord dat AI uren bespaart. Maar wie zet het daadwerkelijk op voor JOUW bedrijf?</h2>
+        <p class="section-subtitle">Je hebt het druk met de dagelijkse gang van zaken. Je hebt geen tijd om prompt engineering te leren, 50 tools te testen of uit te zoeken wat werkt. Daar kom ik om de hoek kijken.</p>
+        <p class="pain-quote reveal reveal-delay-1">"Ik wist dat AI kon helpen — ik wist alleen niet waar ik moest beginnen."</p>
+      </div>
+      <div class="pain-visual reveal reveal-delay-2">
+        <div class="pain-circle">
+          <div class="big-num" data-count="73">0%</div>
+          <p>van het MKB wil AI inzetten<br>maar weet niet hoe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SYSTEMS — Connection Hub (ASCII matrix rain bg) -->
+<section class="systems-section" id="systems">
+  <div class="ascii-bg"><pre id="ascii-systems"></pre></div>
+  <div class="container">
+    <div class="systems-grid">
+      <div class="hub-visual reveal" id="hub-vis">
+        <div class="hub-ring hub-ring-3"></div>
+        <div class="hub-ring hub-ring-2"></div>
+        <div class="hub-ring hub-ring-1"></div>
+        <div class="hub-center">OttoGen</div>
+        <!-- Nodes positioned by JS -->
+        <svg class="hub-line" id="hub-lines"></svg>
+      </div>
+      <div class="systems-text reveal reveal-delay-1">
+        <p class="section-label">AI-Systemen</p>
+        <h2>Jouw AI draait het<br>bedrijf 24/7</h2>
+        <p>Eén verbonden systeem dat <span class="highlight">contentcreatie</span>, <span class="highlight">leadgeneratie</span>, <span class="highlight">opvolgingen</span> en <span class="highlight">omzettracking</span> afhandelt — zodat je bedrijf blijft draaien zonder dat jij online hoeft te zijn.</p>
+        <p>Geen losse chatbot. Een compleet besturingssysteem voor je bedrijf, gebouwd met tools die je al kent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT DEMO (ASCII pulse bg) -->
+<section class="ai-demo">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="demo-grid">
+      <div class="reveal">
+        <p class="section-label">Jouw AI-Assistent</p>
+        <h2 class="section-title" style="text-align:left">Stuur gewoon een bericht.<br>De rest wordt geregeld.</h2>
+        <p class="section-subtitle">Praat met je AI zoals je een collega een appje stuurt. Het checkt je leads, plant posts in, stuurt opvolgingen — en toont resultaten met echte data, niet alleen woorden.</p>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:rgba(0,85,255,.1);border:1px solid rgba(0,85,255,.2);padding:6px 14px;border-radius:50px;font-size:.8rem;color:var(--blue)">Content</span>
+          <span style="background:rgba(0,85,255,.1);border:1px solid rgba(0,85,255,.2);padding:6px 14px;border-radius:50px;font-size:.8rem;color:var(--blue)">Sales</span>
+          <span style="background:rgba(0,85,255,.1);border:1px solid rgba(0,85,255,.2);padding:6px 14px;border-radius:50px;font-size:.8rem;color:var(--blue)">Bedrijfsvoering</span>
+          <span style="background:rgba(0,85,255,.1);border:1px solid rgba(0,85,255,.2);padding:6px 14px;border-radius:50px;font-size:.8rem;color:var(--blue)">Analyses</span>
+        </div>
+      </div>
+      <div class="chat-phone reveal reveal-delay-1">
+        <div class="chat-header">
+          <div class="chat-avatar">O</div>
+          <div class="chat-header-info">
+            <h4>OttoGen AI</h4>
+            <span>● Online</span><!-- kept as-is -->
+          </div>
+        </div>
+        <div class="chat-body" id="chat-demo"></div>
+        <div class="chat-input-bar">
+          <input type="text" placeholder="Vraag je AI van alles..." disabled>
+          <button>↑</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE TABS (ASCII data flow bg) -->
+<section class="feature-tabs" id="ai-systems">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label reveal">Wat Je Krijgt</p>
+      <h2 class="section-title reveal reveal-delay-1">AI-systemen die vrijheid<br>&amp; omzet opleveren</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Wij bouwen AI-systemen die content, sales en bedrijfsvoering automatiseren — zodat je geen tijd meer ruilt voor geld.</p>
+    </div>
+    <div class="tabs-container reveal reveal-delay-3">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="content">Contentsysteem</button>
+        <button class="tab-btn" data-tab="sales">Salessysteem</button>
+        <button class="tab-btn" data-tab="ops">Bedrijfsvoering</button>
+      </div>
+      <div class="tab-panel active" data-panel="content">
+        <div class="tab-content">
+          <h3>AI Contentsysteem</h3>
+          <p>Jouw AI maakt, plant en optimaliseert content op alle platformen. Posts die klinken als jij — omdat het je stem leert.</p>
+          <ul>
+            <li>Dagelijks social media posts gegenereerd</li>
+            <li>E-mailnieuwsbrieven automatisch geschreven</li>
+            <li>Blogcontent vanuit jouw expertise</li>
+            <li>Consistente merkstem in alles</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="metric">
+            <div class="metric-num">30+</div>
+            <div class="metric-label">posts per maand, nul moeite</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="sales">
+        <div class="tab-content">
+          <h3>AI Salessysteem</h3>
+          <p>Leads komen binnen. Jouw AI kwalificeert ze, volgt op, plant gesprekken en stuurt offertes. Jij hoeft alleen maar te closen.</p>
+          <ul>
+            <li>Automatische leadkwalificatie</li>
+            <li>Opvolgsequenties die converteren</li>
+            <li>Agenda-afspraken op de automatische piloot</li>
+            <li>Offertes binnen minuten</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="metric">
+            <div class="metric-num">3x</div>
+            <div class="metric-label">meer leads verwerkt, zelfde team</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="ops">
+        <div class="tab-content">
+          <h3>AI Bedrijfsvoering</h3>
+          <p>Facturatie, planning, rapportages, klant-onboarding — het saaie werk dat je week opvreet. AI handelt het allemaal af.</p>
+          <ul>
+            <li>Klant-onboarding in 10 minuten</li>
+            <li>Automatische facturatie &amp; opvolgingen</li>
+            <li>Weekrapportages automatisch gegenereerd</li>
+            <li>Taakverdeling &amp; tracking voor het team</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="metric">
+            <div class="metric-num">15h</div>
+            <div class="metric-label">per week bespaard op bedrijfsvoering</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:90%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / PRICING (ASCII grid bg) -->
+<section class="services" id="services">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label reveal">Eenvoudige Prijzen</p>
+      <h2 class="section-title reveal reveal-delay-1">Kies het plan dat<br>bij je doelen past</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Begin klein. Schaal op als je resultaten ziet.</p>
+    </div>
+    <div class="service-cards">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>AI Audit</h3>
+        <p class="service-price">€500 · Eenmalig</p>
+        <p>Ik bekijk hoe je werkt en laat precies zien waar AI je tijd en geld bespaart. Je krijgt een helder rapport plus quick wins die ter plekke worden doorgevoerd.</p>
+      </div>
+      <div class="service-card featured reveal reveal-delay-1">
+        <span class="popular-tag">Meest Gekozen</span>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Maandelijks AI Partner</h3>
+        <p class="service-price">€1.500 — €2.500/mnd</p>
+        <p>Ik word je AI-afdeling. Elke maand vind ik nieuwe manieren om te automatiseren, optimaliseren en je bedrijf te laten groeien. Alsof je een CTO hebt — zonder het salaris.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Custom AI Bouw</h3>
+        <p class="service-price">€2.500 — €5.000</p>
+        <p>Iets specifieks nodig? Een chatbot voor je klanten, een geautomatiseerde workflow of een op maat gemaakte tool — ik ontwerp en bouw het voor je.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS STEPS (ASCII mountain bg) -->
+<section class="steps" id="how">
+  <div class="ascii-bg"><pre id="ascii-steps"></pre></div>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label reveal">Ons Proces</p>
+      <h2 class="section-title reveal reveal-delay-1">Hoe we jouw AI<br>aan de praat krijgen</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Geen gelul. Geen projecten van 6 maanden. Echte resultaten binnen dagen.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-card-text">
+        <div class="step-badge">Stap 01</div>
+        <h3>We Brengen de Chaos in Kaart</h3>
+        <p>Je laat ons zien waar tijd verdwijnt — de inbox, de spreadsheets, de handmatige opvolgingen. Wij vinden de 3 grootste tijdvreters en maken een plan om ze uit te schakelen.</p>
+        <div class="step-pills">
+          <span class="step-pill">Workflow-audit</span>
+          <span class="step-pill">Tijdregistratie</span>
+          <span class="step-pill">Knelpuntenrapport</span>
+        </div>
+      </div>
+      <div class="step-visual">
+        <div class="radar-container" id="radar-vis">
+          <div class="radar-circle"></div>
+          <div class="radar-circle"></div>
+          <div class="radar-circle"></div>
+          <div class="radar-beam"></div>
+          <div class="radar-dot"><span class="radar-dot-label" style="top:-20px;left:-10px">inbox</span></div>
+          <div class="radar-dot"><span class="radar-dot-label" style="top:-20px;left:-20px">opvolgingen</span></div>
+          <div class="radar-dot"><span class="radar-dot-label" style="top:-20px;left:-18px">spreadsheets</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-card-text">
+        <div class="step-badge">Stap 02</div>
+        <h3>We Koppelen Je Tools</h3>
+        <p>We bouwen niet vanaf nul — we verbinden de tools die al werken. Je CRM, je e-mail, je projectmanagement. Je AI-assistent knoopt alles aan elkaar.</p>
+        <div class="step-pills">
+          <span class="step-pill">CRM</span>
+          <span class="step-pill">E-mail</span>
+          <span class="step-pill">Projecten</span>
+          <span class="step-pill">Gesprekken</span>
+        </div>
+      </div>
+      <div class="step-visual">
+        <div class="connect-container">
+          <div class="connect-hub">AI</div>
+          <div class="connect-node"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16"/><path d="M10 4v16"/></svg></div>
+          <div class="connect-node"><svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/></svg></div>
+          <div class="connect-node"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div class="connect-node"><svg viewBox="0 0 24 24"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+          <div class="connect-line"></div>
+          <div class="connect-line"></div>
+          <div class="connect-line"></div>
+          <div class="connect-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-card-text">
+        <div class="step-badge">Stap 03</div>
+        <h3>Je AI Gaat aan de Slag</h3>
+        <p>Binnen 3 dagen pakt je AI-assistent echte taken op. Het volgt leads op, schrijft je posts, stuurt je facturen. Jij checkt alleen even mee.</p>
+        <div class="step-pills">
+          <span class="step-pill">Dag 1 → Live</span>
+          <span class="step-pill">Auto-opvolgingen</span>
+          <span class="step-pill">Content op autopilot</span>
+        </div>
+      </div>
+      <div class="step-visual">
+        <div class="bubbles-container" id="task-bubbles">
+          <div class="task-bubble"><span class="emoji">✉️</span> 3 opvolgingen verstuurd</div>
+          <div class="task-bubble"><span class="emoji">📝</span> 5 posts ingepland</div>
+          <div class="task-bubble"><span class="emoji">📄</span> Factuur #47 verstuurd</div>
+          <div class="task-bubble"><span class="emoji">📞</span> Gesprek ingepland 10:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-card-text">
+        <div class="step-badge">Stap 04</div>
+        <h3>Wij Blijven Verbeteren</h3>
+        <p>Elke maand checken we wat werkt, stoppen we wat niet werkt, en vinden we nieuwe manieren om je tijd te besparen. Je AI wordt slimmer omdat wij dat doen.</p>
+        <div class="step-pills">
+          <span class="step-pill">Maandelijkse review</span>
+          <span class="step-pill">Nieuwe automatiseringen</span>
+          <span class="step-pill">Prestatietracking</span>
+        </div>
+      </div>
+      <div class="step-visual">
+        <div class="chart-container" id="growth-chart">
+          <div class="chart-bar" style="--h:30%"></div>
+          <div class="chart-bar" style="--h:45%"></div>
+          <div class="chart-bar" style="--h:40%"></div>
+          <div class="chart-bar" style="--h:65%"></div>
+          <div class="chart-bar" style="--h:75%"></div>
+          <div class="chart-bar" style="--h:95%"></div>
+          <div class="chart-trend">+127%</div>
+          <div class="chart-trend-sub">uren bespaard in 6 maanden</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num" data-count="40">0</div>
+        <div class="stat-label">Uren bespaard per klant per maand</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num" data-count="12">0</div>
+        <div class="stat-label">Bedrijven getransformeerd</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num" data-count="97">0</div>
+        <div class="stat-label">Klanttevredenheidsscore</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Gemiddeld dagen tot eerste resultaten</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (ASCII constellation bg) -->
+<section class="testimonials" id="testimonials">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label reveal">Wat Klanten Zeggen</p>
+      <h2 class="section-title reveal reveal-delay-1">Resultaten spreken luider<br>dan beloftes</h2>
+    </div>
+    <div class="testimonial-cards">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Otto bekeek onze bakkerijtaken en binnen een week was ons bestelproces volledig geautomatiseerd. We besparen nu 12 uur per week."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div class="author-info"><h4>Maria de Vries</h4><p>Bakkerij-eigenaar, Amsterdam</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Ik was sceptisch over AI — voelde te technisch. Otto maakte het simpel. Onze klant-onboarding duurt nu 10 minuten in plaats van 2 uur."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div class="author-info"><h4>Jan Bakker</h4><p>Bedrijfsadviseur, Rotterdam</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Otto als AI-partner hebben is als een geheim wapen. Hij vindt optimalisaties waar ik nooit aan gedacht zou hebben."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info"><h4>Sophie Jansen</h4><p>E-commerce, Utrecht</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT (ASCII mountain silhouette bg) -->
+<section class="about" id="about">
+  <!-- no ascii bg -->
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <span>O</span>
+      </div>
+      <div class="about-text">
+        <p class="section-label reveal">Over Otto</p>
+        <h2 class="section-title reveal reveal-delay-1">Jong. Scherp. Geobsedeerd<br>door AI praktisch maken.</h2>
+        <p class="reveal reveal-delay-2">Ik ben hier niet om indruk te maken met technisch jargon. Ik ben hier om <strong>je tijd te besparen en je geld te laten verdienen</strong>.</p>
+        <p class="reveal reveal-delay-3">Ik heb jaren besteed aan het leren wat AI daadwerkelijk kan doen voor echte bedrijven — niet voor Silicon Valley startups, maar voor <strong>echte ondernemers — adviseurs, vakmensen en webshops</strong>. De bedrijven die Nederland draaiende houden.</p>
+        <p class="reveal reveal-delay-3">Elk traject begint met één vraag: <strong>"Waar verspil je tijd?"</strong> Dan los ik het op.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA (ASCII converging particles bg) -->
+<section class="cta-section" id="contact">
+  <div class="ascii-bg"><pre id="ascii-cta"></pre></div>
+  <div class="container">
+    <p class="section-label reveal">Klaar?</p>
+    <h2 class="section-title reveal reveal-delay-1">Laat AI het werk doen<br>zodat jij sneller kunt schalen</h2>
+    <p class="reveal reveal-delay-2">15 minuten. Geen kosten. Geen verplichting.<br>Gewoon een gesprek over waar je tijd verspilt.</p>
+    <a href="https://calendly.com/ottogen" class="btn btn-primary reveal reveal-delay-3" style="font-size:1.1rem;padding:18px 48px">Plan Je Gratis Gesprek →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 OttoGen. Alle rechten voorbehouden.</p>
+    <div><a href="mailto:hello@ottogen.io">hello@ottogen.io</a></div>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// ASCII BACKGROUND ENGINE (pre-based, no canvas)
+// Each section gets a unique text animation
+// ============================================
+
+// Simple noise functions
+function noise2D(x, y) {
+  const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+  return n - Math.floor(n);
+}
+function smoothNoise(x, y) {
+  const ix = Math.floor(x), iy = Math.floor(y);
+  const fx = x - ix, fy = y - iy;
+  const a = noise2D(ix, iy), b = noise2D(ix + 1, iy);
+  const c = noise2D(ix, iy + 1), d = noise2D(ix + 1, iy + 1);
+  const ux = fx * fx * (3 - 2 * fx), uy = fy * fy * (3 - 2 * fy);
+  return a + (b - a) * ux + (c - a) * uy + (a - b - c + d) * ux * uy;
+}
+function fbm(x, y, oct) {
+  let v = 0, a = .5, f = 1;
+  for (let i = 0; i < oct; i++) { v += a * smoothNoise(x * f, y * f); a *= .5; f *= 2; }
+  return v;
+}
+
+// Pre-based ASCII animation — writes textContent each frame
+function asciiAnimate(id, genFn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let t = 0, visible = false, lastFrame = 0;
+  const FPS = 15; // throttle to 15fps to keep scrolling smooth
+  const interval = 1000 / FPS;
+
+  // Only animate when in viewport
+  const io = new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+  }, { threshold: 0 });
+  io.observe(el.parentElement);
+
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    if (now - lastFrame < interval) return;
+    lastFrame = now;
+
+    const w = el.parentElement.clientWidth || window.innerWidth;
+    const h = el.parentElement.clientHeight || 600;
+    const charW = 7.8;
+    const lineH = 14.3;
+    const cols = Math.floor(w / charW);
+    const rows = Math.floor(h / lineH);
+    if (cols < 5 || rows < 3) return;
+
+    el.textContent = genFn(t, cols, rows);
+    t += 0.03;
+  }
+  setTimeout(() => requestAnimationFrame(frame), 300);
+}
+
+// 1. HERO — Flowing ocean waves
+asciiAnimate('ascii-hero', (t, cols, rows) => {
+  let out = '';
+  const chars = '~-=~._.-=~';
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    for (let c = 0; c < cols; c++) {
+      const x = c / cols, y = r / rows;
+      const w1 = Math.sin(x * 8 + t * 1.5 + y * 4) * .5 + .5;
+      const w2 = Math.sin(x * 5 - t + y * 6) * .3 + .5;
+      const v = (w1 + w2) / 2;
+      if (v > 0.45) {
+        line += chars[Math.floor(v * (chars.length - 1))];
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 2. PAIN — Chaotic scattered particles
+asciiAnimate('ascii-pain', (t, cols, rows) => {
+  let out = '';
+  const chars = 'x+.*!?#';
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    for (let c = 0; c < cols; c++) {
+      const n = fbm(c * 0.06 + t * 0.4, r * 0.06 + t * 0.25, 3);
+      if (n > 0.58) {
+        line += chars[Math.floor((n - .58) * 25) % chars.length];
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 3. SYSTEMS — Concentric ripples expanding from center
+asciiAnimate('ascii-systems', (t, cols, rows) => {
+  let out = '';
+  const cx = cols / 2, cy = rows / 2;
+  const chars = ' .oO0Oo. ';
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    for (let c = 0; c < cols; c++) {
+      const dx = (c - cx) / cols * 2;
+      const dy = (r - cy) / rows * 2;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const wave = Math.sin(dist * 12 - t * 3) * .5 + .5;
+      const fade = Math.max(0, 1 - dist * 1.2);
+      const v = wave * fade;
+      if (v > 0.2) {
+        line += chars[Math.floor(v * (chars.length - 1))];
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 4. CHAT — Pulse / heartbeat
+asciiAnimate('ascii-chat', (t, cols, rows) => {
+  let out = '';
+  const midR = Math.floor(rows / 2);
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    for (let c = 0; c < cols; c++) {
+      const x = c / cols;
+      const pulse = Math.sin(x * 25 - t * 5) * Math.exp(-Math.pow((x * 6 - t * 0.6) % 6 - 3, 2) * 2);
+      const targetR = midR + Math.floor(pulse * rows * 0.12);
+      if (r === targetR) {
+        line += Math.abs(pulse) > .3 ? '#' : '-';
+      } else if (Math.abs(r - targetR) === 1 && Math.abs(pulse) > .5) {
+        line += '.';
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 5. TABS — Flowing data streams
+asciiAnimate('ascii-tabs', (t, cols, rows) => {
+  let out = '';
+  const chars = '>->>';
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    if (r % 3 !== 0) { out += ' '.repeat(cols) + '\n'; continue; }
+    const speed = .5 + noise2D(0, r) * 2;
+    const off = t * speed * 12;
+    for (let c = 0; c < cols; c++) {
+      const n = noise2D(c * .08 + off, r * .3);
+      if (n > .62) {
+        line += chars[Math.floor((n - .62) * 30) % chars.length];
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 6. PRICING — Dot grid
+asciiAnimate('ascii-pricing', (t, cols, rows) => {
+  let out = '';
+  for (let r = 0; r < rows; r++) {
+    let line = '';
+    for (let c = 0; c < cols; c++) {
+      if (c % 5 === 0 && r % 3 === 0) {
+        const pulse = Math.sin(t * 1.5 + c * .15 + r * .2) * .5 + .5;
+        line += pulse > .4 ? '.' : ' ';
+      } else {
+        line += ' ';
+      }
+    }
+    out += line + '\n';
+  }
+  return out;
+});
+
+// 7. STEPS — Mountain silhouettes
+asciiAnimate('ascii-steps', (t, cols, rows) => {
+  const grid = [];
+  for (let r = 0; r < rows; r++) grid.push(new Array(cols).fill(' '));
+  const fill = ['.', ':', '#', '@'];
+  for (let layer = 0; layer < 3; layer++) {
+    const base = rows * (.55 + layer * .12);
+    const amp = rows * (.18 - layer * .03);
+    const freq = .025 + layer * .008;
+    const sp = .08 + layer * .04;
+    for (let c = 0; c < cols; c++) {
+      const mh = base - fbm(c * freq + t * sp, layer * 10, 4) * amp;
+      for (let r = Math.floor(mh); r < rows; r++) {
+        if (r >= 0 && r < rows) {
+          const d = (r - mh) / (rows - mh);
+          const fi = Math.min(Math.floor(d * fill.length), fill.length - 1);
+          if (grid[r][c] === ' ') grid[r][c] = fill[fi];
+        }
+      }
+    }
+  }
+  return grid.map(row => row.join('')).join('\n');
+});
+
+// 8. TESTIMONIALS — Constellation
+asciiAnimate('ascii-testimonials', (t, cols, rows) => {
+  if (!window._cpts) {
+    window._cpts = [];
+    for (let i = 0; i < 35; i++) window._cpts.push({ x: Math.random() * 200, y: Math.random() * 80, vx: (Math.random() - .5) * .08, vy: (Math.random() - .5) * .05 });
+  }
+  const grid = [];
+  for (let r = 0; r < rows; r++) grid.push(new Array(cols).fill(' '));
+  window._cpts.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = cols; if (p.x > cols) p.x = 0;
+    if (p.y < 0) p.y = rows; if (p.y > rows) p.y = 0;
+    const twinkle = Math.sin(t * 4 + p.x + p.y) > 0;
+    const rx = Math.floor(p.x), ry = Math.floor(p.y);
+    if (rx >= 0 && rx < cols && ry >= 0 && ry < rows && twinkle) {
+      grid[ry][rx] = '*+.'[Math.floor(Math.random() * 3)];
+    }
+  });
+  return grid.map(row => row.join('')).join('\n');
+});
+
+// 9. ABOUT — Gentle mountain
+asciiAnimate('ascii-about', (t, cols, rows) => {
+  const grid = [];
+  for (let r = 0; r < rows; r++) grid.push(new Array(cols).fill(' '));
+  const baseY = rows * .72;
+  for (let c = 0; c < cols; c++) {
+    const mh = baseY - fbm(c * .035 + 5, 0, 3) * rows * .22;
+    for (let r = Math.floor(mh); r < rows; r++) {
+      if (r >= 0 && r < rows) grid[r][c] = '.';
+    }
+  }
+  return grid.map(row => row.join('')).join('\n');
+});
+
+// 10. CTA — Converging particles
+asciiAnimate('ascii-cta', (t, cols, rows) => {
+  if (!window._ctap) {
+    window._ctap = [];
+    for (let i = 0; i < 60; i++) {
+      const a = Math.random() * Math.PI * 2;
+      window._ctap.push({ a, d: .3 + Math.random() * .6, s: .003 + Math.random() * .005 });
+    }
+  }
+  const grid = [];
+  for (let r = 0; r < rows; r++) grid.push(new Array(cols).fill(' '));
+  const cx = cols / 2, cy = rows / 2;
+  window._ctap.forEach(p => {
+    p.d -= p.s;
+    if (p.d < .05) p.d = .6 + Math.random() * .3;
+    const x = Math.floor(cx + Math.cos(p.a + t * .4) * p.d * cx);
+    const y = Math.floor(cy + Math.sin(p.a + t * .4) * p.d * cy);
+    if (x >= 0 && x < cols && y >= 0 && y < rows) grid[y][x] = '.+*'[Math.floor(Math.random() * 3)];
+  });
+  return grid.map(row => row.join('')).join('\n');
+});
+// ============================================
+// HUB VISUAL — Interactive connection hub
+// ============================================
+(function(){
+  const hub = document.getElementById('hub-vis');
+  if (!hub) return;
+  const svg = document.getElementById('hub-lines');
+
+  // Inner orbit (closer, faster)
+  const inner = [
+    { name: 'Gmail', angle: 0 },
+    { name: 'Slack', angle: 90 },
+    { name: 'Notion', angle: 180 },
+    { name: 'Zapier', angle: 270 }
+  ];
+  // Outer orbit (further, slower)
+  const outer = [
+    { name: 'ChatGPT', angle: 30 },
+    { name: 'Shopify', angle: 90 },
+    { name: 'HubSpot', angle: 150 },
+    { name: 'Stripe', angle: 210 },
+    { name: 'Calendly', angle: 270 },
+    { name: 'WhatsApp', angle: 330 }
+  ];
+
+  const allNodes = [];
+
+  function createOrbitNodes(tools, radiusPct, orbitClass) {
+    tools.forEach((tool, i) => {
+      const node = document.createElement('div');
+      node.className = 'hub-node';
+      node.textContent = tool.name;
+      node.dataset.orbit = orbitClass;
+      node.dataset.angle = tool.angle;
+      node.dataset.radius = radiusPct;
+      hub.appendChild(node);
+      allNodes.push(node);
+    });
+  }
+
+  createOrbitNodes(inner, 24, 'inner');
+  createOrbitNodes(outer, 40, 'outer');
+
+  // Add gradient def to SVG
+  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+  grad.setAttribute('id', 'hubGrad');
+  const s1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  s1.setAttribute('offset', '0%'); s1.setAttribute('stop-color', '#0055ff');
+  const s2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', 'transparent');
+  grad.appendChild(s1); grad.appendChild(s2);
+  defs.appendChild(grad); svg.insertBefore(defs, svg.firstChild);
+
+  // Animate orbits
+  let t = 0;
+  function spinOrbit() {
+    // Clear SVG lines
+    while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
+
+    allNodes.forEach(node => {
+      const baseAngle = parseFloat(node.dataset.angle);
+      const r = parseFloat(node.dataset.radius);
+      const isInner = node.dataset.orbit === 'inner';
+      const speed = isInner ? 0.15 : 0.08; // deg per frame
+      const currentAngle = baseAngle + t * speed;
+      const rad = (currentAngle - 90) * Math.PI / 180;
+      const x = 50 + Math.cos(rad) * r;
+      const y = 50 + Math.sin(rad) * r;
+      node.style.cssText = `left:${x}%;top:${y}%;transform:translate(-50%,-50%)`;
+
+      // Draw line to center
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', '50%'); line.setAttribute('y1', '50%');
+      line.setAttribute('x2', x + '%'); line.setAttribute('y2', y + '%');
+      line.setAttribute('stroke', '#0055ff');
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('opacity', isInner ? '0.25' : '0.12');
+      svg.appendChild(line);
+    });
+
+    t++;
+    requestAnimationFrame(spinOrbit);
+  }
+  spinOrbit();
+})();
+
+// ============================================
+// EXISTING FUNCTIONALITY
+// ============================================
+
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// REVEAL ON SCROLL
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// COUNT UP
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target; const target = +el.dataset.count;
+    const suffix = el.textContent.includes('%') ? '%' : el.closest('.stat-num') ? '+' : '';
+    let start = 0; const dur = 2000; const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      start += step; if (start >= target) { start = target; clearInterval(timer) }
+      el.textContent = start + (el.dataset.suffix || suffix);
+    }, dur / 60);
+    countObs.unobserve(el);
+  });
+}, { threshold: .5 });
+document.querySelectorAll('[data-count]').forEach(el => {
+  if (el.closest('.stat-num')) el.dataset.suffix = '+';
+  if (el.textContent.includes('%')) el.dataset.suffix = '%';
+  countObs.observe(el);
+});
+
+// FEATURE TABS
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+  });
+});
+
+// CHAT DEMO
+(function(){
+  const chat = document.getElementById('chat-demo');
+  let started = false;
+  const messages = [
+    { type: 'user', text: 'Hé, hoe hebben mijn leads het deze week gedaan?', time: '09:12' },
+    { type: 'ai', time: '09:12',
+      html: `<div>Hier is je wekelijkse lead-rapportage 📊</div>
+        <div class="chat-card">
+          <div class="chat-card-row"><strong>Leadprestaties</strong><span style="color:#28c840;font-weight:600">↑ 24%</span></div>
+          <div class="chat-card-stats"><span>🟢 12 nieuw</span><span>⭐ 3 gekwalificeerd</span><span>📞 1 gesprek ingepland</span></div>
+          <div style="margin-top:8px;font-size:.8rem;color:var(--text2)">Gesprek ingepland: <strong style="color:#fff">Morgen 10:00</strong> — Jan uit Utrecht</div>
+          <div class="chat-progress"><div class="chat-progress-fill" style="--pw:75%"></div></div>
+        </div>` },
+    { type: 'user', text: 'Plan social media posts in voor deze week', time: '09:14' },
+    { type: 'ai', time: '09:14',
+      html: `<div>Gedaan ✓ <strong>5 posts</strong> ingepland ma–vr</div>
+        <div class="chat-thumbs"><div class="chat-thumb">🏗️</div><div class="chat-thumb">💡</div><div class="chat-thumb">📈</div><div class="chat-thumb">🤝</div><div class="chat-thumb">🎯</div></div>
+        <div style="margin-top:6px;font-size:.75rem;color:var(--text2)">LinkedIn + Instagram · Beste tijden automatisch geselecteerd</div>` },
+    { type: 'user', text: 'Stuur opvolging naar leads die niet reageerden', time: '09:15' },
+    { type: 'ai', time: '09:15',
+      html: `<div>3 opvolgingen verstuurd ✓</div>
+        <div style="font-size:.85rem;color:var(--text2);margin-top:4px">Dit heb ik geschreven:</div>
+        <div class="chat-collapsed">Voorbeeld: "Hoi [naam], ik wilde even checken hoe het staat met ons gesprek over..."</div>
+        <div style="margin-top:6px;font-size:.75rem;color:var(--text2)">Verzonden via Gmail · Leesbevestigingen aan</div>` }
+  ];
+
+  const demoObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !started) { started = true; animateChat(); demoObs.unobserve(e.target); }
+    });
+  }, { threshold: .3 });
+  demoObs.observe(chat);
+
+  function animateChat() {
+    let i = 0;
+    function next() {
+      if (i >= messages.length) { setTimeout(() => { chat.innerHTML = ''; i = 0; next(); }, 5000); return; }
+      const m = messages[i];
+      if (m.type === 'ai') {
+        const typing = document.createElement('div');
+        typing.className = 'chat-typing visible';
+        typing.innerHTML = '<span></span><span></span><span></span>';
+        chat.appendChild(typing);
+        chat.scrollTop = chat.scrollHeight;
+        setTimeout(() => { typing.remove(); addMessage(m); i++; setTimeout(next, 1200); }, 1200);
+      } else { addMessage(m); i++; setTimeout(next, 800); }
+    }
+    function addMessage(m) {
+      const div = document.createElement('div');
+      div.className = `chat-msg ${m.type}`;
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble';
+      if (m.html) bubble.innerHTML = m.html; else bubble.textContent = m.text;
+      div.appendChild(bubble);
+      const time = document.createElement('div');
+      time.className = 'chat-time'; time.textContent = m.time;
+      if (m.type === 'user') {
+        const read = document.createElement('div');
+        read.className = 'chat-read'; read.textContent = '✓✓';
+        div.appendChild(time); div.appendChild(read);
+      } else div.appendChild(time);
+      chat.appendChild(div);
+      requestAnimationFrame(() => { div.style.animationDelay = '0s'; });
+      chat.scrollTop = chat.scrollHeight;
+    }
+    next();
+  }
+})();
+
+// Restart step animations
+(function(){
+  const stepObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.task-bubble').forEach(b => { b.style.animation = 'none'; b.offsetHeight; b.style.animation = ''; });
+        e.target.querySelectorAll('.chart-bar').forEach(b => { b.style.animation = 'none'; b.offsetHeight; b.style.animation = ''; });
+      }
+    });
+  }, { threshold: .3 });
+  document.querySelectorAll('.step-visual').forEach(el => stepObs.observe(el));
+})();
+</script>
+</body>
+</html>

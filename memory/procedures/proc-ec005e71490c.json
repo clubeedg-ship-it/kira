@@ -1,0 +1,19 @@
+{
+  "id": "proc-ec005e71490c",
+  "name": "Memory Manager Execution",
+  "created": "2026-02-07T21:06:13.418Z",
+  "updated": "2026-02-07T21:06:13.418Z",
+  "version": 1,
+  "trigger": "heartbeat",
+  "steps": [
+    "Check context usage using context-monitor.js",
+    "If context usage > 75%, run curator-agent.js",
+    "If context compacted, run memory-retriever.js",
+    "Always run memory-sync.js"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

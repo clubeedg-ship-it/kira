@@ -1,0 +1,17 @@
+{
+  "id": "proc-cabfdcf03965",
+  "name": "Pre-compaction memory flush",
+  "created": "2026-02-07T17:20:01.663Z",
+  "updated": "2026-02-07T17:20:01.663Z",
+  "version": 1,
+  "trigger": "User command",
+  "steps": [
+    "Store durable memories to memory/YYYY-MM-DD.md",
+    "Create memory/ directory if needed"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

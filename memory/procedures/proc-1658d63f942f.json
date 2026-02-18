@@ -1,0 +1,17 @@
+{
+  "id": "proc-1658d63f942f",
+  "name": "vLLM Server Startup",
+  "created": "2026-02-07T18:11:46.197Z",
+  "updated": "2026-02-07T18:11:46.197Z",
+  "version": 1,
+  "trigger": "When testing the model",
+  "steps": [
+    "Start vLLM server with specific model path and arguments",
+    "Handle port conflicts/failures by trying different ports"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

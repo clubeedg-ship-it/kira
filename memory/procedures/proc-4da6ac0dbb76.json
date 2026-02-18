@@ -1,0 +1,16 @@
+{
+  "id": "proc-4da6ac0dbb76",
+  "name": "Memory Manager Check",
+  "created": "2026-02-07T17:49:13.038Z",
+  "updated": "2026-02-07T17:49:13.038Z",
+  "version": 1,
+  "trigger": "Every heartbeat",
+  "steps": [
+    "Run node ~/chimera/scripts/memory-manager.js"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "proc-06b4285e96d0",
+  "name": "Config Sync Implementation",
+  "created": "2026-02-08T03:09:32.566Z",
+  "updated": "2026-02-08T03:09:32.566Z",
+  "version": 1,
+  "trigger": "User feedback on disconnect",
+  "steps": [
+    "Identify disconnect between localStorage and backend",
+    "Update frontend profit.js with syncConfigToBackend function",
+    "Add backend load logic on startup",
+    "Initialize backend with localStorage values",
+    "Trigger initial sync on init",
+    "Rebuild frontend"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

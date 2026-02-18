@@ -1,0 +1,18 @@
+{
+  "id": "proc-c3c7cf9ee94a",
+  "name": "Memory Management",
+  "created": "2026-02-07T15:56:57.722Z",
+  "updated": "2026-02-07T15:56:57.722Z",
+  "version": 1,
+  "trigger": "Context usage high or periodic",
+  "steps": [
+    "Check context usage",
+    "Sync memory graph",
+    "Curate insights into MEMORY.md"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "proc-e6a23e128f77",
+  "name": "Setup Claude Opus 4.6 on OpenClaw",
+  "created": "2026-02-07T15:58:37.341Z",
+  "updated": "2026-02-07T15:58:37.341Z",
+  "version": 1,
+  "trigger": "User wants to use Claude Opus 4.6",
+  "steps": [
+    "Install OpenClaw: npm install -g openclaw@latest",
+    "Configure Anthropic API key: claude setup-token",
+    "Edit ~/.openclaw/openclaw.json",
+    "Add 'models' section with 'anthropic' provider and 'claude-opus-4-6' configuration (reasoning: true, contextWindow: 1000000, maxTokens: 128000)",
+    "Add 'agents' section with default model set to 'anthropic/claude-opus-4-6'"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,8 @@
+{
+  "lastCuratorRun": "2026-02-06T23:28:00.000Z",
+  "messagesSinceLastRun": 0,
+  "runEveryNMessages": 50,
+  "thresholdPercent": 50,
+  "curatorModel": "qwen3:14b",
+  "notes": "Aggressive curation - run every 50 messages or at 50% context"
+}

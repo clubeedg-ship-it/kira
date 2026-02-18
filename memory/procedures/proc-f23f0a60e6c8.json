@@ -1,0 +1,18 @@
+{
+  "id": "proc-f23f0a60e6c8",
+  "name": "Install vLLM",
+  "created": "2026-02-07T18:54:52.279Z",
+  "updated": "2026-02-07T18:54:52.279Z",
+  "version": 1,
+  "trigger": "setup GLM-4.7-Flash",
+  "steps": [
+    "Create virtual environment vllm-env",
+    "Upgrade pip to 26.0.1",
+    "Install vllm package"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

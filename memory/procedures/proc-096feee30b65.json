@@ -1,0 +1,19 @@
+{
+  "id": "proc-096feee30b65",
+  "name": "Security Hardening",
+  "created": "2026-02-07T21:02:57.277Z",
+  "updated": "2026-02-07T21:02:57.277Z",
+  "version": 1,
+  "trigger": "User request",
+  "steps": [
+    "Configure SSH (PermitRootLogin, AllowUsers, X11)",
+    "Install fail2ban",
+    "Run system updates",
+    "Generate Docker exposure report"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

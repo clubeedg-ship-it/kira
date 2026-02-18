@@ -1,0 +1,20 @@
+{
+  "id": "proc-2b970f61197e",
+  "name": "Weekly Financial Review",
+  "created": "2026-02-07T16:02:34.555Z",
+  "updated": "2026-02-07T16:02:34.555Z",
+  "version": 1,
+  "trigger": "Monday 8:00 AM",
+  "steps": [
+    "Review P&L Flash Report by company",
+    "Update 13-week rolling cash flow forecast",
+    "Analyze burn rate trends",
+    "Review capital allocation decisions",
+    "Check banking relationships and covenant compliance"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,16 @@
+{
+  "id": "proc-50ccb8d55ab8",
+  "name": "Manual Run",
+  "created": "2026-02-08T01:09:37.774Z",
+  "updated": "2026-02-08T01:09:37.774Z",
+  "version": 1,
+  "trigger": "When manual execution is needed",
+  "steps": [
+    "docker exec omiximo-email-automation /app/run_hourly.sh"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

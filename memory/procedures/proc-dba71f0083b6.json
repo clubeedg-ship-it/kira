@@ -1,0 +1,20 @@
+{
+  "id": "proc-dba71f0083b6",
+  "name": "Memory Manager Curator",
+  "created": "2026-02-07T21:38:36.496Z",
+  "updated": "2026-02-07T21:38:36.496Z",
+  "version": 1,
+  "trigger": "when context exceeds 75% or tokens reach threshold",
+  "steps": [
+    "Check context usage",
+    "Run curator agent to summarize",
+    "Extract facts and entities",
+    "Store summary to file",
+    "Sync memory graph"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

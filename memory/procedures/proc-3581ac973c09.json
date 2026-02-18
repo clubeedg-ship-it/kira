@@ -1,0 +1,21 @@
+{
+  "id": "proc-3581ac973c09",
+  "name": "Critique $1B Math Document",
+  "created": "2026-02-08T03:09:05.506Z",
+  "updated": "2026-02-08T03:09:05.506Z",
+  "version": 1,
+  "trigger": "User request",
+  "steps": [
+    "Read file completely",
+    "Score on Accuracy, Completeness, Honesty, Actionability, Math",
+    "Verify key claims via web_search",
+    "Write critique + score to ~/clawd/memory/critic-log.md",
+    "If score < 7, write specific improvements needed",
+    "If any facts are wrong, note them clearly"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

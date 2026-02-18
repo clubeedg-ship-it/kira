@@ -1,0 +1,16 @@
+{
+  "id": "proc-7c6fada88249",
+  "name": "Context Summary for Compaction",
+  "created": "2026-02-07T21:08:14.907Z",
+  "updated": "2026-02-07T21:08:14.907Z",
+  "version": 1,
+  "trigger": "Context truncation",
+  "steps": [
+    "Run node ~/clawd/scripts/context-summary.js --messages 50"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

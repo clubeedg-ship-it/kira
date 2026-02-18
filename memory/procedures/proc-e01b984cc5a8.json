@@ -1,0 +1,18 @@
+{
+  "id": "proc-e01b984cc5a8",
+  "name": "Context Monitoring",
+  "created": "2026-02-07T21:08:41.822Z",
+  "updated": "2026-02-07T21:08:41.822Z",
+  "version": 1,
+  "trigger": "Heartbeat",
+  "steps": [
+    "Estimate token usage",
+    "Check if usage > threshold",
+    "Trigger curator if needed"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-04437e9714f2",
+  "name": "Morning Summary Routine",
+  "created": "2026-02-07T15:54:26.706Z",
+  "updated": "2026-02-07T15:54:26.706Z",
+  "version": 1,
+  "trigger": "Cron job (08:00 AM UTC)",
+  "steps": [
+    "Run the morning summary script: `node ~/clawd/scripts/morning-summary.js`",
+    "Read the output and share it with Otto via Telegram",
+    "Check memory files for any overnight context",
+    "Ask if Otto wants to review proposals or work on any specific project"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

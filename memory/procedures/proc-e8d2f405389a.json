@@ -1,0 +1,18 @@
+{
+  "id": "proc-e8d2f405389a",
+  "name": "Morning Routine",
+  "created": "2026-02-07T16:02:34.555Z",
+  "updated": "2026-02-07T16:02:34.555Z",
+  "version": 1,
+  "trigger": "6:00-7:00 AM",
+  "steps": [
+    "Check cash position and critical alerts",
+    "Review Real-time Cash, Revenue, Operational Metrics, and People Alerts dashboards",
+    "Check Priority Inbox for VIP, Decision Required, and External Stakeholder items"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

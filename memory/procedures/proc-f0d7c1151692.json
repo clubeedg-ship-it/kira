@@ -1,0 +1,16 @@
+{
+  "id": "proc-f0d7c1151692",
+  "name": "Retrieving Fixed Elements",
+  "created": "2026-02-08T02:09:48.202Z",
+  "updated": "2026-02-08T02:09:48.202Z",
+  "version": 1,
+  "trigger": "At order time",
+  "steps": [
+    "Pull fixed elements (case, PSU, logistics, platform fees) from InvenTree config"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

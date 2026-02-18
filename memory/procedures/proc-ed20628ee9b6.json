@@ -1,0 +1,19 @@
+{
+  "id": "proc-ed20628ee9b6",
+  "name": "Read HEARTBEAT.md",
+  "created": "2026-02-07T16:05:07.371Z",
+  "updated": "2026-02-07T16:05:07.371Z",
+  "version": 1,
+  "trigger": "User command",
+  "steps": [
+    "Check if HEARTBEAT.md exists",
+    "Read the file",
+    "Follow instructions strictly",
+    "Reply HEARTBEAT_OK if nothing needs attention"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

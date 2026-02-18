@@ -1,0 +1,18 @@
+{
+  "id": "proc-8f5a142dcabb",
+  "name": "Switch Model",
+  "created": "2026-02-07T21:39:04.699Z",
+  "updated": "2026-02-07T21:39:04.699Z",
+  "version": 1,
+  "trigger": "User request to switch model",
+  "steps": [
+    "Read config file",
+    "Update default model to 'claude-opus-4-6'",
+    "Restart process"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

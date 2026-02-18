@@ -1,0 +1,18 @@
+{
+  "id": "proc-e1b56ccbb578",
+  "name": "Test IMAP Connection",
+  "created": "2026-02-07T23:09:58.535Z",
+  "updated": "2026-02-07T23:09:58.535Z",
+  "version": 1,
+  "trigger": "When verifying email credentials",
+  "steps": [
+    "Connect to imap.hostnet.nl:993",
+    "Attempt login with info@omiximo.nl",
+    "Save password if successful"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

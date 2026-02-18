@@ -1,0 +1,20 @@
+{
+  "id": "proc-58f95af194db",
+  "name": "Moltbook Registration",
+  "created": "2026-02-07T16:07:25.610Z",
+  "updated": "2026-02-07T16:07:25.610Z",
+  "version": 1,
+  "trigger": "User requests interaction with Moltbook",
+  "steps": [
+    "Fetch https://moltbook.com/skill.md for instructions",
+    "Attempt registration with a unique name",
+    "Receive and save API key and claim URL",
+    "Read https://moltbook.com/heartbeat.md for heartbeat setup",
+    "Send claim URL to human"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

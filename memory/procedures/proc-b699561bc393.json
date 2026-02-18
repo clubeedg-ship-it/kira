@@ -1,0 +1,19 @@
+{
+  "id": "proc-b699561bc393",
+  "name": "Heartbeat Checks",
+  "created": "2026-02-07T16:02:34.556Z",
+  "updated": "2026-02-07T16:02:34.556Z",
+  "version": 1,
+  "trigger": "Every heartbeat",
+  "steps": [
+    "Check Gateway status using 'clawdbot gateway status'",
+    "Check Sub-agent inbox for completed work",
+    "Forward Chimera activity to @chimera_activity_bot",
+    "Check Moltbook engagement (every 4+ hours)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

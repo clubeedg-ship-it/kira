@@ -1,0 +1,18 @@
+type,name,location,contact_method,notes,status,priority
+spa,"Soho House Amsterdam",Amsterdam,email,Luxury members club with spa - ideal fit,not_contacted,high
+spa,"Koan Float Amsterdam",Amsterdam,email,Premium float/wellness center,not_contacted,high
+spa,"Spa Zuiver",Amsterdam,email,Day spa with retail section,not_contacted,high
+spa,"The Spa at Conservatorium Hotel",Amsterdam,email,5-star hotel spa,not_contacted,high
+spa,"Thermae Bath Spa",Netherlands,email,Wellness destination,not_contacted,medium
+retailer,"De Bijenkorf Beauty",Netherlands,email,Premium department store beauty dept,not_contacted,high
+retailer,"Skins Cosmetics",Amsterdam,email,Niche/luxury beauty retailer,not_contacted,high
+retailer,"COSMANIA",Netherlands,email,Clean beauty specialist,not_contacted,high
+retailer,"The Detox Market",Online/EU,email,Online clean beauty retailer,not_contacted,high
+retailer,"Cult Beauty",Online/UK,email,UK clean beauty marketplace,not_contacted,medium
+retailer,"Space NK",UK,email,Premium beauty retailer,not_contacted,medium
+platform,"Faire",Online,signup,B2B wholesale marketplace - priority signup,not_contacted,high
+platform,"Bol.com",Netherlands,signup,Dutch marketplace - volume play,not_contacted,medium
+platform,"Amazon EU",EU,signup,Start with NL/DE,not_contacted,medium
+influencer,"POC beauty micro-influencers NL",Instagram,DM,Search 10-50K followers melanin-rich skincare,not_contacted,high
+influencer,"Dutch wellness creators",Instagram/TikTok,DM,Self-care/natural beauty niche,not_contacted,medium
+influencer,"Male grooming NL",Instagram,DM,Unisex angle - underserved,not_contacted,medium

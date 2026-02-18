@@ -1,0 +1,19 @@
+{
+  "id": "proc-d236be693968",
+  "name": "Morning Summary Execution",
+  "created": "2026-02-07T15:44:44.119Z",
+  "updated": "2026-02-07T15:44:44.119Z",
+  "version": 1,
+  "trigger": "New day (specifically Monday)",
+  "steps": [
+    "Run node ~/clawd/scripts/morning-summary.js",
+    "Read the output and share it with Otto via Telegram",
+    "Check memory files for any overnight context",
+    "Ask if Otto wants to review proposals or work on any specific project"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

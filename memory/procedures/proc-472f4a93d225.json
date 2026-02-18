@@ -1,0 +1,19 @@
+{
+  "id": "proc-472f4a93d225",
+  "name": "Activity Tracker",
+  "created": "2026-02-07T21:38:36.497Z",
+  "updated": "2026-02-07T21:38:36.497Z",
+  "version": 1,
+  "trigger": "after completing work (every 2 events)",
+  "steps": [
+    "Load state from .kira-activity-tracker.json",
+    "Accumulate events",
+    "Send activity update to Telegram",
+    "Save state"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

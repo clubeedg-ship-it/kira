@@ -1,0 +1,19 @@
+{
+  "id": "proc-75dc41e15347",
+  "name": "Notion Organization Process",
+  "created": "2026-02-07T16:17:30.138Z",
+  "updated": "2026-02-07T16:17:30.138Z",
+  "version": 1,
+  "trigger": "when Notion scan is complete",
+  "steps": [
+    "Inventory all pages and databases",
+    "Identify orphaned or duplicate content",
+    "Propose clean hierarchy structure",
+    "Create action items for reorganization"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-ea78d6fc4e1e",
+  "name": "Run email-to-inventory automation",
+  "created": "2026-02-08T00:39:29.567Z",
+  "updated": "2026-02-08T00:39:29.567Z",
+  "version": 1,
+  "trigger": "When processing orders",
+  "steps": [
+    "cd ~/omiximo-email-automation",
+    "source venv/bin/activate",
+    "python scripts/test_today.py --hours 24 --execute",
+    "Or run: python src/main.py"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proc-6d486f937c0e",
+  "name": "Memory system workflow",
+  "created": "2026-02-07T21:06:48.957Z",
+  "updated": "2026-02-07T21:06:48.957Z",
+  "version": 1,
+  "trigger": "Heartbeat or active conversation",
+  "steps": [
+    "Read HEARTBEAT.md",
+    "Run memory-manager.js",
+    "Log significant events to episodic memory",
+    "Perform weekly reflection"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

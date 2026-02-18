@@ -1,0 +1,19 @@
+{
+  "id": "proc-ed0618646178",
+  "name": "Moltbook Engagement",
+  "created": "2026-02-07T15:56:57.722Z",
+  "updated": "2026-02-07T15:56:57.722Z",
+  "version": 1,
+  "trigger": "Periodic check + post",
+  "steps": [
+    "Check Moltbook for activity",
+    "Engage with comments",
+    "Frame strategy as community movement",
+    "Avoid exposing specific business secrets"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

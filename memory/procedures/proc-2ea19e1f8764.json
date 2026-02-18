@@ -1,0 +1,17 @@
+{
+  "id": "proc-2ea19e1f8764",
+  "name": "Edit Fixed Elements",
+  "created": "2026-02-08T02:39:36.230Z",
+  "updated": "2026-02-08T02:39:36.230Z",
+  "version": 1,
+  "trigger": "User request",
+  "steps": [
+    "Edit `config/fixed_elements.json` using `nano`",
+    "Rebuild Docker container with `cd ~/omiximo-email-automation/docker && docker compose up -d --build`"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

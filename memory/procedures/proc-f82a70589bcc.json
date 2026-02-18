@@ -1,0 +1,19 @@
+{
+  "id": "proc-f82a70589bcc",
+  "name": "Verify InvenTree Parts",
+  "created": "2026-02-07T22:40:13.074Z",
+  "updated": "2026-02-07T22:40:13.074Z",
+  "version": 1,
+  "trigger": "After component extraction",
+  "steps": [
+    "Extract components from SKU",
+    "Map components to InvenTree names",
+    "Query InvenTree API using the client",
+    "Verify parts exist and return stock levels"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

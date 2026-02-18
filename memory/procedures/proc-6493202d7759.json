@@ -1,0 +1,17 @@
+{
+  "id": "proc-6493202d7759",
+  "name": "Log Significant Event",
+  "created": "2026-02-07T21:08:14.907Z",
+  "updated": "2026-02-07T21:08:14.907Z",
+  "version": 1,
+  "trigger": "Significant event occurs",
+  "steps": [
+    "Run node ~/clawd/scripts/memory/memory-core.js log",
+    "Provide type, summary, outcome, importance, tags"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

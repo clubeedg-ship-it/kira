@@ -1,0 +1,50 @@
+{
+  "period": {
+    "days": 1,
+    "since": "2026-02-04T22:37:11.464Z",
+    "until": "2026-02-05T22:37:11.464Z"
+  },
+  "stats": {
+    "total": 8,
+    "successes": 4,
+    "failures": 0,
+    "highImportance": 4,
+    "successRate": 0.5
+  },
+  "typeBreakdown": {
+    "task": {
+      "success": 4,
+      "total": 4
+    },
+    "{\"type\":\"task\",\"summary\":\"Created IAM Sales Playbook with Apollo/Instantly/Vapi setup\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"iam\",\"sales\",\"automation\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Created OttoGen 4-class webinar curriculum\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"ottogen\",\"content\",\"curriculum\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Built IAM Sales Quest gamification in Notion\",\"outcome\":\"success\",\"importance\":8,\"tags\":[\"iam\",\"sales\",\"notion\"]}": {
+      "success": 0,
+      "total": 1
+    },
+    "{\"type\":\"task\",\"summary\":\"Launched Oopuo $1B mission - created full org structure\",\"outcome\":\"success\",\"importance\":9,\"tags\":[\"oopuo\",\"milestone\"]}": {
+      "success": 0,
+      "total": 1
+    }
+  },
+  "insights": [
+    {
+      "type": "success_pattern",
+      "content": "Strong in: iam, sales, automation, ottogen, content",
+      "confidence": 0.8
+    },
+    {
+      "type": "high_performer",
+      "content": "task tasks at 100% success - document procedures",
+      "confidence": 0.9
+    }
+  ],
+  "recommendations": [],
+  "timestamp": "2026-02-05T22:37:11.464Z"
+}

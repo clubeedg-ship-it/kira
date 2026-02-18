@@ -1,0 +1,18 @@
+{
+  "id": "proc-26d888a3030a",
+  "name": "Health Check",
+  "created": "2026-02-07T21:03:27.156Z",
+  "updated": "2026-02-07T21:03:27.156Z",
+  "version": 1,
+  "trigger": "after startup",
+  "steps": [
+    "Wait 30 seconds",
+    "Check /health endpoint",
+    "Check GPU memory usage"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

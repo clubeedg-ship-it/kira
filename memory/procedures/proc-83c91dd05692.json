@@ -1,0 +1,18 @@
+{
+  "id": "proc-83c91dd05692",
+  "name": "Heartbeat Check",
+  "created": "2026-02-07T22:09:21.360Z",
+  "updated": "2026-02-07T22:09:21.361Z",
+  "version": 1,
+  "trigger": "User request",
+  "steps": [
+    "Read HEARTBEAT.md if it exists",
+    "Verify system status (Service, Logs, Runtime)",
+    "Reply HEARTBEAT_OK if nothing needs attention"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "proc-0cf101795d84",
+  "name": "AGENTS.md workflow",
+  "created": "2026-02-07T21:06:48.957Z",
+  "updated": "2026-02-07T21:06:48.957Z",
+  "version": 1,
+  "trigger": "Every session",
+  "steps": [
+    "Read SOUL.md",
+    "Read USER.md",
+    "Read memory/YYYY-MM-DD.md (today + yesterday)",
+    "Read MEMORY.md (if in MAIN SESSION)",
+    "Read memory/retrieved-context.md (if context was compacted)",
+    "Read ~/chimera/memory/current-context.md"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

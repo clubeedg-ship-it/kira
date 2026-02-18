@@ -1,0 +1,19 @@
+{
+  "id": "proc-daebdfa4242b",
+  "name": "Install Codex Orchestrator",
+  "created": "2026-02-07T18:45:14.901Z",
+  "updated": "2026-02-07T18:45:14.901Z",
+  "version": 1,
+  "trigger": "when setting up the tool",
+  "steps": [
+    "Add marketplace: /plugin marketplace add kingbootoshi/codex-orchestrator",
+    "Install plugin: /plugin install codex-orchestrator",
+    "Restart Claude Code",
+    "Run init: /codex-orchestrator init"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

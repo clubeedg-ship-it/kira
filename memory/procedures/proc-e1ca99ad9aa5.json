@@ -1,0 +1,18 @@
+{
+  "id": "proc-e1ca99ad9aa5",
+  "name": "Restart GLM-4.7-flash Download",
+  "created": "2026-02-07T17:49:44.072Z",
+  "updated": "2026-02-07T17:49:44.072Z",
+  "version": 1,
+  "trigger": "Download stalled or stuck",
+  "steps": [
+    "Check for incomplete downloads and locks",
+    "Clear cache",
+    "Run huggingface-cli download in background"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

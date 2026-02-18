@@ -1,0 +1,20 @@
+{
+  "id": "proc-7b0ecbf8f2fb",
+  "name": "Import missing Ollama model",
+  "created": "2026-02-07T18:38:15.182Z",
+  "updated": "2026-02-07T18:38:15.182Z",
+  "version": 1,
+  "trigger": "When a model run command fails with 'not found'",
+  "steps": [
+    "Identify missing model",
+    "Import model using ollama run [model_name]",
+    "Wait for import completion (GGUF parsing, layer creation)",
+    "Restart ollama service if necessary",
+    "Verify model availability"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

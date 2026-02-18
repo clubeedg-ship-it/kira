@@ -1,0 +1,22 @@
+{
+  "id": "proc-37e3132169aa",
+  "name": "Run VM Security Audit",
+  "created": "2026-02-07T18:54:52.279Z",
+  "updated": "2026-02-07T18:54:52.279Z",
+  "version": 1,
+  "trigger": "security check",
+  "steps": [
+    "Run sudo iptables -L -n -v",
+    "Check sudo ufw status verbose",
+    "Run sudo lastlog | grep -v \"Never\"",
+    "Check /proc/sys/net/ipv4/ip_forward",
+    "Check sysctl net.ipv4.conf.all.accept_redirects",
+    "Check sysctl net.ipv4.conf.all.send_redirects",
+    "Check sysctl net.ipv4.conf.all.accept_source_route"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

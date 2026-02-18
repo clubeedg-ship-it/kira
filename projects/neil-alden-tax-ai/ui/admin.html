@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stella Vic's — Administração</title>
+<style>
+:root {
+  --primary: #1a365d;
+  --primary-light: #2a4a7f;
+  --accent: #c9a84c;
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text: #1a202c;
+  --text-muted: #718096;
+  --border: #e2e8f0;
+  --success: #38a169;
+  --danger: #e53e3e;
+  --warning: #d69e2e;
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+.admin-header {
+  background:var(--primary); color:#fff; padding:16px 32px;
+  display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.admin-header h1 { font-size:1.3rem; font-weight:600; }
+.admin-header h1 span { color:var(--accent); }
+.admin-header a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.85rem; }
+.admin-header a:hover { color:#fff; }
+
+.container { max-width:1200px; margin:0 auto; padding:24px; }
+
+/* Stat cards */
+.stat-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:24px; }
+.stat-card {
+  background:var(--card-bg); border-radius:var(--radius); padding:20px; border:1px solid var(--border);
+  box-shadow:0 1px 3px rgba(0,0,0,.06);
+}
+.stat-card .stat-label { font-size:.75rem; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); margin-bottom:4px; }
+.stat-card .stat-value { font-size:2rem; font-weight:700; color:var(--primary); }
+.stat-card .stat-sub { font-size:.8rem; color:var(--text-muted); margin-top:2px; }
+.stat-card .stat-icon { float:right; opacity:.15; }
+.stat-card .stat-icon svg { width:40px; height:40px; }
+
+/* Tabs */
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--border); margin-bottom:24px; }
+.tab {
+  padding:10px 20px; background:none; border:none; cursor:pointer;
+  font-size:.9rem; font-weight:500; color:var(--text-muted);
+  border-bottom:2px solid transparent; margin-bottom:-2px; transition:all .2s;
+}
+.tab:hover { color:var(--primary); }
+.tab.active { color:var(--primary); border-bottom-color:var(--accent); font-weight:600; }
+
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Tables */
+table { width:100%; border-collapse:collapse; font-size:.88rem; }
+th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:500; }
+td { padding:10px 14px; border-bottom:1px solid var(--border); }
+tr:nth-child(even) td { background:#f7fafc; }
+tr:hover td { background:#edf2f7; }
+.btn-sm {
+  padding:4px 10px; font-size:.75rem; border:1px solid var(--border); border-radius:6px;
+  background:#fff; cursor:pointer; color:var(--primary); font-weight:500;
+}
+.btn-sm:hover { background:var(--bg); }
+
+/* Status badges */
+.badge-status { padding:3px 10px; border-radius:12px; font-size:.72rem; font-weight:600; text-transform:uppercase; }
+.badge-open { background:#fed7d7; color:#c53030; }
+.badge-investigating { background:#fefcbf; color:#975a16; }
+.badge-resolved { background:#c6f6d5; color:#276749; }
+
+/* Expandable */
+.expand-row { display:none; }
+.expand-row.open { display:table-row; }
+.expand-row td { background:#f7fafc; padding:16px 24px; }
+.expand-content { max-height:400px; overflow-y:auto; white-space:pre-wrap; font-size:.85rem; line-height:1.7; }
+
+/* Bar chart */
+.bar-chart { display:flex; align-items:flex-end; gap:6px; height:200px; padding:10px 0; }
+.bar-col { display:flex; flex-direction:column; align-items:center; flex:1; min-width:30px; }
+.bar { background:linear-gradient(to top, var(--primary), var(--primary-light)); border-radius:4px 4px 0 0; width:100%; max-width:40px; transition:height .3s; }
+.bar-label { font-size:.65rem; color:var(--text-muted); margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:60px; }
+.bar-value { font-size:.65rem; color:var(--primary); font-weight:600; margin-bottom:2px; }
+
+/* Usage breakdown */
+.usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+.usage-section { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.usage-section h3 { font-size:.9rem; color:var(--primary); margin-bottom:12px; border-bottom:1px solid var(--border); padding-bottom:8px; }
+
+/* Detail modal */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000;
+  display:none; align-items:center; justify-content:center;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:#fff; border-radius:var(--radius); max-width:700px; width:90%;
+  max-height:80vh; overflow-y:auto; box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+.modal-header { padding:16px 24px; background:var(--primary); color:#fff; display:flex; justify-content:space-between; align-items:center; border-radius:var(--radius) var(--radius) 0 0; }
+.modal-header h3 { font-size:1rem; }
+.modal-close { background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; }
+.modal-body { padding:24px; }
+.modal-body dt { font-weight:600; font-size:.8rem; color:var(--text-muted); text-transform:uppercase; margin-top:12px; }
+.modal-body dd { margin:4px 0 0; font-size:.9rem; }
+
+/* Loading */
+.loading-msg { text-align:center; padding:40px; color:var(--text-muted); }
+
+/* Select for status */
+.status-select { padding:3px 8px; border:1px solid var(--border); border-radius:6px; font-size:.75rem; }
+
+@media (max-width:768px) {
+  .container { padding:12px; }
+  .stat-cards { grid-template-columns:1fr 1fr; }
+  .usage-grid { grid-template-columns:1fr; }
+  .tabs { overflow-x:auto; }
+  table { font-size:.78rem; }
+  th, td { padding:8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1><span>Stella Vic's</span> — Administração</h1>
+  <a href="/">&#8592; Voltar ao aplicativo</a>
+</div>
+
+<div class="container">
+  <div class="stat-cards" id="statCards">
+    <div class="stat-card"><div class="stat-label">Total de Usuários</div><div class="stat-value" id="sUsers">—</div></div>
+    <div class="stat-card"><div class="stat-label">Ativos Hoje</div><div class="stat-value" id="sActive">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total de Pareceres</div><div class="stat-value" id="sOpinions">—</div></div>
+    <div class="stat-card"><div class="stat-label">Custo Total IA</div><div class="stat-value" id="sCost">—</div></div>
+    <div class="stat-card"><div class="stat-label">Relatórios Abertos</div><div class="stat-value" id="sReports">—</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="users">Usuários</button>
+    <button class="tab" data-tab="opinions">Pareceres</button>
+    <button class="tab" data-tab="usage">Uso de IA</button>
+    <button class="tab" data-tab="reports">Relatórios de Suporte</button>
+    <button class="tab" data-tab="security">🔒 Segurança</button>
+  </div>
+
+  <div class="tab-content active" id="tab-users">
+    <table><thead><tr><th>Nome</th><th>Email</th><th>Papel</th><th>Localização</th><th>IP</th><th>Pareceres</th><th>Custo IA</th><th>Último Acesso</th><th>Ações</th></tr></thead>
+    <tbody id="usersBody"><tr><td colspan="6" class="loading-msg">Carregando...</td></tr></tbody></table>
+  </div>
+
+  <div class="tab-content" id="tab-opinions">
+    <table><thead><tr><th>Título</th><th>Cliente</th><th>País</th><th>Usuário</th><th>Data</th><th></th></tr></thead>
+    <tbody id="opinionsBody"><tr><td colspan="6" class="loading-msg">Carregando...</td></tr></tbody></table>
+  </div>
+
+  <div class="tab-content" id="tab-usage">
+    <div id="usageContent"><p class="loading-msg">Carregando...</p></div>
+  </div>
+
+  <div class="tab-content" id="tab-reports">
+    <h3 style="margin-bottom:12px;color:var(--primary)">Conversas de Suporte</h3>
+    <table><thead><tr><th>Usuário</th><th>Email</th><th>Localização</th><th>Mensagens</th><th>Última</th><th>Ações</th></tr></thead>
+    <tbody id="convosBody"><tr><td colspan="6" class="loading-msg">Carregando...</td></tr></tbody></table>
+
+    <h3 style="margin:24px 0 12px;color:var(--primary)">Relatórios de Bug</h3>
+    <table><thead><tr><th>ID</th><th>Usuário</th><th>Resumo</th><th>Severidade</th><th>Status</th><th>Data</th></tr></thead>
+    <tbody id="reportsBody"><tr><td colspan="6" class="loading-msg">Carregando...</td></tr></tbody></table>
+  </div>
+  <div class="tab-content" id="tab-security">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="usage-section">
+        <h3>🚫 IPs Bloqueados</h3>
+        <div id="blockedIPs"><p class="loading-msg">Carregando...</p></div>
+      </div>
+      <div class="usage-section">
+        <h3>📊 Requisições por IP (Top 20)</h3>
+        <div id="requestStats"><p class="loading-msg">Carregando...</p></div>
+      </div>
+    </div>
+    <div class="usage-section" style="margin-bottom:24px">
+      <h3>❌ Tentativas de Login Falhadas (24h)</h3>
+      <div id="failedLogins"><p class="loading-msg">Carregando...</p></div>
+    </div>
+    <div class="usage-section">
+      <h3>📝 Log de Acesso (últimas 50 entradas)</h3>
+      <div id="accessLogTail" style="max-height:400px;overflow-y:auto;font-family:monospace;font-size:.78rem;white-space:pre-wrap"><p class="loading-msg">Carregando...</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header"><h3 id="modalTitle">Detalhes</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const api = (path, opts) => fetch(path, { credentials:'same-origin', ...opts }).then(r => { if (r.status === 403) { location.href = '/'; throw new Error('Not admin'); } return r.json(); });
+
+// Auth check
+api('/api/auth/me').then(d => { if (!d.user || d.user.role !== 'admin') location.href = '/'; }).catch(() => location.href = '/');
+
+// Tabs
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('tab-' + t.dataset.tab).classList.add('active');
+}));
+
+// Modal
+function openModal(title, html) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalBody').innerHTML = html; document.getElementById('modal').classList.add('open'); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+
+function fmtDate(d) { if (!d) return '—'; return new Date(d).toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' }); }
+function fmtCost(c) { return '$' + (c || 0).toFixed(4); }
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+// Load dashboard stats
+async function loadDashboard() {
+  try {
+    const dash = await api('/api/admin/dashboard');
+    document.getElementById('sUsers').textContent = dash.users.total;
+    document.getElementById('sActive').textContent = dash.users.activeToday;
+    document.getElementById('sOpinions').textContent = dash.opinions.total;
+    document.getElementById('sCost').textContent = fmtCost(dash.usage?.totalCost || 0);
+    document.getElementById('sReports').textContent = dash.support.openReports;
+    // Render user locations if available
+    if (dash.userLocations?.length) {
+      const locHtml = '<div style="margin-top:12px"><h4 style="margin-bottom:8px;color:var(--primary)">Localizações dos Usuários</h4>' +
+        dash.userLocations.map(u => '<div style="padding:6px 0;border-bottom:1px solid #eee;font-size:.85rem"><strong>'+esc(u.name)+'</strong> — '+esc(u.last_location)+' <span style="color:#999;font-size:.75rem">('+esc(u.last_ip)+')</span></div>').join('') + '</div>';
+      document.getElementById('statCards').insertAdjacentHTML('afterend', locHtml);
+    }
+  } catch(e) { console.error(e); }
+}
+
+// Load users
+async function loadUsers() {
+  const { users } = await api('/api/admin/users');
+  const tb = document.getElementById('usersBody');
+  if (!users.length) { tb.innerHTML = '<tr><td colspan="6" class="loading-msg">Nenhum usuário</td></tr>'; return; }
+  tb.innerHTML = users.map(u => `<tr>
+    <td>${esc(u.name)}</td><td>${esc(u.email)}</td><td>${esc(u.role)}</td>
+    <td>${esc(u.last_location || '—')}</td><td>${esc(u.last_ip || '—')}</td>
+    <td>${u.opinion_count}</td><td>$${(u.total_cost||0).toFixed(4)}</td><td>${fmtDate(u.last_active)}</td>
+    <td><button class="btn-sm" onclick="viewUser('${u.id}')">Ver</button></td>
+  </tr>`).join('');
+}
+
+async function viewUser(id) {
+  const u = await api('/api/admin/users/' + id);
+  let html = `<dl><dt>Nome</dt><dd>${esc(u.name)}</dd><dt>Email</dt><dd>${esc(u.email)}</dd><dt>Papel</dt><dd>${esc(u.role)}</dd><dt>Localização</dt><dd>${esc(u.last_location||'Desconhecida')}</dd><dt>IP</dt><dd>${esc(u.last_ip||'—')}</dd><dt>Último Acesso</dt><dd>${fmtDate(u.last_active)}</dd><dt>Criado em</dt><dd>${fmtDate(u.created_at)}</dd><dt>Mensagens de Suporte</dt><dd>${u.support_messages_count}</dd></dl>`;
+  if (u.opinions.length) {
+    html += '<h4 style="margin-top:16px">Pareceres</h4><ul>' + u.opinions.map(o => `<li>${esc(o.title)} — ${fmtDate(o.created_at)}</li>`).join('') + '</ul>';
+  }
+  openModal(u.name, html);
+}
+
+// Load opinions
+async function loadOpinions() {
+  const { opinions } = await api('/api/admin/opinions');
+  const tb = document.getElementById('opinionsBody');
+  if (!opinions.length) { tb.innerHTML = '<tr><td colspan="6" class="loading-msg">Nenhum parecer</td></tr>'; return; }
+  tb.innerHTML = opinions.map(o => `<tr>
+    <td>${esc(o.title)}</td><td>${esc(o.client_name)}</td><td>${esc(o.country)}</td>
+    <td>${esc(o.user_name)}</td><td>${fmtDate(o.created_at)}</td>
+    <td><button class="btn-sm" onclick="viewOpinion('${o.id}')">Ver</button></td>
+  </tr>`).join('');
+}
+
+async function viewOpinion(id) {
+  const o = await api('/api/admin/opinions/' + id);
+  openModal(o.title || 'Parecer', `<dl><dt>Cliente</dt><dd>${esc(o.client_name)}</dd><dt>País</dt><dd>${esc(o.country)}</dd><dt>Usuário</dt><dd>${esc(o.user_name)} (${esc(o.user_email)})</dd><dt>Data</dt><dd>${fmtDate(o.created_at)}</dd></dl><h4 style="margin-top:16px">Texto do Parecer</h4><div class="expand-content">${esc(o.opinion_text)}</div>`);
+}
+
+// Load usage
+async function loadUsage() {
+  const u = await api('/api/admin/usage');
+  const el = document.getElementById('usageContent');
+  let html = `<div style="margin-bottom:16px"><strong>Total:</strong> ${fmtCost(u.totalCost)} | <strong>Tokens:</strong> ${(u.totalTokens.input||0).toLocaleString()} in / ${(u.totalTokens.output||0).toLocaleString()} out</div>`;
+
+  // Bar chart by day
+  if (u.byDay.length) {
+    const maxCost = Math.max(...u.byDay.map(d => d.cost), 0.001);
+    html += '<h3 style="font-size:.9rem;color:var(--primary);margin-bottom:8px">Custo por Dia</h3><div class="bar-chart">';
+    for (const d of u.byDay.slice(0, 14).reverse()) {
+      const h = Math.max((d.cost / maxCost) * 180, 2);
+      html += `<div class="bar-col"><div class="bar-value">${fmtCost(d.cost)}</div><div class="bar" style="height:${h}px"></div><div class="bar-label">${d.date.slice(5)}</div></div>`;
+    }
+    html += '</div>';
+  }
+
+  html += '<div class="usage-grid">';
+  // By user
+  html += '<div class="usage-section"><h3>Por Usuário</h3><table><thead><tr><th>Usuário</th><th>Custo</th><th>Chamadas</th></tr></thead><tbody>';
+  for (const x of u.byUser) html += `<tr><td>${esc(x.user_name)}</td><td>${fmtCost(x.cost)}</td><td>${x.opinions}</td></tr>`;
+  if (!u.byUser.length) html += '<tr><td colspan="3" class="loading-msg">—</td></tr>';
+  html += '</tbody></table></div>';
+  // By action
+  html += '<div class="usage-section"><h3>Por Tipo</h3><table><thead><tr><th>Ação</th><th>Chamadas</th><th>Custo</th></tr></thead><tbody>';
+  for (const x of u.byAction) html += `<tr><td>${esc(x.action)}</td><td>${x.count}</td><td>${fmtCost(x.cost)}</td></tr>`;
+  if (!u.byAction.length) html += '<tr><td colspan="3" class="loading-msg">—</td></tr>';
+  html += '</tbody></table></div>';
+  html += '</div>';
+
+  el.innerHTML = html;
+}
+
+// Load reports + conversations
+async function loadReports() {
+  const { reports, conversations } = await api('/api/admin/reports');
+  
+  // Conversations
+  const cb = document.getElementById('convosBody');
+  if (!conversations?.length) { cb.innerHTML = '<tr><td colspan="6" class="loading-msg">Nenhuma conversa</td></tr>'; }
+  else {
+    cb.innerHTML = conversations.map(c => `<tr>
+      <td>${esc(c.user_name)}</td><td>${esc(c.user_email)}</td><td>${esc(c.last_location||'—')}</td>
+      <td>${c.message_count}</td><td>${fmtDate(c.last_message)}</td>
+      <td><button class="btn-sm" onclick="viewTranscript('${c.user_id}','${esc(c.user_name)}')">Ver Chat</button></td>
+    </tr>`).join('');
+  }
+
+  // Bug reports
+  const tb = document.getElementById('reportsBody');
+  if (!reports.length) { tb.innerHTML = '<tr><td colspan="6" class="loading-msg">Nenhum relatório</td></tr>'; return; }
+  tb.innerHTML = reports.map(r => `<tr>
+    <td>${r.id}</td><td>${esc(r.user_name)}</td><td>${esc(r.summary)}</td>
+    <td>${esc(r.severity)}</td>
+    <td><select class="status-select" onchange="updateReport(${r.id}, this.value)">
+      <option value="open" ${r.status==='open'?'selected':''}>Aberto</option>
+      <option value="investigating" ${r.status==='investigating'?'selected':''}>Investigando</option>
+      <option value="resolved" ${r.status==='resolved'?'selected':''}>Resolvido</option>
+    </select></td>
+    <td>${fmtDate(r.created_at)}</td>
+  </tr>`).join('');
+}
+
+async function viewTranscript(userId, userName) {
+  const { messages } = await api('/api/admin/support/' + userId);
+  let html = '<div style="max-height:400px;overflow-y:auto">';
+  messages.forEach(m => {
+    const cls = m.role === 'user' ? 'color:var(--primary);font-weight:500' : 'color:#666';
+    const label = m.role === 'user' ? userName : 'Bot';
+    html += '<div style="margin-bottom:10px;padding:8px;border-radius:6px;background:'+(m.role==='user'?'#f0f4ff':'#f7f7f7')+'">';
+    html += '<div style="font-size:.7rem;'+cls+'">'+label+' — '+fmtDate(m.created_at)+'</div>';
+    if (m.image) html += '<img src="'+m.image+'" style="max-width:200px;border-radius:4px;margin:4px 0">';
+    html += '<div style="font-size:.85rem;margin-top:4px">'+esc(m.content||'').replace(/\\n/g,'<br>')+'</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  openModal('Chat: ' + userName, html);
+}
+
+async function updateReport(id, status) {
+  await api('/api/admin/reports/' + id, { method:'PATCH', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ status }) });
+}
+
+// Persistent tab state
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.tab-content').forEach(t => {
+    t.classList.toggle('active', t.id === 'tab-'+name);
+    t.style.display = ''; // clear any inline display so CSS class takes over
+  });
+  localStorage.setItem('admin_tab', name);
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+const savedTab = localStorage.getItem('admin_tab');
+if (savedTab) switchTab(savedTab);
+
+// Load security tab
+async function loadSecurity() {
+  try {
+    const sec = await api('/api/admin/security');
+    // Blocked IPs
+    const bEl = document.getElementById('blockedIPs');
+    if (!sec.blockedIPs.length) bEl.innerHTML = '<p style="color:var(--success);font-size:.85rem">✅ Nenhum IP bloqueado</p>';
+    else bEl.innerHTML = '<table><thead><tr><th>IP</th><th>Falhas</th><th>Bloqueado até</th></tr></thead><tbody>' +
+      sec.blockedIPs.map(b => `<tr><td>${esc(b.ip)}</td><td>${b.failures}</td><td>${fmtDate(b.blockedUntil)}</td></tr>`).join('') + '</tbody></table>';
+    // Request stats
+    const rEl = document.getElementById('requestStats');
+    if (!sec.requestStats.length) rEl.innerHTML = '<p style="font-size:.85rem;color:var(--text-muted)">Nenhuma atividade recente</p>';
+    else rEl.innerHTML = '<table><thead><tr><th>IP</th><th>Auth</th><th>API</th><th>Total</th></tr></thead><tbody>' +
+      sec.requestStats.map(r => `<tr><td>${esc(r.ip)}</td><td>${r.auth}</td><td>${r.api}</td><td>${r.total}</td></tr>`).join('') + '</tbody></table>';
+    // Failed logins
+    const fEl = document.getElementById('failedLogins');
+    if (!sec.failedLogins.length) fEl.innerHTML = '<p style="color:var(--success);font-size:.85rem">✅ Nenhuma tentativa falhada nas últimas 24h</p>';
+    else fEl.innerHTML = '<table><thead><tr><th>Hora</th><th>IP</th><th>Email</th></tr></thead><tbody>' +
+      sec.failedLogins.slice(-50).reverse().map(f => `<tr><td>${fmtDate(f.time)}</td><td>${esc(f.ip)}</td><td>${esc(f.email)}</td></tr>`).join('') + '</tbody></table>';
+  } catch(e) { console.error('Security load error:', e); }
+  // Access log
+  try {
+    const log = await api('/api/admin/access-log');
+    const el = document.getElementById('accessLogTail');
+    el.textContent = log.entries.length ? log.entries.join('\n') : 'Log vazio';
+  } catch(e) { console.error(e); }
+}
+
+// Init
+loadDashboard();
+loadUsers();
+loadOpinions();
+loadUsage();
+loadReports();
+loadSecurity();
+</script>
+</body>
+</html>

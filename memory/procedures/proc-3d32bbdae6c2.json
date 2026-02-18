@@ -1,0 +1,17 @@
+{
+  "id": "proc-3d32bbdae6c2",
+  "name": "Stop Container",
+  "created": "2026-02-08T01:09:37.774Z",
+  "updated": "2026-02-08T01:09:37.774Z",
+  "version": 1,
+  "trigger": "When stopping the service",
+  "steps": [
+    "cd ~/omiximo-email-automation/docker",
+    "docker compose down"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

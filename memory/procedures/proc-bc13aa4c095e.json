@@ -1,0 +1,18 @@
+{
+  "id": "proc-bc13aa4c095e",
+  "name": "Daily Rhythm",
+  "created": "2026-02-07T17:20:30.701Z",
+  "updated": "2026-02-07T17:20:30.701Z",
+  "version": 1,
+  "trigger": "daily schedule",
+  "steps": [
+    "Morning (on first heartbeat after 06:00 UTC)",
+    "Throughout Day (each heartbeat)",
+    "Evening (on heartbeat after 20:00 UTC)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

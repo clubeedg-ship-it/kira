@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stella Vic's | Parecer Tributário Inteligente</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260213m">
+</head>
+<body>
+  <!-- Auth Screen -->
+  <div id="authScreen" class="auth-screen">
+    <!-- Left: Brand + Animated Demo -->
+    <div class="auth-left">
+      <div class="auth-brand">
+        <h1>Stella <span>Vic's</span></h1>
+        <div class="divider"></div>
+        <div class="tagline">PARECER TRIBUTÁRIO INTELIGENTE</div>
+      </div>
+
+      <div class="onboarding-demo">
+        <div class="demo-window">
+          <div class="demo-titlebar">
+            <div class="demo-dot r"></div><div class="demo-dot y"></div><div class="demo-dot g"></div>
+            <span style="color:rgba(255,255,255,.3);font-size:.7rem;margin-left:8px">Stella Vic's — Demonstração</span>
+          </div>
+          <div class="demo-body" id="demoBody">
+            <div class="demo-step active" id="demoStep1">
+              <div class="demo-chat">
+                <div class="demo-msg user" style="animation-delay:0s">Preciso analisar a tributação de royalties pagos do Brasil para Portugal</div>
+                <div class="demo-msg ai" style="animation-delay:.8s">Entendido! Vou analisar o tratado Brasil-Portugal. Qual o tipo de empresa e valor envolvido?</div>
+                <div class="demo-msg user" style="animation-delay:1.6s">Pessoa jurídica, R$ 500 mil mensais por licenciamento de software</div>
+                <div class="demo-msg ai" style="animation-delay:2.4s">Perfeito. Preparando seu parecer com base no Art. 12 do tratado...</div>
+              </div>
+            </div>
+            <div class="demo-step" id="demoStep2">
+              <div style="color:rgba(255,255,255,.4);font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Analisando tratados automaticamente</div>
+              <div class="demo-extract">
+                <div class="demo-extract-item" style="animation-delay:0s">
+                  <span class="demo-extract-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></span>
+                  <div><div class="demo-extract-label">Tratado</div><div class="demo-extract-value">Brasil-Portugal (DTA)</div></div>
+                </div>
+                <div class="demo-extract-item" style="animation-delay:.3s">
+                  <span class="demo-extract-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+                  <div><div class="demo-extract-label">Artigo Aplicável</div><div class="demo-extract-value">Art. 12 — Royalties (§2, alíquota 15%)</div></div>
+                </div>
+                <div class="demo-extract-item" style="animation-delay:.6s">
+                  <span class="demo-extract-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span>
+                  <div><div class="demo-extract-label">Estabelecimento Permanente</div><div class="demo-extract-value">Art. 5 — Não configurado</div></div>
+                </div>
+                <div class="demo-extract-item" style="animation-delay:.9s">
+                  <span class="demo-extract-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7l9-4 9 4M3 7l3 6h6L9 7M15 7l3 6h-6l3-6"/></svg></span>
+                  <div><div class="demo-extract-label">Benefício</div><div class="demo-extract-value">Redução de 25% → 15% na fonte</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-step" id="demoStep3">
+              <div class="demo-result">
+                <div class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+                <p><strong>Parecer tributário gerado</strong> com citações a artigos específicos, análise de riscos e recomendações práticas.</p>
+                <p style="margin-top:12px;color:rgba(255,255,255,.5);font-size:.75rem">Pronto para revisão, exportação em PDF e assinatura.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-progress">
+          <div class="demo-pip active" id="pip0"></div>
+          <div class="demo-pip" id="pip1"></div>
+          <div class="demo-pip" id="pip2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Auth Form -->
+    <div class="auth-right">
+      <div class="auth-card">
+        <div id="authError" class="auth-error" style="display:none"></div>
+        
+        <div id="loginForm">
+          <h2>Bem-vindo de volta</h2>
+          <p class="auth-subtitle">Acesse o sistema de pareceres</p>
+          <input type="email" id="authEmail" placeholder="E-mail profissional" class="auth-input" />
+          <input type="password" id="authPassword" placeholder="Senha" class="auth-input" onkeydown="if(event.key==='Enter')doLogin()" />
+          <button type="button" onclick="doLogin()" class="auth-btn">Entrar</button>
+          <p class="auth-switch">Primeiro acesso? <a href="#" onclick="showRegister();return false">Criar conta</a></p>
+        </div>
+        
+        <div id="registerForm" style="display:none">
+          <h2>Criar sua conta</h2>
+          <p class="auth-subtitle">Comece a gerar pareceres em minutos</p>
+          <input type="text" id="regName" placeholder="Nome completo" class="auth-input" />
+          <input type="email" id="regEmail" placeholder="E-mail profissional" class="auth-input" />
+          <input type="password" id="regPassword" placeholder="Senha (mín. 6 caracteres)" class="auth-input" onkeydown="if(event.key==='Enter')doRegister()" />
+          <button type="button" onclick="doRegister()" class="auth-btn">Criar Conta</button>
+          <p class="auth-switch">Já tem conta? <a href="#" onclick="showLogin();return false">Entrar</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App (hidden until auth) -->
+  <div class="app" id="appMain" style="display:none">
+    <header>
+      <div class="logo">
+        <h1>Stella Vic's</h1>
+        <span class="subtitle">Parecer Tributário Inteligente</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span id="userName" style="font-size:.85rem;color:#666"></span>
+      </div>
+    </header>
+
+    <!-- Right Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Right Side Panel -->
+    <aside class="right-panel" id="rightPanel">
+      <div class="panel-header">
+        <span class="panel-title">Menu</span>
+        <button class="btn-icon" onclick="toggleMenu()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Panel Navigation -->
+      <div class="panel-nav">
+        <button class="panel-nav-item active" onclick="showPanel('pareceres')" data-panel="pareceres">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Pareceres
+        </button>
+        <button class="panel-nav-item" onclick="showPanel('tratados')" data-panel="tratados">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Tratados
+        </button>
+        <button class="panel-nav-item" onclick="showPanel('modelos')" data-panel="modelos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Modelos
+        </button>
+        <button class="panel-nav-item" onclick="showPanel('legislacao')" data-panel="legislacao">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7l9-4 9 4M3 7l3 6h6L9 7M15 7l3 6h-6l3-6"/></svg>
+          Legislação
+        </button>
+        <button class="panel-nav-item" onclick="showPanel('config')" data-panel="config">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Configurações
+        </button>
+      </div>
+
+      <!-- Panel Content Areas -->
+      <div class="panel-content" id="panel-pareceres">
+        <div class="panel-section-header">
+          <span>Meus Pareceres</span>
+          <button class="btn-icon" onclick="newConsultation();toggleMenu()" title="Novo parecer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+        <div class="sidebar-list" id="opinionsList">
+          <div class="sidebar-empty">Nenhum parecer ainda</div>
+        </div>
+      </div>
+
+      <div class="panel-content hidden" id="panel-tratados">
+        <div class="panel-section-header"><span>Base de Tratados</span></div>
+        <div class="panel-info">
+          <p>50+ tratados tributários bilaterais do Brasil disponíveis para consulta automática.</p>
+          <div class="panel-stat-grid">
+            <div class="panel-stat"><span class="panel-stat-num">50+</span><span class="panel-stat-label">Tratados</span></div>
+            <div class="panel-stat"><span class="panel-stat-num">4.590</span><span class="panel-stat-label">Chunks indexados</span></div>
+          </div>
+          <input type="text" class="panel-search" placeholder="Buscar país ou tratado..." oninput="searchTreaties(this.value)">
+          <div id="treatyResults" class="treaty-list"></div>
+        </div>
+      </div>
+
+      <div class="panel-content hidden" id="panel-modelos">
+        <div class="panel-section-header"><span>Modelos de Parecer</span></div>
+        <div class="panel-info">
+          <p>Templates pré-configurados para situações comuns.</p>
+          <div class="model-card" onclick="loadTemplate('royalties')">
+            <strong>Royalties</strong>
+            <span>Tributação de royalties entre jurisdições</span>
+          </div>
+          <div class="model-card" onclick="loadTemplate('dividendos')">
+            <strong>Dividendos</strong>
+            <span>Dupla tributação sobre dividendos</span>
+          </div>
+          <div class="model-card" onclick="loadTemplate('servicos')">
+            <strong>Serviços Técnicos</strong>
+            <span>Retenção na fonte sobre serviços</span>
+          </div>
+          <div class="model-card" onclick="loadTemplate('capital')">
+            <strong>Ganhos de Capital</strong>
+            <span>Tributação de ganhos em ativos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-content hidden" id="panel-legislacao">
+        <div class="panel-section-header"><span>Legislação</span></div>
+        <div class="panel-info">
+          <p>Referências legislativas frequentes.</p>
+          <a class="leg-link" href="https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm" target="_blank">CTN - Código Tributário Nacional</a>
+          <a class="leg-link" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13670.htm" target="_blank">Lei 13.670/2018 - IRRF</a>
+          <a class="leg-link" href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del1598.htm" target="_blank">DL 1.598/77 - Lucro Real</a>
+          <a class="leg-link" href="https://normas.receita.fazenda.gov.br/" target="_blank">Normas da Receita Federal</a>
+          <a class="leg-link" href="https://www.oecd.org/tax/treaties/" target="_blank">OECD Model Tax Convention</a>
+        </div>
+      </div>
+
+      <div class="panel-content hidden" id="panel-config">
+        <div class="panel-section-header"><span>Configurações</span></div>
+        <div class="panel-info">
+          <div class="config-group">
+            <label>Nome do escritório</label>
+            <input type="text" class="panel-search" id="cfgFirmName" placeholder="Ex: Stella Vic's Advogados" oninput="saveConfig()">
+          </div>
+          <div class="config-group">
+            <label>Idioma do parecer</label>
+            <select class="panel-search" id="cfgLang" onchange="saveConfig()">
+              <option value="pt">Português</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
+          <div class="config-group">
+            <label>Nível de detalhe</label>
+            <select class="panel-search" id="cfgDetail" onchange="saveConfig()">
+              <option value="standard">Padrão</option>
+              <option value="detailed">Detalhado</option>
+              <option value="summary">Resumido</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary" style="width:100%;margin-top:16px" onclick="doLogout()">Sair da conta</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Overlay -->
+    <div class="panel-overlay" id="panelOverlay" onclick="toggleMenu()"></div>
+
+    <main>
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-steps" id="progressSteps"></div>
+        <div class="progress-line">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Questionnaire Form -->
+      <div id="formContainer" class="form-container"></div>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <button id="prevBtn" class="btn btn-secondary" onclick="prevStep()" disabled>← Anterior</button>
+        <button id="nextBtn" class="btn btn-primary" onclick="nextStep()">Próximo →</button>
+        <button id="generateBtn" class="btn btn-generate" onclick="generate()" style="display:none">
+          Gerar Parecer
+        </button>
+      </div>
+
+      <!-- Loading -->
+      <div id="loading" class="loading" style="display:none">
+        <div class="spinner"></div>
+        <p>Analisando tratados e gerando parecer...</p>
+        <p class="loading-sub">Isso pode levar 1-2 minutos</p>
+      </div>
+
+      <!-- Result -->
+      <div id="result" class="result" style="display:none">
+        <div class="result-header">
+          <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Parecer Tributário</h2>
+          <div class="result-actions">
+            <button class="btn btn-secondary" onclick="copyResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copiar</button>
+            <button class="btn btn-primary" onclick="downloadPDF()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar PDF</button>
+            <button class="btn btn-secondary" onclick="printResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Imprimir</button>
+            <button class="btn btn-secondary" onclick="newConsultation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>Nova Consulta</button>
+          </div>
+        </div>
+        <div id="resultContent" class="result-content"></div>
+        <div id="resultSources" class="result-sources"></div>
+        <div class="result-footer">
+          <p>Este parecer foi gerado com auxílio de inteligência artificial e deve ser revisado por um profissional qualificado antes de ser utilizado como base para decisões jurídicas ou fiscais.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Stella Vic's • Sistema de Parecer Inteligente</p>
+    </footer>
+    </main>
+    </div><!-- end app-layout -->
+
+    <!-- Support Chat Widget -->
+    <button class="support-fab" id="supportFab" onclick="toggleSupport()" title="Suporte">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span class="support-badge" id="supportBadge" style="display:none">0</span>
+    </button>
+
+    <div class="support-panel hidden" id="supportPanel">
+      <div class="support-header">
+        <span>Suporte Stella Vic's</span>
+        <button onclick="toggleSupport()" class="support-close">&times;</button>
+      </div>
+      <div class="support-messages" id="supportMessages"></div>
+      <div class="support-preview" id="supportPreview" style="display:none">
+        <img id="supportPreviewImg" src="">
+        <button onclick="clearSupportImage()" class="support-preview-close">&times;</button>
+      </div>
+      <div class="support-input-bar">
+        <label class="support-attach" title="Anexar imagem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          <input type="file" accept="image/png,image/jpeg,image/gif" onchange="handleSupportImage(event)" style="display:none">
+        </label>
+        <input type="text" id="supportInput" placeholder="Digite sua mensagem..." onkeydown="if(event.key==='Enter')sendSupport()">
+        <button onclick="sendSupport()" class="support-send">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = '';
+    let authToken = null; // managed via httpOnly cookie now
+    function showError(msg) { const e = document.getElementById('authError'); e.textContent = msg; e.style.display = ''; e.style.background='#fff5f5'; e.style.color='#d32f2f'; }
+    function showSuccess(msg) { const e = document.getElementById('authError'); e.textContent = msg; e.style.display = ''; e.style.background='#f0fff4'; e.style.color='#38a169'; }
+    function showLogin() { document.getElementById('loginForm').style.display=''; document.getElementById('registerForm').style.display='none'; }
+    function showRegister() { document.getElementById('loginForm').style.display='none'; document.getElementById('registerForm').style.display=''; }
+    
+    async function doLogin() {
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+      if (!email || !password) return showError('Preencha e-mail e senha');
+      showSuccess('Entrando...');
+      try {
+        const r = await fetch(API+'/api/auth/login', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify({email,password}) });
+        const d = await r.json();
+        if (!r.ok) return showError(d.error || 'Erro ao entrar');
+        enterApp(d.user);
+      } catch(e) { showError('Erro de conexão: ' + e.message); }
+    }
+    
+    async function doRegister() {
+      const name = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value;
+      if (!name || !email || !password) return showError('Preencha todos os campos');
+      if (password.length < 6) return showError('Senha deve ter no mínimo 6 caracteres');
+      try {
+        const r = await fetch(API+'/api/auth/register', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify({name,email,password}) });
+        const d = await r.json();
+        if (!r.ok) return showError(d.error || 'Erro ao criar conta');
+        showSuccess('Conta criada! Entrando...');
+        setTimeout(() => enterApp(d.user), 800);
+      } catch(e) { showError('Erro de conexão: ' + e.message); }
+    }
+    
+    function doLogout() { fetch(API+'/api/auth/logout',{method:'POST',credentials:'same-origin'}).finally(()=>location.reload()); }
+    
+    function enterApp(user) {
+      const authEl = document.getElementById('authScreen');
+      if (authEl) authEl.remove();
+      const app = document.getElementById('appMain');
+      app.style.display = '';
+      app.style.visibility = 'visible';
+      document.getElementById('userName').textContent = user.name;
+      document.body.style.background = '#f8f9fa';
+      window.scrollTo(0, 0);
+      init();
+    }
+    
+    // Session check happens after init() is defined (see inlined app.js below)
+  </script>
+  <script>
+    // Onboarding demo animation loop
+    (function() {
+      let demoStep = 0;
+      const steps = 3;
+      function showDemoStep(n) {
+        for (let i = 0; i < steps; i++) {
+          const el = document.getElementById('demoStep' + (i+1));
+          const pip = document.getElementById('pip' + i);
+          if (el) el.classList.toggle('active', i === n);
+          if (pip) pip.classList.toggle('active', i === n);
+        }
+      }
+      setInterval(() => {
+        demoStep = (demoStep + 1) % steps;
+        showDemoStep(demoStep);
+      }, 4000);
+    })();
+  </script>
+  <script>
+// ===== APP.JS INLINED =====
+let questionnaire = null;
+let currentStep = 0;
+let formData = {};
+let lastResult = null;
+
+// --- Persistent form state ---
+function persistState() {
+  try {
+    sessionStorage.setItem('sv_form', JSON.stringify({ step: currentStep, data: formData }));
+  } catch(e) {}
+}
+function restoreState() {
+  try {
+    const saved = sessionStorage.getItem('sv_form');
+    if (saved) {
+      const { step, data } = JSON.parse(saved);
+      if (data && typeof data === 'object') formData = data;
+      if (typeof step === 'number') currentStep = step;
+      return true;
+    }
+  } catch(e) {}
+  return false;
+}
+function clearPersistedState() {
+  try { sessionStorage.removeItem('sv_form'); } catch(e) {}
+}
+
+function apiFetch(url, opts = {}) {
+  return fetch(url, { ...opts, credentials: 'same-origin', headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) } });
+}
+
+async function init() {
+  try {
+    const res = await apiFetch('/api/questionnaire');
+    if (!res.ok) {
+      document.getElementById('formContainer').innerHTML = '<div style="padding:20px;color:#e53e3e;text-align:center"><p>Erro ao carregar questionário ('+res.status+')</p><button class="btn btn-primary" onclick="init()" style="margin-top:12px">Tentar novamente</button></div>';
+      return;
+    }
+    questionnaire = await res.json();
+    restoreState();
+    renderProgress();
+    renderStep(currentStep);
+    loadOpinions();
+  } catch(e) {
+    document.getElementById('formContainer').innerHTML = '<div style="padding:20px;color:#e53e3e;text-align:center"><p>Erro de conexão</p><button class="btn btn-primary" onclick="init()" style="margin-top:12px">Tentar novamente</button></div>';
+  }
+}
+
+function renderProgress() {
+  document.getElementById('progressSteps').innerHTML = questionnaire.steps.map((s, i) =>
+    '<span class="progress-step '+(i === currentStep ? 'active' : '')+' '+(i < currentStep ? 'completed' : '')+'">'+s.title+'</span>'
+  ).join('');
+  document.getElementById('progressFill').style.width = ((currentStep + 1) / questionnaire.steps.length * 100)+'%';
+}
+
+function renderStep(idx) {
+  currentStep = idx;
+  const step = questionnaire.steps[idx];
+  const container = document.getElementById('formContainer');
+  let html = '<h2 class="step-title">'+step.title+'</h2>';
+  for (const field of step.fields) {
+    const value = formData[field.id] || '';
+    const req = field.required ? '<span class="required">*</span>' : '';
+    html += '<div class="field-group"><label for="'+field.id+'">'+field.label+req+'</label>';
+    if (field.type === 'select') {
+      html += '<select id="'+field.id+'" onchange="saveField(\''+field.id+'\', this.value)"'+(field.required?' required':'')+'><option value="">Selecione...</option>';
+      for (const opt of field.options) html += '<option value="'+opt+'" '+(value===opt?'selected':'')+'>'+opt+'</option>';
+      html += '</select>';
+    } else if (field.type === 'textarea') {
+      html += '<textarea id="'+field.id+'" oninput="saveField(\''+field.id+'\', this.value)" placeholder="Descreva em detalhes..."'+(field.required?' required':'')+'>'+value+'</textarea>';
+    } else {
+      html += '<input type="'+field.type+'" id="'+field.id+'" value="'+value+'" oninput="saveField(\''+field.id+'\', this.value)"'+(field.required?' required':'')+' placeholder="'+(field.type==='number'?'0,00':'')+'">';
+    }
+    html += '</div>';
+  }
+  container.innerHTML = html;
+  renderProgress();
+  updateNav();
+}
+
+function saveField(id, value) { formData[id] = value; persistState(); }
+
+function validateStep() {
+  const step = questionnaire.steps[currentStep];
+  for (const field of step.fields) {
+    if (field.required && !formData[field.id]) {
+      const el = document.getElementById(field.id);
+      el.focus(); el.style.borderColor = '#e53e3e';
+      setTimeout(() => el.style.borderColor = '', 2000);
+      return false;
+    }
+  }
+  return true;
+}
+
+function updateNav() {
+  const isLast = currentStep === questionnaire.steps.length - 1;
+  document.getElementById('prevBtn').disabled = currentStep === 0;
+  document.getElementById('nextBtn').style.display = isLast ? 'none' : '';
+  document.getElementById('generateBtn').style.display = isLast ? '' : 'none';
+}
+
+function nextStep() { if (validateStep() && currentStep < questionnaire.steps.length - 1) { renderStep(currentStep + 1); persistState(); } }
+function prevStep() { if (currentStep > 0) { renderStep(currentStep - 1); persistState(); } }
+
+async function generate() {
+  if (!validateStep()) return;
+  document.getElementById('formContainer').style.display = 'none';
+  document.querySelector('.nav-buttons').style.display = 'none';
+  document.querySelector('.progress-bar').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
+  try {
+    const res = await apiFetch('/api/stream', { method:'POST', body: JSON.stringify(formData) });
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    const content = document.getElementById('resultContent');
+    const sources = document.getElementById('resultSources');
+    content.innerHTML = '<p class="streaming-cursor">Gerando parecer...</p>';
+    let fullText = '';
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        try {
+          const data = JSON.parse(line.slice(6));
+          if (data.type === 'analysis' && data.sources?.length) sources.innerHTML = '<strong>Fontes:</strong> '+data.sources.join(' • ');
+          if (data.type === 'analysis') lastResult = { opinion:'', sources:data.sources||[], formData, generatedAt:new Date().toISOString(), treatyAnalysis:data.treatyAnalysis };
+          if (data.token) { fullText += data.token; content.innerHTML = formatOpinion(fullText)+'<span class="streaming-cursor">▊</span>'; content.scrollTop = content.scrollHeight; }
+          if (data.done || data.type === 'complete') content.innerHTML = formatOpinion(fullText || data.opinion || '');
+        } catch {}
+      }
+    }
+    if (fullText) { content.innerHTML = formatOpinion(fullText); if (lastResult) lastResult.opinion = fullText; else lastResult = { opinion:fullText, sources:[], formData, generatedAt:new Date().toISOString() }; saveOpinion(); }
+  } catch (e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('formContainer').style.display = 'block';
+    document.querySelector('.nav-buttons').style.display = 'flex';
+    document.querySelector('.progress-bar').style.display = 'block';
+    alert('Erro ao gerar parecer: '+e.message);
+  }
+}
+
+function formatOpinion(text) {
+  // Process tables first
+  text = text.replace(/((?:^\|.+\|$\n?)+)/gm, function(tableBlock) {
+    const rows = tableBlock.trim().split('\n').filter(r => r.trim());
+    if (rows.length < 2) return tableBlock;
+    let html = '<table class="opinion-table">';
+    rows.forEach((row, i) => {
+      // Skip separator row (|---|---|)
+      if (/^\|[\s\-:|]+\|$/.test(row)) return;
+      const cells = row.split('|').filter((c, j, a) => j > 0 && j < a.length).map(c => c.trim());
+      const tag = i === 0 ? 'th' : 'td';
+      html += '<tr>' + cells.map(c => '<'+tag+'>'+c+'</'+tag+'>').join('') + '</tr>';
+    });
+    html += '</table>';
+    return html;
+  });
+  
+  return text
+    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^(\d+)\. (.+)$/gm, '<li class="ol-item"><span class="li-num">$1.</span> $2</li>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
+    .replace(/<\/ul>\s*<ul>/g, '')
+    .replace(/^---$/gm, '<hr>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    .replace(/^/, '<div class="opinion-body">')
+    .replace(/$/, '</div>');
+}
+
+function copyResult() { navigator.clipboard.writeText(document.getElementById('resultContent').innerText).then(()=>alert('Parecer copiado!')); }
+function printResult() { window.print(); }
+async function downloadPDF() {
+  if (!lastResult) return alert('Nenhum parecer gerado ainda.');
+  try {
+    const res = await apiFetch('/api/pdf', { method:'POST', body:JSON.stringify(lastResult) });
+    const blob = await res.blob(); const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url;
+    a.download = 'parecer-'+(formData.client_name||'cliente').replace(/\s+/g,'-').toLowerCase()+'.pdf';
+    a.click(); URL.revokeObjectURL(url);
+  } catch (e) { alert('Erro ao gerar PDF: '+e.message); }
+}
+
+function newConsultation() {
+  formData = {}; currentStep = 0; lastResult = null; clearPersistedState();
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('formContainer').style.display = 'block';
+  document.querySelector('.nav-buttons').style.display = 'flex';
+  document.querySelector('.progress-bar').style.display = 'block';
+  renderStep(0);
+}
+
+async function saveOpinion() {
+  if (!lastResult || !lastResult.opinion) return;
+  try {
+    const res = await apiFetch('/api/opinions', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'Parecer - ' + (formData.client_name || formData.country || 'Cliente'),
+        client_name: formData.client_name || '',
+        country: formData.country || '',
+        formData: formData,
+        opinion_text: lastResult.opinion,
+        sources: lastResult.sources,
+        treaty_analysis: lastResult.treatyAnalysis
+      })
+    });
+    if (res.ok) { const d = await res.json(); lastResult._savedId = d.id; loadOpinions(); }
+  } catch(e) { console.error('Failed to save opinion:', e); }
+}
+
+async function loadOpinions() {
+  try {
+    const res = await apiFetch('/api/opinions');
+    if (!res.ok) return;
+    const d = await res.json();
+    const list = document.getElementById('opinionsList');
+    if (!d.opinions.length) { list.innerHTML = '<div class="sidebar-empty">Nenhum parecer ainda</div>'; return; }
+    list.innerHTML = d.opinions.map(op => 
+      '<div class="sidebar-item'+(lastResult?._savedId===op.id?' active':'')+'" onclick="loadOpinion(\''+op.id+'\')">' +
+        '<div class="sidebar-item-title">'+escHtml(op.title)+'</div>' +
+        '<div class="sidebar-item-meta">'+escHtml(op.country || '')+' • '+new Date(op.created_at).toLocaleDateString('pt-BR')+'</div>' +
+        '<button class="sidebar-item-del" onclick="event.stopPropagation();deleteOpinion(\''+op.id+'\')" title="Excluir">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>' +
+        '</button>' +
+      '</div>'
+    ).join('');
+  } catch {}
+}
+
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function loadOpinion(id) {
+  try {
+    const res = await apiFetch('/api/opinions/'+id);
+    if (!res.ok) return;
+    const op = await res.json();
+    // Show result view
+    document.getElementById('formContainer').style.display = 'none';
+    document.querySelector('.nav-buttons').style.display = 'none';
+    document.querySelector('.progress-bar').style.display = 'none';
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('resultContent').innerHTML = formatOpinion(op.opinion_text);
+    document.getElementById('resultSources').innerHTML = op.sources?.length ? '<strong>Fontes:</strong> '+op.sources.join(' • ') : '';
+    lastResult = { opinion: op.opinion_text, sources: op.sources, formData: op.form_data, _savedId: id };
+    formData = op.form_data || {};
+    // Highlight in sidebar
+    document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+    event?.target?.closest?.('.sidebar-item')?.classList.add('active');
+    loadOpinions();
+  } catch(e) { console.error(e); }
+}
+
+async function deleteOpinion(id) {
+  if (!confirm('Excluir este parecer?')) return;
+  try {
+    await apiFetch('/api/opinions/'+id, { method:'DELETE' });
+    if (lastResult?._savedId === id) newConsultation();
+    loadOpinions();
+  } catch {}
+}
+
+let menuOpen = false;
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  document.getElementById('rightPanel').classList.toggle('open', menuOpen);
+  document.getElementById('panelOverlay').classList.toggle('open', menuOpen);
+}
+
+function showPanel(name) {
+  document.querySelectorAll('.panel-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.panel-nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.remove('hidden');
+  document.querySelector('[data-panel="'+name+'"]').classList.add('active');
+}
+
+function searchTreaties(q) {
+  const el = document.getElementById('treatyResults');
+  if (!q || q.length < 2) { el.innerHTML = ''; return; }
+  apiFetch('/api/search', { method:'POST', body:JSON.stringify({query:q, limit:10}) })
+    .then(r => r.json())
+    .then(d => {
+      if (!d.results?.length) { el.innerHTML = '<div class="sidebar-empty">Nenhum resultado</div>'; return; }
+      el.innerHTML = d.results.map(r => '<div class="treaty-item"><strong>'+escHtml(r.source||r.treaty||'')+'</strong><p>'+escHtml((r.text||r.content||'').substring(0,120))+'...</p></div>').join('');
+    }).catch(() => {});
+}
+
+function loadTemplate(type) {
+  const templates = {
+    royalties: { income_type:'Royalties', description:'Análise da tributação de royalties pagos ao exterior conforme tratado bilateral aplicável.' },
+    dividendos: { income_type:'Dividendos', description:'Análise da dupla tributação sobre dividendos distribuídos entre jurisdições.' },
+    servicos: { income_type:'Serviços Técnicos', description:'Análise da retenção na fonte sobre pagamentos por serviços técnicos ao exterior.' },
+    capital: { income_type:'Ganhos de Capital', description:'Análise da tributação de ganhos de capital em ativos entre jurisdições.' }
+  };
+  if (templates[type]) {
+    formData = { ...formData, ...templates[type] };
+    newConsultation();
+    Object.entries(templates[type]).forEach(([k,v]) => { formData[k] = v; });
+    toggleMenu();
+  }
+}
+
+function saveConfig() { /* placeholder for future */ }
+// ===== END APP.JS =====
+
+// Now check session (init is guaranteed defined)
+(async () => {
+  try {
+    const r = await fetch('/api/auth/me', { credentials:'same-origin' });
+    if (r.ok) { const d = await r.json(); enterApp(d.user); }
+  } catch {}
+})();
+  </script>
+  <script>
+  // Support Chat Widget
+  let supportImage = null;
+  let supportOpen = false;
+  let supportLoaded = false;
+  let supportUnread = 0;
+
+  function toggleSupport() {
+    supportOpen = !supportOpen;
+    document.getElementById('supportPanel').classList.toggle('hidden', !supportOpen);
+    if (supportOpen && !supportLoaded) { loadSupportMessages(); supportLoaded = true; }
+    if (supportOpen) { supportUnread = 0; updateSupportBadge(); document.getElementById('supportInput').focus(); }
+  }
+
+  function updateSupportBadge() {
+    const b = document.getElementById('supportBadge');
+    if (supportUnread > 0) { b.textContent = supportUnread; b.style.display = ''; } else { b.style.display = 'none'; }
+  }
+
+  async function loadSupportMessages() {
+    try {
+      const r = await fetch('/api/support/messages', { credentials:'same-origin' });
+      if (!r.ok) return showSupportWelcome();
+      const d = await r.json();
+      const el = document.getElementById('supportMessages');
+      el.innerHTML = '';
+      if (!d.messages || d.messages.length === 0) {
+        showSupportWelcome();
+      } else {
+        d.messages.forEach(m => appendSupportMsg(m.role, m.content, m.image));
+      }
+      el.scrollTop = el.scrollHeight;
+    } catch { showSupportWelcome(); }
+  }
+
+  function showSupportWelcome() {
+    appendSupportMsg('assistant', 'Olá! Sou o assistente de suporte do Stella Vic\'s.\n\nPosso te ajudar com:\n\n• Dúvidas sobre como usar o sistema\n• Problemas técnicos ou erros\n• Sugestões de melhorias\n\nSe encontrou um bug, por favor descreva:\n1. O que você fez\n2. O que esperava acontecer\n3. O que aconteceu de fato\nSe possível, envie um screenshot!\n\nComo posso ajudar?');
+  }
+
+  function formatSupportMd(text) {
+    return text
+      .replace(/</g,'&lt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code style="background:#f1f5f9;padding:1px 4px;border-radius:2px;font-size:.8em">$1</code>')
+      .replace(/^(\d+)\. (.+)$/gm, '<div style="padding-left:16px">$1. $2</div>')
+      .replace(/^[-•] (.+)$/gm, '<div style="padding-left:16px">• $1</div>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/\n/g, '<br>');
+  }
+
+  function appendSupportMsg(role, content, image) {
+    const el = document.getElementById('supportMessages');
+    const div = document.createElement('div');
+    div.className = 'support-msg ' + role;
+    let html = '';
+    if (image) html += '<img class="support-img" src="'+image+'" onclick="window.open(this.src)">';
+    if (content) {
+      // Strip any leftover Mandarin thinking tokens from client side too
+      content = content.replace(/[\u4e00-\u9fff\u3400-\u4dbf]+/g, '').replace(/\n{3,}/g, '\n\n').trim();
+      html += '<div class="support-text">' + (role === 'assistant' ? formatSupportMd(content) : content.replace(/</g,'&lt;').replace(/\n/g,'<br>')) + '</div>';
+    }
+    div.innerHTML = html;
+    el.appendChild(div);
+    el.scrollTop = el.scrollHeight;
+  }
+
+  function handleSupportImage(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      supportImage = ev.target.result;
+      document.getElementById('supportPreviewImg').src = supportImage;
+      document.getElementById('supportPreview').style.display = 'flex';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function clearSupportImage() {
+    supportImage = null;
+    document.getElementById('supportPreview').style.display = 'none';
+  }
+
+  async function sendSupport() {
+    const input = document.getElementById('supportInput');
+    const content = input.value.trim();
+    if (!content && !supportImage) return;
+    input.value = '';
+    appendSupportMsg('user', content, supportImage);
+    const payload = { content, image: supportImage };
+    clearSupportImage();
+
+    // Show typing indicator
+    const typing = document.createElement('div');
+    typing.className = 'support-msg assistant typing';
+    typing.innerHTML = '<p>Digitando...</p>';
+    document.getElementById('supportMessages').appendChild(typing);
+
+    try {
+      const r = await fetch('/api/support/message', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      typing.remove();
+      if (r.ok) {
+        const d = await r.json();
+        appendSupportMsg('assistant', d.reply);
+        if (!supportOpen) { supportUnread++; updateSupportBadge(); }
+      }
+    } catch { typing.remove(); appendSupportMsg('assistant', 'Erro ao enviar mensagem.'); }
+  }
+  </script>
+</body>
+</html>
