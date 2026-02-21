@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "task": {
+    "title": "Send first 10 OttoGen LinkedIn DMs",
+    "description": "Use the DM templates already in vdr/ottogen/linkedin-dm-templates.md. Target the first 10 companies from the researched list in ottogen-deep-strategy.md (5 real estate + 5 marketing agencies). Personalize each with one line about their business. Goal: 2 replies, 1 call booked.",
+    "priority": "critical",
+    "sourceContext": "Portfolio review W8: zero outbound activity despite 3 weeks of preparation. OttoGen revenue is existential — covers rent.",
+    "keyPoints": ["Templates ready in VDR", "20 target companies researched with specific pain points", "Expected response rate: 10-20% = 1-2 replies from 10 DMs", "First €500 invoice is the unlock"],
+    "assignee": "user",
+    "project": "ottogen",
+    "dueDate": "2026-02-23"
+  }
+}

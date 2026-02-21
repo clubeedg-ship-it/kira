@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "task": {
+    "title": "Publish Chimera GitHub repo (public)",
+    "description": "Push existing Chimera codebase to public GitHub. Use existing chimera-README.md and chimera-ARCHITECTURE.md from VDR. Doesn't need to be perfect — needs to exist. Community building starts at publish, not at polish.",
+    "priority": "medium",
+    "sourceContext": "February target was public repo. Every day private = wasted day for community building per roadmap.",
+    "keyPoints": ["162 tests passing — code is functional", "README and architecture docs exist in VDR", "Open source creates narrative for later fundraise", "Target: publish by Feb 28"],
+    "assignee": "user",
+    "project": "chimera",
+    "dueDate": "2026-02-28"
+  }
+}

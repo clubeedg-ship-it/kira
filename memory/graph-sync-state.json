@@ -1,9 +1,9 @@
 {
   "sessions": {
-    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 165,
+    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 171,
     "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 114,
     "edd383ab-3120-49f9-a916-91688bdb91bc.jsonl": 26,
-    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 10965,
+    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 10987,
     "5bd5080b-1672-4c6a-a24e-16f5dc036a40.jsonl": 11,
     "ccb3a728-f3c4-4ff0-a0ac-7d058b798168.jsonl": 55,
     "nova/3eefddeb-c233-47a0-b280-983dbee2ff55.jsonl": 9,
@@ -252,16 +252,18 @@
     "f2c04ed7-07c4-4d3c-a7de-d2da0bdf1a25.jsonl": 20,
     "nova/b112fc11-01e1-4df1-b4b7-f484dc0c8577.jsonl": 9,
     "44a03dc8-2efd-4878-bcf1-f0630bab4df8.jsonl": 10,
-    "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 5,
-    "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 5
+    "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 47,
+    "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 25,
+    "065dc4f4-0743-4672-a7ba-305eb4a1bba0.jsonl": 43,
+    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 27
   },
-  "totalProcessed": 7414,
-  "lastRun": "2026-02-21T21:10:52.900Z",
+  "totalProcessed": 7440,
+  "lastRun": "2026-02-21T21:17:19.804Z",
   "sessionMtimes": {
-    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 1771678718361.5093,
+    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 1771708425385.9119,
     "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 1771707712884.2278,
     "edd383ab-3120-49f9-a916-91688bdb91bc.jsonl": 1771678534087.6992,
-    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 1771708247576.9897,
+    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 1771708328710.1294,
     "5bd5080b-1672-4c6a-a24e-16f5dc036a40.jsonl": 1771671723179.9092,
     "ccb3a728-f3c4-4ff0-a0ac-7d058b798168.jsonl": 1771671710704.1997,
     "nova/3eefddeb-c233-47a0-b280-983dbee2ff55.jsonl": 1771660832106.0076,
@@ -511,8 +513,10 @@
     "f2c04ed7-07c4-4d3c-a7de-d2da0bdf1a25.jsonl": 1771707807371.069,
     "nova/b112fc11-01e1-4df1-b4b7-f484dc0c8577.jsonl": 1771707710409.2844,
     "44a03dc8-2efd-4878-bcf1-f0630bab4df8.jsonl": 1771707795050.3508,
-    "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 1771708248528.9678,
-    "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 1771708249412.9475
+    "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 1771708347502.6982,
+    "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 1771708309816.5625,
+    "065dc4f4-0743-4672-a7ba-305eb4a1bba0.jsonl": 1771708421753.995,
+    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 1771708543827.1943
   },
   "docs": {
     "/home/adminuser/kira/deliverables/eeg-neurofeedback-credibility-research.md": 1770800500359.4893,
@@ -640,7 +644,7 @@
     "/home/adminuser/kira/memory/context-buffer.md": 1770636903239.4995,
     "/home/adminuser/kira/memory/critic-log.md": 1770800118158.7747,
     "/home/adminuser/kira/memory/dashboard-checklist.md": 1771059651239.439,
-    "/home/adminuser/kira/memory/night-shift-log.md": 1771707690567.7373,
+    "/home/adminuser/kira/memory/night-shift-log.md": 1771707817325.8416,
     "/home/adminuser/kira/memory/notion-inventory.md": 1770379087114.2231,
     "/home/adminuser/kira/memory/notion-organization-plan.md": 1770379111183.667,
     "/home/adminuser/kira/memory/plan-2026-02-03.md": 1770069639881.9685,
@@ -649,7 +653,7 @@
     "/home/adminuser/kira/memory/plan-2026-02-06.md": 1770328804992.1096,
     "/home/adminuser/kira/memory/plan-2026-02-07.md": 1770415213783.7332,
     "/home/adminuser/kira/memory/plan-2026-02-08.md": 1770501605928.7112,
-    "/home/adminuser/kira/memory/retrieved-context.md": 1771707564591.6108,
+    "/home/adminuser/kira/memory/retrieved-context.md": 1771708465305.996,
     "/home/adminuser/kira/vdr/.vdr-questions.md": 1771700405618.917,
     "/home/adminuser/kira/vdr/abura/abura-cosmetics-sales-research-CRITIQUE.md": 1770044210121.13,
     "/home/adminuser/kira/vdr/abura/abura-cosmetics-sales-research-v2.md": 1770044418531.4807,
@@ -778,7 +782,11 @@
     "/home/adminuser/kira/vdr/zenithcred-pilot-proposal.md": 1771102902558.8835,
     "/home/adminuser/kira/vdr/zenithcred-pilot-target-companies.md": 1771534989868.5562,
     "/home/adminuser/kira/vdr/zenithcred-vc-list-benelux.md": 1771103033083.8862,
-    "/home/adminuser/kira/memory/2026-02-21.md": 1771707682484.9219
+    "/home/adminuser/kira/memory/2026-02-21.md": 1771707682484.9219,
+    "/home/adminuser/kira/vdr/ottogen/linkedin-dm-templates.md": 1771707787416.5251,
+    "/home/adminuser/kira/vdr/ottogen/webinar-module-1.md": 1771707720645.0505,
+    "/home/adminuser/kira/vdr/zenithcred/investor-outreach-sequence.md": 1771707690491.739,
+    "/home/adminuser/kira/vdr/zenithcred/vc-benelux-list.md": 1771707801042.2139
   },
   "lastDocRun": 1771707942690
 }

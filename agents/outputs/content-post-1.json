@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "decision": {
+    "question": "Post about building an AI agent team that runs your companies?",
+    "recommendation": "This is your strongest angle right now. You literally have AI agents doing VC research, writing outreach, building content — while you sleep. The 'night shift' concept is gold. Rephrase in your voice, keep it raw.",
+    "evidence": [
+      "Night shift log shows 3 sub-agents delivered VC lists, investor emails, and webinar content in one session",
+      "Agent team concept is unique — most founders talk about using ChatGPT, you have an actual AI COO",
+      "'Building in public' content about AI agents gets massive engagement right now"
+    ],
+    "options": [
+      {
+        "label": "Post as text",
+        "description": "DRAFT (rephrase this):\n\nHook: Last night I went to sleep and woke up to 3 deliverables I didn't make.\n\nBody: I've been building something weird. Instead of hiring a team, I built one. AI agents that actually do the work — not chatbots, not copilots. Agents.\n\nLast night while I slept, my system:\n- Researched 20 venture capital firms in Benelux for one of my companies\n- Wrote a full investor outreach email sequence\n- Built LinkedIn DM templates for 4 different customer personas\n\nI'm 20. I don't have a team of 15. I have a system that works at 3AM.\n\nThis is what I mean when I say AI isn't about replacing people — it's about what becomes possible when a solo founder can operate like a company.\n\nBuilding OttoGen to help other businesses do exactly this.\n\nKey points: night shift concept, solo founder with AI team, actual deliverables not theory, OttoGen mention at end"
+      },
+      {
+        "label": "Record video",
+        "description": "30-45 sec, phone camera, casual. Say something like: 'So I woke up this morning and had 3 finished deliverables sitting in my system. VC research, outreach emails, LinkedIn templates. I didn't make any of them. My AI agents did it while I was asleep. I'm 20, running multiple companies, and I basically have a team that works 24/7 for free. This is what building with AI actually looks like — not asking ChatGPT to write your emails. I'm talking actual autonomous agents doing real work. Wild times.'"
+      },
+      {
+        "label": "Skip",
+        "description": "Not worth posting"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

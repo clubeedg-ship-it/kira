@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira — Access</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f0f1a;color:#e2e8f0;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.login-card{background:#1a1a2e;border:1px solid #2d2d44;border-radius:16px;padding:48px;width:380px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.login-card h1{font-size:1.4rem;font-weight:600;margin-bottom:8px;color:#fff}
+.login-card h1 span{color:#7c3aed}
+.login-card p{font-size:.85rem;color:#718096;margin-bottom:32px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:#718096;margin-bottom:6px}
+.field input{width:100%;padding:12px 16px;background:#16162b;border:1px solid #2d2d44;border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:border .2s}
+.field input:focus{border-color:#7c3aed}
+.btn{width:100%;padding:12px;background:#7c3aed;color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn:hover{background:#6d28d9}
+.error{color:#e53e3e;font-size:.8rem;margin-top:12px;display:none}
+.logo-icon{text-align:center;margin-bottom:24px}
+.logo-icon svg{width:48px;height:48px}
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="logo-icon"><svg viewBox="0 0 32 32"><path d="M18 2L6 18h8l-2 12 12-16h-8z" fill="#7c3aed" stroke="#7c3aed" stroke-width="1" stroke-linejoin="round"/></svg></div>
+  <h1><span>Kira</span> Command Center</h1>
+  <p>Enter your access token to continue</p>
+  <form id="loginForm">
+    <div class="field">
+      <label>Access Token</label>
+      <input type="password" id="token" placeholder="Enter token" autofocus>
+    </div>
+    <button type="submit" class="btn">Authenticate</button>
+    <div class="error" id="error">Invalid token</div>
+  </form>
+</div>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const token = document.getElementById('token').value;
+  const r = await fetch('/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({token}) });
+  if (r.ok) { location.href = '/dashboard'; }
+  else { document.getElementById('error').style.display = 'block'; }
+});
+</script>
+</body>
+</html>

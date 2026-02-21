@@ -1,0 +1,22 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "decision": {
+    "question": "Should we start ZenithCred investor outreach now with current materials, or wait for MVP/demo?",
+    "recommendation": "Start now. Send the deck to 3 warm-up targets (Volta, Peak, Keen) as 'early conversations' — not asking for money yet, just gauging interest and getting feedback. This de-risks the May close timeline without requiring a finished MVP.",
+    "evidence": [
+      "ZenithCred deep strategy lists MVP as critical gap — no working prototype exists",
+      "Seed timeline was close-by-May, now at risk of slipping to Jul+ with zero investor contact",
+      "Pitch deck, financials, competitive analysis, pilot targets (Bynder, Effectory, etc.) all ready",
+      "Industry norm: seed investors expect to meet founders 2-3 months before writing checks",
+      "An HTML demo (mvp-demo.html) exists in VDR — may be enough for early conversations"
+    ],
+    "options": [
+      {"label": "Start outreach now", "description": "Send deck to 3 VCs this week as 'intro/feedback' meetings. Build relationships while MVP develops."},
+      {"label": "Wait for MVP", "description": "Build working demo first (4-6 weeks), then outreach. Stronger pitch but May close impossible."},
+      {"label": "LOIs first", "description": "Get 2-3 LOIs from pilot targets (Bynder, Effectory) before any investor contact. Strongest signal but slowest path."}
+    ],
+    "urgency": "this_week"
+  }
+}

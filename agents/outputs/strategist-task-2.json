@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "task": {
+    "title": "Send 5 IAM kindergarten prospect emails",
+    "description": "Pick top 5 from iam-kindergarten-prospect-list.md. Use email templates from iam-kindergarten-email-templates.md. Lead with the free trial package (iam-free-trial-package.md). Goal: 1 demo/call scheduled.",
+    "priority": "high",
+    "sourceContext": "IAM has 50 researched prospects and complete outreach templates but zero emails sent in February.",
+    "keyPoints": ["50 prospects already researched", "Free trial package reduces friction", "One pilot with video = marketing multiplier", "Target chains first: Partou, KidsFoundation"],
+    "assignee": "user",
+    "project": "iam",
+    "dueDate": "2026-02-25"
+  }
+}

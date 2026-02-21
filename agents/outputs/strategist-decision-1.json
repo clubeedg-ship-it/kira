@@ -1,0 +1,23 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "decision": {
+    "question": "Should we declare Feb 22-28 a 'Ship Week' — zero new documents, only outbound actions with daily targets?",
+    "recommendation": "Yes. The portfolio has 80+ strategy docs and zero outbound activity. The preparation phase must end. A structured Ship Week with daily accountability (messages sent, calls booked) breaks the planning loop.",
+    "evidence": [
+      "Daily plans Feb 6-8 are identical — same tasks, no progress markers",
+      "Feb 18 timeline review confirms: no outreach sent, no investor calls, no revenue",
+      "OttoGen has 15+ docs ready (DMs, brand, targets, packages) but 0 clients contacted",
+      "IAM has 50 prospects listed but 0 emails sent",
+      "ZenithCred has full deck + 30 investor targets but 0 meetings scheduled",
+      "February roadmap target was €2-5K revenue — will hit €0"
+    ],
+    "options": [
+      {"label": "Ship Week", "description": "Feb 22-28: daily outbound targets. Mon: 10 OttoGen DMs. Tue: 5 IAM emails. Wed: 3 investor emails. Thu-Fri: follow-ups + Chimera repo publish. No new docs."},
+      {"label": "Gradual ramp", "description": "Continue current pace, start outreach in March. Risk: March targets also slip."},
+      {"label": "Hire help", "description": "Outsource cold outreach to a VA/freelancer. Cost: €200-500/month. Frees Otto for calls/delivery."}
+    ],
+    "urgency": "this_week"
+  }
+}

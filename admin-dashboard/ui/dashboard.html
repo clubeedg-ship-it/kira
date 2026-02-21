@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira — Command Center</title>
+<style>
+:root {
+  --primary: #1a1a2e;
+  --primary-light: #2d2d44;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --bg: #0f0f1a;
+  --card-bg: #1a1a2e;
+  --text: #e2e8f0;
+  --text-muted: #718096;
+  --border: #2d2d44;
+  --success: #38a169;
+  --danger: #e53e3e;
+  --warning: #d69e2e;
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+.admin-header {
+  background:var(--primary); color:#fff; padding:16px 32px;
+  display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.3); border-bottom:1px solid var(--border);
+}
+.admin-header h1 { font-size:1.3rem; font-weight:600; display:flex; align-items:center; gap:10px; }
+.admin-header h1 svg { width:24px; height:24px; }
+.admin-header h1 span { color:var(--accent); }
+.header-right { display:flex; align-items:center; gap:16px; }
+.header-right .pulse { width:8px; height:8px; border-radius:50%; background:var(--success); display:inline-block; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.header-right a { color:var(--text-muted); text-decoration:none; font-size:.85rem; }
+.header-right a:hover { color:#fff; }
+
+.container { max-width:1280px; margin:0 auto; padding:24px; }
+
+/* Stat cards */
+.stat-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:24px; }
+.stat-card {
+  background:var(--card-bg); border-radius:var(--radius); padding:20px; border:1px solid var(--border);
+  box-shadow:0 1px 3px rgba(0,0,0,.2); position:relative; overflow:hidden;
+}
+.stat-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--accent); }
+.stat-card .stat-label { font-size:.7rem; text-transform:uppercase; letter-spacing:.8px; color:var(--text-muted); margin-bottom:4px; }
+.stat-card .stat-value { font-size:2rem; font-weight:700; color:#fff; }
+.stat-card .stat-sub { font-size:.78rem; color:var(--text-muted); margin-top:2px; }
+.stat-card .stat-icon { float:right; opacity:.15; }
+.stat-card .stat-icon svg { width:40px; height:40px; fill:var(--text); }
+
+/* Tabs */
+.tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:24px; overflow-x:auto; }
+.tab {
+  padding:10px 20px; background:none; border:none; cursor:pointer;
+  font-size:.85rem; font-weight:500; color:var(--text-muted);
+  border-bottom:2px solid transparent; margin-bottom:-1px; transition:all .2s; white-space:nowrap;
+}
+.tab:hover { color:#fff; }
+.tab.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:600; }
+
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Tables */
+table { width:100%; border-collapse:collapse; font-size:.85rem; }
+th { background:var(--primary-light); color:var(--text-muted); padding:10px 14px; text-align:left; font-weight:500; font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; }
+td { padding:10px 14px; border-bottom:1px solid var(--border); }
+tr:hover td { background:rgba(124,58,237,.05); }
+
+.btn-sm {
+  padding:4px 12px; font-size:.72rem; border:1px solid var(--border); border-radius:6px;
+  background:transparent; cursor:pointer; color:var(--accent); font-weight:500; transition:all .2s;
+}
+.btn-sm:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.btn-action {
+  padding:6px 14px; font-size:.78rem; border:none; border-radius:6px;
+  background:var(--accent); color:#fff; cursor:pointer; font-weight:500;
+}
+.btn-action:hover { background:var(--accent-hover); }
+
+/* Status badges */
+.badge { padding:3px 10px; border-radius:12px; font-size:.68rem; font-weight:600; text-transform:uppercase; }
+.badge-running { background:rgba(56,161,105,.15); color:var(--success); }
+.badge-idle { background:rgba(113,128,150,.15); color:var(--text-muted); }
+.badge-online { background:rgba(56,161,105,.15); color:var(--success); }
+.badge-stopped { background:rgba(229,62,62,.15); color:var(--danger); }
+.badge-pending { background:rgba(214,158,46,.15); color:var(--warning); }
+.badge-processed { background:rgba(56,161,105,.15); color:var(--success); }
+.badge-archived { background:rgba(113,128,150,.15); color:var(--text-muted); }
+.badge-decision { background:rgba(124,58,237,.15); color:var(--accent); }
+.badge-task { background:rgba(56,161,105,.15); color:var(--success); }
+.badge-document { background:rgba(66,153,225,.15); color:#4299e1; }
+.badge-alert { background:rgba(229,62,62,.15); color:var(--danger); }
+.badge-fact { background:rgba(214,158,46,.15); color:var(--warning); }
+
+/* Filters */
+.filters { display:flex; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+.filters select {
+  padding:6px 12px; background:var(--card-bg); border:1px solid var(--border); border-radius:6px;
+  color:var(--text); font-size:.8rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:1000;
+  display:none; align-items:center; justify-content:center;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius);
+  max-width:800px; width:92%; max-height:85vh; overflow-y:auto;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);
+}
+.modal-header {
+  padding:16px 24px; background:var(--primary-light); display:flex; justify-content:space-between;
+  align-items:center; border-radius:var(--radius) var(--radius) 0 0; border-bottom:1px solid var(--border);
+}
+.modal-header h3 { font-size:1rem; color:#fff; }
+.modal-close { background:none; border:none; color:var(--text-muted); font-size:1.4rem; cursor:pointer; }
+.modal-close:hover { color:#fff; }
+.modal-body { padding:24px; }
+.modal-body pre { background:var(--bg); padding:16px; border-radius:8px; overflow-x:auto; font-size:.8rem; line-height:1.5; color:var(--text-muted); }
+.modal-body dt { font-weight:600; font-size:.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.5px; margin-top:12px; }
+.modal-body dd { margin:4px 0 0; font-size:.88rem; }
+
+/* Bar chart */
+.bar-chart { display:flex; align-items:flex-end; gap:6px; height:160px; padding:10px 0; }
+.bar-col { display:flex; flex-direction:column; align-items:center; flex:1; min-width:24px; }
+.bar { background:linear-gradient(to top, var(--accent), #9f67ff); border-radius:3px 3px 0 0; width:100%; max-width:36px; transition:height .3s; }
+.bar-label { font-size:.6rem; color:var(--text-muted); margin-top:4px; }
+.bar-value { font-size:.6rem; color:var(--accent); font-weight:600; margin-bottom:2px; }
+
+/* System cards */
+.sys-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.sys-section { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.sys-section h3 { font-size:.85rem; color:var(--accent); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+.sys-section h3 svg { width:16px; height:16px; fill:var(--accent); }
+
+/* Progress bar */
+.progress { height:6px; background:var(--border); border-radius:3px; margin-top:6px; }
+.progress-fill { height:100%; border-radius:3px; background:var(--accent); transition:width .3s; }
+
+.loading-msg { text-align:center; padding:40px; color:var(--text-muted); }
+
+/* File tree */
+.file-item { padding:8px 14px; border-bottom:1px solid var(--border); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:.84rem; }
+.file-item:hover { background:rgba(124,58,237,.05); }
+.file-path { color:var(--text); font-family:'Segoe UI Mono',monospace; }
+.file-meta { color:var(--text-muted); font-size:.72rem; }
+
+@media (max-width:768px) {
+  .container { padding:12px; }
+  .stat-cards { grid-template-columns:1fr 1fr; }
+  .sys-grid { grid-template-columns:1fr; }
+  .tabs { overflow-x:auto; }
+  .admin-header { padding:12px 16px; }
+  table { font-size:.76rem; }
+  th, td { padding:8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1>
+    <svg viewBox="0 0 32 32"><path d="M18 2L6 18h8l-2 12 12-16h-8z" fill="#7c3aed" stroke="#7c3aed" stroke-width="1" stroke-linejoin="round"/></svg>
+    <span>Kira</span> Command Center
+  </h1>
+  <div class="header-right">
+    <span class="pulse"></span>
+    <span style="font-size:.78rem;color:var(--text-muted)" id="clockDisplay"></span>
+    <a href="/" onclick="document.cookie='kira_token=;Max-Age=0;Path=/';return true">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stat-cards" id="statCards">
+    <div class="stat-card">
+      <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="stat-label">Active Agents</div>
+      <div class="stat-value" id="sAgents">--</div>
+      <div class="stat-sub" id="sAgentNames"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="stat-label">Pending Decisions</div>
+      <div class="stat-value" id="sPending">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="stat-label">Tasks Today</div>
+      <div class="stat-value" id="sTasks">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="stat-label">Docs Updated Today</div>
+      <div class="stat-value" id="sDocs">--</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div class="stat-label">System Health</div>
+      <div class="stat-value" id="sHealth">--</div>
+      <div class="stat-sub" id="sHealthSub"></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="agents">Agents</button>
+    <button class="tab" data-tab="outputs">Outputs</button>
+    <button class="tab" data-tab="documents">Documents</button>
+    <button class="tab" data-tab="services">Services</button>
+    <button class="tab" data-tab="sessions">Sessions</button>
+  </div>
+
+  <!-- Overview -->
+  <div class="tab-content active" id="tab-overview">
+    <div class="sys-grid">
+      <div class="sys-section">
+        <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg> Agent Fleet</h3>
+        <div id="overviewAgents"><p class="loading-msg">Loading...</p></div>
+      </div>
+      <div class="sys-section">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2"/></svg> Recent Outputs</h3>
+        <div id="overviewOutputs"><p class="loading-msg">Loading...</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agents -->
+  <div class="tab-content" id="tab-agents">
+    <table>
+      <thead><tr><th>Name</th><th>Role</th><th>Status</th><th>Schedule</th><th>Last Run</th><th>Last Output</th><th>Outputs</th><th>Actions</th></tr></thead>
+      <tbody id="agentsBody"><tr><td colspan="8" class="loading-msg">Loading...</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- Outputs -->
+  <div class="tab-content" id="tab-outputs">
+    <div class="filters">
+      <select id="filterAgent"><option value="">All Agents</option></select>
+      <select id="filterType"><option value="">All Types</option><option value="task">Task</option><option value="decision">Decision</option><option value="document">Document</option><option value="fact">Fact</option><option value="alert">Alert</option></select>
+      <select id="filterStatus"><option value="">All Status</option><option value="pending">Pending</option><option value="processed">Processed</option><option value="archived">Archived</option></select>
+      <button class="btn-action" onclick="loadOutputs()">Filter</button>
+    </div>
+    <table>
+      <thead><tr><th>Time</th><th>Agent</th><th>Type</th><th>Title</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="outputsBody"><tr><td colspan="6" class="loading-msg">Loading...</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- Documents -->
+  <div class="tab-content" id="tab-documents">
+    <div id="vdrFiles"><p class="loading-msg">Loading...</p></div>
+  </div>
+
+  <!-- Services -->
+  <div class="tab-content" id="tab-services">
+    <div id="servicesRefresh" style="text-align:right;margin-bottom:12px;font-size:.72rem;color:var(--text-muted)">Auto-refresh: 30s</div>
+    <div class="sys-grid" id="servicesGrid">
+      <div class="sys-section">
+        <h3><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" fill="none" stroke="currentColor" stroke-width="2"/></svg> PM2 Processes</h3>
+        <div id="pm2List"><p class="loading-msg">Loading...</p></div>
+      </div>
+      <div class="sys-section">
+        <h3><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2" rx="2"/><path d="M8 8h8v4H8z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Docker Containers</h3>
+        <div id="dockerList"><p class="loading-msg">Loading...</p></div>
+      </div>
+      <div class="sys-section">
+        <h3><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="none" stroke="currentColor" stroke-width="2"/></svg> System Resources</h3>
+        <div id="sysResources"><p class="loading-msg">Loading...</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sessions -->
+  <div class="tab-content" id="tab-sessions">
+    <table>
+      <thead><tr><th>Session Key</th><th>Model</th><th>Files</th><th>Details</th></tr></thead>
+      <tbody id="sessionsBody"><tr><td colspan="4" class="loading-msg">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header"><h3 id="modalTitle">Details</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const api = (path, opts) => fetch(path, { credentials:'same-origin', ...opts }).then(r => { if (r.status === 401) { location.href = '/'; throw new Error('Unauth'); } return r.json(); });
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+function fmtDate(d) { if (!d) return '--'; return new Date(d).toLocaleString('en-US', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }); }
+function fmtSize(b) { if (b < 1024) return b + ' B'; if (b < 1048576) return (b/1024).toFixed(1) + ' KB'; return (b/1048576).toFixed(1) + ' MB'; }
+function badge(cls, text) { return `<span class="badge badge-${cls}">${text}</span>`; }
+
+// Clock
+function updateClock() { document.getElementById('clockDisplay').textContent = new Date().toUTCString().slice(0, -4) + ' UTC'; }
+updateClock(); setInterval(updateClock, 1000);
+
+// Tabs
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.toggle('active', t.id === 'tab-' + name));
+  localStorage.setItem('kira_tab', name);
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+const savedTab = localStorage.getItem('kira_tab');
+if (savedTab) switchTab(savedTab);
+
+// Modal
+function openModal(title, html) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalBody').innerHTML = html; document.getElementById('modal').classList.add('open'); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// --- Load Overview ---
+async function loadOverview() {
+  const data = await api('/api/overview');
+  document.getElementById('sAgents').textContent = data.agents.count;
+  document.getElementById('sAgentNames').textContent = data.agents.names.join(', ');
+  document.getElementById('sPending').textContent = data.pendingDecisions;
+  document.getElementById('sTasks').textContent = data.tasksToday;
+  document.getElementById('sDocs').textContent = data.docsToday;
+  const total = data.services.up + data.services.down;
+  document.getElementById('sHealth').textContent = data.services.up + '/' + total;
+  document.getElementById('sHealthSub').textContent = data.services.down > 0 ? data.services.down + ' down' : 'All healthy';
+  document.getElementById('sHealthSub').style.color = data.services.down > 0 ? 'var(--danger)' : 'var(--success)';
+
+  // Overview agent list
+  const agents = await api('/api/agents');
+  document.getElementById('overviewAgents').innerHTML = agents.map(a =>
+    `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+      <div><strong>${esc(a.name)}</strong> <span style="color:var(--text-muted);font-size:.78rem">${esc(a.role)}</span></div>
+      ${badge(a.status === 'running' ? 'running' : 'idle', a.status)}
+    </div>`
+  ).join('') || '<p style="color:var(--text-muted)">No agents found</p>';
+
+  // Recent outputs
+  const outputs = await api('/api/outputs');
+  document.getElementById('overviewOutputs').innerHTML = outputs.slice(0, 8).map(o =>
+    `<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:.82rem">
+      <div>${badge(o.type, o.type)} <span style="margin-left:6px">${esc(o.title)}</span></div>
+      <span style="color:var(--text-muted);font-size:.72rem">${fmtDate(o.created_at)}</span>
+    </div>`
+  ).join('') || '<p style="color:var(--text-muted)">No outputs yet</p>';
+}
+
+// --- Load Agents ---
+async function loadAgents() {
+  const agents = await api('/api/agents');
+  const tb = document.getElementById('agentsBody');
+  // Populate filter
+  const sel = document.getElementById('filterAgent');
+  const existing = new Set([...sel.options].map(o => o.value));
+  agents.forEach(a => { if (!existing.has(a.id)) { const o = document.createElement('option'); o.value = a.id; o.textContent = a.name; sel.appendChild(o); } });
+
+  tb.innerHTML = agents.map(a => `<tr>
+    <td><strong>${esc(a.name)}</strong></td>
+    <td style="color:var(--text-muted)">${esc(a.role)}</td>
+    <td>${badge(a.status === 'running' ? 'running' : 'idle', a.status)}</td>
+    <td>${esc(a.schedule)}</td>
+    <td>${fmtDate(a.lastRun)}</td>
+    <td>${a.lastOutputType ? badge(a.lastOutputType, a.lastOutputType) : '--'}</td>
+    <td>${a.outputCount}</td>
+    <td><button class="btn-sm" onclick="triggerAgent('${a.id}')">Run</button></td>
+  </tr>`).join('') || '<tr><td colspan="8" class="loading-msg">No agents</td></tr>';
+}
+
+async function triggerAgent(id) {
+  await api('/api/agents/' + id + '/run', { method: 'POST' });
+  loadAgents();
+  loadOverview();
+}
+
+// --- Load Outputs ---
+async function loadOutputs() {
+  const params = new URLSearchParams();
+  const agent = document.getElementById('filterAgent').value;
+  const type = document.getElementById('filterType').value;
+  const status = document.getElementById('filterStatus').value;
+  if (agent) params.set('agent', agent);
+  if (type) params.set('type', type);
+  if (status) params.set('status', status);
+
+  const outputs = await api('/api/outputs?' + params);
+  const tb = document.getElementById('outputsBody');
+  tb.innerHTML = outputs.map(o => `<tr>
+    <td>${fmtDate(o.created_at)}</td>
+    <td>${esc(o.agent_id)}</td>
+    <td>${badge(o.type, o.type)}</td>
+    <td>${esc(o.title)}</td>
+    <td>${badge(o.status, o.status)}</td>
+    <td>
+      <button class="btn-sm" onclick="viewOutput(${o.id})">View</button>
+      ${o.status === 'pending' ? `<button class="btn-sm" style="margin-left:4px" onclick="processOutput(${o.id})">Process</button>` : ''}
+    </td>
+  </tr>`).join('') || '<tr><td colspan="6" class="loading-msg">No outputs</td></tr>';
+}
+
+async function viewOutput(id) {
+  const o = await api('/api/outputs/' + id);
+  if (!o) return;
+  let contentHtml = '';
+  try { contentHtml = '<pre>' + esc(JSON.stringify(JSON.parse(o.content), null, 2)) + '</pre>'; }
+  catch { contentHtml = '<pre>' + esc(o.content) + '</pre>'; }
+  openModal(o.title || 'Output #' + o.id, `
+    <dl>
+      <dt>Agent</dt><dd>${esc(o.agent_id)}</dd>
+      <dt>Type</dt><dd>${badge(o.type, o.type)}</dd>
+      <dt>Status</dt><dd>${badge(o.status, o.status)}</dd>
+      <dt>Created</dt><dd>${fmtDate(o.created_at)}</dd>
+    </dl>
+    <h4 style="margin-top:16px;color:var(--accent);font-size:.85rem">Content</h4>
+    ${contentHtml}
+  `);
+}
+
+async function processOutput(id) {
+  await api('/api/outputs/' + id + '/process', { method: 'POST' });
+  loadOutputs();
+}
+
+// --- Load Documents ---
+async function loadDocuments() {
+  const files = await api('/api/vdr');
+  const el = document.getElementById('vdrFiles');
+  if (!files.length) { el.innerHTML = '<p class="loading-msg">No files in VDR</p>'; return; }
+  el.innerHTML = files.map(f => `
+    <div class="file-item" onclick="viewFile('${esc(f.path)}')">
+      <div>
+        <svg style="width:14px;height:14px;vertical-align:middle;margin-right:6px;opacity:.4" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <span class="file-path">${esc(f.path)}</span>
+      </div>
+      <div class="file-meta">${fmtSize(f.size)} &middot; ${fmtDate(f.modified)}</div>
+    </div>
+  `).join('');
+}
+
+async function viewFile(p) {
+  const data = await api('/api/vdr/content?path=' + encodeURIComponent(p));
+  if (data.error) return openModal('Error', '<p>' + esc(data.error) + '</p>');
+  openModal(p, '<pre>' + esc(data.content) + '</pre>');
+}
+
+// --- Load Services ---
+async function loadServices() {
+  const data = await api('/api/services');
+
+  // PM2
+  const pm2El = document.getElementById('pm2List');
+  if (data.pm2.length) {
+    pm2El.innerHTML = '<table><thead><tr><th>Name</th><th>Status</th><th>CPU</th><th>RAM</th><th>Uptime</th><th>Restarts</th></tr></thead><tbody>' +
+      data.pm2.map(p => `<tr>
+        <td>${esc(p.name)}</td>
+        <td>${badge(p.status === 'online' ? 'online' : 'stopped', p.status)}</td>
+        <td>${p.cpu}%</td><td>${p.memory} MB</td>
+        <td>${p.uptime} min</td><td>${p.restarts}</td>
+      </tr>`).join('') + '</tbody></table>';
+  } else { pm2El.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No PM2 processes</p>'; }
+
+  // Docker
+  const dkEl = document.getElementById('dockerList');
+  if (data.docker.length) {
+    dkEl.innerHTML = '<table><thead><tr><th>Name</th><th>Status</th><th>Ports</th></tr></thead><tbody>' +
+      data.docker.map(c => `<tr><td>${esc(c.name)}</td><td>${esc(c.status)}</td><td style="font-size:.72rem">${esc(c.ports)}</td></tr>`).join('') + '</tbody></table>';
+  } else { dkEl.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No Docker containers</p>'; }
+
+  // System
+  const sys = data.system;
+  const ramPct = Math.round((sys.ramUsed / sys.ramTotal) * 100);
+  document.getElementById('sysResources').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:.82rem"><span>RAM</span><span>${sys.ramUsed} / ${sys.ramTotal} MB (${ramPct}%)</span></div>
+      <div class="progress"><div class="progress-fill" style="width:${ramPct}%;background:${ramPct > 85 ? 'var(--danger)' : 'var(--accent)'}"></div></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;font-size:.82rem"><span>Disk</span><span>${esc(sys.disk)}</span></div>
+    </div>
+    <div style="margin-bottom:12px">
+      <div style="font-size:.82rem">Load Avg: ${sys.loadAvg.join(' / ')}</div>
+    </div>
+    <div><div style="font-size:.82rem">Uptime: ${sys.uptime}h</div></div>
+  `;
+}
+
+// --- Load Sessions ---
+async function loadSessions() {
+  const sessions = await api('/api/sessions');
+  const tb = document.getElementById('sessionsBody');
+  tb.innerHTML = sessions.map(s => `<tr>
+    <td><strong>${esc(s.key)}</strong></td>
+    <td>${esc(s.model)}</td>
+    <td>${s.files}</td>
+    <td><button class="btn-sm" onclick="viewSession('${esc(s.key)}')">Details</button></td>
+  </tr>`).join('') || '<tr><td colspan="4" class="loading-msg">No sessions</td></tr>';
+}
+
+function viewSession(key) {
+  openModal('Session: ' + key, '<p style="color:var(--text-muted)">Session details for <strong>' + esc(key) + '</strong></p><p style="margin-top:8px;font-size:.85rem">View agent configuration and logs in ~/.openclaw/agents/' + esc(key) + '/</p>');
+}
+
+// --- Init ---
+async function init() {
+  try {
+    await loadOverview();
+    await loadAgents();
+    await loadOutputs();
+    await loadDocuments();
+    await loadServices();
+    await loadSessions();
+  } catch(e) { console.error('Init error:', e); }
+}
+init();
+
+// Auto-refresh services every 30s
+setInterval(loadServices, 30000);
+</script>
+</body>
+</html>

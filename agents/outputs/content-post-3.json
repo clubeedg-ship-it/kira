@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "decision": {
+    "question": "Post about ZenithCred raising a seed round — the corporate wellness disruption angle?",
+    "recommendation": "ZenithCred is actively targeting investors (20 VCs mapped, outreach sequence ready). A public post about the problem you're solving builds social proof before emails land. Don't mention valuation or round size — just the vision.",
+    "evidence": [
+      "20 Benelux VCs just researched, outreach sequence written",
+      "ZenithCred combines hardware (light panels) + biofeedback + gamification — unique angle",
+      "Corporate wellness is a hot topic, especially post-COVID burnout wave"
+    ],
+    "options": [
+      {
+        "label": "Post as text",
+        "description": "DRAFT (rephrase this):\n\nHook: Corporate wellness is a $60B industry built on yoga mats in conference rooms. We're replacing it with something that actually works.\n\nBody: Most corporate wellness programs fail because they treat symptoms, not systems. Here's a meditation app. Here's a fruit basket. Go feel better.\n\nWhat if instead, your office environment actively responded to how your team actually feels? Light panels that shift based on biometric data. Gamification that makes healthy habits stick — not because HR said so, but because your brain wants to.\n\nThat's what we're building with ZenithCred. Born from our work with interactive light systems (IAM), powered by real biofeedback data.\n\nNot another app. An environment that heals.\n\nWe're talking to investors now. If you're in corporate wellness, HR tech, or just sick of meditation apps that nobody opens — let's talk.\n\nKey points: problem with current wellness, environment-based solution, born from existing tech (IAM), no specific numbers, CTA for investors/partners"
+      },
+      {
+        "label": "Record video",
+        "description": "30 sec, energetic. Say something like: 'Hot take — corporate wellness is broken. Companies spend billions on meditation apps nobody uses. What if your actual office environment could respond to how your team feels? Light panels, biofeedback, gamification. Not another app — an environment that adapts. That's ZenithCred. We built the hardware already with our interactive spaces company. Now we're turning it into something that could change how millions of people experience work. Raising now — DMs open.'"
+      },
+      {
+        "label": "Skip",
+        "description": "Not worth posting"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

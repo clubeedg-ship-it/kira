@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-21T21:10:00Z",
+  "decision": {
+    "question": "Post about running 6 companies at 20 — the multi-company portfolio angle?",
+    "recommendation": "The portfolio narrative sets you apart from every other young founder. Most people can barely manage one startup. You're running AI infra, corporate wellness, interactive spaces, interior design, cosmetics — and they're connected. This is the 'systems thinker' brand angle from your strategy doc.",
+    "evidence": [
+      "Brand strategy positions Otto as 'systems thinker who happens to build companies'",
+      "Active work across IAM, ZenithCred, CuttingEdge, OttoGen, Chimera in last 2 weeks",
+      "Multi-company angle is rare and attention-grabbing for GenZ builder audience"
+    ],
+    "options": [
+      {
+        "label": "Post as text",
+        "description": "DRAFT (rephrase this):\n\nHook: People keep asking me why I don't just focus on one thing.\n\nBody: I'm 20 and I run 6 companies. Interactive spaces for kids. Corporate wellness. AI consulting. Interior design. Cosmetics. Privacy-preserving AI infrastructure.\n\nSounds scattered? Here's what people miss:\n\nEvery single one connects. The hardware I build for interactive floors? Same tech powers the wellness platform. The AI systems I use internally? That's what I teach businesses through OttoGen. The infrastructure I'm building? That runs everything underneath.\n\nI don't have 6 random ideas. I have one thesis expressed through 6 operating companies.\n\nThe thesis: systems that seem permanent are actually ready to break. Healthcare, education, agriculture, work itself. All of it is about to change.\n\nI'd rather build across that wave than ride one piece of it.\n\nKey points: connected portfolio not scattered, systems thinking, each company feeds the others, confidence without arrogance"
+      },
+      {
+        "label": "Record video",
+        "description": "45 sec, sitting somewhere casual. Say something like: 'Everyone tells me to focus. Pick one thing. You're 20, you can't run 6 companies. But here's what they don't see — they're not 6 separate things. They're one system. The hardware from one feeds the wellness platform in another. The AI I build for myself is what I sell to clients. It's all connected. I don't have 6 startups. I have one vision with 6 expressions. And honestly? The fact that people think it's impossible is exactly why it works.'"
+      },
+      {
+        "label": "Skip",
+        "description": "Not worth posting"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}
