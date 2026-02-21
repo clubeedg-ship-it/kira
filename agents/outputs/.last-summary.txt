@@ -1,0 +1,28 @@
+📋 DECISIONS NEEDED
+  🟡 [content] Post about building an AI agent team that runs your companies?
+  → Rec: This is your strongest angle right now. You literally have AI agents doing VC research, writing outreach, building content — while you sleep. The 'nig
+  Options: Post as text | Record video | Skip
+
+  🟡 [content] Post about running 6 companies at 20 — the multi-company portfolio angle?
+  → Rec: The portfolio narrative sets you apart from every other young founder. Most people can barely manage one startup. You're running AI infra, corporate w
+  Options: Post as text | Record video | Skip
+
+  🟡 [content] Post about ZenithCred raising a seed round — the corporate wellness disruption angle?
+  → Rec: ZenithCred is actively targeting investors (20 VCs mapped, outreach sequence ready). A public post about the problem you're solving builds social proo
+  Options: Post as text | Record video | Skip
+
+  🟡 [strategist] Should we declare Feb 22-28 a 'Ship Week' — zero new documents, only outbound actions with daily targets?
+  → Rec: Yes. The portfolio has 80+ strategy docs and zero outbound activity. The preparation phase must end. A structured Ship Week with daily accountability 
+  Options: Ship Week | Gradual ramp | Hire help
+
+  🟡 [strategist] Should we start ZenithCred investor outreach now with current materials, or wait for MVP/demo?
+  → Rec: Start now. Send the deck to 3 warm-up targets (Volta, Peak, Keen) as 'early conversations' — not asking for money yet, just gauging interest and getti
+  Options: Start outreach now | Wait for MVP | LOIs first
+
+✅ TASKS
+  🔴 [strategist] Send first 10 OttoGen LinkedIn DMs
+  🟠 [strategist] Send 5 IAM kindergarten prospect emails
+  🟡 [strategist] Publish Chimera GitHub repo (public)
+
+📄 DOCUMENTS
+  [strategist] Weekly Portfolio Review — W8 2026 → /home/adminuser/kira/vdr/strategy/portfolio-review-w8.md

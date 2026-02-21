@@ -4,10 +4,10 @@
 **Hours:** 24/7 on Claude Max + local models
 
 ## Quick Checks (every heartbeat)
-- [ ] Gateway running? `clawdbot gateway status`
+- [ ] Gateway running? `openclaw gateway status`
+- [ ] **Agent outputs: `node ~/kira/agents/processor.js`** — process pending, relay decisions/alerts to Otto
 - [ ] Sub-agent inbox: Check for completed work, relay to Otto if significant
-- [ ] Chimera activity: Forward to @chimera_activity_bot
-- [ ] Moltbook: Check engagement (every 4+ hours)
+- [ ] Agent team status: `node ~/kira/agents/orchestrator.js status`
 
 ## 🧠 Memory (EVERY heartbeat - PRIORITY)
 ```bash
