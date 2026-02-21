@@ -1,5 +1,5 @@
 # Context
-*Updated: 2026-02-21T21:14:25.306Z*
+*Updated: 2026-02-21T22:39:25.375Z*
 
 ## Key Entities
 - **ZenithCred** (company)
@@ -9,11 +9,11 @@
 - **Kira** (product)
 
 ## Recent
-- Security needs attention unauthenticated file access, open CORS, no headers, Docker socket exposed
-- audit scored Kira platform with 2.8/5
-- Kira Platform received 2.8/5
-- kira-test-audit completed successfully
-- daily outbound targets recommended Ship Week
+- DB stores original message
+- user intends to wire 4-layer memory system into chat.ts
+- kira-test has various files
+- user TASK: Wire the 4-layer memory system into chat. memory system files exist but are NOT connected to chat.
+- user READ these files first src/server/memory/manager.ts, src/server/memory/working.ts, src/server/memory/short-term.ts, src/server/memory/graph-query.ts, src/server/memory/procedural.ts, src/server/memory/context-builder.ts, src/server/routes/chat.ts, db/schema.ts
 
 ## Refined Context
-Considering the context, the user is discussing the potential creation of a Dimera product within a VPS, where control will be fully managed by cloudflared's daemon.
+Could we leverage the subagent implementation technology to integrate all these features, such as the persistent view, into ZenithCred's corporate wellness gamification platform, targeting $1.1M - $2.5-3.5M pre-money funding and aiming to disrupt the $85B corporate wellness market?

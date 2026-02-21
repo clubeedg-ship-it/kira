@@ -1,9 +1,9 @@
 {
   "sessions": {
-    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 171,
-    "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 114,
+    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 185,
+    "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 160,
     "edd383ab-3120-49f9-a916-91688bdb91bc.jsonl": 26,
-    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 10987,
+    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 11119,
     "5bd5080b-1672-4c6a-a24e-16f5dc036a40.jsonl": 11,
     "ccb3a728-f3c4-4ff0-a0ac-7d058b798168.jsonl": 55,
     "nova/3eefddeb-c233-47a0-b280-983dbee2ff55.jsonl": 9,
@@ -255,15 +255,20 @@
     "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 47,
     "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 25,
     "065dc4f4-0743-4672-a7ba-305eb4a1bba0.jsonl": 43,
-    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 27
+    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 107,
+    "5d29a492-422f-4021-8f2c-7fbccfb55d93.jsonl": 33,
+    "3d621e87-9d07-480a-aa7b-80e71314eb06.jsonl": 55,
+    "bef5f375-0e41-41fa-b46c-bc053b2afd42.jsonl": 17,
+    "6ae64998-e6fe-41f9-a51a-95b12690ecb9.jsonl": 89,
+    "24785da6-e966-4e89-8c9a-67a0ea09c7a0.jsonl": 36
   },
-  "totalProcessed": 7440,
-  "lastRun": "2026-02-21T21:17:19.804Z",
+  "totalProcessed": 7535,
+  "lastRun": "2026-02-21T22:42:42.264Z",
   "sessionMtimes": {
-    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 1771708425385.9119,
-    "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 1771707712884.2278,
+    "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 1771713554770.0125,
+    "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 1771713483332.7073,
     "edd383ab-3120-49f9-a916-91688bdb91bc.jsonl": 1771678534087.6992,
-    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 1771708328710.1294,
+    "dd3de969-b7ee-41f5-8621-68f53d29dfb7.jsonl": 1771713761142.1548,
     "5bd5080b-1672-4c6a-a24e-16f5dc036a40.jsonl": 1771671723179.9092,
     "ccb3a728-f3c4-4ff0-a0ac-7d058b798168.jsonl": 1771671710704.1997,
     "nova/3eefddeb-c233-47a0-b280-983dbee2ff55.jsonl": 1771660832106.0076,
@@ -516,7 +521,12 @@
     "4c4977d4-ab1e-43bd-b860-0df0fc7d2e9c.jsonl": 1771708347502.6982,
     "98fded1a-ebcb-4195-acf0-f9a6db000180.jsonl": 1771708309816.5625,
     "065dc4f4-0743-4672-a7ba-305eb4a1bba0.jsonl": 1771708421753.995,
-    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 1771708543827.1943
+    "86d1e9f5-16ac-4b94-b611-70e9470eda81.jsonl": 1771708686417.9216,
+    "5d29a492-422f-4021-8f2c-7fbccfb55d93.jsonl": 1771709513169.8608,
+    "3d621e87-9d07-480a-aa7b-80e71314eb06.jsonl": 1771713435041.8352,
+    "bef5f375-0e41-41fa-b46c-bc053b2afd42.jsonl": 1771713285405.2397,
+    "6ae64998-e6fe-41f9-a51a-95b12690ecb9.jsonl": 1771713550857.105,
+    "24785da6-e966-4e89-8c9a-67a0ea09c7a0.jsonl": 1771713359748.5486
   },
   "docs": {
     "/home/adminuser/kira/deliverables/eeg-neurofeedback-credibility-research.md": 1770800500359.4893,
@@ -653,7 +663,7 @@
     "/home/adminuser/kira/memory/plan-2026-02-06.md": 1770328804992.1096,
     "/home/adminuser/kira/memory/plan-2026-02-07.md": 1770415213783.7332,
     "/home/adminuser/kira/memory/plan-2026-02-08.md": 1770501605928.7112,
-    "/home/adminuser/kira/memory/retrieved-context.md": 1771708465305.996,
+    "/home/adminuser/kira/memory/retrieved-context.md": 1771710864594.5347,
     "/home/adminuser/kira/vdr/.vdr-questions.md": 1771700405618.917,
     "/home/adminuser/kira/vdr/abura/abura-cosmetics-sales-research-CRITIQUE.md": 1770044210121.13,
     "/home/adminuser/kira/vdr/abura/abura-cosmetics-sales-research-v2.md": 1770044418531.4807,
@@ -788,5 +798,5 @@
     "/home/adminuser/kira/vdr/zenithcred/investor-outreach-sequence.md": 1771707690491.739,
     "/home/adminuser/kira/vdr/zenithcred/vc-benelux-list.md": 1771707801042.2139
   },
-  "lastDocRun": 1771707942690
+  "lastDocRun": 1771713406289
 }

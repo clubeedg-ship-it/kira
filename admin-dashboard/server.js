@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Kira Admin Dashboard — Command Center
- * Raw http.createServer + better-sqlite3
+ * Kira Admin Dashboard — Command Center v2
+ * Enhanced with Token Usage, Sessions, Live Logs
  */
 
 const http = require('http');
@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync, exec } = require('child_process');
 const os = require('os');
+const readline = require('readline');
 
 // Load .env
 const envPath = path.join(__dirname, '.env');
@@ -68,6 +69,139 @@ if (outputCount === 0 && fs.existsSync(OUTPUTS_DIR)) {
     }
   });
   tx();
+}
+
+// --- JSONL Usage Cache ---
+let usageCache = { data: null, timestamp: 0 };
+const CACHE_TTL = 60000; // 60s
+
+function parseAllSessionUsage() {
+  const now = Date.now();
+  if (usageCache.data && (now - usageCache.timestamp) < CACHE_TTL) return usageCache.data;
+
+  const result = { messages: [], sessions: [], byAgent: {}, byModel: {}, byDay: {}, totals: { cost: 0, input: 0, output: 0, cacheRead: 0, messages: 0 } };
+
+  if (!fs.existsSync(OPENCLAW_AGENTS)) { usageCache = { data: result, timestamp: now }; return result; }
+
+  for (const agentName of fs.readdirSync(OPENCLAW_AGENTS)) {
+    const agentDir = path.join(OPENCLAW_AGENTS, agentName);
+    try { if (!fs.statSync(agentDir).isDirectory()) continue; } catch { continue; }
+
+    const sessDir = path.join(agentDir, 'sessions');
+    if (!fs.existsSync(sessDir)) continue;
+
+    // Read sessions.json for metadata
+    let sessionsMeta = {};
+    const sessJsonPath = path.join(sessDir, 'sessions.json');
+    try { if (fs.existsSync(sessJsonPath)) sessionsMeta = JSON.parse(fs.readFileSync(sessJsonPath, 'utf-8')); } catch {}
+
+    for (const file of fs.readdirSync(sessDir)) {
+      if (!file.endsWith('.jsonl')) continue;
+      const sessionId = file.replace('.jsonl', '');
+      const filePath = path.join(sessDir, file);
+
+      // Find metadata for this session
+      let meta = null;
+      for (const [key, val] of Object.entries(sessionsMeta)) {
+        if (val.sessionId === sessionId) { meta = { key, ...val }; break; }
+      }
+
+      let sessionCost = 0, sessionTokens = 0, lastActivity = null, lastMessage = '', model = 'unknown', label = meta?.key || sessionId;
+      const messages = [];
+
+      try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const lines = content.split('\n');
+
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          let obj;
+          try { obj = JSON.parse(line); } catch { continue; }
+
+          if (obj.type === 'session') {
+            if (!meta) label = obj.id || sessionId;
+            continue;
+          }
+
+          if (obj.type === 'message' && obj.message) {
+            const msg = obj.message;
+            const ts = obj.timestamp;
+
+            if (ts) lastActivity = ts;
+
+            if (msg.role === 'assistant' && msg.usage) {
+              const u = msg.usage;
+              const cost = u.cost?.total || 0;
+              const day = ts ? ts.slice(0, 10) : 'unknown';
+              const mdl = msg.model || 'unknown';
+              model = mdl;
+
+              sessionCost += cost;
+              sessionTokens += u.totalTokens || (u.input + u.output + (u.cacheRead || 0));
+
+              result.totals.cost += cost;
+              result.totals.input += u.input || 0;
+              result.totals.output += u.output || 0;
+              result.totals.cacheRead += u.cacheRead || 0;
+              result.totals.messages++;
+
+              if (!result.byAgent[agentName]) result.byAgent[agentName] = { cost: 0, messages: 0, tokens: 0 };
+              result.byAgent[agentName].cost += cost;
+              result.byAgent[agentName].messages++;
+              result.byAgent[agentName].tokens += u.totalTokens || 0;
+
+              if (!result.byModel[mdl]) result.byModel[mdl] = { cost: 0, messages: 0 };
+              result.byModel[mdl].cost += cost;
+              result.byModel[mdl].messages++;
+
+              const tokens = (usage.input||0) + (usage.output||0) + (usage.cacheRead||0);
+              if (!result.byDay[day]) result.byDay[day] = { cost: 0, messages: 0, tokens: 0 };
+              result.byDay[day].cost += cost;
+              result.byDay[day].tokens += tokens;
+              result.byDay[day].messages++;
+            }
+
+            // Track last message text
+            if (msg.role === 'user' || msg.role === 'assistant') {
+              let text = '';
+              if (typeof msg.content === 'string') text = msg.content;
+              else if (Array.isArray(msg.content)) {
+                for (const c of msg.content) {
+                  if (c.type === 'text' && c.text) { text = c.text; break; }
+                }
+              }
+              if (text) lastMessage = text;
+              messages.push({ role: msg.role, text: text.slice(0, 500), ts });
+            }
+          }
+        }
+      } catch {}
+
+      const originLabel = meta?.origin?.label || '';
+      const surface = meta?.origin?.surface || '';
+
+      result.sessions.push({
+        agent: agentName,
+        sessionId,
+        label,
+        originLabel,
+        surface,
+        model,
+        totalCost: sessionCost,
+        totalTokens: sessionTokens,
+        lastActivity,
+        lastMessage: lastMessage.slice(0, 100),
+        messageCount: messages.length,
+        recentMessages: messages.slice(-10)
+      });
+    }
+  }
+
+  // Sort sessions by last activity
+  result.sessions.sort((a, b) => (b.lastActivity || '').localeCompare(a.lastActivity || ''));
+
+  usageCache = { data: result, timestamp: now };
+  return result;
 }
 
 // --- Agent definitions ---
@@ -157,19 +291,34 @@ function apiOverview() {
   const tasksToday = db.prepare("SELECT COUNT(*) as c FROM agent_outputs WHERE type='task' AND created_at >= ?").get(today).c;
   const docsToday = db.prepare("SELECT COUNT(*) as c FROM agent_outputs WHERE type='document' AND created_at >= ?").get(today).c;
 
-  // Service health
   let pm2Up = 0, pm2Down = 0;
   try {
     const pm2 = JSON.parse(safeExec('pm2 jlist') || '[]');
     pm2.forEach(p => p.pm2_env?.status === 'online' ? pm2Up++ : pm2Down++);
   } catch {}
 
+  // Enhanced stats
+  const usage = parseAllSessionUsage();
+  const todayCost = usage.byDay[today]?.cost || 0;
+  const activeSessions = usage.sessions.filter(s => {
+    if (!s.lastActivity) return false;
+    return (Date.now() - new Date(s.lastActivity).getTime()) < 3600000; // active in last hour
+  }).length;
+
+  let gpuMem = '';
+  try {
+    const raw = safeExec('nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits 2>/dev/null').trim();
+    if (raw) {
+      const [used, total] = raw.split(',').map(s => s.trim());
+      gpuMem = `${used}/${total} MB`;
+    }
+  } catch {}
+
   return {
     agents: { count: agents.length, names: agents.map(a => a.name) },
-    pendingDecisions,
-    tasksToday,
-    docsToday,
-    services: { up: pm2Up, down: pm2Down }
+    pendingDecisions, tasksToday, docsToday,
+    services: { up: pm2Up, down: pm2Down },
+    todayCost, todayTokens: usage.byDay[today]?.tokens || 0, activeSessions, gpuMem
   };
 }
 
@@ -184,15 +333,13 @@ function apiAgents() {
       status: lastRun?.status === 'running' ? 'running' : 'idle',
       lastRun: lastRun?.started_at || null,
       lastOutputType: lastOutput?.type || null,
-      outputCount,
-      schedule: 'on-demand'
+      outputCount, schedule: 'on-demand'
     };
   });
 }
 
 function apiAgentRun(agentId) {
   const run = db.prepare('INSERT INTO agent_runs (agent_id) VALUES (?)').run(agentId);
-  // Mark finished immediately (manual trigger placeholder)
   db.prepare("UPDATE agent_runs SET status='completed', finished_at=datetime('now') WHERE id=?").run(run.lastInsertRowid);
   return { ok: true, runId: run.lastInsertRowid };
 }
@@ -216,9 +363,7 @@ function apiOutputProcess(id) {
   return { ok: true };
 }
 
-function apiVdr() {
-  return walkDir(VDR_ROOT);
-}
+function apiVdr() { return walkDir(VDR_ROOT); }
 
 function apiVdrContent(relPath) {
   if (!relPath || relPath.includes('..')) return { error: 'Invalid path' };
@@ -231,7 +376,6 @@ function apiVdrContent(relPath) {
 }
 
 function apiServices() {
-  // PM2
   let pm2List = [];
   try { pm2List = JSON.parse(safeExec('pm2 jlist') || '[]').map(p => ({
     name: p.name, status: p.pm2_env?.status || 'unknown',
@@ -240,7 +384,6 @@ function apiServices() {
     restarts: p.pm2_env?.restart_time || 0
   })); } catch {}
 
-  // Docker
   let docker = [];
   try {
     const raw = safeExec('docker ps --format "{{.Names}}|{{.Status}}|{{.Ports}}" 2>/dev/null');
@@ -250,14 +393,36 @@ function apiServices() {
     });
   } catch {}
 
-  // System
   const totalMem = os.totalmem();
   const freeMem = os.freemem();
   let diskUsage = '';
   try { diskUsage = safeExec("df -h / | tail -1 | awk '{print $3\"/\"$2\" (\"$5\")\"}'").trim(); } catch {}
 
+  // Ollama models
+  let ollamaModels = [];
+  try {
+    const raw = safeExec('curl -s http://localhost:11434/api/tags 2>/dev/null');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      ollamaModels = (parsed.models || []).map(m => ({
+        name: m.name, size: m.size ? Math.round(m.size / 1073741824 * 10) / 10 : 0,
+        modified: m.modified_at, family: m.details?.family || '', params: m.details?.parameter_size || ''
+      }));
+    }
+  } catch {}
+
+  // GPU usage
+  let gpu = null;
+  try {
+    const raw = safeExec('nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits 2>/dev/null').trim();
+    if (raw) {
+      const [util, memUsed, memTotal] = raw.split(',').map(s => parseFloat(s.trim()));
+      gpu = { utilization: util, memUsed: Math.round(memUsed), memTotal: Math.round(memTotal) };
+    }
+  } catch {}
+
   return {
-    pm2: pm2List, docker,
+    pm2: pm2List, docker, ollamaModels, gpu,
     system: {
       ramUsed: Math.round((totalMem - freeMem) / 1048576),
       ramTotal: Math.round(totalMem / 1048576),
@@ -269,27 +434,66 @@ function apiServices() {
 }
 
 function apiSessions() {
-  const sessions = [];
-  if (!fs.existsSync(OPENCLAW_AGENTS)) return sessions;
-  for (const name of fs.readdirSync(OPENCLAW_AGENTS)) {
-    const dir = path.join(OPENCLAW_AGENTS, name);
-    if (!fs.statSync(dir).isDirectory()) continue;
-    const configPath = path.join(dir, 'config.json');
-    let config = {};
-    if (fs.existsSync(configPath)) {
-      try { config = JSON.parse(fs.readFileSync(configPath, 'utf-8')); } catch {}
-    }
-    // Look for session files
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'config.json');
-    sessions.push({
-      key: name,
-      model: config.model || 'unknown',
-      tokenUsage: config.tokenUsage || null,
-      files: files.length,
-      config
-    });
+  return parseAllSessionUsage().sessions;
+}
+
+function apiSessionTranscript(sessionId) {
+  const usage = parseAllSessionUsage();
+  const session = usage.sessions.find(s => s.sessionId === sessionId);
+  if (!session) return { error: 'Session not found' };
+  return { session, messages: session.recentMessages };
+}
+
+function apiTokenUsage() {
+  const usage = parseAllSessionUsage();
+  const today = new Date().toISOString().slice(0, 10);
+  const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+
+  let todayCost = 0, weekCost = 0;
+  const dayEntries = [];
+
+  // Last 14 days
+  for (let i = 0; i < 14; i++) {
+    const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+    const entry = usage.byDay[d] || { cost: 0, messages: 0 };
+    dayEntries.unshift({ day: d, cost: entry.cost, messages: entry.messages });
+    if (d === today) todayCost = entry.cost;
+    if (d >= weekAgo) weekCost += entry.cost;
   }
-  return sessions;
+
+  // Most expensive agent
+  let mostExpensive = { name: 'none', cost: 0 };
+  for (const [name, data] of Object.entries(usage.byAgent)) {
+    if (data.cost > mostExpensive.cost) mostExpensive = { name, cost: data.cost };
+  }
+
+  const avgCost = usage.totals.messages > 0 ? usage.totals.cost / usage.totals.messages : 0;
+
+  return {
+    totals: usage.totals,
+    todayCost, weekCost,
+    mostExpensive, avgCost,
+    byAgent: usage.byAgent,
+    byModel: usage.byModel,
+    byDay: dayEntries
+  };
+}
+
+function apiLiveLogs(filter) {
+  const today = new Date().toISOString().slice(0, 10);
+  const logPath = `/tmp/openclaw/openclaw-${today}.log`;
+  try {
+    if (!fs.existsSync(logPath)) return { lines: [], logPath, error: 'Log file not found' };
+    const content = fs.readFileSync(logPath, 'utf-8');
+    let lines = content.split('\n').filter(Boolean);
+    if (filter) {
+      const f = filter.toLowerCase();
+      lines = lines.filter(l => l.toLowerCase().includes(f));
+    }
+    return { lines: lines.slice(-100), logPath, total: lines.length };
+  } catch (e) {
+    return { lines: [], logPath, error: e.message };
+  }
 }
 
 // --- Server ---
@@ -298,11 +502,9 @@ const server = http.createServer(async (req, res) => {
   const pathname = url.pathname;
   const method = req.method;
 
-  // Static files
   if (pathname === '/favicon.svg') return serveFile(res, path.join(__dirname, 'ui', 'favicon.svg'), 'image/svg+xml');
   if (pathname === '/' || pathname === '/login') return serveFile(res, path.join(__dirname, 'ui', 'index.html'), 'text/html');
 
-  // Login POST
   if (pathname === '/api/login' && method === 'POST') {
     const body = await readBody(req);
     let token;
@@ -317,13 +519,11 @@ const server = http.createServer(async (req, res) => {
     return json(res, { error: 'Invalid token' }, 401);
   }
 
-  // Dashboard page
   if (pathname === '/dashboard') {
     if (!isAuthed(req)) { res.writeHead(302, { Location: '/' }); return res.end(); }
     return serveFile(res, path.join(__dirname, 'ui', 'dashboard.html'), 'text/html');
   }
 
-  // API routes — all require auth
   if (pathname.startsWith('/api/')) {
     if (!isAuthed(req)) return json(res, { error: 'Unauthorized' }, 401);
 
@@ -353,6 +553,15 @@ const server = http.createServer(async (req, res) => {
       }
       if (pathname === '/api/services' && method === 'GET') return json(res, apiServices());
       if (pathname === '/api/sessions' && method === 'GET') return json(res, apiSessions());
+      if (pathname === '/api/sessions/transcript' && method === 'GET') {
+        const sid = url.searchParams.get('id');
+        return json(res, apiSessionTranscript(sid));
+      }
+      if (pathname === '/api/token-usage' && method === 'GET') return json(res, apiTokenUsage());
+      if (pathname === '/api/logs' && method === 'GET') {
+        const filter = url.searchParams.get('filter') || '';
+        return json(res, apiLiveLogs(filter));
+      }
     } catch (e) {
       return json(res, { error: e.message }, 500);
     }
