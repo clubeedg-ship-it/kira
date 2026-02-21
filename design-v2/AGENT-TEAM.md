@@ -224,24 +224,139 @@ Operator detects anomaly via Wazuh
 
 ---
 
+## How Agents Fit the Existing UI
+
+Agents don't get their own UI. They USE the existing system — same as the user does.
+
+### Chat (existing: ChatPanelManager, multi-panel)
+- Each agent = a chat panel tab
+- Click agent → see transcript (read-only or interactive)
+- Split view: talk to Kira left, watch Strategist think right
+- AgentCarousel (already built) shows active agents at top
+
+### Agents Page (existing: /agents)
+- List all agents with status (active, idle, last ran)
+- Configure: schedule, personality, scope, model
+- Run history with outcomes
+- Enable/disable agents
+- Create custom agents
+- Browse marketplace (Savants)
+
+### Operations/Tasks (existing: /operations, BoardView, TodayView)
+- Agents CREATE tasks with source context attached
+- Task metadata includes: which agent surfaced it, why, key data points
+- When agent completes work → task auto-completes with output linked
+- Agent work rolls up: subtask → task % → goal % → project health
+
+### Documents (existing: /documents)
+- Agents write structured outputs here, not in chat
+- Strategy Brief (by Strategist) — updated weekly
+- Revenue Report (by Dealmaker) — updated daily
+- Content Calendar (by Content) — updated daily
+- Research Findings (by Researcher) — on demand
+- Documents are decision-ready: numbers, key points, recommendations
+
+### Inbox (existing: /inbox)
+- Agent decisions needing approval land here
+- Each item has: what the agent wants to do, why, the data behind it
+- User approves/rejects/modifies
+- Approved → agent executes
+- Example: "Content wants to post this on LinkedIn. Data: last 3 posts about AI got 2x engagement vs product posts. Approve?"
+
+### Knowledge Graph (existing: /knowledge)
+- All agents read from and write to the same graph
+- Agent findings auto-extract to entities/facts/relations
+- No silos — Researcher finding about competitor feeds into Strategist's recommendation
+
+### Dashboards (existing: /dashboards, widgets)
+- ActiveAgents widget (already built) — shows running agents
+- Agent outputs feed into: TopPriorities, KeyResultProgress, RecentCompletions
+- Financial dashboard gets data from Dealmaker
+- Content performance from Content agent
+
+### The Standard Data Contract
+
+Every agent outputs work in a standard format:
+
+```typescript
+interface AgentOutput {
+  type: 'task' | 'document' | 'decision' | 'fact' | 'alert';
+  
+  // For tasks
+  task?: {
+    title: string;
+    description: string;
+    priority: 'critical' | 'high' | 'medium' | 'low';
+    sourceContext: string;  // WHY this task exists
+    keyPoints: string[];    // data points that led here
+    assignee: 'user' | 'agent';
+    parentGoalId?: string;
+  };
+  
+  // For documents
+  document?: {
+    title: string;
+    content: string;       // markdown
+    category: string;      // strategy, revenue, content, research
+    replaces?: string;     // document ID this supersedes
+  };
+  
+  // For decisions needing approval
+  decision?: {
+    question: string;
+    recommendation: string;
+    evidence: string[];    // key data points
+    options: { label: string; description: string }[];
+    urgency: 'now' | 'today' | 'this_week' | 'whenever';
+  };
+  
+  // For knowledge graph
+  fact?: {
+    entity: string;
+    key: string;
+    value: string;
+    confidence: number;
+    source: string;
+  };
+  
+  // For alerts
+  alert?: {
+    severity: 'critical' | 'warning' | 'info';
+    message: string;
+    action?: string;
+  };
+}
+```
+
+This contract ensures agent outputs flow into the right place automatically:
+- `type: 'task'` → Operations board
+- `type: 'document'` → Documents page  
+- `type: 'decision'` → Inbox
+- `type: 'fact'` → Knowledge graph
+- `type: 'alert'` → Notification + Inbox if actionable
+
 ## Implementation
 
-### Phase 1: Core Two (This Week)
-1. **Strategist** — spawn as persistent session, load portfolio context
-2. **Content** — spawn as persistent session, connect to social APIs
+### Phase 1: Agent Infrastructure (This Week)
+1. Define `AgentOutput` schema in DB (`agent_outputs` table)
+2. Wire outputs into existing pages (tasks → operations, docs → documents, decisions → inbox)
+3. Agent chat panels in ChatPanelManager
+4. Standard agent session creation (OpenClaw session + cron schedule)
 
-### Phase 2: Support Two (Next Week)  
-3. **Researcher** — spawn with web_search access
-4. **Operator** — spawn with exec access, monitoring crons
+### Phase 2: First Agents (This Week)
+1. **Strategist** — persistent session, weekly portfolio review, outputs to documents + inbox
+2. **Content** — persistent session, daily draft generation, outputs to inbox for approval
 
-### Phase 3: Revenue (Week 3)
-5. **Dealmaker** — spawn with Notion access, financial tracking
+### Phase 3: Full Team (Next Week)
+3. **Researcher** — web_search access, outputs to knowledge + documents
+4. **Operator** — exec access, outputs to tasks + alerts
+5. **Dealmaker** — outputs to documents + inbox
 
-### Phase 4: Autonomy (Week 4+)
-- Agents schedule their own sub-agents for tasks
-- Auto-escalation protocols
-- Performance self-assessment
-- Knowledge graph becomes shared brain
+### Phase 4: Marketplace (Week 3+)
+- Custom agent creation UI
+- Savant marketplace (pre-built agents)
+- Telegram bot provisioning for external access
+- Cross-agent communication protocol
 
 ---
 
