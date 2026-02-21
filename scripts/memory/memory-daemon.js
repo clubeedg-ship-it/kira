@@ -21,7 +21,7 @@ const SESSION_DIR = path.join(process.env.HOME, '.clawdbot/agents/main/sessions'
 const CHECKPOINT_FILE = path.join(process.env.HOME, 'clawd/memory/.daemon-checkpoint.json');
 const GRAPH_DB = path.join(process.env.HOME, 'chimera/memory/graph.db');
 const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
-const MODEL = process.env.DAEMON_MODEL || 'glm-4.7-flash:latest';
+const MODEL = process.env.DAEMON_MODEL || 'qwen3:14b';
 const BATCH_SIZE = 30; // messages per extraction batch
 
 // ── Ollama Client ──────────────────────────────────────────────

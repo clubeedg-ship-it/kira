@@ -1,0 +1,17 @@
+{
+  "id": "proc-b3b0c63f84e3",
+  "name": "check-unprocessed-worklog",
+  "created": "2026-02-21T04:00:59.889Z",
+  "updated": "2026-02-21T04:00:59.889Z",
+  "version": 1,
+  "trigger": "batch processing task",
+  "steps": [
+    "query unified.db for unprocessed worklog entries",
+    "extract patterns from results"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-18T19:00:04.463Z",
-  "totalFiles": 114,
+  "timestamp": "2026-02-21T11:00:27.090Z",
+  "totalFiles": 124,
   "changedFiles": 0,
   "findings": [
     {
@@ -876,12 +876,12 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2022-06-28 is 1331 days old",
+          "text": "Date 2022-06-28 is 1334 days old",
           "line": 73,
           "section": "Query Goals"
         },
         {
-          "text": "Date 2022-06-28 is 1331 days old",
+          "text": "Date 2022-06-28 is 1334 days old",
           "line": 79,
           "section": "Query Monthly Goals"
         }
@@ -1336,6 +1336,341 @@
       ],
       "questions": [],
       "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "client-update-report-q1-2026.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "Score | [TBD]/10 |",
+          "line": 230,
+          "section": "5.2 Key Metrics",
+          "type": "Question",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "text": "| Total Portfolio Revenue (Q1) | [TBD] |",
+          "line": 53,
+          "section": "1.4 Consolidated Financials (Q1 2026)",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Total Operating Expenses (Q1) | [TBD] |",
+          "line": 54,
+          "section": "1.4 Consolidated Financials (Q1 2026)",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Aggregate Burn Rate (monthly) | [TBD] |",
+          "line": 55,
+          "section": "1.4 Consolidated Financials (Q1 2026)",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Cash Runway (all entities) | [TBD] months |",
+          "line": 56,
+          "section": "1.4 Consolidated Financials (Q1 2026)",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Headcount (across portfolio) | [TBD] |",
+          "line": 57,
+          "section": "1.4 Consolidated Financials (Q1 2026)",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Outreach Emails / Calls (Q1) | [TBD] |",
+          "line": 80,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Demo Sessions Completed | [TBD] |",
+          "line": 81,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Pipeline Value (weighted) | €[TBD] |",
+          "line": 82,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Conversion Rate (demo → sale) | [TBD]% |",
+          "line": 83,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Units Deployed | [TBD] |",
+          "line": 84,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Revenue (Q1) | €[TBD] |",
+          "line": 85,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Customer Acquisition Cost | €[TBD] |",
+          "line": 86,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Content Modules Available | [TBD] |",
+          "line": 87,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| NPS (from demo feedback) | [TBD] |",
+          "line": 88,
+          "section": "2.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| LinkedIn Connections (net new, Q1) | [TBD] |",
+          "line": 128,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Inbound Leads (via ottogen.nl) | [TBD] |",
+          "line": 129,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Discovery Calls Booked | [TBD] |",
+          "line": 130,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Active Client Engagements | [TBD] |",
+          "line": 131,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Revenue (Q1) | €[TBD] |",
+          "line": 132,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Average Contract Value | €[TBD] |",
+          "line": 133,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Pipeline Value | €[TBD] |",
+          "line": 134,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Client Retention Rate | [TBD]% |",
+          "line": 135,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| LinkedIn Content Impressions | [TBD] |",
+          "line": 136,
+          "section": "3.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Investors Contacted | [TBD] |",
+          "line": 176,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Pitch Meetings Held | [TBD] |",
+          "line": 177,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Term Sheets / LOIs Received | [TBD] |",
+          "line": 178,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Committed Capital | €[TBD] |",
+          "line": 179,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| MVP Demo Sessions with Corporates | [TBD] |",
+          "line": 182,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Design Partners (LOI / Pilot) | [TBD] |",
+          "line": 183,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Monthly Burn Rate | €[TBD] |",
+          "line": 184,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Projected Runway (post-close) | [TBD] months |",
+          "line": 185,
+          "section": "4.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Active Projects | [TBD] |",
+          "line": 225,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Projects Completed (Q1) | [TBD] |",
+          "line": 226,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Revenue (Q1) | €[TBD] |",
+          "line": 227,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Average Project Value | €[TBD] |",
+          "line": 228,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Gross Margin | [TBD]% |",
+          "line": 229,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Client Satisfaction Score | [TBD]/10 |",
+          "line": 230,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Repeat Client Rate | [TBD]% |",
+          "line": 231,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Pipeline (upcoming projects) | €[TBD] |",
+          "line": 232,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Average Project Duration | [TBD] weeks |",
+          "line": 233,
+          "section": "5.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Revenue (Q1) | €[TBD] |",
+          "line": 272,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Units Sold (Q1) | [TBD] |",
+          "line": 273,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Active Sales Channels | [TBD] |",
+          "line": 274,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| New Retail Partnerships | [TBD] |",
+          "line": 275,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| E-Commerce Conversion Rate | [TBD]% |",
+          "line": 276,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Customer Acquisition Cost | €[TBD] |",
+          "line": 277,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Average Order Value | €[TBD] |",
+          "line": 278,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Return Rate | [TBD]% |",
+          "line": 279,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "| Social Media Followers (aggregate) | [TBD] |",
+          "line": 280,
+          "section": "6.2 Key Metrics",
+          "type": "placeholder"
+        },
+        {
+          "text": "- **[TBD]** — Data pending; to be populated with actuals at period close or upon data availability.",
+          "line": 322,
+          "section": "8.1 Definitions",
+          "type": "placeholder"
+        },
+        {
+          "text": "This report follows a quarterly cadence. Metrics are sourced from internal CRM, accounting systems, and operational dashboards. Where data is marked [TBD], the team is in the process of implementing tracking infrastructure or awaiting period-end reconciliation. All financial figures are in EUR unless otherwise noted.",
+          "line": 331,
+          "section": "8.2 Reporting Methodology",
+          "type": "placeholder"
+        },
         {
           "type": "missing_section",
           "text": "No next steps section"
@@ -2175,6 +2510,35 @@
           "text": "Iterate based on responses",
           "line": 514,
           "section": "Week 4: Launch",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "iam/iam-followup-email-sequence.md",
+      "company": "IAM",
+      "actions": [
+        {
+          "text": "if Below |",
+          "line": 227,
+          "section": "📊 Sequence Metrics to Track",
           "type": "Task",
           "signifier": null,
           "priority": "Medium",
@@ -3164,7 +3528,7 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-02-05 is 378 days old",
+          "text": "Date 2025-02-05 is 381 days old",
           "line": 769,
           "section": "Design Decisions Rationale"
         }
@@ -3307,12 +3671,12 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-10-28 is 113 days old",
+          "text": "Date 2025-10-28 is 116 days old",
           "line": 12,
           "section": "✅ Dates Added/Verified"
         },
         {
-          "text": "Date 2025-11-25 is 85 days old",
+          "text": "Date 2025-11-25 is 88 days old",
           "line": 22,
           "section": "⏳ Pending/No Changes"
         }
@@ -3430,7 +3794,7 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-07-11 is 222 days old",
+          "text": "Date 2025-07-11 is 225 days old",
           "line": 2,
           "section": "Notion Structure Reorganization Log"
         }
@@ -5905,6 +6269,102 @@
       "isNew": false
     },
     {
+      "file": "ottogen-brand-positioning.md",
+      "company": "Unknown",
+      "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "ottogen-content-calendar-30d.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "Plan Starts Today\"",
+          "line": 197,
+          "section": "Day 30 — Tuesday",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": "M",
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "ottogen-linkedin-dms.md",
+      "company": "Unknown",
+      "actions": [],
+      "questions": [
+        {
+          "text": "Saw [COMPANY NAME] is doing solid work in [THEIR NICHE]. Quick question — how much of your team's time goes to repetitive ops work that could be automated?",
+          "line": 12,
+          "section": "1A — Direct Value Hook"
+        },
+        {
+          "text": "Worth a quick chat?",
+          "line": 25,
+          "section": "1B — Results-Led"
+        },
+        {
+          "text": "Weird question: if you could automate one thing at [COMPANY NAME] tomorrow, what would it be?",
+          "line": 30,
+          "section": "1C — Curiosity Gap"
+        },
+        {
+          "text": "Down for a quick call sometime?",
+          "line": 74,
+          "section": "2B — Thought Leadership Angle"
+        },
+        {
+          "text": "I build AI systems for [INDUSTRY] companies — specifically around [USE CASE]. Always looking to connect with operators who actually get the space. Coffee chat sometime?",
+          "line": 135,
+          "section": "3D — Network Value"
+        },
+        {
+          "text": "Your post about [PAIN POINT] caught my eye. Quick question — is the core issue [SPECIFIC BOTTLENECK A] or [SPECIFIC BOTTLENECK B]?",
+          "line": 178,
+          "section": "4D — Question-Led"
+        }
+      ],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
       "file": "ottogen-linkedin-posts-draft.md",
       "company": "Unknown",
       "actions": [
@@ -5983,6 +6443,24 @@
           "assignee": "Otto"
         }
       ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "project-timeline-review-2026-02-18.md",
+      "company": "Unknown",
+      "actions": [],
       "questions": [],
       "gaps": [
         {
@@ -6391,6 +6869,35 @@
           "line": 336,
           "section": "Milestones This Funding Enables",
           "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "sentinagro-feasibility-study.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "| Owner | Deadline |",
+          "line": 510,
+          "section": "10.4 Next Steps",
+          "type": "Milestone",
           "signifier": null,
           "priority": "Medium",
           "effort": null,
@@ -9128,6 +9635,24 @@
       "isNew": false
     },
     {
+      "file": "zenithcred-competitive-analysis.md",
+      "company": "Unknown",
+      "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
       "file": "zenithcred-investor-outreach-emails.md",
       "company": "Unknown",
       "actions": [
@@ -9149,6 +9674,45 @@
           "section": "Email 1: Cold Intro (Day 0)"
         }
       ],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "zenithcred-pilot-proposal-template.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "(eNPS) delta | Positive movement | Pre/post survey |",
+          "line": 109,
+          "section": "Business ROI Indicators",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "(eNPS) | — | — | +X points |",
+          "line": 206,
+          "section": "Template",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
       "gaps": [
         {
           "type": "missing_section",
@@ -9212,6 +9776,35 @@
       "isNew": false
     },
     {
+      "file": "zenithcred-pilot-target-companies.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "Cross-reference with LinkedIn Sales Navigator for decision-maker contacts*",
+          "line": 99,
+          "section": "Key Selling Points for All",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
       "file": "zenithcred-vc-list-benelux.md",
       "company": "Unknown",
       "actions": [],
@@ -9252,6 +9845,11 @@
     {
       "type": "duplicate",
       "text": "Possible duplicate task across files:\n  • \"2-3 press mentions secured\" (abura/abura-cosmetics-sales-research-v2.md)\n  • \"Press mentions or features\" (cuttingedge/cuttingedge-ux-strategy.md)",
+      "severity": "medium"
+    },
+    {
+      "type": "duplicate",
+      "text": "Possible duplicate task across files:\n  • \"score > 4.5/5\" (agent-scaling-architecture.md)\n  • \"Score | [TBD]/10 |\" (client-update-report-q1-2026.md)",
       "severity": "medium"
     },
     {
@@ -9403,6 +10001,7 @@
     "chimera/chimera-blog-introducing-chimera.md": 1770930163114.171,
     "chimera/chimera-deep-strategy.md": 1770514790145.7446,
     "chimera/whitepaper-outline.md": 1771189320108.1304,
+    "client-update-report-q1-2026.md": 1771621379667.2603,
     "cron-audit-2026-02-09.md": 1770670986055.1936,
     "cuttingedge/cuttingedge-deep-strategy.md": 1770514737760.9233,
     "cuttingedge/cuttingedge-ux-strategy.md": 1770044313998.8164,
@@ -9416,6 +10015,7 @@
     "iam/iam-deep-strategy.md": 1770522000478.2192,
     "iam/iam-email-infrastructure-research.md": 1770638037953.7722,
     "iam/iam-email-outreach-tools-research.md": 1770046640026.0315,
+    "iam/iam-followup-email-sequence.md": 1771535033490.5488,
     "iam/iam-free-trial-package.md": 1770843830140.2485,
     "iam/iam-kindergarten-email-templates.md": 1770584525048.1982,
     "iam/iam-kindergarten-prospect-list.md": 1770498182569.1062,
@@ -9460,13 +10060,18 @@
     "ottogen/ottogen-website-design.md": 1770635756678.7695,
     "ottogen/ottogen-website-v2-notes.md": 1770637191394.0186,
     "ottogen/ottogen-website-v3-notes.md": 1770637653882.5264,
+    "ottogen-brand-positioning.md": 1771448552822.5662,
+    "ottogen-content-calendar-30d.md": 1771535033487.5488,
+    "ottogen-linkedin-dms.md": 1771448530959.0671,
     "ottogen-linkedin-posts-draft.md": 1770757301669.4067,
     "ottogen-webinar-module-1.md": 1771103026316.0417,
     "ottogen-website-wireframes.md": 1771189322375.0786,
+    "project-timeline-review-2026-02-18.md": 1771448505164.6582,
     "sales-automation-research.md": 1770489535404.6055,
     "sentinagro/sentinagro-deep-strategy.md": 1770514748922.672,
     "sentinagro/sentinagro-financial-projection.md": 1770636535677.6384,
     "sentinagro/sentnagro-deck.md": 1770421956483.375,
+    "sentinagro-feasibility-study.md": 1771621491930.6553,
     "sentinagro-market-research.md": 1770757410175.78,
     "sentinagro-one-pager.md": 1771189301579.5542,
     "sentinagro-pitch-deck.md": 1771362291932.9558,
@@ -9496,15 +10101,18 @@
     "zenithcred/zenithcred-pitch-deck-FULL.md": 1770386196636.733,
     "zenithcred/zenithcred-pitch-deck-outline.md": 1770377139822.0889,
     "zenithcred/zenithcred-pitch-deck-speaker-notes.md": 1770498440033.348,
+    "zenithcred-competitive-analysis.md": 1771448575614.044,
     "zenithcred-investor-outreach-emails.md": 1770671016052.4175,
+    "zenithcred-pilot-proposal-template.md": 1771534961876.2026,
     "zenithcred-pilot-proposal.md": 1771102902558.8835,
+    "zenithcred-pilot-target-companies.md": 1771534989868.5562,
     "zenithcred-vc-list-benelux.md": 1771103033083.8862,
     "zenithcred-vc-research-benelux.md": 1770671318545.7969
   },
   "stats": {
-    "totalActions": 616,
-    "totalQuestions": 197,
-    "totalGaps": 235,
+    "totalActions": 623,
+    "totalQuestions": 204,
+    "totalGaps": 306,
     "totalStale": 6
   }
 }

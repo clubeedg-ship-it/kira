@@ -33,15 +33,37 @@ try {
   console.log(`Loaded ${seenMessageIds.size} existing message IDs`);
 } catch {}
 
+// The main session ID — this is the persistent Kira session we always want to track
+const MAIN_SESSION_ID = 'dd3de969-b7ee-41f5-8621-68f53d29dfb7';
+
 function getLatestSession() {
+  // Prefer the known main session file (stable, no bouncing)
+  const mainFile = path.join(SESSIONS_DIR, MAIN_SESSION_ID + '.jsonl');
+  try {
+    if (fs.existsSync(mainFile)) {
+      fs.statSync(mainFile); // verify accessible
+      return mainFile;
+    }
+  } catch {}
+
+  // Fallback: find the most recently modified .jsonl file
   const files = fs.readdirSync(SESSIONS_DIR).filter(f => f.endsWith('.jsonl'));
   if (!files.length) return null;
-  files.sort((a, b) => {
-    const sa = fs.statSync(path.join(SESSIONS_DIR, a));
-    const sb = fs.statSync(path.join(SESSIONS_DIR, b));
-    return sb.mtimeMs - sa.mtimeMs;
-  });
-  return path.join(SESSIONS_DIR, files[0]);
+
+  // Sort by mtime, with try/catch for deleted files (ENOENT fix)
+  const fileStats = [];
+  for (const f of files) {
+    try {
+      const fp = path.join(SESSIONS_DIR, f);
+      const stat = fs.statSync(fp);
+      fileStats.push({ path: fp, mtimeMs: stat.mtimeMs });
+    } catch {
+      // File was deleted between readdir and stat — skip it
+    }
+  }
+  if (!fileStats.length) return null;
+  fileStats.sort((a, b) => b.mtimeMs - a.mtimeMs);
+  return fileStats[0].path;
 }
 
 function syncToDashboard(msg) {
@@ -206,7 +228,13 @@ function parseSessionLine(line) {
 }
 
 function processNewLines() {
-  const sessionFile = getLatestSession();
+  let sessionFile;
+  try {
+    sessionFile = getLatestSession();
+  } catch (e) {
+    // Gracefully handle any filesystem errors
+    return;
+  }
   if (!sessionFile) return;
 
   if (sessionFile !== currentSessionFile) {
@@ -214,7 +242,7 @@ function processNewLines() {
     try {
       const content = fs.readFileSync(sessionFile, 'utf8');
       lastLineCount = content.split('\n').filter(l => l.trim()).length;
-      console.log(`New session: ${path.basename(sessionFile)}, starting from line ${lastLineCount}`);
+      console.log(`Tracking session: ${path.basename(sessionFile)}, starting from line ${lastLineCount}`);
     } catch { lastLineCount = 0; }
     return;
   }

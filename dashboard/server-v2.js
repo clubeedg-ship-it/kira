@@ -1373,12 +1373,38 @@ async function enrichAndForward(text, messageId, userId) {
         userError = '⚠️ Insufficient API credits. Please top up your provider account.';
       else if (errMsg.includes('timeout') || errMsg.includes('ETIMEDOUT'))
         userError = '⚠️ Request timed out. The AI provider may be experiencing issues.';
-      
+
       if (userError && userId) {
         notifySSE(userId, { type: 'error', message: userError });
       }
+      // Even on error, notify SSE that we're done waiting
+      if (userId) notifySSE(userId, { type: 'done' });
     } else {
       console.log(`[forward] Done (total ${Date.now() - start}ms)`);
+      // Save Kira's response to scratchpad so it appears in chat
+      // The response comes from openclaw stdout (streamedText)
+      const responseText = streamedText.trim();
+      if (responseText && userId) {
+        const kiraMsg = {
+          from: 'kira',
+          type: 'markdown',
+          content: responseText,
+          ts: new Date().toISOString(),
+          messageId: 'kira-' + Date.now()
+        };
+        const msgs = loadScratchpad(userId);
+        // Dedup: don't save if chat-sync already pushed this message
+        const isDup = msgs.slice(-10).some(m => m.from === 'kira' && m.content === responseText);
+        if (!isDup) {
+          msgs.push(kiraMsg);
+          saveScratchpad(msgs, userId);
+          console.log(`[forward] Saved Kira response to scratchpad (${responseText.length} chars)`);
+        } else {
+          console.log(`[forward] Response already in scratchpad (chat-sync was faster)`);
+        }
+        notifySSE(userId, { type: 'message', message: kiraMsg });
+      }
+      if (userId) notifySSE(userId, { type: 'done' });
     }
   });
 }
@@ -1457,15 +1483,24 @@ const sseClients = new Map(); // userId → Set of response objects
 
 function handleChatSSE(req, res, userId) {
   // SSE can't send Authorization header, so accept token in query param
+  // Use lenient auth (getUserForSSE) since SSE connections are long-lived
+  // and the JWT may expire during the connection lifetime
   if (!userId) {
     const url = new URL(req.url, 'http://localhost');
     const qToken = url.searchParams.get('token');
     if (qToken) {
-      const user = auth.getUser(qToken);
-      if (user) userId = user.id;
+      const user = auth.getUserForSSE(qToken);
+      if (user) {
+        userId = user.id;
+      } else {
+        console.error('[sse] Auth failed: token invalid or expired beyond 7-day window');
+      }
+    } else {
+      console.error('[sse] Auth failed: no token in query params');
     }
   }
   if (!userId) { res.writeHead(401); res.end(); return; }
+  console.log(`[sse] Client connected: user=${userId.substring(0, 8)}, existing clients: ${sseClients.get(userId)?.size || 0}`);
   res.writeHead(200, {
     'Content-Type': 'text/event-stream',
     'Cache-Control': 'no-cache',

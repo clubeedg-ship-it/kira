@@ -72,7 +72,7 @@ Input: ${content.substring(0, 4000)}`;
 
     try {
       const result = execSync(`curl -s http://localhost:11434/api/generate -d '${JSON.stringify({
-        model: 'glm4:latest',
+        model: 'qwen3:14b',
         prompt: prompt,
         stream: false,
         options: { temperature: 0.1, num_predict: 1000 }

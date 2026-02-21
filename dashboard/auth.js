@@ -202,6 +202,24 @@ function getUser(token) {
   return db.prepare('SELECT id, email, display_name, role, tier, created_at, last_login_at FROM users WHERE id = ?').get(payload.sub);
 }
 
+// Get user from JWT for SSE — allows expired tokens (up to 7 days) since SSE is long-lived
+function getUserForSSE(token) {
+  // First try normal verification
+  const user = getUser(token);
+  if (user) return user;
+  // If expired, decode without expiry check (signature still verified)
+  try {
+    const [header, body, sig] = token.split('.');
+    const expected = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
+    if (sig !== expected) return null; // bad signature
+    const payload = JSON.parse(Buffer.from(body, 'base64url').toString());
+    // Allow up to 7 days past expiry for SSE reconnects
+    if (payload.exp && payload.exp < Math.floor(Date.now() / 1000) - 7 * 86400) return null;
+    if (!payload.sub) return null;
+    return db.prepare('SELECT id, email, display_name, role, tier, created_at, last_login_at FROM users WHERE id = ?').get(payload.sub);
+  } catch { return null; }
+}
+
 // Auth middleware helper — extracts user from Authorization header
 function extractUser(req) {
   const auth = req.headers.authorization;
@@ -229,6 +247,6 @@ function updateUser(userId, updates) {
 
 module.exports = {
   register, verifyEmail, login, refresh, logout,
-  getUser, extractUser, listUsers, updateUser,
+  getUser, getUserForSSE, extractUser, listUsers, updateUser,
   checkRate, db,
 };

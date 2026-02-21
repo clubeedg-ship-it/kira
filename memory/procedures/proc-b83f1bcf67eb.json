@@ -1,0 +1,16 @@
+{
+  "id": "proc-b83f1bcf67eb",
+  "name": "run-inbox-batch",
+  "created": "2026-02-21T04:00:59.888Z",
+  "updated": "2026-02-21T04:00:59.889Z",
+  "version": 1,
+  "trigger": "manual command execution",
+  "steps": [
+    "execute `node ~/kira/scripts/inbox-processor.js process`"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

@@ -2405,12 +2405,30 @@ function startChatPoll() {
   setTimeout(pollChat, 2000);
 }
 
-function connectSSE() {
+async function connectSSE() {
   if (chatEventSource) return;
-  const token = localStorage.getItem('kira_token');
+  // Ensure we have a fresh token before connecting
+  let token = localStorage.getItem('kira_token');
   if (!token) return;
+  // Try to refresh the token first so SSE gets a long-lived connection
+  const refreshTok = localStorage.getItem('kira_refresh');
+  if (refreshTok) {
+    try {
+      const rr = await fetch(API + '/api/auth/refresh', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ refreshToken: refreshTok })
+      });
+      if (rr.ok) {
+        const rd = await rr.json();
+        localStorage.setItem('kira_token', rd.token);
+        localStorage.setItem('kira_refresh', rd.refreshToken);
+        token = rd.token;
+      }
+    } catch (e) { console.warn('[sse] Token refresh failed, using existing token:', e.message); }
+  }
+  console.log('[sse] Connecting with token:', token.substring(0, 20) + '...');
   chatEventSource = new EventSource(API + '/api/chat/events?token=' + encodeURIComponent(token));
-  chatEventSource.onopen = () => { sseConnected = true; sseRetries = 0; };
+  chatEventSource.onopen = () => { sseConnected = true; sseRetries = 0; console.log('[sse] Connected'); };
   chatEventSource.onmessage = (e) => {
     try {
       const event = JSON.parse(e.data);
@@ -2420,6 +2438,36 @@ function connectSSE() {
         showThinking(false);
         sendingMessage = false;
         flushQueuedMessages();
+        // Remove streaming bubble if present
+        const streamEl = document.getElementById('kira-stream-bubble');
+        if (streamEl) streamEl.remove();
+        loadScratchpad();
+      } else if (event.type === 'stream' && event.text) {
+        // Show streaming partial text from Kira
+        waitingForReply = true;
+        const chatArea = document.getElementById('scratch-messages');
+        if (chatArea) {
+          let streamEl = document.getElementById('kira-stream-bubble');
+          if (!streamEl) {
+            // Hide the thinking indicator while streaming
+            showThinking(false);
+            streamEl = document.createElement('div');
+            streamEl.id = 'kira-stream-bubble';
+            streamEl.className = 'msg-row in';
+            streamEl.innerHTML = `<div class="msg-bubble" style="opacity:0.7;border-left:2px solid var(--accent, #0055ff);padding:12px 16px;white-space:pre-wrap;font-size:.88rem"></div>`;
+            chatArea.appendChild(streamEl);
+          }
+          const bubble = streamEl.querySelector('.msg-bubble');
+          if (bubble) bubble.textContent = event.text + (event.partial ? ' ...' : '');
+          chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: 'smooth' });
+        }
+      } else if (event.type === 'done') {
+        waitingForReply = false;
+        showThinking(false);
+        sendingMessage = false;
+        flushQueuedMessages();
+        const streamEl = document.getElementById('kira-stream-bubble');
+        if (streamEl) streamEl.remove();
         loadScratchpad();
       } else if (event.type === 'typing') {
         waitingForReply = true;
@@ -2435,6 +2483,8 @@ function connectSSE() {
       } else if (event.type === 'error') {
         waitingForReply = false;
         showThinking(false);
+        const streamEl = document.getElementById('kira-stream-bubble');
+        if (streamEl) streamEl.remove();
         // Show error as a system message in chat
         const chatArea = document.getElementById('scratch-messages');
         if (chatArea) {
@@ -2445,7 +2495,7 @@ function connectSSE() {
           chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: 'smooth' });
         }
       }
-    } catch {}
+    } catch (err) { console.error('[sse] Parse error:', err); }
   };
   chatEventSource.onerror = () => {
     sseConnected = false;
@@ -2453,6 +2503,7 @@ function connectSSE() {
     chatEventSource = null;
     sseRetries++;
     const delay = Math.min(1000 * Math.pow(2, sseRetries - 1), 10000);
+    console.warn(`[sse] Disconnected, retry #${sseRetries} in ${delay}ms`);
     setTimeout(connectSSE, delay);
   };
 }

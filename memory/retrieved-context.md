@@ -1,19 +1,19 @@
 # Context
-*Updated: 2026-02-18T20:59:21.841Z*
+*Updated: 2026-02-21T12:14:24.546Z*
 
 ## Key Entities
 - **ZenithCred** (company)
 - **Otto** (person)
+- **user** (person)
 - **OttoGen** (company)
 - **Kira** (product)
-- **SentinAgro** (company)
 
 ## Recent
-- assistant thinks All checks passed according to HEARTBEAT.md
-- overall status reflects all systems nominal
-- Memory usage range 0.5% to 1.8%
-- Gateway status running with active state and RPC probe OK
-- Qbic Fund check size seed and early-stage
+- Kira (me) wants kira-test UI
+- Kira (me) requires full sandbox, full autonomy
+- Kira (me) has single-tenant
+- Claude CLI destination response to fresh message
+- kira-test function route messages
 
 ## Refined Context
-On February 18, 2026, 5:57 UTC, consider adding a section to the script page detailing whether Oopuo (HubSpot) handles email sending and warmup processes, or if these tasks are managed separately through other platforms like Light Panels integrated with Mood Interfaces.
+As Otto, CEO of OttoGen, a provider of AI services like Kira, I'm considering implementing a database for enhanced functionality. Given our advanced technology, we should also explore creating a separate virtual machine (VM) for Kira's operation, adhering to stringent security protocols. This VM would run only Kira's products, mirroring the smooth functioning of kira-test's knowledge graph. We need to establish a robust foundation by first designing this separation and then forking the process.

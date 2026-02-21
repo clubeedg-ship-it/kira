@@ -2556,11 +2556,13 @@ async function refreshTokenIfNeeded() {
 // Proactive token refresh every 20 min
 setInterval(refreshTokenIfNeeded, 20 * 60 * 1000);
 
-function connectSSE() {
+async function connectSSE() {
   if (chatEventSource) { console.log('[SSE] already connected, skipping'); return; }
+  // Always refresh token before connecting to avoid expired-token auth failures
+  await refreshTokenIfNeeded();
   const token = localStorage.getItem('kira_token');
   if (!token) { console.log('[SSE] no token, retry in 2s'); setTimeout(connectSSE, 2000); return; }
-  console.log('[SSE] connecting...');
+  console.log('[SSE] connecting with fresh token...');
   chatEventSource = new EventSource(API + '/api/chat/events?token=' + encodeURIComponent(token));
   chatEventSource.onopen = () => { console.log('[SSE] connected, readyState=' + chatEventSource?.readyState); sseConnected = true; sseRetries = 0; updateConnectionBadge(true); };
   chatEventSource.onmessage = (e) => {
@@ -2592,6 +2594,15 @@ function connectSSE() {
         const cleanStream = event.text.replace(/\s*\[\[\s*reply_to[_:]?[^\]]*\]\]\s*/gi, '');
         textEl.innerHTML = DOMPurify.sanitize(marked.parse(cleanStream));
         chatArea.scrollTop = chatArea.scrollHeight;
+      } else if (event.type === 'done') {
+        // Kira finished responding — clean up streaming state
+        const doneStreamEl = document.getElementById('kira-stream-msg');
+        if (doneStreamEl) doneStreamEl.remove();
+        waitingForReply = false;
+        showThinking(false);
+        sendingMessage = false;
+        flushQueuedMessages();
+        loadScratchpad();
       } else if (event.type === 'typing') {
         waitingForReply = true;
         showThinking(true);
