@@ -242,7 +242,7 @@
     "b53795d0-74a3-4c40-b1e8-d8981e95165f.jsonl": 47
   },
   "totalProcessed": 7221,
-  "lastRun": "2026-02-21T18:28:16.397Z",
+  "lastRun": "2026-02-21T18:35:44.963Z",
   "sessionMtimes": {
     "ef671028-70bb-4a73-a87b-d03c1a2e4571.jsonl": 1771634881641.2268,
     "ca42cc57-4d7f-4a42-8378-68fb1f847b40.jsonl": 1771678537479.6213,
@@ -640,6 +640,24 @@
     "/home/adminuser/kira/vdr/chimera/chimera-README.md": 1770843777755.4966,
     "/home/adminuser/kira/vdr/chimera/chimera-blog-introducing-chimera.md": 1770930163114.171,
     "/home/adminuser/kira/vdr/chimera/chimera-deep-strategy.md": 1770514790145.7446,
-    "/home/adminuser/kira/vdr/chimera/whitepaper-outline.md": 1771189320108.1304
+    "/home/adminuser/kira/vdr/chimera/whitepaper-outline.md": 1771189320108.1304,
+    "/home/adminuser/kira/vdr/client-update-report-q1-2026.md": 1771621379667.2603,
+    "/home/adminuser/kira/vdr/cron-audit-2026-02-09.md": 1770670986055.1936,
+    "/home/adminuser/kira/vdr/cuttingedge/cuttingedge-deep-strategy.md": 1770514737760.9233,
+    "/home/adminuser/kira/vdr/cuttingedge/cuttingedge-ux-strategy.md": 1770044313998.8164,
+    "/home/adminuser/kira/vdr/email-outreach-tools-research.md": 1770757284158.833,
+    "/home/adminuser/kira/vdr/guides/chat-guide.md": 1770833766591.948,
+    "/home/adminuser/kira/vdr/guides/features.md": 1770833766591.948,
+    "/home/adminuser/kira/vdr/guides/getting-started.md": 1770833766591.948,
+    "/home/adminuser/kira/vdr/iam/iam-chain-outreach.md": 1770584623574.9353,
+    "/home/adminuser/kira/vdr/iam/iam-cold-outreach-templates.md": 1770498232428.993,
+    "/home/adminuser/kira/vdr/iam/iam-competitive-analysis.md": 1770930179625.7964,
+    "/home/adminuser/kira/vdr/iam/iam-deep-strategy.md": 1770522000478.2192,
+    "/home/adminuser/kira/vdr/iam/iam-email-infrastructure-research.md": 1770638037953.7722,
+    "/home/adminuser/kira/vdr/iam/iam-email-outreach-tools-research.md": 1770046640026.0315,
+    "/home/adminuser/kira/vdr/iam/iam-followup-email-sequence.md": 1771535033490.5488,
+    "/home/adminuser/kira/vdr/iam/iam-free-trial-package.md": 1770843830140.2485,
+    "/home/adminuser/kira/vdr/iam/iam-kindergarten-email-templates.md": 1770584525048.1982,
+    "/home/adminuser/kira/vdr/iam/iam-kindergarten-prospect-list.md": 1770498182569.1062
   }
 }

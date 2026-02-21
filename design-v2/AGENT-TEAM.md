@@ -264,10 +264,90 @@ Otto (CEO) → Kira (COO) → Agent Team
 
 ## Rules
 
-1. **No agent posts externally without Otto's approval.** Ever.
+1. **No agent acts externally without user approval.** Not just content — EVERYTHING that leaves the system.
 2. **Every decision gets logged.** Future-you needs to know why.
-3. **Agents can disagree with each other.** That's healthy. Escalate to Otto.
-4. **Quality > speed for external content.** Internal work can be fast.
+3. **Agents can disagree with each other.** That's healthy. Escalate to user.
+4. **Quality > speed for external actions.** Internal work can be fast.
 5. **Revenue is always priority.** Strategy is only useful if it makes money.
-6. **Don't spam Otto.** Batch updates. One message with 5 items > 5 messages.
+6. **Don't spam the user.** Batch updates. One message with 5 items > 5 messages.
 7. **Every agent reads the knowledge graph.** No silos.
+
+---
+
+## THIS IS THE PRODUCT
+
+Otto's agent team is not just Otto's — it's the **proof of concept for Dimera**.
+
+### What Every Dimera User Gets
+A company made of agents. Each agent is:
+- A separate Telegram bot (user gets `@handle`, starts chatting)
+- A persistent session with its own memory + personality
+- Scoped to a role (strategy, content, research, ops, deals)
+- Connected to the user's shared knowledge graph
+- Able to talk to other agents via internal messaging
+
+### Agent Delivery Model
+```
+┌─────────────────────────────────────────────┐
+│              DIMERA PLATFORM                 │
+│                                              │
+│  Per User:                                   │
+│  ├── Main AI (Consultant = orchestrator)     │
+│  ├── Built-in agents (5 core team)           │
+│  │   Each with its own Telegram bot handle   │
+│  ├── Custom agents (user creates "friends")  │
+│  │   Run in per-user sandbox                 │
+│  └── Marketplace agents (Savants)            │
+│      Pre-built specialized agents            │
+│      Stateless, blind, on-demand             │
+│                                              │
+│  Shared: Knowledge graph, memory, context    │
+└─────────────────────────────────────────────┘
+```
+
+### Telegram Bot Provisioning
+When a user creates or enables an agent:
+1. Platform creates a Telegram bot via BotFather API (or pre-provisioned pool)
+2. User receives the `@handle` — that's it, nothing to install
+3. Agent runs inside the user's sandbox (custom) or on platform infra (marketplace)
+4. All messages flow through the platform for logging, approval gates, billing
+
+### Agent Marketplace (Savant Model)
+Pre-built agents anyone can "hire":
+- **Tax Advisor** — RAG over tax law (already built: Stella Vic's)
+- **Fitness Coach** — tracks workouts, meal plans, accountability
+- **Code Reviewer** — reviews PRs, suggests improvements
+- **Writing Editor** — academic text revision (brother's use case)
+- **Social Media Manager** — content generation + scheduling
+- **Bookkeeper** — invoice tracking, expense categorization
+- **Recruiter** — screening, outreach drafting
+
+Marketplace agents are **Savants**: specialized, stateless per execution, but maintain user context through the platform. Anyone can build and publish a Savant.
+
+### The Company Analogy
+```
+Traditional Company          Dimera User
+─────────────────           ────────────
+CEO (founder)          →    User (you)
+COO (operations)       →    Main AI (Consultant)
+VP Strategy            →    Strategist agent
+VP Marketing           →    Content agent  
+Analyst team           →    Researcher agent
+DevOps team            →    Operator agent
+Sales team             →    Dealmaker agent
+Freelancers            →    Marketplace Savants
+Interns                →    Custom agents
+```
+
+Every person in the world gets access to a full company working for them. That's the pitch.
+
+### Chimera Protocol Connection
+```
+Consultant (local, private, knows everything about you)
+    ↕ Job Queue
+Savants (distributed, blind, stateless, marketplace)
+```
+
+- Your Main AI + built-in agents = **Consultant layer** (private, persistent)
+- Marketplace agents = **Savant layer** (specialized, on-demand, privacy-preserving)
+- Chimera protocol ensures Savants never see your raw data — only sanitized Job Tickets
