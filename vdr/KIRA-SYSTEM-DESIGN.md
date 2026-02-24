@@ -444,10 +444,98 @@ If yes, the system works. If no, iterate until it does.
 
 ---
 
+## Document Accessibility Problem
+
+**Current state:** Design docs, system specs, and deliverables are markdown files on a Linux server. Otto needs SSH or me to read them. This is garbage compared to the old P.A.R.A. Notion structure where everything was a click away on any device.
+
+**Requirement:** Every document that matters must be accessible like a Notion page — browser, phone, instant. Server-side markdown is for agents, not humans.
+
+**Options:**
+1. **Notion sync** — Push key docs to Notion pages automatically (maintains the P.A.R.A. structure Otto already knows). Agent writes locally, syncs to Notion for human access.
+2. **kira-test VDR** — The dashboard's document viewer (design/screens/documents/) already specifies this. When built, docs render in the web UI with search and navigation.
+3. **Both** — Notion for now (immediate), VDR later (native).
+
+**Rule:** If Otto can't read it in 2 taps, it doesn't exist for decision-making.
+
+---
+
+## Coherence Check: This Doc vs Existing Design Docs
+
+I compared this system design against all 96 design documents in `~/kira-test/design/`. Here's what aligns, what conflicts, and what's missing.
+
+### ✅ Aligned
+
+| This Doc | Existing Spec | Notes |
+|----------|---------------|-------|
+| Extraction Pipeline | `gamification/task-gathering.md` | Same concept — conversation mining, confidence thresholds, proposal flow, batch detection. Task-gathering doc is MORE detailed (document scanning, email integration, recurring task detection, priority inference). This doc should reference it, not redefine it. |
+| Pre-Digester / QA Queue | `backend/sop-agent-integration.md` | The "input queue" in SOP spec IS the QA queue. Same flow: agent does work → creates input_queue item → user approves/rejects/edits. My doc reinvents this with different terminology. |
+| Goal decomposition | `gamification/task-gathering.md` §4 | Goal → milestone → task breakdown already fully specified. |
+| Executive Advisor behavior | `gamification/agent-guidance.md` | Proactive suggestions, daily planning, unblocking, wellness checks, weekly review — all specified with trigger frameworks and suggestion limits. |
+| Autonomy levels | `agents/autonomy-levels.md` | GREEN/YELLOW/RED maps to my AUTONOMOUS/CHECKPOINT/APPROVAL. Already more detailed. |
+| Morning brief / evening wrap | `backend/heartbeat-process.md` | Already designed as separate heartbeat process with Haiku for triage, Sonnet for briefs. Cost targets, state tracking, cron schedules all specified. |
+| Gamification | `gamification/user-engagement.md` | XP, levels, streaks, celebrations — fully designed including SOP integration and agent XP. |
+
+### ⚠️ Conflicts
+
+| Issue | This Doc Says | Existing Spec Says |
+|-------|---------------|-------------------|
+| **Storage** | JSON files (`goals.json`, `tasks.json`) | SQLite with 15-table SOP schema (`sop-engine/data-model.md`). The SOP engine is the canonical data layer. JSON files would be a parallel system that diverges. |
+| **Heartbeat model** | Heartbeat in main session scans for goals/tasks | Heartbeat is a SEPARATE process with minimal context, cheap model (Haiku), doesn't share main agent context window (`backend/heartbeat-process.md`). |
+| **Triage** | Extraction happens in main conversation flow | Triage engine is a 7-stage pipeline running in the heartbeat process, not main agent (`backend/triage-engine.md`). |
+| **Terminology** | "QA Queue", "Pre-Digester" | "Input Queue", "Agent Work Cycle" — same concepts, different names. Should use the existing terms. |
+
+### ❌ Missing from This Doc (Exists in Design)
+
+| Missing | Where It's Specified |
+|---------|---------------------|
+| SOP hierarchy (Area → Objective → Project → Milestone → Task) | `sop-engine/data-model.md` — the full entity model with 15 tables |
+| State machines for every entity | `sop-engine/state-machines.md` — precise status transitions |
+| Priority algorithm (weighted scoring) | `sop-engine/priority-algorithm.md` — formula with tuneable weights |
+| Cascade rules (parent status changes propagate) | `sop-engine/cascade-rules.md` |
+| Review cadence (daily/weekly/monthly/quarterly ceremonies) | `sop-engine/review-cadence.md` |
+| Agent registration and capabilities | `agents/multi-agent-system.md` + `sop-agent-integration.md` |
+| Cost tracking per agent/task | `sop-agent-integration.md` §6 |
+| Triage engine (7-stage message processing) | `backend/triage-engine.md` — classify, extract, match, route, store |
+| Widget engine | `dashboard/interactive-widgets.md` + `agents/widget-agent.md` |
+| Self-improvement loops | `agents/dgm-self-improvement.md` + `agents/self-evolution.md` |
+| Memory v2 (temporal graph, entity resolution, confidence decay) | `memory/v2/*.md` — 6 design docs |
+| Unified inbox with multi-channel bridges | `unified-inbox/*.md` — 7 design docs |
+| Onboarding wizard | `onboarding/*.md` — 3 design docs |
+| Chat UI | `dashboard/chat-ui.md` — 1036 lines |
+| Mobile strategy | `screens/mobile/*.md` — 6 design docs |
+
+### Verdict
+
+**My system design doc is a simplified re-explanation of things already designed in detail.** The existing 96 docs form a comprehensive product spec. My doc adds value in two areas:
+
+1. **The "what changes immediately" section** — connecting existing designs to what Kira (me, the running agent) should do RIGHT NOW in the current Telegram-based setup
+2. **The honest problem statement** — naming what's broken and why
+
+But the architecture? It's already designed. The problem isn't missing design — it's that **none of it has been built into the running product**.
+
+---
+
+## Revised Recommendation
+
+Instead of yet another design doc, the actual next step is:
+
+### Build the kira-test product.
+
+The design exists. 96 docs. The SOP engine backend is mostly built (14/15 tasks done). What's missing is:
+
+1. **TASK-016: Chat Interface** — the conversation surface where extraction happens
+2. **TASK-017: Task Extraction** — the conversation mining that auto-captures goals/tasks
+3. **The triage engine** — the 7-stage pipeline that classifies and routes every message
+4. **The input queue UI** — where Otto sees proposals and approves/rejects
+
+These 4 things, connected, ARE the system. Everything else (gamification, mobile, widgets) is enhancement.
+
+---
+
 ## Open Questions for Otto
 
-1. **Proposal delivery preference** — Telegram inline buttons? Separate morning digest? Both?
-2. **Approval granularity** — Should low-stakes tasks (fix a typo, update a doc) auto-execute without approval? Or everything goes through QA?
-3. **Goal hierarchy** — Should company-level goals (Oopuo $1B) cascade to project goals (LidarOS multi-tenancy) automatically? Or keep them flat?
-4. **Push-back tolerance** — How often should Kira challenge decisions? Once and accept? Persistent if data supports it?
-5. **Start with Telegram or kira-test?** — Build the loop in Telegram first (immediate, works now) or go straight to kira-test (proper UI, more effort)?
+1. **Document access** — Should I sync key docs to Notion now? Or wait for kira-test VDR?
+2. **Start building?** — The designs exist. Should I start implementing TASK-016 → 017 → triage engine → input queue? Or do you want to review/adjust designs first?
+3. **Approval granularity** — The autonomy levels doc has GREEN/YELLOW/RED. Do you agree with those boundaries?
+4. **Push-back tolerance** — Agent guidance doc says max 3 proactive messages/day, min 2h between. Right for you?
+5. **Where to build** — kira-test repo (proper product) or prototype in current Telegram setup first?
