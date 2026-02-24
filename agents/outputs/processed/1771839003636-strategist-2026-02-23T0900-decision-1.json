@@ -1,0 +1,21 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-02-23T09:00:00Z",
+  "decision": {
+    "question": "Should we declare a 'sales sprint' for the next 2 weeks — zero infrastructure work, 100% revenue + funding outreach?",
+    "recommendation": "Yes. February is lost. The only way to hit even revised March targets is a hard pivot to outbound NOW. Every hour spent on Kira infra or Chimera this week is a hour not earning rent money.",
+    "evidence": [
+      "0 revenue generated in February despite 'First Revenue' being the month's theme",
+      "All OttoGen materials are ready (brand, DMs, content) — execution is the bottleneck, not preparation",
+      "IAM has 50 kindergarten leads ready to contact",
+      "ZenithCred has 20+ VCs mapped with zero outreach"
+    ],
+    "options": [
+      {"label": "2-week sales sprint", "description": "Zero infra. Otto does OttoGen outreach (60%), IAM calls (20%), ZenithCred intros (20%). Kira handles follow-ups and scheduling."},
+      {"label": "Soft rebalance", "description": "Shift to 50/30/20 but keep some infra work. Lower risk of burnout but slower revenue."},
+      {"label": "Stay the course", "description": "Keep current allocation. Accept March will also be infrastructure-heavy."}
+    ],
+    "urgency": "this_week"
+  }
+}

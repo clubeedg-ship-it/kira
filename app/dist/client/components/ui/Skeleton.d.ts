@@ -1,0 +1,2 @@
+import { type HTMLAttributes } from 'react';
+export declare function Skeleton({ className, ...props }: HTMLAttributes<HTMLDivElement>): import("react/jsx-runtime").JSX.Element;

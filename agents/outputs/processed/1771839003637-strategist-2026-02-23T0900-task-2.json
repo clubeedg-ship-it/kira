@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-23T09:00:00Z",
+  "task": {
+    "title": "Schedule 3 ZenithCred investor intro calls this week",
+    "description": "VC list is built (zenithcred-vc-list-benelux.md). Outreach emails are drafted (zenithcred-investor-outreach-emails.md). Send 5-8 emails to top-ranked VCs and aim for 3 calls booked by Friday.",
+    "priority": "high",
+    "sourceContext": "ZenithCred seed round target is €1.1M. Zero investor conversations have happened. Every week without outreach pushes the round deeper into Q3.",
+    "keyPoints": ["20+ VCs mapped", "Outreach emails ready", "Pilot proposal template exists for credibility"],
+    "assignee": "user",
+    "project": "zenithcred",
+    "dueDate": "2026-02-28"
+  }
+}

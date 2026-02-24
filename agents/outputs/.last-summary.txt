@@ -1,28 +1,24 @@
 📋 DECISIONS NEEDED
-  🟡 [content] Post about building an AI agent team that runs your companies?
-  → Rec: This is your strongest angle right now. You literally have AI agents doing VC research, writing outreach, building content — while you sleep. The 'nig
-  Options: Post as text | Record video | Skip
+  🟠 [content] Post a 'build in public' update about shipping 3 deliverables in one night?
+  → Rec: This is peak OttoGen brand content — 20yo shipping a pricing page, demo kit, AND investor deck in one session. Shows speed, range, and AI-powered exec
+  Options: Post as LinkedIn text | Record 30s video | Skip
 
-  🟡 [content] Post about running 6 companies at 20 — the multi-company portfolio angle?
-  → Rec: The portfolio narrative sets you apart from every other young founder. Most people can barely manage one startup. You're running AI infra, corporate w
-  Options: Post as text | Record video | Skip
+  🟡 [content] Post a thought-leadership piece on AI replacing agencies, using the IAM demo kit as proof?
+  → Rec: The IAM demo kit (one-pager + video script generated from existing data) is a concrete example of AI replacing what a marketing agency charges €5-10K 
+  Options: Post as LinkedIn text | Record 45s video | Skip
 
-  🟡 [content] Post about ZenithCred raising a seed round — the corporate wellness disruption angle?
-  → Rec: ZenithCred is actively targeting investors (20 VCs mapped, outreach sequence ready). A public post about the problem you're solving builds social proo
-  Options: Post as text | Record video | Skip
+  🟡 [strategist] Should we declare a 'sales sprint' for the next 2 weeks — zero infrastructure work, 100% revenue + funding outreach?
+  → Rec: Yes. February is lost. The only way to hit even revised March targets is a hard pivot to outbound NOW. Every hour spent on Kira infra or Chimera this 
+  Options: 2-week sales sprint | Soft rebalance | Stay the course
 
-  🟡 [strategist] Should we declare Feb 22-28 a 'Ship Week' — zero new documents, only outbound actions with daily targets?
-  → Rec: Yes. The portfolio has 80+ strategy docs and zero outbound activity. The preparation phase must end. A structured Ship Week with daily accountability 
-  Options: Ship Week | Gradual ramp | Hire help
-
-  🟡 [strategist] Should we start ZenithCred investor outreach now with current materials, or wait for MVP/demo?
-  → Rec: Start now. Send the deck to 3 warm-up targets (Volta, Peak, Keen) as 'early conversations' — not asking for money yet, just gauging interest and getti
-  Options: Start outreach now | Wait for MVP | LOIs first
+  🟡 [strategist] Should SentinAgro be formally paused to reduce cognitive load?
+  → Rec: Yes. SentinAgro has no revenue path, no MVP, no pilots, and no near-term funding angle. It's consuming planning cycles (feasibility study, pitch deck,
+  Options: Formally pause | Keep on backburner | Kill entirely
 
 ✅ TASKS
-  🔴 [strategist] Send first 10 OttoGen LinkedIn DMs
-  🟠 [strategist] Send 5 IAM kindergarten prospect emails
-  🟡 [strategist] Publish Chimera GitHub repo (public)
+  🔴 [strategist] Send first 10 OttoGen LinkedIn DMs today
+  🟠 [strategist] Schedule 3 ZenithCred investor intro calls this week
+  🟠 [strategist] Contact top 5 IAM kindergarten prospects
 
 📄 DOCUMENTS
-  [strategist] Weekly Portfolio Review — W8 2026 → /home/adminuser/kira/vdr/strategy/portfolio-review-w8.md
+  [strategist] Weekly Portfolio Review — W9 2026 → /home/adminuser/kira/vdr/strategy/portfolio-review-w9.md

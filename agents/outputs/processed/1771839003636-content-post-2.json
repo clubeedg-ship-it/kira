@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-23T08:00:00Z",
+  "decision": {
+    "question": "Post a thought-leadership piece on AI replacing agencies, using the IAM demo kit as proof?",
+    "recommendation": "The IAM demo kit (one-pager + video script generated from existing data) is a concrete example of AI replacing what a marketing agency charges €5-10K for. Perfect educational content that also subtly sells OttoGen services.",
+    "evidence": [
+      "IAM demo kit: one-pager with competitive pricing + 2-min video script, built from existing sales/ROI data",
+      "Educational content with real examples gets 3-5x engagement vs abstract thought leadership",
+      "Positions OttoGen as the agency-killer for SMBs — exactly the target market"
+    ],
+    "options": [
+      {
+        "label": "Post as LinkedIn text",
+        "description": "Draft:\n\nA marketing agency would charge you €8K and 3 weeks for:\n- A product one-pager\n- A 2-minute video script\n- Competitive pricing analysis\n\nI generated all three from existing company data in under 20 minutes.\n\nThe deliverables weren't 'good for AI.' They were good. Period.\n\nSmall businesses don't need agencies. They need better systems.\n\nThat's what I'm building at OttoGen — AI tools that give small teams the output of big ones.\n\nIf you're an SMB spending €2K+/month on content and collateral... DM me.\n\n#AIforBusiness #SMB #MarketingAutomation"
+      },
+      {
+        "label": "Record 45s video",
+        "description": "Script: Hold up phone/laptop showing the one-pager. 'See this? Product one-pager. Competitive pricing. Video script. A marketing agency would charge you eight grand and three weeks for this package. I made it in twenty minutes from data the company already had. Not because I'm some kind of prodigy — because the tools exist now. The question is whether you're using them or still paying someone else not to. This is what we do at OttoGen.' Direct to camera, casual setting, maybe show the deliverable on screen briefly."
+      },
+      {
+        "label": "Skip",
+        "description": "Too salesy, wait for organic moment"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

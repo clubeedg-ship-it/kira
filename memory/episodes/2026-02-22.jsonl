@@ -1,0 +1,1 @@
+{"id":"ep-1771794121207-e5909b53","timestamp":"2026-02-22T21:02:01.207Z","type":"failure","participants":["kira","otto"],"summary":"SQL query failed due to missing 'type' column in worklog table","details":null,"outcome":null,"importance":5,"tags":["database","error"],"linkedFacts":[],"linkedProcedures":[]}

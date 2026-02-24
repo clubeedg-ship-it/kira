@@ -1,5 +1,5 @@
 {
-  "lastFile": "/home/adminuser/.clawdbot/agents/main/sessions/ffd81df8-d262-41d1-8084-81e81488efd2.jsonl",
+  "lastFile": "/home/adminuser/.clawdbot/agents/main/sessions/test-json-probe.jsonl",
   "lastLine": 0,
   "processedFiles": {
     "0175f844-80a5-4140-b4da-7ea58a3a1243.jsonl": 12,
@@ -8,7 +8,14 @@
     "16034ebf-d6c8-430f-9539-9f8a1e5fe9fe.jsonl": 25,
     "1dddc7b9-7aa1-4600-bb1c-09f9098da00c.jsonl": 1020,
     "1dbc1b72-dafa-4d10-b533-52b17d5adc5e.jsonl": 26,
-    "05a89295-db4a-4140-b6a5-c6a43ccfe120.jsonl": 20
+    "05a89295-db4a-4140-b6a5-c6a43ccfe120.jsonl": 20,
+    "025a2d7d-8b9d-452b-bd5d-57581ac3f3d5.jsonl": 11,
+    "04901aee-10f1-4ceb-a0dd-7c544e9eaf54.jsonl": 15,
+    "0526b144-09ad-400d-9ea6-d6d6cfa6e3f6.jsonl": 22,
+    "02afac76-4d06-464c-b310-07394582e364.jsonl": 27,
+    "045d7cef-6c3c-4739-aeaf-4eb1e6f07545.jsonl": 6,
+    "07cb37cc-18ce-4b08-877a-32e2a5b71ae7.jsonl": 22,
+    "0abf79c1-2c89-4558-94c1-0c9dbfc0262b.jsonl": 16
   },
-  "lastRun": "2026-02-08T03:40:07.020Z"
+  "lastRun": "2026-02-24T12:05:41.823Z"
 }

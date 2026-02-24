@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-23T09:00:00Z",
+  "task": {
+    "title": "Contact top 5 IAM kindergarten prospects",
+    "description": "Use the 50-lead list (iam-kindergarten-leads-50.md) and cold outreach sequence (iam-cold-outreach-sequence.md). Start with top 5 this week. Goal: 2 demo appointments booked.",
+    "priority": "high",
+    "sourceContext": "IAM has ready materials but zero outreach. Kindergarten market has seasonal buying cycles — spring decisions for fall installations.",
+    "keyPoints": ["50 leads sourced", "Cold outreach sequence written", "Spring = buying season for schools"],
+    "assignee": "user",
+    "project": "iam",
+    "dueDate": "2026-02-28"
+  }
+}

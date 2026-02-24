@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-23T08:00:00Z",
+  "decision": {
+    "question": "Post a 'build in public' update about shipping 3 deliverables in one night?",
+    "recommendation": "This is peak OttoGen brand content — 20yo shipping a pricing page, demo kit, AND investor deck in one session. Shows speed, range, and AI-powered execution. Rephrase in your voice.",
+    "evidence": [
+      "Feb 22: shipped OttoGen pricing page (3-tier, EN+NL), IAM demo kit (one-pager + video script), ZenithCred pitch deck v1 (15 slides) — all in one night",
+      "Build-in-public posts consistently outperform polished corporate content on LinkedIn",
+      "Demonstrates the exact value prop OttoGen sells: AI-augmented speed for SMBs"
+    ],
+    "options": [
+      {
+        "label": "Post as LinkedIn text",
+        "description": "Draft:\n\nLast night I shipped:\n→ A 3-tier pricing page (2 languages)\n→ A product demo kit with video script\n→ A 15-slide investor pitch deck\n\nAll for different companies. All in one session.\n\nI'm 20. No team. No agency. Just AI systems I built myself.\n\nPeople keep asking 'how do you run multiple companies?'\n\nThis is how. You don't work harder. You build systems that multiply your output.\n\nThe gap between people using AI and people not using AI is about to become unfair.\n\n#AI #BuildInPublic #Entrepreneurship"
+      },
+      {
+        "label": "Record 30s video",
+        "description": "Script: Look into camera, casual. 'So last night I had three deadlines across three different companies. A pricing page, a demo kit, and a full investor deck. I shipped all three before midnight. I'm twenty, I have no employees, and I'm not a genius — I just built AI systems that let me move at a speed that shouldn't be possible. If you're still doing everything manually... we need to talk.' End with a smirk. Post with the text version as caption."
+      },
+      {
+        "label": "Skip",
+        "description": "Save for a bigger milestone"
+      }
+    ],
+    "urgency": "today"
+  }
+}

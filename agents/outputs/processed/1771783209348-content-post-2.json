@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-22T08:00:00Z",
+  "decision": {
+    "question": "Post about running 5 companies with AI at 20?",
+    "recommendation": "The week of 2026-02-20/21 is a great snapshot: feasibility study for a drone company, investor outreach for a wellness startup, webinar prep for a personal brand, client reports for active businesses, AND fixing a distributed AI codebase. All in 48h. This is the OttoGen prodigy narrative.",
+    "evidence": [
+      "5 distinct projects got meaningful progress in 48h (SentinAgro, ZenithCred, OttoGen, client reports, Chimera)",
+      "Investor outreach + VC research happening simultaneously with product work",
+      "20yo running this without a team — exactly the narrative that goes viral on LinkedIn"
+    ],
+    "options": [
+      {
+        "label": "Post as text (LinkedIn)",
+        "description": "DRAFT — rephrase in your voice:\n\nThis week I:\n- Wrote a feasibility study for a drone monitoring startup\n- Researched 20 VCs and drafted investor outreach for a wellness platform\n- Outlined a webinar on AI for small businesses\n- Delivered a Q1 update report across 5 portfolio companies\n- Fixed 69 broken tests in our distributed AI engine\n\nI'm 20. No team. No funding yet.\n\nJust AI tools I built myself and a refusal to sleep.\n\nPeople ask \"what do you actually DO?\"\nThis. Every week."
+      },
+      {
+        "label": "Record video (45s)",
+        "description": "Script: Screen recording montage if possible, or face-to-camera. \"People keep asking me what I do. So here's one week. Monday: wrote a full feasibility study for an agricultural drone company. Tuesday: researched 20 venture capital firms, drafted investor emails. Wednesday: built a webinar outline, wrote LinkedIn outreach templates. Thursday: delivered quarterly reports across five companies. Friday: debugged our AI engine — 315 tests, all passing. I'm twenty. No team. No investors yet. Just leverage.\" Pause. \"That's what AI lets you do.\""
+      },
+      {
+        "label": "Skip",
+        "description": "Too braggy without proof — wait until there's a concrete win (funding, revenue)"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

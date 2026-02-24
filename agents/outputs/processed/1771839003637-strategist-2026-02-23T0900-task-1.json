@@ -1,0 +1,15 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-02-23T09:00:00Z",
+  "task": {
+    "title": "Send first 10 OttoGen LinkedIn DMs today",
+    "description": "DMs are drafted and ready in ottogen-linkedin-dms.md. Pick 10 prospects and send. Don't edit, don't optimize — just send. First-mover advantage beats perfect copy.",
+    "priority": "critical",
+    "sourceContext": "Week 9 portfolio review: zero outbound activity despite all materials being ready since mid-February",
+    "keyPoints": ["DMs already drafted", "Brand positioning finalized", "Every day of delay = lost February"],
+    "assignee": "user",
+    "project": "ottogen",
+    "dueDate": "2026-02-23"
+  }
+}

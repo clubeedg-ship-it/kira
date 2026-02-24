@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-02-22T08:00:00Z",
+  "decision": {
+    "question": "Post about the Chimera test suite fix?",
+    "recommendation": "This is a great behind-the-scenes build moment. 69 failing tests → 0, root-caused a schema drift, fixed in one session. Shows technical depth without leaking architecture. Rephrase in your words.",
+    "evidence": [
+      "Chimera test suite went 69 failures → 315 passing in one session (2026-02-20)",
+      "Root cause was schema drift — relatable for any dev audience",
+      "Behind-the-scenes build posts consistently perform well for builder brands"
+    ],
+    "options": [
+      {
+        "label": "Post as text (LinkedIn)",
+        "description": "DRAFT — rephrase in your voice:\n\nLast night I sat down to run our test suite.\n69 failures.\n\nThe kind of number that makes you want to close the laptop.\n\nTurns out the database schema had drifted from what the code expected. Missing columns, missing tables — silent rot.\n\nOne fix. 315 tests passing. Zero failures.\n\nThe lesson: most \"impossible\" bugs are just one misalignment compounding into chaos. Find the root, everything else resolves.\n\nBuilding @Chimera in public. More soon."
+      },
+      {
+        "label": "Record video (30s)",
+        "description": "Script: Look at camera, casual. \"So I ran our test suite last night — 69 failures. Sixty-nine. Wanted to quit. But I dug in, found ONE schema file that was out of sync. Fixed it. 315 tests, all green. That's the thing about building — most problems look massive but they're just one wrong assumption stacked on itself.\" End with a smirk."
+      },
+      {
+        "label": "Skip",
+        "description": "Too technical, save for a dev-focused audience later"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

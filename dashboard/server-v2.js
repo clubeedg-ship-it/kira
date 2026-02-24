@@ -1031,49 +1031,71 @@ function getEntities(url) {
 
 function getKnowledgeGraph(url) {
   if (!db) return { nodes: [], links: [] };
-  const limit = parseInt(url.searchParams.get('limit') || '10000');
+  const limit = Math.min(parseInt(url.searchParams.get('limit') || '200'), 2000);
   const type = url.searchParams.get('type');
   const search = url.searchParams.get('q');
+  const expandId = url.searchParams.get('expand'); // expand neighbors of this entity
 
-  // Get entities
-  let entSql = 'SELECT id, type, name, description FROM entities';
-  const entParams = [];
-  const clauses = [];
-  if (type) { clauses.push('type = ?'); entParams.push(type); }
-  if (search) { clauses.push('(name LIKE ? OR description LIKE ?)'); entParams.push(`%${search}%`, `%${search}%`); }
-  if (clauses.length) entSql += ' WHERE ' + clauses.join(' AND ');
-  entSql += ' LIMIT ?';
-  entParams.push(limit);
-  const entities = db.prepare(entSql).all(...entParams);
+  let entities;
+  if (expandId) {
+    // Get the entity + its direct neighbors
+    entities = db.prepare(`
+      SELECT DISTINCT e.id, e.type, e.name, e.description FROM entities e WHERE e.id = ?
+      UNION
+      SELECT DISTINCT e.id, e.type, e.name, e.description FROM entities e
+        JOIN relations r ON (r.target_id = e.id AND r.source_id = ?) OR (r.source_id = e.id AND r.target_id = ?)
+      LIMIT ?
+    `).all(expandId, expandId, expandId, limit);
+  } else if (search) {
+    entities = db.prepare(`SELECT id, type, name, description FROM entities WHERE name LIKE ? OR description LIKE ? LIMIT ?`).all(`%${search}%`, `%${search}%`, limit);
+  } else {
+    // Top most-connected entities using pre-aggregated counts
+    let typeCond = '';
+    const params = [];
+    if (type) { typeCond = 'AND e.type = ?'; params.push(type); }
+    entities = db.prepare(`
+      SELECT e.id, e.type, e.name, e.description, COALESCE(c.cnt, 0) as conn FROM entities e
+      LEFT JOIN (
+        SELECT id, COUNT(*) as cnt FROM (
+          SELECT source_id as id FROM relations UNION ALL SELECT target_id as id FROM relations
+        ) GROUP BY id
+      ) c ON c.id = e.id
+      WHERE 1=1 ${typeCond}
+      ORDER BY conn DESC LIMIT ?
+    `).all(...params, limit);
+  }
+
   const entityIds = new Set(entities.map(e => e.id));
+  const idList = entities.map(e => e.id);
 
-  // Get facts that link entities
-  const facts = db.prepare('SELECT id, subject_id, predicate, object FROM facts WHERE subject_id IN (' + 
-    entities.map(() => '?').join(',') + ') LIMIT 1000').all(...entities.map(e => e.id));
-
-  // Get relations
+  // Get relations between loaded entities (batched to avoid too many params)
   let relations = [];
   try {
-    relations = db.prepare('SELECT * FROM relations WHERE source_id IN (' + 
-      entities.map(() => '?').join(',') + ') OR target_id IN (' + 
-      entities.map(() => '?').join(',') + ') LIMIT 15000').all(...entities.map(e => e.id), ...entities.map(e => e.id));
+    const batchSize = 500;
+    for (let i = 0; i < idList.length; i += batchSize) {
+      const batch = idList.slice(i, i + batchSize);
+      const placeholders = batch.map(() => '?').join(',');
+      const rows = db.prepare(`SELECT source_id, target_id, type FROM relations 
+        WHERE source_id IN (${placeholders}) AND target_id IN (${placeholders})
+        LIMIT 5000`).all(...batch, ...batch);
+      relations.push(...rows);
+    }
   } catch {}
 
-  const links = relations.map(r => ({ source: r.source_id, target: r.target_id, type: r.type }))
-    .filter(l => entityIds.has(l.source) && entityIds.has(l.target));
-  
+  const links = relations.map(r => ({ source: r.source_id, target: r.target_id, type: r.type }));
   const nodes = entities.map(e => ({ id: e.id, name: e.name, type: e.type, description: e.description }));
 
-  // Entity type counts
   const typeCounts = {};
   entities.forEach(e => { typeCounts[e.type] = (typeCounts[e.type] || 0) + 1; });
 
-  // Total counts for stats display
   const totalEntities = db.prepare('SELECT COUNT(*) as c FROM entities').get().c;
   const totalRelations = db.prepare('SELECT COUNT(*) as c FROM relations').get().c;
   const totalFacts = db.prepare('SELECT COUNT(*) as c FROM facts').get().c;
 
-  return { nodes, links, facts: facts.length, typeCounts, totals: { entities: totalEntities, relations: totalRelations, facts: totalFacts } };
+  // Get available entity types for filter
+  const entityTypes = db.prepare('SELECT type, COUNT(*) as count FROM entities GROUP BY type ORDER BY count DESC').all();
+
+  return { nodes, links, typeCounts, entityTypes, totals: { entities: totalEntities, relations: totalRelations, facts: totalFacts } };
 }
 
 function getEntityDetail(id) {

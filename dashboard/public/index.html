@@ -845,9 +845,14 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <div class="page" id="page-knowledge">
     <div class="page-header">
       <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="5" y2="16"/><line x1="12" y1="8" x2="19" y2="16"/></svg>Knowledge Graph</h2>
-      <div style="display:flex;gap:8px;align-items:center">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <span class="badge" id="graph-stats">—</span>
+        <select id="graph-type-filter" style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;font-size:.8rem;outline:none;font-family:var(--sans)">
+          <option value="">All types</option>
+        </select>
+        <input type="number" id="graph-limit" value="200" min="10" max="2000" step="50" style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:8px;font-size:.8rem;width:70px;outline:none;font-family:var(--sans)" title="Max nodes">
         <input type="text" id="graph-search" placeholder="Search entities..." style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:8px;font-size:.8rem;width:180px;outline:none;font-family:var(--sans)">
+        <button onclick="loadKnowledgeGraph()" style="background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:8px;font-size:.8rem;cursor:pointer;font-family:var(--sans)">Load</button>
       </div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative">
@@ -2759,19 +2764,48 @@ const TYPE_COLORS = {
   strategy:'#e67ca3', document:'#7ca3e6', default:'#888'
 };
 
-async function loadKnowledgeGraph() {
-  const data = await api('/api/knowledge/graph?limit=10000');
-  if (!data.nodes || !data.links) return;
+let graphData = { nodes: [], links: [] };
+let graphNodeById = new Map();
+
+async function loadKnowledgeGraph(expandId) {
+  const limit = parseInt(document.getElementById('graph-limit')?.value || '200');
+  const type = document.getElementById('graph-type-filter')?.value || '';
+  const search = document.getElementById('graph-search')?.value || '';
+  
+  let url = `/api/knowledge/graph?limit=${limit}`;
+  if (expandId) url += `&expand=${encodeURIComponent(expandId)}`;
+  else if (search) url += `&q=${encodeURIComponent(search)}`;
+  if (type) url += `&type=${encodeURIComponent(type)}`;
+  
+  const data = await api(url);
+  if (!data || !data.nodes) return;
+
+  if (expandId && graphData.nodes.length) {
+    // Merge new nodes/links into existing graph
+    const existingIds = new Set(graphData.nodes.map(n => n.id));
+    data.nodes.forEach(n => { if (!existingIds.has(n.id)) { graphData.nodes.push(n); existingIds.add(n.id); } });
+    const existingLinks = new Set(graphData.links.map(l => `${l.source?.id||l.source}-${l.target?.id||l.target}`));
+    data.links.forEach(l => { const key = `${l.source}-${l.target}`; if (!existingLinks.has(key) && existingIds.has(l.source) && existingIds.has(l.target)) graphData.links.push(l); });
+  } else {
+    graphData = data;
+  }
+
+  // Populate type filter dropdown
+  if (data.entityTypes) {
+    const sel = document.getElementById('graph-type-filter');
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">All types</option>' + data.entityTypes.map(t => `<option value="${t.type}">${t.type} (${t.count})</option>`).join('');
+    sel.value = cur;
+  }
   
   const t = data.totals || {};
-  const connectedIds = new Set();
-  data.links.forEach(l => { connectedIds.add(l.source); connectedIds.add(l.target); });
-  const orphanCount = data.nodes.filter(n => !connectedIds.has(n.id)).length;
-  document.getElementById('graph-stats').textContent = `${data.nodes.length} entities · ${data.links.length} edges · ${t.facts||'?'} facts · ${orphanCount} unconnected`;
+  document.getElementById('graph-stats').textContent = `${graphData.nodes.length} nodes · ${graphData.links.length} edges · ${t.entities||'?'} total entities`;
   
-  // Canvas-based renderer for 10k+ nodes
+  renderGraph(graphData);
+}
+
+function renderGraph(data) {
   const svgEl = document.getElementById('graph-svg');
-  // Replace SVG with canvas
   let canvas = document.getElementById('graph-canvas');
   if (!canvas) {
     canvas = document.createElement('canvas');
@@ -2792,28 +2826,29 @@ async function loadKnowledgeGraph() {
   const color = d => TYPE_COLORS[d.type] || TYPE_COLORS.default;
   const connCount = {};
   data.links.forEach(l => {
-    connCount[l.source] = (connCount[l.source] || 0) + 1;
-    connCount[l.target] = (connCount[l.target] || 0) + 1;
+    const s = l.source?.id || l.source, t = l.target?.id || l.target;
+    connCount[s] = (connCount[s] || 0) + 1;
+    connCount[t] = (connCount[t] || 0) + 1;
   });
   data.nodes.forEach(n => { n.connections = connCount[n.id] || 0; });
-  const radius = d => Math.min(3 + d.connections * 0.3, 14);
-
-  // Build node index for fast lookup
-  const nodeById = new Map(data.nodes.map(n => [n.id, n]));
+  const radius = d => Math.min(4 + d.connections * 0.5, 16);
+  graphNodeById = new Map(data.nodes.map(n => [n.id, n]));
 
   if (graphSim) graphSim.stop();
-  const nodeCount = data.nodes.length;
   graphSim = d3.forceSimulation(data.nodes)
-    .force('link', d3.forceLink(data.links).id(d => d.id).distance(120).strength(0.05))
-    .force('charge', d3.forceManyBody().strength(-200).theta(0.8).distanceMax(1500))
-    .force('center', d3.forceCenter(w / 2, h / 2).strength(0.005))
-    .alphaDecay(0.008)
-    .velocityDecay(0.3);
+    .force('link', d3.forceLink(data.links).id(d => d.id).distance(80).strength(0.1))
+    .force('charge', d3.forceManyBody().strength(-150).theta(0.9).distanceMax(800))
+    .force('center', d3.forceCenter(w / 2, h / 2).strength(0.01))
+    .force('collide', d3.forceCollide(d => radius(d) + 2))
+    .alphaDecay(0.02)
+    .velocityDecay(0.4);
 
   let transform = d3.zoomIdentity;
   let selectedNode = null;
   let highlightSet = null;
   let hoveredNode = null;
+  let dragNode = null;
+  let isDragging = false;
 
   function draw() {
     ctx.save();
@@ -2821,66 +2856,71 @@ async function loadKnowledgeGraph() {
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.k, transform.k);
 
-    // Draw links
-    ctx.lineWidth = 0.3;
+    ctx.lineWidth = 0.5;
     data.links.forEach(l => {
       if (typeof l.source !== 'object') return;
-      const highlight = highlightSet && (highlightSet.has(l.source.id) && highlightSet.has(l.target.id));
-      ctx.strokeStyle = highlight ? 'rgba(255,255,255,.3)' : 'rgba(255,255,255,.04)';
-      if (highlight) ctx.lineWidth = 1;
+      const hl = highlightSet && highlightSet.has(l.source.id) && highlightSet.has(l.target.id);
+      ctx.strokeStyle = hl ? 'rgba(255,255,255,.4)' : 'rgba(255,255,255,.08)';
+      if (hl) ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(l.source.x, l.source.y);
       ctx.lineTo(l.target.x, l.target.y);
       ctx.stroke();
-      if (highlight) ctx.lineWidth = 0.3;
+      if (hl) ctx.lineWidth = 0.5;
     });
 
-    // Draw nodes
     data.nodes.forEach(n => {
       const r = radius(n);
-      const c = color(n);
       const dimmed = highlightSet && !highlightSet.has(n.id);
-      ctx.globalAlpha = dimmed ? 0.08 : 0.8;
-      ctx.fillStyle = c;
+      ctx.globalAlpha = dimmed ? 0.1 : 0.85;
+      ctx.fillStyle = color(n);
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
       ctx.fill();
-      // Label for large or hovered nodes at sufficient zoom
-      if (transform.k > 0.8 && (r > 5 || n === hoveredNode || (highlightSet && highlightSet.has(n.id)))) {
-        ctx.globalAlpha = dimmed ? 0.05 : 0.7;
+      if (transform.k > 0.6 && (r > 6 || n === hoveredNode || n === selectedNode || (highlightSet && highlightSet.has(n.id)))) {
+        ctx.globalAlpha = dimmed ? 0.05 : 0.8;
         ctx.fillStyle = '#fff';
-        ctx.font = `${Math.max(8, 10 / transform.k)}px sans-serif`;
+        ctx.font = `${Math.max(9, 11 / transform.k)}px sans-serif`;
         ctx.fillText(n.name || '', n.x + r + 3, n.y + 3);
       }
     });
-
     ctx.globalAlpha = 1;
     ctx.restore();
   }
 
   graphSim.on('tick', draw);
 
-  // Drag state
-  let dragNode = null;
-  let isDragging = false;
-
-  // Zoom + drag
   const zoomBehavior = d3.zoom().scaleExtent([0.05, 10]).on('zoom', e => {
     if (!isDragging) { transform = e.transform; draw(); }
   });
+  d3.select(canvas).call(zoomBehavior);
+
+  function nodeAt(mx, my) {
+    const x = (mx - transform.x) / transform.k, y = (my - transform.y) / transform.k;
+    let closest = null, minDist = Infinity;
+    for (const n of data.nodes) {
+      const dist = Math.hypot(n.x - x, n.y - y);
+      if (dist < radius(n) + 4 && dist < minDist) { closest = n; minDist = dist; }
+    }
+    return closest;
+  }
+
+  // Remove old listeners by replacing canvas event handling
+  const newCanvas = canvas.cloneNode(false);
+  canvas.parentNode.replaceChild(newCanvas, canvas);
+  canvas = newCanvas;
+  const ctx2 = canvas.getContext('2d');
+  ctx2.scale(devicePixelRatio, devicePixelRatio);
   d3.select(canvas).call(zoomBehavior);
 
   canvas.addEventListener('mousedown', e => {
     const r = canvas.getBoundingClientRect();
     const node = nodeAt(e.clientX - r.left, e.clientY - r.top);
     if (node) {
-      isDragging = true;
-      dragNode = node;
-      dragNode.fx = dragNode.x;
-      dragNode.fy = dragNode.y;
+      isDragging = true; dragNode = node;
+      dragNode.fx = dragNode.x; dragNode.fy = dragNode.y;
       graphSim.alphaTarget(0.1).restart();
       canvas.style.cursor = 'grabbing';
-      // Suppress zoom panning while dragging a node
       d3.select(canvas).on('.zoom', null);
     }
   });
@@ -2900,61 +2940,37 @@ async function loadKnowledgeGraph() {
 
   canvas.addEventListener('mouseup', () => {
     if (isDragging && dragNode) {
-      // Keep node pinned where user dropped it
-      dragNode.fx = dragNode.x;
-      dragNode.fy = dragNode.y;
-      graphSim.alphaTarget(0);
-      isDragging = false;
-      dragNode = null;
+      dragNode.fx = dragNode.x; dragNode.fy = dragNode.y;
+      graphSim.alphaTarget(0); isDragging = false; dragNode = null;
       canvas.style.cursor = 'grab';
-      // Re-enable zoom
       d3.select(canvas).call(zoomBehavior);
     }
   });
 
-  // Double-click to unpin a node
   canvas.addEventListener('dblclick', e => {
     const r = canvas.getBoundingClientRect();
     const node = nodeAt(e.clientX - r.left, e.clientY - r.top);
     if (node) {
-      node.fx = null;
-      node.fy = null;
-      graphSim.alpha(0.3).restart();
+      // Double-click: expand neighbors
+      loadKnowledgeGraph(node.id);
     } else {
-      // Double-click empty space: unpin all + reset highlight
       data.nodes.forEach(n => { n.fx = null; n.fy = null; });
-      selectedNode = null;
-      highlightSet = null;
+      selectedNode = null; highlightSet = null;
       document.getElementById('graph-entity-detail').style.display = 'none';
       graphSim.alpha(0.3).restart();
     }
   });
-
-  // Find node under mouse
-  function nodeAt(mx, my) {
-    const x = (mx - transform.x) / transform.k;
-    const y = (my - transform.y) / transform.k;
-    let closest = null, minDist = Infinity;
-    for (const n of data.nodes) {
-      const dist = Math.hypot(n.x - x, n.y - y);
-      if (dist < radius(n) + 3 && dist < minDist) { closest = n; minDist = dist; }
-    }
-    return closest;
-  }
 
   canvas.addEventListener('click', e => {
     if (isDragging) return;
     const r = canvas.getBoundingClientRect();
     const clicked = nodeAt(e.clientX - r.left, e.clientY - r.top);
     if (!clicked) {
-      selectedNode = null;
-      highlightSet = null;
+      selectedNode = null; highlightSet = null;
       document.getElementById('graph-entity-detail').style.display = 'none';
-      draw();
-      return;
+      draw(); return;
     }
     selectedNode = clicked;
-    // Find connected nodes
     const connected = new Set([clicked.id]);
     data.links.forEach(l => {
       const s = typeof l.source === 'object' ? l.source.id : l.source;
@@ -2963,7 +2979,6 @@ async function loadKnowledgeGraph() {
       if (t === clicked.id) connected.add(s);
     });
     highlightSet = connected;
-    // Detail panel
     const detail = document.getElementById('graph-entity-detail');
     detail.style.display = 'block';
     document.getElementById('entity-name').textContent = clicked.name || clicked.id;
@@ -2971,13 +2986,13 @@ async function loadKnowledgeGraph() {
     document.getElementById('entity-desc').textContent = clicked.description || 'No description';
     const connNodes = data.nodes.filter(n => connected.has(n.id) && n.id !== clicked.id);
     document.getElementById('entity-connections').innerHTML = connNodes.length ?
-      '<div style="font-size:.75rem;color:var(--text2);margin-bottom:6px">Connected to (' + connNodes.length + '):</div>' +
-      connNodes.slice(0, 30).map(n => `<span style="display:inline-block;background:${color(n)};color:#000;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:10px;margin:2px 4px 2px 0">${esc(n.name||n.id)}</span>`).join('') + (connNodes.length > 30 ? `<span style="color:var(--text2);font-size:.7rem"> +${connNodes.length - 30} more</span>` : '') :
-      '<div style="font-size:.8rem;color:var(--text2)">No connections</div>';
+      '<div style="font-size:.75rem;color:var(--text2);margin-bottom:6px">Connected to (' + connNodes.length + ') · <a href="#" onclick="loadKnowledgeGraph(\'' + clicked.id + '\');return false" style="color:var(--accent)">Expand neighbors</a></div>' +
+      connNodes.slice(0, 30).map(n => `<span style="display:inline-block;background:${color(n)};color:#000;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:10px;margin:2px 4px 2px 0;cursor:pointer" onclick="loadKnowledgeGraph('${n.id}')">${esc(n.name||n.id)}</span>`).join('') + (connNodes.length > 30 ? `<span style="color:var(--text2);font-size:.7rem"> +${connNodes.length - 30} more</span>` : '') :
+      '<div style="font-size:.8rem;color:var(--text2)">No connections · <a href="#" onclick="loadKnowledgeGraph(\'' + clicked.id + '\');return false" style="color:var(--accent)">Expand neighbors</a></div>';
     draw();
   });
 
-  // Search
+  // Search highlights (local filter, not reload)
   document.getElementById('graph-search').oninput = function() {
     const q = this.value.toLowerCase();
     if (!q) { highlightSet = null; draw(); return; }

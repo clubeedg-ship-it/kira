@@ -34,7 +34,7 @@ const Database = require('/home/adminuser/chimera/node_modules/better-sqlite3');
 const DB_PATH = path.join(__dirname, '../../memory/unified.db');
 const OLLAMA_URL = 'http://localhost:11434';
 const EMBED_MODEL = 'nomic-embed-text';
-const EXTRACT_MODEL = process.env.EXTRACT_MODEL || 'granite3.3:2b';
+const EXTRACT_MODEL = process.env.EXTRACT_MODEL || 'qwen3:14b';
 
 // ── KNOWN ENTITY REGISTRY ───────────────────────────────
 // Enforces correct types for entities the LLM frequently misclassifies
@@ -274,7 +274,8 @@ async function llmExtract(systemPrompt, userMessage) {
       { role: 'user', content: userMessage }
     ],
     stream: false,
-    options: { temperature: 0.1, num_predict: 2048 }
+    format: 'json',
+    options: { temperature: 0.1, num_predict: 4096 }
   });
   return res.message?.content || '';
 }

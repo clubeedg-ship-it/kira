@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-02-21T19:00:05.616Z",
-  "totalFiles": 124,
-  "changedFiles": 0,
+  "timestamp": "2026-02-23T07:00:04.485Z",
+  "totalFiles": 133,
+  "changedFiles": 4,
   "findings": [
     {
       "file": "abura/abura-cosmetics-sales-research-CRITIQUE.md",
@@ -876,12 +876,12 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2022-06-28 is 1334 days old",
+          "text": "Date 2022-06-28 is 1336 days old",
           "line": 73,
           "section": "Query Goals"
         },
         {
-          "text": "Date 2022-06-28 is 1334 days old",
+          "text": "Date 2022-06-28 is 1336 days old",
           "line": 79,
           "section": "Query Monthly Goals"
         }
@@ -2244,6 +2244,42 @@
       "isNew": false
     },
     {
+      "file": "iam/iam-demo-kit-one-pager.md",
+      "company": "IAM",
+      "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": true
+    },
+    {
+      "file": "iam/iam-demo-video-script.md",
+      "company": "IAM",
+      "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": true
+    },
+    {
       "file": "iam/iam-email-infrastructure-research.md",
       "company": "IAM",
       "actions": [
@@ -3528,7 +3564,7 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-02-05 is 381 days old",
+          "text": "Date 2025-02-05 is 383 days old",
           "line": 769,
           "section": "Design Decisions Rationale"
         }
@@ -3671,12 +3707,12 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-10-28 is 116 days old",
+          "text": "Date 2025-10-28 is 118 days old",
           "line": 12,
           "section": "✅ Dates Added/Verified"
         },
         {
-          "text": "Date 2025-11-25 is 88 days old",
+          "text": "Date 2025-11-25 is 90 days old",
           "line": 22,
           "section": "⏳ Pending/No Changes"
         }
@@ -3794,7 +3830,7 @@
       ],
       "staleIndicators": [
         {
-          "text": "Date 2025-07-11 is 225 days old",
+          "text": "Date 2025-07-11 is 227 days old",
           "line": 2,
           "section": "Notion Structure Reorganization Log"
         }
@@ -4616,6 +4652,85 @@
         }
       ],
       "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "ottogen/linkedin-dm-templates.md",
+      "company": "OttoGen",
+      "actions": [],
+      "questions": [
+        {
+          "text": "Loved your take on {{topic}}. Most agency owners I talk to are in the same spot — they know AI matters but can't figure out where it fits in their workflow. I put together a quick framework (Audit → Implement → Refine) that makes it concrete. Want me to send it over?",
+          "line": 41,
+          "section": "Template 1D — The AI-Curious"
+        },
+        {
+          "text": "Appreciate it! Here's what I keep seeing — retail owners know their repeat customers drive 60%+ of revenue but have no automated way to nurture them. One setup I built sends personalized follow-ups based on purchase history. Zero manual effort. Want the breakdown?",
+          "line": 70,
+          "section": "Template 2B — Customer Retention"
+        },
+        {
+          "text": "Thanks for connecting! Curious — how do you handle seasonal demand planning? Most retailers I work with were guessing until we set up AI forecasting based on last year's data + market trends. One client reduced overstock by 35%. Worth a quick chat?",
+          "line": 79,
+          "section": "Template 2C — Seasonal Chaos"
+        },
+        {
+          "text": "Glad to connect! The #1 time killer I see in retail operations: scheduling, shift communication, and daily reporting. I helped a 20-person retail team save 12 hours/week by automating just those three. Want me to share the setup?",
+          "line": 88,
+          "section": "Template 2D — Staff Efficiency"
+        },
+        {
+          "text": "Appreciate the connection! The biggest unlock I've seen for service businesses: AI that drafts client updates, status reports, and follow-ups based on project data. One firm saved 15 hours/week. The clients actually said communication *improved*. Want the details?",
+          "line": 117,
+          "section": "Template 3B — Client Communication"
+        },
+        {
+          "text": "Glad to connect! Quick thought — does your team ever waste time recreating work someone already did? I set up an internal AI knowledge base for a consulting firm that surfaces past deliverables, templates, and client context instantly. Onboarding went from 3 weeks to 3 days. Interested?",
+          "line": 126,
+          "section": "Template 3C — Knowledge Management"
+        },
+        {
+          "text": "Thanks for connecting! Be honest — how much revenue do you think slips through the cracks from unbilled hours? Industry average is 10-15%. I helped a services firm recover €4K/month just by automating time capture and invoice generation. Worth a 5-minute look?",
+          "line": 135,
+          "section": "Template 3D — Billing & Admin"
+        },
+        {
+          "text": "Appreciate it! The math most service firms face: more clients = more people = lower margins. But what if you could handle 30% more clients with the same team? That's what AI-assisted workflows do — automate the repetitive 60% so your people focus on the high-value 40%. Want to see how?",
+          "line": 144,
+          "section": "Template 3E — Scaling Without Hiring"
+        },
+        {
+          "text": "Thanks for connecting! Love that you're already exploring AI. Most founders I talk to are in the same spot — they see the potential but can't bridge the gap to real workflows. I built a simple framework (Audit → Implement → Refine) that makes it systematic. Want me to send it?",
+          "line": 155,
+          "section": "Template 4A — The Tinkerer"
+        },
+        {
+          "text": "Glad to connect! Quick take — 90% of AI tools are noise for SMBs. The ones that actually move the needle? Automation (Make/Zapier + AI), writing assistance, and data summarization. That's it to start. I can map the right stack for your business in a 30-min call. No cost. Interested?",
+          "line": 164,
+          "section": "Template 4B — The Overwhelmed"
+        },
+        {
+          "text": "Appreciate the connection! I respect the skepticism — most AI pitches are vaporware. Here's my bar: if it doesn't save at least 10 hours/week or €2K/month within 90 days, it's not worth doing. That filter eliminates 80% of \"AI solutions.\" Want to see what passes the test for businesses like yours?",
+          "line": 182,
+          "section": "Template 4D — The Skeptic-Curious"
+        },
+        {
+          "text": "Glad to connect! You seem like someone who thinks in systems. Here's what I'm seeing: the founders who invest in AI workflows now are building a compound advantage — each automation feeds the next. In 12 months, the gap between AI-native and AI-absent SMBs will be massive. Want to map out your first 90 days?",
+          "line": 191,
+          "section": "Template 4E — The Visionary"
+        }
+      ],
       "gaps": [
         {
           "type": "missing_section",
@@ -5711,6 +5826,24 @@
       "isNew": false
     },
     {
+      "file": "ottogen/ottogen-pricing-page-final.md",
+      "company": "OttoGen",
+      "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": true
+    },
+    {
       "file": "ottogen/ottogen-service-menu.md",
       "company": "OttoGen",
       "actions": [],
@@ -6255,6 +6388,30 @@
         }
       ],
       "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "ottogen/webinar-module-1.md",
+      "company": "OttoGen",
+      "actions": [],
+      "questions": [
+        {
+          "text": "- Weekly 15-min review: What broke? What surprised us? What's next?",
+          "line": 76,
+          "section": "R — Refine (Compound the Gains)"
+        }
+      ],
       "gaps": [
         {
           "type": "missing_section",
@@ -7361,6 +7518,35 @@
       "isNew": false
     },
     {
+      "file": "strategy/portfolio-review-w8.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "mode, small wins build momentum |",
+          "line": 93,
+          "section": "Risk Register",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": "S",
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
       "file": "team-framework-per-company.md",
       "company": "Unknown",
       "actions": [],
@@ -7577,6 +7763,59 @@
       "file": "voice-llm-research.md",
       "company": "Unknown",
       "actions": [],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "zenithcred/investor-outreach-sequence.md",
+      "company": "ZenithCred",
+      "actions": [],
+      "questions": [
+        {
+          "text": "Worth a 20-minute call this week?",
+          "line": 19,
+          "section": "Email 1: Cold Intro"
+        }
+      ],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": false
+    },
+    {
+      "file": "zenithcred/vc-benelux-list.md",
+      "company": "ZenithCred",
+      "actions": [
+        {
+          "text": "|",
+          "line": 163,
+          "section": "📋 Outreach Priority Matrix",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
       "questions": [],
       "gaps": [
         {
@@ -9635,6 +9874,71 @@
       "isNew": false
     },
     {
+      "file": "zenithcred/zenithcred-pitch-deck-v1-FINAL.md",
+      "company": "ZenithCred",
+      "actions": [
+        {
+          "text": "score | >8/10 | Pilot Month 6 |",
+          "line": 220,
+          "section": "Pre-Revenue with Strong Foundation",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": "XL",
+          "assignee": "Kira"
+        },
+        {
+          "text": "| Hardware Deployments (IAM) | 50+ |",
+          "line": 577,
+          "section": "A. Investment Summary Dashboard",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "| Corporate LOIs | 3 |",
+          "line": 578,
+          "section": "A. Investment Summary Dashboard",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "| Pipeline | 15+ prospects |",
+          "line": 579,
+          "section": "A. Investment Summary Dashboard",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "text": "| IP / Patents | TBD | Exploring light-wellness methodology filings |",
+          "line": 319,
+          "section": "Blue Ocean — No Direct Competitor Combines All Four Elements",
+          "type": "placeholder"
+        },
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": true
+    },
+    {
       "file": "zenithcred-competitive-analysis.md",
       "company": "Unknown",
       "actions": [],
@@ -10013,6 +10317,8 @@
     "iam/iam-cold-outreach-templates.md": 1770498232428.993,
     "iam/iam-competitive-analysis.md": 1770930179625.7964,
     "iam/iam-deep-strategy.md": 1770522000478.2192,
+    "iam/iam-demo-kit-one-pager.md": 1771794126035.9077,
+    "iam/iam-demo-video-script.md": 1771794126038.9075,
     "iam/iam-email-infrastructure-research.md": 1770638037953.7722,
     "iam/iam-email-outreach-tools-research.md": 1770046640026.0315,
     "iam/iam-followup-email-sequence.md": 1771535033490.5488,
@@ -10043,6 +10349,7 @@
     "oopuo/oopuo-multi-company-os-research.md": 1770386063053.7554,
     "oopuo/oopuo-structure-workshop.md": 1770049971139.0762,
     "otto-entrepreneur-visa-research.md": 1770732726063.2878,
+    "ottogen/linkedin-dm-templates.md": 1771707787416.5251,
     "ottogen/ottogen-ai-audit-template.md": 1770584572339.1118,
     "ottogen/ottogen-audit-call-script.md": 1770652959687.3901,
     "ottogen/ottogen-brand-strategy.md": 1770048708760.439,
@@ -10054,12 +10361,14 @@
     "ottogen/ottogen-linkedin-calendar-feb-mar.md": 1770843865528.4072,
     "ottogen/ottogen-linkedin-dm-templates.md": 1770584485048.1172,
     "ottogen/ottogen-linkedin-feb17-28.md": 1771362280542.2183,
+    "ottogen/ottogen-pricing-page-final.md": 1771794121837.0073,
     "ottogen/ottogen-service-menu.md": 1770584538216.8955,
     "ottogen/ottogen-service-packages.md": 1770498152581.7754,
     "ottogen/ottogen-webinar-module-1.md": 1770843785501.3118,
     "ottogen/ottogen-website-design.md": 1770635756678.7695,
     "ottogen/ottogen-website-v2-notes.md": 1770637191394.0186,
     "ottogen/ottogen-website-v3-notes.md": 1770637653882.5264,
+    "ottogen/webinar-module-1.md": 1771707720645.0505,
     "ottogen-brand-positioning.md": 1771448552822.5662,
     "ottogen-content-calendar-30d.md": 1771535033487.5488,
     "ottogen-linkedin-dms.md": 1771448530959.0671,
@@ -10077,11 +10386,14 @@
     "sentinagro-pitch-deck.md": 1771362291932.9558,
     "skill-supply-chain-security.md": 1770386052019.0105,
     "strategic-roadmap-2026.md": 1770520189593.1956,
+    "strategy/portfolio-review-w8.md": 1771714256525.643,
     "team-framework-per-company.md": 1770386182463.0183,
     "tools-inventory-per-company.md": 1770386207614.511,
     "ui-ux-ceo-dashboard-spec.md": 1770386133494.1272,
     "vm-infrastructure-audit.md": 1770386000703.1965,
     "voice-llm-research.md": 1770056818170.3176,
+    "zenithcred/investor-outreach-sequence.md": 1771707690491.739,
+    "zenithcred/vc-benelux-list.md": 1771707801042.2139,
     "zenithcred/zenithcred-business-model-CRITIQUE.md": 1770044237796.5144,
     "zenithcred/zenithcred-business-model-v2.md": 1770044424700.3425,
     "zenithcred/zenithcred-business-model.md": 1770043714403.0261,
@@ -10101,6 +10413,7 @@
     "zenithcred/zenithcred-pitch-deck-FULL.md": 1770386196636.733,
     "zenithcred/zenithcred-pitch-deck-outline.md": 1770377139822.0889,
     "zenithcred/zenithcred-pitch-deck-speaker-notes.md": 1770498440033.348,
+    "zenithcred/zenithcred-pitch-deck-v1-FINAL.md": 1771794284940.1558,
     "zenithcred-competitive-analysis.md": 1771448575614.044,
     "zenithcred-investor-outreach-emails.md": 1770671016052.4175,
     "zenithcred-pilot-proposal-template.md": 1771534961876.2026,
@@ -10110,9 +10423,9 @@
     "zenithcred-vc-research-benelux.md": 1770671318545.7969
   },
   "stats": {
-    "totalActions": 623,
-    "totalQuestions": 204,
-    "totalGaps": 306,
+    "totalActions": 629,
+    "totalQuestions": 218,
+    "totalGaps": 325,
     "totalStale": 6
   }
 }

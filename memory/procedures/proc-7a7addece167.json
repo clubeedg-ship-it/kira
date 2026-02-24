@@ -1,0 +1,17 @@
+{
+  "id": "proc-7a7addece167",
+  "name": "Run Inbox and Worklog Batch Processes",
+  "created": "2026-02-22T21:02:01.209Z",
+  "updated": "2026-02-22T21:02:01.209Z",
+  "version": 1,
+  "trigger": "user instruction to process inbox and check worklog entries",
+  "steps": [
+    "Execute inbox batch processor: node ~/kira/scripts/inbox-processor.js process",
+    "Query unified.db for unprocessed worklog entries (SELECT type, COUNT(*) FROM worklog WHERE processed IS NULL OR processed = 0)"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

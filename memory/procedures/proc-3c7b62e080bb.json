@@ -1,0 +1,19 @@
+{
+  "id": "proc-3c7b62e080bb",
+  "name": "VDR Agent Auto Mode Workflow",
+  "created": "2026-02-24T12:05:12.149Z",
+  "updated": "2026-02-24T12:05:12.149Z",
+  "version": 1,
+  "trigger": "Run VDR Agent v2 in auto mode",
+  "steps": [
+    "Execute command: node ~/kira/scripts/living-vdr-agent-v2.js --auto",
+    "Check ~/kira/vdr/.vdr-questions.md for high-severity cross-document issues",
+    "Report task counts, questions/gaps to Otto via Telegram (chat 7985502241)",
+    "Flag critical gaps like missing financial data in client-update-report-q1-2026.md"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

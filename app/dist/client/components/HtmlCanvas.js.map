@@ -1,0 +1,1 @@
+{"version":3,"file":"HtmlCanvas.js","sourceRoot":"","sources":["../../../src/client/components/HtmlCanvas.tsx"],"names":[],"mappings":";AAKA,MAAM,CAAC,OAAO,UAAU,UAAU,CAAC,EAAE,IAAI,EAAmB;IAC1D,OAAO,CACL,iBACE,MAAM,EAAE,IAAI,EACZ,OAAO,EAAC,eAAe,EACvB,SAAS,EAAC,4CAA4C,EACtD,KAAK,EAAE,EAAE,SAAS,EAAE,OAAO,EAAE,EAC7B,KAAK,EAAC,gBAAgB,GACtB,CACH,CAAC;AACJ,CAAC"}

@@ -1,0 +1,21 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-02-23T09:00:00Z",
+  "decision": {
+    "question": "Should SentinAgro be formally paused to reduce cognitive load?",
+    "recommendation": "Yes. SentinAgro has no revenue path, no MVP, no pilots, and no near-term funding angle. It's consuming planning cycles (feasibility study, pitch deck, market research all produced) with zero ROI. Formally parking it frees mental bandwidth.",
+    "evidence": [
+      "SentinAgro: 0 revenue, 0 pilots, 0 customers, no MVP",
+      "4 VDR documents produced for SentinAgro — effort with no return",
+      "ZenithCred is the clear funding priority and needs more attention",
+      "Otto is a solo operator — every project competes for the same hours"
+    ],
+    "options": [
+      {"label": "Formally pause", "description": "Archive SentinAgro materials. Revisit after ZenithCred seed closes."},
+      {"label": "Keep on backburner", "description": "No active work but don't formally archive. Risk: keeps creeping into planning."},
+      {"label": "Kill entirely", "description": "Remove from portfolio. Reclaim the mental space permanently."}
+    ],
+    "urgency": "this_week"
+  }
+}

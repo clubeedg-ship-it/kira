@@ -1,0 +1,18 @@
+import type { NextFunction, Request, RequestHandler, Response } from 'express';
+type AsyncRouteHandler = (req: Request, res: Response, next: NextFunction) => Promise<void>;
+export declare function asyncHandler(handler: AsyncRouteHandler): RequestHandler;
+export declare function success<T>(res: Response, data: T, status?: number): void;
+export declare function validationError(res: Response, message: string): void;
+export declare function notFound(res: Response, message: string): void;
+export declare function internalError(res: Response, message?: string): void;
+export declare function asRecord(value: unknown): Record<string, unknown>;
+export declare function hasOwn(obj: Record<string, unknown>, key: string): boolean;
+export declare function getTrimmedString(value: unknown): string | null;
+export declare function getQueryString(value: unknown): string | null;
+export declare function getNumber(value: unknown): number | null;
+export declare function getInteger(value: unknown): number | null;
+export declare function getBoolean(value: unknown): boolean | null;
+export declare function isUuid(value: string): boolean;
+export declare function isDateOnly(value: string): boolean;
+export declare function isIsoDateTime(value: string): boolean;
+export {};

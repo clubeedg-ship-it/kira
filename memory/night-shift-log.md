@@ -1,30 +1,44 @@
-# Night Shift Log
+# Night Shift Log — 2026-02-22 (21:00 UTC)
 
-## 2026-02-21 (21:00 UTC)
+## Tasks Dispatched
 
-### Summary
-Launched 3 sub-agents for high-priority deliverables:
+### Revenue (60%)
+1. **OttoGen Pricing Page Final** — Sub-agent `ottogen-pricing` spawned
+   - Creating polished 3-tier pricing (€497/€1,497/€3,497+)
+   - Output: `~/kira/vdr/ottogen/ottogen-pricing-page-final.md`
+   - Notion task: `309a6c94-88ca-8132-b3b3-c6124dcbc521`
 
-| Task | Category | Priority | Output |
-|------|----------|----------|--------|
-| 20 Benelux VCs for ZenithCred | Funding (30%) | P1 | `vdr/zenithcred/vc-benelux-list.md` |
-| Investor outreach email sequence | Funding (30%) | P1 | `vdr/zenithcred/investor-outreach-sequence.md` |
-| OttoGen webinar module + LinkedIn DMs | Revenue (60%) | P1 | `vdr/ottogen/webinar-module-1.md`, `vdr/ottogen/linkedin-dm-templates.md` |
+2. **IAM Demo Kit** — Sub-agent `iam-demo-kit` spawned
+   - One-pager + 2-min video script for prospect meetings
+   - Output: `~/kira/vdr/iam/iam-demo-kit-one-pager.md` + `iam-demo-video-script.md`
+   - Notion task: `309a6c94-88ca-816b-bd28-eac5d1b969bc`
 
-### Notion Status
-- Tasks DB queried but Status property returns null for all entries (possible schema mismatch)
-- ~90+ tasks exist, no assignees configured
-- Recommend Otto review Notion task statuses
+### Funding (30%)
+3. **ZenithCred Pitch Deck v1 Final** — Sub-agent `zenithcred-deck` spawned
+   - Addressing all critique points, 12-15 slide investor-ready deck
+   - Output: `~/kira/vdr/zenithcred/zenithcred-pitch-deck-v1-FINAL.md`
+   - Notion task: `309a6c94-88ca-8193-9d44-cae1cbc05bef`
 
-### Completed ✅
-All 3 sub-agents delivered successfully:
-- VC list: 20 VCs, top 3 = HERAN Partners, NLC Health Ventures, naturalX
-- Investor outreach: 3 emails + 3 LinkedIn connection requests
-- OttoGen: Webinar "The AI Edge" + 20 LinkedIn DM templates (4 personas × 5)
+### Infrastructure (10%)
+4. **Memory Maintenance** — Running (246 sessions queued for extraction)
+5. **Gateway Health** — Verified ✅ (pid 3416983, port 18789)
+6. **Agent Processor** — No pending outputs
+7. **Agent Team** — All idle, no blockers
 
-### Next Shift Priorities
-- Check sub-agent outputs, run through critic loop
-- P0: Update pitch deck financials with latest projections
-- P0: ZenithCred MVP demo/prototype planning
-- P1: IAM cold outreach email sequence
-- P1: Draft partnership proposal for Partou/KidsFoundation
+## Notion Tasks Remaining (21 total, 3 in progress)
+- 6x P1 tasks, 15x P2 tasks
+- Next priorities: VM health monitoring, VDR auto-sync, memory tests
+
+## Results
+
+All 3 sub-agents completed successfully:
+
+1. ✅ **OttoGen Pricing Page** — `ottogen-pricing-page-final.md` created (3 tiers, EN+NL, ROI cases)
+2. ✅ **IAM Demo Kit** — One-pager + 2-min video script created (metrics-backed, production-ready)
+3. ✅ **ZenithCred Pitch Deck v1** — 15-slide investor-ready deck, all critique points addressed, honest financials (Y1 €135K), sensitivity analysis, speaker notes
+
+All 3 Notion tasks marked Done.
+
+## Notes
+- No messages sent to Otto (per instructions)
+- Total runtime: ~4 minutes for all 3 deliverables

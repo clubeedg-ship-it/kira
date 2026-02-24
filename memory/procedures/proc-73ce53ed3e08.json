@@ -1,0 +1,19 @@
+{
+  "id": "proc-73ce53ed3e08",
+  "name": "Run inbox batch processor and check worklog entries",
+  "created": "2026-02-22T21:01:28.853Z",
+  "updated": "2026-02-22T21:01:28.853Z",
+  "version": 1,
+  "trigger": "when tasked with processing inbox and worklog",
+  "steps": [
+    "Run inbox batch processor: `node ~/kira/scripts/inbox-processor.js process`",
+    "Check unified.db for unprocessed worklog entries",
+    "Extract patterns from unprocessed worklog entries",
+    "Report summary only if something significant was found"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}
