@@ -3,8 +3,10 @@
  * Second LLM pass to review generated opinions for errors
  */
 
-const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '';
-const LLM_MODEL = process.env.LLM_MODEL || 'minimax/minimax-m2.5';
+const Anthropic = require('@anthropic-ai/sdk');
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const LLM_MODEL = 'claude-opus-4-6';
+const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
 
 const AUDIT_PROMPT = `Você é um auditor jurídico tributário sênior. Revise o parecer abaixo e identifique:
 
@@ -43,33 +45,15 @@ async function auditOpinion(opinion, formData, legalContext) {
     .replace('{opinion}', opinion);
 
   try {
-    const apiRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${OPENROUTER_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: LLM_MODEL,
-        messages: [
-          { role: 'system', content: 'Você é um auditor jurídico tributário independente. Seja rigoroso e preciso.' },
-          { role: 'user', content: prompt }
-        ],
-        temperature: 0.2,
-        max_tokens: 4000
-      })
+    const response = await anthropic.messages.create({
+      model: LLM_MODEL,
+      max_tokens: 4000,
+      temperature: 0.2,
+      system: 'Você é um auditor jurídico tributário independente. Seja rigoroso e preciso.',
+      messages: [{ role: 'user', content: prompt }]
     });
 
-    if (!apiRes.ok) {
-      const errText = await apiRes.text();
-      console.error('Audit API error:', apiRes.status, errText);
-      return { approved: true, issues: [], summary: 'Auditoria indisponível — erro na API.', raw: '', usage: null };
-    }
-
-    const data = await apiRes.json();
-    let raw = data.choices?.[0]?.message?.content || '';
-    // Strip CJK thinking token leaks
-    raw = raw.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\u2e80-\u2eff\u3000-\u303f\uff00-\uffef]+/g, '').replace(/\n{3,}/g, '\n\n').trim();
+    let raw = response.content?.[0]?.text || '';
 
     const approved = raw.includes('APROVADO') && raw.includes('sem correções necessárias');
     
@@ -91,7 +75,7 @@ async function auditOpinion(opinion, formData, legalContext) {
       issues,
       summary: approved ? 'Parecer aprovado sem correções.' : `${issues.length} observação(ões) identificada(s).`,
       raw,
-      usage: data.usage || null
+      usage: response.usage ? { prompt_tokens: response.usage.input_tokens, completion_tokens: response.usage.output_tokens } : null
     };
   } catch (e) {
     console.error('Audit error:', e.message);

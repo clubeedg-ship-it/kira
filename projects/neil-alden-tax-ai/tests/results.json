@@ -1,0 +1,973 @@
+{
+  "config": {
+    "configFile": "/home/adminuser/kira/projects/neil-alden-tax-ai/playwright.config.js",
+    "rootDir": "/home/adminuser/kira/projects/neil-alden-tax-ai/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/adminuser/kira/projects/neil-alden-tax-ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/adminuser/kira/projects/neil-alden-tax-ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "e2e.test.js",
+      "file": "e2e.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "1. Auth Flow",
+          "file": "e2e.test.js",
+          "line": 110,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Landing page loads (shows auth screen, not app)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-d3112658920521dbff88",
+              "file": "e2e.test.js",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "Register with valid data → redirected to app",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-3a91d30f0fc391c5a7e5",
+              "file": "e2e.test.js",
+              "line": 117,
+              "column": 3
+            },
+            {
+              "title": "Register with duplicate email → shows error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-ee7025bdc5eb08559602",
+              "file": "e2e.test.js",
+              "line": 124,
+              "column": 3
+            },
+            {
+              "title": "Register with short password (<6 chars) → shows error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-fb11ec56abbc719eca04",
+              "file": "e2e.test.js",
+              "line": 129,
+              "column": 3
+            },
+            {
+              "title": "Register with missing fields → shows error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-fc398a531b522af81c84",
+              "file": "e2e.test.js",
+              "line": 135,
+              "column": 3
+            },
+            {
+              "title": "Logout → back to auth screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-a07338555a96aa200093",
+              "file": "e2e.test.js",
+              "line": 143,
+              "column": 3
+            },
+            {
+              "title": "Login with registered credentials → enters app",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-5301d23fc6636a079064",
+              "file": "e2e.test.js",
+              "line": 151,
+              "column": 3
+            },
+            {
+              "title": "Login with wrong password → shows error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-29ccbf09c50ae1b75f11",
+              "file": "e2e.test.js",
+              "line": 156,
+              "column": 3
+            },
+            {
+              "title": "Login with non-existent email → shows error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-c80c96cd69769d38d3c0",
+              "file": "e2e.test.js",
+              "line": 164,
+              "column": 3
+            },
+            {
+              "title": "Session persistence: reload page → still logged in",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-5738acacbe0eaa92b45e",
+              "file": "e2e.test.js",
+              "line": 172,
+              "column": 3
+            },
+            {
+              "title": "Expired/invalid token → redirected to auth screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-902df375e6075f7f0deb",
+              "file": "e2e.test.js",
+              "line": 178,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "2. Questionnaire Flow",
+          "file": "e2e.test.js",
+          "line": 188,
+          "column": 6,
+          "specs": [
+            {
+              "title": "After login, questionnaire loads with progress bar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-d3b2964dfff6f963a4db",
+              "file": "e2e.test.js",
+              "line": 193,
+              "column": 3
+            },
+            {
+              "title": "All form fields render correctly for step 1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-31ba117dfc068b358193",
+              "file": "e2e.test.js",
+              "line": 199,
+              "column": 3
+            },
+            {
+              "title": "Can navigate forward with Próximo button",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-4800c9f0a0bcbe9a8ebb",
+              "file": "e2e.test.js",
+              "line": 205,
+              "column": 3
+            },
+            {
+              "title": "Can navigate backward with Anterior button",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-5596574732e03ac5234d",
+              "file": "e2e.test.js",
+              "line": 213,
+              "column": 3
+            },
+            {
+              "title": "Progress bar updates correctly on each step",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-59be8e5e881bccba4bcb",
+              "file": "e2e.test.js",
+              "line": 223,
+              "column": 3
+            },
+            {
+              "title": "Required fields prevent advancement when empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-58ae246ac0766c631ea6",
+              "file": "e2e.test.js",
+              "line": 231,
+              "column": 3
+            },
+            {
+              "title": "All dropdown options load (income types)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-611202b8d6759051a121",
+              "file": "e2e.test.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "Form data persists when navigating back and forth",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-f0887dee2381b33b8d7c",
+              "file": "e2e.test.js",
+              "line": 250,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "3. Opinion Generation",
+          "file": "e2e.test.js",
+          "line": 262,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Gerar Parecer button appears on last step and generates opinion",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-33f397ad65386ccccd23",
+              "file": "e2e.test.js",
+              "line": 263,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "4. Result Actions",
+          "file": "e2e.test.js",
+          "line": 319,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Nova Consulta resets form to step 1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-5493779de8e02014ff29",
+              "file": "e2e.test.js",
+              "line": 320,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "5. API Endpoints",
+          "file": "e2e.test.js",
+          "line": 352,
+          "column": 6,
+          "specs": [
+            {
+              "title": "POST /api/auth/register → creates user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-4682ff2f1c3270f7fd78",
+              "file": "e2e.test.js",
+              "line": 353,
+              "column": 3
+            },
+            {
+              "title": "POST /api/auth/login → returns token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-5610c0ec0730f4151918",
+              "file": "e2e.test.js",
+              "line": 362,
+              "column": 3
+            },
+            {
+              "title": "GET /api/auth/me → returns user info",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-001e5808280fa9b5b29e",
+              "file": "e2e.test.js",
+              "line": 370,
+              "column": 3
+            },
+            {
+              "title": "GET /api/questionnaire (authenticated) → returns schema",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-409555c8c874ab467710",
+              "file": "e2e.test.js",
+              "line": 376,
+              "column": 3
+            },
+            {
+              "title": "GET /api/questionnaire (no auth) → 401",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-84788a2a591eb949a342",
+              "file": "e2e.test.js",
+              "line": 383,
+              "column": 3
+            },
+            {
+              "title": "POST /api/search (with query) → returns results",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-1da51c2df87c172d0fe9",
+              "file": "e2e.test.js",
+              "line": 388,
+              "column": 3
+            },
+            {
+              "title": "POST /api/analyze (with form data) → returns analysis",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-3f7b5e626988ba8402a1",
+              "file": "e2e.test.js",
+              "line": 396,
+              "column": 3
+            },
+            {
+              "title": "POST /api/stream (with form data) → streams SSE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-2815fcd5cd74a1fa014a",
+              "file": "e2e.test.js",
+              "line": 402,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "6. Edge Cases & Security",
+          "file": "e2e.test.js",
+          "line": 411,
+          "column": 6,
+          "specs": [
+            {
+              "title": "SQL injection attempt in email → handled safely",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-bcd14e41f11b9634a954",
+              "file": "e2e.test.js",
+              "line": 412,
+              "column": 3
+            },
+            {
+              "title": "XSS attempt in name field → handled safely",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-cb5700bd8095b705dd91",
+              "file": "e2e.test.js",
+              "line": 419,
+              "column": 3
+            },
+            {
+              "title": "Extremely long input → handled gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-087c5910719595aab2ce",
+              "file": "e2e.test.js",
+              "line": 429,
+              "column": 3
+            },
+            {
+              "title": "Invalid JSON body → proper error response",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-2c107bcc0deea087bd98",
+              "file": "e2e.test.js",
+              "line": 440,
+              "column": 3
+            },
+            {
+              "title": "Missing Authorization header on protected routes → 401",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-f7447ea30bd9d71301f2",
+              "file": "e2e.test.js",
+              "line": 458,
+              "column": 3
+            },
+            {
+              "title": "Malformed Bearer token → 401",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-e4884cd51878ade765fa",
+              "file": "e2e.test.js",
+              "line": 463,
+              "column": 3
+            },
+            {
+              "title": "Concurrent requests → no race conditions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-b0b2979387554f3d244a",
+              "file": "e2e.test.js",
+              "line": 468,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "7. UI/UX Quality",
+          "file": "e2e.test.js",
+          "line": 485,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Responsive on mobile viewport (375px)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-63501aabc7837d86105c",
+              "file": "e2e.test.js",
+              "line": 486,
+              "column": 3
+            },
+            {
+              "title": "Responsive on tablet viewport (768px)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-49a7b4d5aa383118ff0e",
+              "file": "e2e.test.js",
+              "line": 495,
+              "column": 3
+            },
+            {
+              "title": "No console errors during normal flow",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-e954de2f287efabf5078",
+              "file": "e2e.test.js",
+              "line": 501,
+              "column": 3
+            },
+            {
+              "title": "All text is in Portuguese",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-b0a799140e29c140059b",
+              "file": "e2e.test.js",
+              "line": 521,
+              "column": 3
+            },
+            {
+              "title": "Footer shows correct firm name \"Stella Vic's\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-1b646832cb8cff55cc04",
+              "file": "e2e.test.js",
+              "line": 529,
+              "column": 3
+            },
+            {
+              "title": "Header shows user name after login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9646afccc2629ee5b7f6-632a58dd117007c4e3c0",
+              "file": "e2e.test.js",
+              "line": 535,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-03-01T12:03:25.382Z",
+    "duration": 16.826999999999998,
+    "expected": 0,
+    "skipped": 42,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

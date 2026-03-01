@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stella Vic's | Parecer Tributário Inteligente</title>
+  <title>MSTA — Parecer Tributário Inteligente</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260213m">
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 </head>
 <body>
   <!-- Auth Screen -->
@@ -15,7 +17,7 @@
     <!-- Left: Brand + Animated Demo -->
     <div class="auth-left">
       <div class="auth-brand">
-        <h1>Stella <span>Vic's</span></h1>
+        <h1>MSTA</h1>
         <div class="divider"></div>
         <div class="tagline">PARECER TRIBUTÁRIO INTELIGENTE</div>
       </div>
@@ -24,7 +26,7 @@
         <div class="demo-window">
           <div class="demo-titlebar">
             <div class="demo-dot r"></div><div class="demo-dot y"></div><div class="demo-dot g"></div>
-            <span style="color:rgba(255,255,255,.3);font-size:.7rem;margin-left:8px">Stella Vic's — Demonstração</span>
+            <span style="color:rgba(255,255,255,.3);font-size:.7rem;margin-left:8px">MSTA — Demonstração</span>
           </div>
           <div class="demo-body" id="demoBody">
             <div class="demo-step active" id="demoStep1">
@@ -96,6 +98,7 @@
           <button type="button" onclick="doRegister()" class="auth-btn">Criar Conta</button>
           <p class="auth-switch">Já tem conta? <a href="#" onclick="showLogin();return false">Entrar</a></p>
         </div>
+
       </div>
     </div>
   </div>
@@ -104,7 +107,7 @@
   <div class="app" id="appMain" style="display:none">
     <header>
       <div class="logo">
-        <h1>Stella Vic's</h1>
+        <h1>MSTA</h1>
         <span class="subtitle">Parecer Tributário Inteligente</span>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
@@ -216,7 +219,7 @@
         <div class="panel-info">
           <div class="config-group">
             <label>Nome do escritório</label>
-            <input type="text" class="panel-search" id="cfgFirmName" placeholder="Ex: Stella Vic's Advogados" oninput="saveConfig()">
+            <input type="text" class="panel-search" id="cfgFirmName" placeholder="Ex: MSTA Advogados" oninput="saveConfig()">
           </div>
           <div class="config-group">
             <label>Idioma do parecer</label>
@@ -290,7 +293,7 @@
     </main>
 
     <footer>
-      <p>Stella Vic's • Sistema de Parecer Inteligente</p>
+      <p>MSTA • Sistema de Parecer Inteligente</p>
     </footer>
     </main>
     </div><!-- end app-layout -->
@@ -303,7 +306,7 @@
 
     <div class="support-panel hidden" id="supportPanel">
       <div class="support-header">
-        <span>Suporte Stella Vic's</span>
+        <span>Suporte MSTA</span>
         <button onclick="toggleSupport()" class="support-close">&times;</button>
       </div>
       <div class="support-messages" id="supportMessages"></div>
@@ -762,7 +765,7 @@ function saveConfig() { /* placeholder for future */ }
   }
 
   function showSupportWelcome() {
-    appendSupportMsg('assistant', 'Olá! Sou o assistente de suporte do Stella Vic\'s.\n\nPosso te ajudar com:\n\n• Dúvidas sobre como usar o sistema\n• Problemas técnicos ou erros\n• Sugestões de melhorias\n\nSe encontrou um bug, por favor descreva:\n1. O que você fez\n2. O que esperava acontecer\n3. O que aconteceu de fato\nSe possível, envie um screenshot!\n\nComo posso ajudar?');
+    appendSupportMsg('assistant', 'Olá! Sou o assistente de suporte da MSTA.\n\nPosso te ajudar com:\n\n• Dúvidas sobre como usar o sistema\n• Problemas técnicos ou erros\n• Sugestões de melhorias\n\nSe encontrou um bug, por favor descreva:\n1. O que você fez\n2. O que esperava acontecer\n3. O que aconteceu de fato\nSe possível, envie um screenshot!\n\nComo posso ajudar?');
   }
 
   function formatSupportMd(text) {

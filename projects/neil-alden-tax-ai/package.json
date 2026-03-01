@@ -1,5 +1,5 @@
 {
-  "name": "neil-alden-tax-ai",
+  "name": "msta-tax-ai",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.77.0",
     "@playwright/test": "^1.58.2",
     "better-sqlite3": "^12.6.2",
     "pdfkit": "^0.17.2",

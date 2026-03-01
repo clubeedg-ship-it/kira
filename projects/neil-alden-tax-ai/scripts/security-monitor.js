@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Security Monitor - Stella Vic's Tax AI
+ * Security Monitor - MSTA Tax AI
  * Reads access.log and security.log, reports suspicious activity
  */
 const fs = require('fs');
@@ -14,7 +14,7 @@ function readLines(file) {
   try { return fs.readFileSync(file, 'utf-8').split('\n').filter(Boolean); } catch { return []; }
 }
 
-console.log('=== Stella Vic\'s Security Monitor ===\n');
+console.log('=== MSTA Security Monitor ===\n');
 
 // Access log analysis
 const accessLines = readLines(ACCESS_LOG);

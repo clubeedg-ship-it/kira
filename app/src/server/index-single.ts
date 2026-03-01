@@ -360,6 +360,10 @@ app.get('/api/v1/user-agents/runs/recent', (_r, res) => res.json({ data: [] }));
 // ── Skills (real router, bridged to OpenClaw) ────────────────────────────
 app.use('/api/v1/skills', skillsRouter);
 
+// ── Transcribe (voice input → Whisper) ───────────────────────────────────
+import { transcribeRouter } from './routes/transcribe';
+app.use('/api/v1/transcribe', transcribeRouter);
+
 // ── Agents / OpenClaw bridge ─────────────────────────────────────────────
 app.get('/api/v1/agents/openclaw', async (_r, res) => {
   try {

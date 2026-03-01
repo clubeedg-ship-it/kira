@@ -3563,14 +3563,17 @@ let voiceMediaRecorder = null;
 let voiceAudioChunks = [];
 let voiceStream = null;
 let voiceAnalyser = null;
+let voiceAudioCtx = null; // Keep reference to prevent GC
 let voiceAnimFrame = null;
 let voiceTimerInterval = null;
 let voiceStartTime = 0;
 let voiceSilenceTimer = null;
 let voiceLastLoudTime = 0;
 const WAVEFORM_BARS = 64;
-const SILENCE_TIMEOUT = 3000; // 3 seconds of silence → auto-send
-const SILENCE_THRESHOLD = 15; // frequency amplitude below this = silence
+const SILENCE_TIMEOUT = 8000; // 8 seconds of silence → auto-send (was 3s, too aggressive)
+const SILENCE_THRESHOLD = 12; // frequency amplitude below this = silence
+const MAX_RECORDING_MS = 300000; // 5 minute hard cap
+let voiceMaxTimer = null;
 
 function initWaveformBars() {
   const container = document.getElementById('voice-waveform');
@@ -3591,9 +3594,9 @@ async function toggleVoiceRecording() {
   }
   try {
     voiceStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const audioCtx = new AudioContext();
-    const source = audioCtx.createMediaStreamSource(voiceStream);
-    voiceAnalyser = audioCtx.createAnalyser();
+    voiceAudioCtx = new AudioContext();
+    const source = voiceAudioCtx.createMediaStreamSource(voiceStream);
+    voiceAnalyser = voiceAudioCtx.createAnalyser();
     voiceAnalyser.fftSize = 128;
     source.connect(voiceAnalyser);
 
@@ -3601,7 +3604,7 @@ async function toggleVoiceRecording() {
     voiceAudioChunks = [];
     voiceMediaRecorder.ondataavailable = e => { if (e.data.size > 0) voiceAudioChunks.push(e.data); };
 
-    voiceMediaRecorder.start(100);
+    voiceMediaRecorder.start(1000); // 1s timeslice (was 100ms — too many chunks for long recordings)
     document.getElementById('voice-record-btn').classList.add('recording');
     document.getElementById('voice-overlay').classList.add('active');
     document.getElementById('voice-transcribing').classList.remove('active');
@@ -3610,6 +3613,9 @@ async function toggleVoiceRecording() {
     voiceStartTime = Date.now();
     voiceLastLoudTime = 0; // Reset — don't auto-send until user actually speaks
     voiceTimerInterval = setInterval(updateVoiceTimer, 200);
+    // Safety cap — auto-send after MAX_RECORDING_MS
+    if (voiceMaxTimer) clearTimeout(voiceMaxTimer);
+    voiceMaxTimer = setTimeout(() => { if (voiceMediaRecorder?.state === 'recording') sendVoiceRecording(); }, MAX_RECORDING_MS);
     drawWaveform();
   } catch (err) {
     console.error('Mic access denied:', err);
@@ -3655,29 +3661,44 @@ function updateVoiceTimer() {
 function stopVoiceRecording() {
   if (voiceAnimFrame) cancelAnimationFrame(voiceAnimFrame);
   if (voiceTimerInterval) clearInterval(voiceTimerInterval);
+  if (voiceMaxTimer) clearTimeout(voiceMaxTimer);
   voiceAnimFrame = null;
   voiceTimerInterval = null;
+  voiceMaxTimer = null;
   document.getElementById('voice-record-btn').classList.remove('recording');
-  if (voiceMediaRecorder && voiceMediaRecorder.state !== 'inactive') {
-    voiceMediaRecorder.stop();
-  }
-  if (voiceStream) {
-    voiceStream.getTracks().forEach(t => t.stop());
-    voiceStream = null;
-  }
+  // Return a promise that resolves when MediaRecorder has flushed all data
+  return new Promise(resolve => {
+    if (voiceMediaRecorder && voiceMediaRecorder.state !== 'inactive') {
+      voiceMediaRecorder.onstop = () => resolve();
+      voiceMediaRecorder.stop();
+      // Safety timeout in case onstop never fires
+      setTimeout(resolve, 1000);
+    } else {
+      resolve();
+    }
+  }).then(() => {
+    if (voiceStream) {
+      voiceStream.getTracks().forEach(t => t.stop());
+      voiceStream = null;
+    }
+    if (voiceAudioCtx) {
+      voiceAudioCtx.close().catch(() => {});
+      voiceAudioCtx = null;
+    }
+  });
 }
 
-function cancelVoiceRecording() {
-  stopVoiceRecording();
+async function cancelVoiceRecording() {
+  await stopVoiceRecording();
   voiceAudioChunks = [];
   document.getElementById('voice-overlay').classList.remove('active');
 }
 
 async function sendVoiceRecording() {
-  stopVoiceRecording();
+  await stopVoiceRecording();
 
-  // Wait a tick for final data
-  await new Promise(r => setTimeout(r, 200));
+  // Small extra delay for safety
+  await new Promise(r => setTimeout(r, 100));
 
   if (!voiceAudioChunks.length) {
     document.getElementById('voice-overlay').classList.remove('active');

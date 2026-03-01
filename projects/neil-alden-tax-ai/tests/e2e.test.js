@@ -5,7 +5,7 @@ const http = require('http');
 const BASE = 'http://localhost:3870';
 const TEST_USER = {
   name: 'Teste User',
-  email: `teste_${Date.now()}@stellavics.com`,
+  email: `teste_${Date.now()}@msta.adv.br`,
   password: 'senha123456'
 };
 
@@ -523,13 +523,13 @@ test.describe('7. UI/UX Quality', () => {
     const html = await page.locator('html').getAttribute('lang');
     expect(html).toBe('pt-BR');
     const title = await page.title();
-    expect(title).toContain('Stella Vic');
+    expect(title).toContain('MSTA');
   });
 
-  test('Footer shows correct firm name "Stella Vic\'s"', async ({ page }) => {
+  test('Footer shows correct firm name "MSTA"', async ({ page }) => {
     await loginViaUI(page, TEST_USER.email, TEST_USER.password);
     const footerText = await page.locator('footer').textContent();
-    expect(footerText).toContain('Stella Vic');
+    expect(footerText).toContain('MSTA');
   });
 
   test('Header shows user name after login', async ({ page }) => {

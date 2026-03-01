@@ -1,29 +1,5 @@
 [
   {
-    "timestamp": "2026-02-22T17:11:06.844Z",
-    "original": "[Sun 2026-02-22 17:09 UTC] [WebUI] i see nothing, and i should be able to see only currently working agents, like the ones you have just spawn",
-    "fixed": "[Sun 2026-02-22 17:09 UTC] [WebUI] i see nothing, and i should be able to see only currently working agents, like the ones you have just spawn",
-    "context": "[February 22, 2026, 5:09 PM UTC] [Web Interface]: I'm observing no active agents as expected. Only the currently functioning ones should be visible.",
-    "contextLines": 1,
-    "elapsed": 1148
-  },
-  {
-    "timestamp": "2026-02-22T17:14:46.389Z",
-    "original": "[Sun 2026-02-22 17:13 UTC] [WebUI] i see nothing, and i should be able to see only currently working agents, like the ones you have just spawn",
-    "fixed": "[Sun 2026-02-22 17:13 UTC] [WebUI] i see nothing, and i should be able to see only currently working agents, like the ones you have just spawn",
-    "context": "[February 22, 2026, 5:03 PM UTC] [Web Interface]: I'm observing no active agents as expected. Please verify which agents are currently operational, similar to those already running.",
-    "contextLines": 1,
-    "elapsed": 657
-  },
-  {
-    "timestamp": "2026-02-22T17:18:56.467Z",
-    "original": "[Sun 2026-02-22 17:17 UTC] [WebUI] when i go to ~/kira new ui i can see the modern forntend but cant initiate a chat, i should have two entrances for you, here at ~/kira-test and there ~/kira, and only when i am sure that i can talk to you there ~/kira, we disconnect you from here",
-    "fixed": "[Sun 2026-02-22 17:17 UTC] [WebUI] when i go to ~/kira new ui i can see the modern forntend but can't initiate a chat, i should have two entrances for you, here at ~/kira-test and there ~/kira, and only when i am sure that i can talk to you there ~/kira, we disconnect you from here",
-    "context": "On February 22, 2026, 5:17 PM UTC, while accessing the new UI at ~/kira-test, I noticed a modern frontend but couldn't initiate a chat. There should be two interfaces: one at ~/kira-test and another at ~/kira. Only when I'm confident in communicating with you at ~/kira, should we disconnect from this interface.",
-    "contextLines": 1,
-    "elapsed": 703
-  },
-  {
     "timestamp": "2026-02-22T17:26:40.499Z",
     "original": "[Sun 2026-02-22 17:26 UTC] [WebUI] there is no saving option in ~/kira for configs, i just put the config from minimax to opus, and it just came back to minimax as soon as i refresh or change the page",
     "fixed": "[Sun 2026-02-22 17:26 UTC] [WebUI] there is no saving option in ~/kira for configs, i just put the configuration from minimax to opus, and it just came back to minimax as soon as i refresh or change the page",
@@ -798,5 +774,29 @@
     "context": "The current system's interface, reminiscent of a notion page, lacks accessibility compared to my previous P.A.R.A document structure. Additionally, the web support for documentation needs improvement. Please extend this feedback to the design team and ensure the report aligns with all existing research/architecture documents in the directory.",
     "contextLines": 1,
     "elapsed": 4194
+  },
+  {
+    "timestamp": "2026-02-24T17:52:13.268Z",
+    "original": "[Telegram Otto (@coringa_dfato) id:7985502241 +9m 2026-02-24 17:52 UTC] I think we must first implement the things we already worked so hard designing it, and that is the REAL selling point of our system. The “automatic second brain”, the real systematic execution of an AI partner/employee\n[message_id: 3433]",
+    "fixed": "I think we must first implement the things we already worked so hard designing it, and that is the REAL selling point of our system. The “automatic second brain”, the real systematic execution of an AI partner/employee",
+    "context": "We should prioritize implementing the features we've meticulously designed, such as the 'automatic second brain' and AI-assisted systematic execution, as these are our key selling points.",
+    "contextLines": 1,
+    "elapsed": 802
+  },
+  {
+    "timestamp": "2026-02-24T18:38:14.308Z",
+    "original": "[Telegram Otto (@coringa_dfato) id:7985502241 +8m 2026-02-24 18:38 UTC] we already be running qwen3:14b almost always ((btw check if this run is being useful, because contant 99% videocard usage is costly)\n[message_id: 3441]",
+    "fixed": "we already be running qwen3:14b almost always ((btw check if this run is being useful, because contant 99% videocard usage is costly)",
+    "context": "We are currently utilizing qwen3:14b almost consistently. Please verify its utility, as it's consuming nearly 100% video card resources, which is quite resource-intensive.",
+    "contextLines": 1,
+    "elapsed": 3451
+  },
+  {
+    "timestamp": "2026-02-24T18:39:50.922Z",
+    "original": "[Telegram Otto (@coringa_dfato) id:7985502241 +1m 2026-02-24 18:39 UTC] yes please\n[message_id: 3443]",
+    "fixed": "yes please",
+    "context": "Please provide the annual revenue per deal, total Year 1 Deal amount, and Delta details including the accumulated delta value containing 'Hi! 😄' for Q1's timeframe.",
+    "contextLines": 1,
+    "elapsed": 4044
   }
 ]

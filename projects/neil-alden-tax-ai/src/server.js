@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Stella Vic's Tax AI - API Server
- * Parecer Tributário Inteligente MVP
+ * MSTA Tax AI - API Server
+ * Parecer Tributário Inteligente
  */
 
 const http = require('http');
@@ -15,8 +15,32 @@ const { buildLegalContext } = require('./legal-status');
 const { auditOpinion, formatAuditSection } = require('./audit-agent');
 
 const PORT = 3870;
-const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '';
-const LLM_MODEL = process.env.LLM_MODEL || 'minimax/minimax-m2.5';
+const Anthropic = require('@anthropic-ai/sdk');
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const LLM_MODEL = 'claude-opus-4-6';
+const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+// Opus 4.6 pricing: $15/1M input, $75/1M output
+const LLM_INPUT_COST_PER_TOKEN = 15.0 / 1e6;
+const LLM_OUTPUT_COST_PER_TOKEN = 75.0 / 1e6;
+const DEFAULT_CORS_ORIGINS = [
+  `http://localhost:${PORT}`,
+  `http://127.0.0.1:${PORT}`,
+  'http://localhost:3000',
+  'http://127.0.0.1:3000'
+];
+
+function normalizeOrigin(origin = '') {
+  return origin.trim().replace(/\/+$/, '');
+}
+
+const parsedCorsOrigins = (process.env.CORS_ORIGINS || DEFAULT_CORS_ORIGINS.join(','))
+  .split(',')
+  .map(normalizeOrigin)
+  .filter(origin => origin && origin !== '*');
+
+const CORS_ALLOWLIST = new Set(
+  parsedCorsOrigins.length ? parsedCorsOrigins : DEFAULT_CORS_ORIGINS.map(normalizeOrigin)
+);
 
 // --- Security: Rate Limiting & Brute Force Detection ---
 const rateLimitMap = new Map(); // ip -> { auth: [{ts}], api: [{ts}] }
@@ -371,81 +395,91 @@ Gere PARECER TRIBUTÁRIO com: 1) Resumo Executivo 2) Fundamentação Jurídica (
   return { prompt, sources: [...sources], legalContext };
 }
 
-// --- Streaming LLM Generation (OpenRouter) ---
+// --- Streaming LLM Generation (Anthropic SDK) ---
 async function streamGenerate(prompt, system, res) {
-  const apiRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${OPENROUTER_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: LLM_MODEL,
-      messages: [
-        ...(system ? [{ role: 'system', content: system }] : []),
-        { role: 'user', content: prompt }
-      ],
-      stream: true,
-      temperature: 0.4,
-      max_tokens: 8000
-    })
-  });
-
-  if (!apiRes.ok) throw new Error(`OpenRouter error: ${apiRes.status} ${await apiRes.text()}`);
-
   let fullText = '';
   let usageData = null;
-  const reader = apiRes.body.getReader();
-  const decoder = new TextDecoder();
 
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    const chunk = decoder.decode(value, { stream: true });
-    for (const line of chunk.split('\n').filter(l => l.startsWith('data: '))) {
-      const data = line.slice(6).trim();
-      if (data === '[DONE]') {
-        res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-        continue;
-      }
-      try {
-        const obj = JSON.parse(data);
-        const token = obj.choices?.[0]?.delta?.content;
-        if (token) {
-          // Strip CJK thinking token leaks
-          const clean = token.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]+/g, '');
-          fullText += clean;
-          if (clean) res.write(`data: ${JSON.stringify({ token: clean })}\n\n`);
-        }
-        if (obj.usage) usageData = obj.usage;
-      } catch {}
-    }
-  }
+  const stream = anthropic.messages.stream({
+    model: LLM_MODEL,
+    max_tokens: 8000,
+    temperature: 0.4,
+    ...(system ? { system } : {}),
+    messages: [{ role: 'user', content: prompt }]
+  });
 
-  // Strip MiniMax thinking token leaks (Mandarin/CJK characters)
-  fullText = fullText.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]+/g, '').replace(/\n{3,}/g, '\n\n');
+  stream.on('text', (text) => {
+    fullText += text;
+    res.write(`data: ${JSON.stringify({ token: text })}\n\n`);
+  });
 
+  const finalMessage = await stream.finalMessage();
+  usageData = {
+    prompt_tokens: finalMessage.usage?.input_tokens || 0,
+    completion_tokens: finalMessage.usage?.output_tokens || 0
+  };
+
+  res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
   return { text: fullText, usage: usageData };
 }
 
-// --- Non-streaming fallback (OpenRouter) ---
+// --- Non-streaming fallback (Anthropic SDK) ---
 async function generateWithLLM(prompt, system = '') {
-  const apiRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${OPENROUTER_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: LLM_MODEL,
-      messages: [
-        ...(system ? [{ role: 'system', content: system }] : []),
-        { role: 'user', content: prompt }
-      ],
-      temperature: 0.4,
-      max_tokens: 8000
-    })
+  const response = await anthropic.messages.create({
+    model: LLM_MODEL,
+    max_tokens: 8000,
+    temperature: 0.4,
+    ...(system ? { system } : {}),
+    messages: [{ role: 'user', content: prompt }]
   });
-  if (!apiRes.ok) throw new Error(`OpenRouter error: ${apiRes.status}`);
-  const data = await apiRes.json();
-  return data.choices?.[0]?.message?.content || '';
+  return response.content?.[0]?.text || '';
 }
 
 // --- HTTP helpers ---
+function appendVaryHeader(currentValue, value) {
+  if (!currentValue) return value;
+  const list = String(currentValue).split(',').map(v => v.trim()).filter(Boolean);
+  if (!list.includes(value)) list.push(value);
+  return list.join(', ');
+}
+
+function buildContentSecurityPolicy(nonce) {
+  return [
+    "default-src 'self'",
+    `script-src 'self' 'nonce-${nonce}'`,
+    `script-src-elem 'self' 'nonce-${nonce}'`,
+    "script-src-attr 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com data:",
+    "img-src 'self' data: https://api.qrserver.com",
+    "connect-src 'self' ws: wss:",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "frame-ancestors 'none'",
+    "form-action 'self'"
+  ].join('; ');
+}
+
+function injectNonceIntoScripts(html, nonce) {
+  return html.replace(/<script\b(?![^>]*\bnonce=)/gi, `<script nonce="${nonce}"`);
+}
+
+function serveHtml(res, filePath, nonce) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const htmlWithNonce = injectNonceIntoScripts(content, nonce);
+    res.writeHead(200, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-cache, no-store',
+      'Pragma': 'no-cache'
+    });
+    res.end(htmlWithNonce);
+  } catch {
+    res.writeHead(404);
+    res.end('Not found');
+  }
+}
+
 function serveStatic(res, filePath, contentType) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -467,7 +501,7 @@ function parseBody(req) {
   });
 }
 
-const SYSTEM = `Você é advogado tributarista internacional sênior especializado em planejamento tributário internacional no escritório Stella Vic's. Seu foco é risco e pragmatismo econômico.
+const SYSTEM = `Você é advogado tributarista internacional sênior especializado em planejamento tributário internacional no escritório MSTA (Miara-Schuarts, Tomasczeski Advogados). Seu foco é risco e pragmatismo econômico.
 
 REGRAS OBRIGATÓRIAS — NUNCA VIOLE:
 
@@ -522,18 +556,31 @@ REGRAS OBRIGATÓRIAS — NUNCA VIOLE:
 const server = http.createServer(async (req, res) => {
   const clientIP = getClientIP(req);
   const url = new URL(req.url, `http://localhost:${PORT}`);
+  const requestOrigin = normalizeOrigin(req.headers.origin || '');
+  const cspNonce = crypto.randomBytes(16).toString('base64');
 
   // Security headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (requestOrigin && CORS_ALLOWLIST.has(requestOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', requestOrigin);
+    res.setHeader('Vary', appendVaryHeader(res.getHeader('Vary'), 'Origin'));
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'");
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  res.setHeader('Content-Security-Policy', buildContentSecurityPolicy(cspNonce));
 
-  if (req.method === 'OPTIONS') { res.writeHead(200); return res.end(); }
+  if (req.method === 'OPTIONS') {
+    if (requestOrigin && !CORS_ALLOWLIST.has(requestOrigin)) {
+      res.writeHead(403);
+      return res.end();
+    }
+    res.writeHead(204);
+    return res.end();
+  }
 
   // Track response status for access log
   const origEnd = res.end.bind(res);
@@ -561,14 +608,14 @@ const server = http.createServer(async (req, res) => {
   }
 
   try {
-    // Block sensitive files (source code, databases)
+    // Block sensitive files (source code, databases, data directory)
     if (url.pathname.match(/\.(db|sqlite|sql)$/i) || url.pathname.startsWith('/src/') || url.pathname.startsWith('/data/')) {
       res.writeHead(403); return res.end('Forbidden');
     }
 
     // Static files (public)
     if (url.pathname === '/' || url.pathname === '/index.html') {
-      return serveStatic(res, path.join(__dirname, '..', 'ui', 'index.html'), 'text/html; charset=utf-8');
+      return serveHtml(res, path.join(__dirname, '..', 'ui', 'index.html'), cspNonce);
     }
     if (url.pathname === '/favicon.svg') {
       return serveStatic(res, path.join(__dirname, '..', 'ui', 'favicon.svg'), 'image/svg+xml');
@@ -721,7 +768,7 @@ const server = http.createServer(async (req, res) => {
       // Log usage
       const inputTokens = streamUsage?.prompt_tokens || Math.ceil(prompt.length / 4);
       const outputTokens = streamUsage?.completion_tokens || Math.ceil(opinion.length / 4);
-      const cost = (inputTokens * 1.10 / 1e6) + (outputTokens * 5.50 / 1e6);
+      const cost = (inputTokens * LLM_INPUT_COST_PER_TOKEN) + (outputTokens * LLM_OUTPUT_COST_PER_TOKEN);
       try {
         authDb.prepare('INSERT INTO usage_logs (user_id, action, model, input_tokens, output_tokens, cost_usd, metadata) VALUES (?,?,?,?,?,?,?)')
           .run(user.id, 'generate_opinion', LLM_MODEL, inputTokens, outputTokens, cost, JSON.stringify({ country: formData.source_country || formData.country_residence, client_type: formData.client_type }));
@@ -742,7 +789,7 @@ const server = http.createServer(async (req, res) => {
         if (auditResult.usage) {
           const aIn = auditResult.usage.prompt_tokens || 0;
           const aOut = auditResult.usage.completion_tokens || 0;
-          const aCost = (aIn * 1.10 / 1e6) + (aOut * 5.50 / 1e6);
+          const aCost = (aIn * LLM_INPUT_COST_PER_TOKEN) + (aOut * LLM_OUTPUT_COST_PER_TOKEN);
           try {
             authDb.prepare('INSERT INTO usage_logs (user_id, action, model, input_tokens, output_tokens, cost_usd, metadata) VALUES (?,?,?,?,?,?,?)')
               .run(user.id, 'audit', LLM_MODEL, aIn, aOut, aCost, JSON.stringify({ approved: auditResult.approved, issues_count: auditResult.issues.length }));
@@ -782,13 +829,13 @@ const server = http.createServer(async (req, res) => {
 
       const history = authDb.prepare('SELECT role, content, image FROM support_messages WHERE user_id = ? ORDER BY created_at DESC LIMIT 20').all(user.id).reverse();
 
-      const supportSystem = `Você é o assistente de suporte do sistema Stella Vic's — Parecer Tributário Inteligente.
+      const supportSystem = `Você é o assistente de suporte do sistema MSTA — Parecer Tributário Inteligente.
 
 O sistema é uma aplicação web que gera pareceres tributários usando IA. Stack técnica:
 - Frontend: HTML/CSS/JS vanilla (ui/index.html, ui/app.js, ui/style.css)
 - Backend: Node.js com HTTP server puro (src/server.js)
 - Database: SQLite (better-sqlite3) para auth e embeddings
-- LLM: MiniMax M2.5 via OpenRouter para geração de pareceres
+- LLM: Claude Opus 4.6 via Anthropic para geração de pareceres
 - RAG: Busca semântica em tratados tributários brasileiros (50+ tratados)
 - PDF: Exportação de pareceres em PDF
 
@@ -812,21 +859,21 @@ Seu objetivo:
       ];
 
       try {
-        const apiRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${OPENROUTER_KEY}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model: LLM_MODEL, messages, temperature: 0.5, max_tokens: 2000 })
+        // Anthropic requires system as top-level param, not in messages array
+        const userMessages = messages.filter(m => m.role !== 'system');
+        const response = await anthropic.messages.create({
+          model: LLM_MODEL,
+          max_tokens: 2000,
+          temperature: 0.5,
+          system: supportSystem,
+          messages: userMessages
         });
-        if (!apiRes.ok) throw new Error('OpenRouter error: ' + apiRes.status);
-        const data = await apiRes.json();
-        let reply = data.choices?.[0]?.message?.content || 'Desculpe, não consegui processar sua mensagem.';
-        // Strip MiniMax thinking tokens (Mandarin/Chinese blocks)
-        reply = reply.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\u2e80-\u2eff\u3000-\u303f\uff00-\uffef]+/g, '').replace(/\n{3,}/g, '\n\n').trim();
+        let reply = response.content?.[0]?.text || 'Desculpe, não consegui processar sua mensagem.';
 
         // Log support chat usage
-        const sInputTokens = data.usage?.prompt_tokens || 0;
-        const sOutputTokens = data.usage?.completion_tokens || 0;
-        const sCost = (sInputTokens * 1.10 / 1e6) + (sOutputTokens * 5.50 / 1e6);
+        const sInputTokens = response.usage?.input_tokens || 0;
+        const sOutputTokens = response.usage?.output_tokens || 0;
+        const sCost = (sInputTokens * LLM_INPUT_COST_PER_TOKEN) + (sOutputTokens * LLM_OUTPUT_COST_PER_TOKEN);
         try {
           authDb.prepare('INSERT INTO usage_logs (user_id, action, model, input_tokens, output_tokens, cost_usd, metadata) VALUES (?,?,?,?,?,?,?)')
             .run(user.id, 'support_chat', LLM_MODEL, sInputTokens, sOutputTokens, sCost, '{}');
@@ -853,9 +900,8 @@ Seu objetivo:
       return json(201, { id: reportId });
     }
 
-    // --- Admin page ---
     if (url.pathname === '/admin' || url.pathname === '/admin/') {
-      return serveStatic(res, path.join(__dirname, '..', 'ui', 'admin.html'), 'text/html; charset=utf-8');
+      return serveHtml(res, path.join(__dirname, '..', 'ui', 'admin.html'), cspNonce);
     }
 
     // --- Admin API routes ---
@@ -1044,6 +1090,6 @@ process.on('uncaughtException', (e) => { console.error('Uncaught:', e.message); 
 process.on('unhandledRejection', (e) => { console.error('Unhandled:', e); });
 
 server.listen(PORT, () => {
-  console.log(`🏛️  Stella Vic's Tax AI running at http://localhost:${PORT}`);
+  console.log(`🏛️  MSTA Tax AI running at http://localhost:${PORT}`);
   console.log(`   Model: ${LLM_MODEL}`);
 });

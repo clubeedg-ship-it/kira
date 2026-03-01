@@ -12,9 +12,9 @@ function generatePDF(data, stream) {
     margins: { top: 72, bottom: 72, left: 72, right: 72 },
     info: {
       Title: `Parecer Tributário - ${data.formData?.client_name || 'Cliente'}`,
-      Author: 'Neil Alden Advocacia Tributária',
+      Author: 'Miara-Schuarts, Tomasczeski Advogados (MSTA)',
       Subject: 'Parecer Tributário Internacional',
-      Creator: 'Neil Alden Tax AI',
+      Creator: 'MSTA Tax AI',
     }
   });
 
@@ -22,7 +22,7 @@ function generatePDF(data, stream) {
 
   // Header
   doc.fontSize(10).fillColor('#666')
-    .text('NEIL ALDEN ADVOCACIA TRIBUTÁRIA', { align: 'center' })
+    .text('MSTA — MIARA-SCHUARTS, TOMASCZESKI ADVOGADOS', { align: 'center' })
     .text('Parecer Tributário Inteligente', { align: 'center' })
     .moveDown(0.5);
 
