@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260213m">
+  <link rel="stylesheet" href="style.css?v=20260301">
   <script src="/purify.min.js"></script>
 </head>
 <body>
@@ -115,16 +115,16 @@
     </header>
 
     <!-- Right Menu Toggle -->
-    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 
     <!-- Right Side Panel -->
     <aside class="right-panel" id="rightPanel">
       <div class="panel-header">
         <span class="panel-title">Menu</span>
-        <button class="btn-icon" onclick="toggleMenu()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button class="btn-icon" onclick="toggleMenu()" aria-label="Fechar menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
 
@@ -244,7 +244,7 @@
     <!-- Overlay -->
     <div class="panel-overlay" id="panelOverlay" onclick="toggleMenu()"></div>
 
-    <main>
+    <main role="main">
       <!-- Progress Bar -->
       <div class="progress-bar">
         <div class="progress-steps" id="progressSteps"></div>
@@ -266,10 +266,18 @@
       </div>
 
       <!-- Loading -->
-      <div id="loading" class="loading" style="display:none">
-        <div class="spinner"></div>
-        <p>Analisando tratados e gerando parecer...</p>
-        <p class="loading-sub">Isso pode levar 1-2 minutos</p>
+      <div id="loading" class="loading" style="display:none" role="status" aria-live="polite">
+        <div class="loading-card">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Analisando tratados e gerando parecer...</p>
+          <p class="loading-sub">Isso pode levar 1-2 minutos</p>
+          <div class="skeleton-lines" aria-hidden="true">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Result -->
@@ -277,10 +285,10 @@
         <div class="result-header">
           <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Parecer Tributário</h2>
           <div class="result-actions">
-            <button class="btn btn-secondary" onclick="copyResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copiar</button>
-            <button class="btn btn-primary" onclick="downloadPDF()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar PDF</button>
-            <button class="btn btn-secondary" onclick="printResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Imprimir</button>
-            <button class="btn btn-secondary" onclick="newConsultation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>Nova Consulta</button>
+            <button class="btn btn-primary" onclick="downloadPDF()" aria-label="Baixar parecer em PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar PDF</button>
+            <button class="btn btn-secondary" onclick="copyResult()" aria-label="Copiar parecer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copiar</button>
+            <button class="btn btn-secondary" onclick="printResult()" aria-label="Imprimir parecer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Imprimir</button>
+            <button class="btn btn-secondary" onclick="newConsultation()" aria-label="Nova consulta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>Nova Consulta</button>
           </div>
         </div>
         <div id="resultContent" class="result-content"></div>
@@ -292,15 +300,16 @@
     </main>
 
     <footer>
-      <p>MSTA • Sistema de Parecer Inteligente</p>
+      <p><span class="footer-brand">MSTA</span> <span class="footer-accent">—</span> Parecer Tributário Inteligente</p>
+      <p style="margin-top:4px">&copy; <script>document.write(new Date().getFullYear())</script></p>
     </footer>
     </main>
     </div><!-- end app-layout -->
 
     <!-- Support Chat Widget -->
-    <button class="support-fab" id="supportFab" onclick="toggleSupport()" title="Suporte">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span class="support-badge" id="supportBadge" style="display:none">0</span>
+    <button class="support-fab" id="supportFab" onclick="toggleSupport()" title="Suporte" aria-label="Abrir chat de suporte">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span class="support-badge" id="supportBadge" style="display:none" aria-live="polite">0</span>
     </button>
 
     <div class="support-panel hidden" id="supportPanel">
