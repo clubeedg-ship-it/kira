@@ -1,0 +1,20 @@
+{
+  "id": "proc-3e63b9bf3453",
+  "name": "Daily Graph Extraction",
+  "created": "2026-03-01T12:59:29.000Z",
+  "updated": "2026-03-01T12:59:29.000Z",
+  "version": 1,
+  "trigger": "daily",
+  "steps": [
+    "Read today's session JSONL",
+    "Process new messages through NLP pipeline",
+    "Run graph improvements",
+    "Report stats: entity count, relation count, new extractions count",
+    "Log results to daily markdown file"
+  ],
+  "successRate": null,
+  "timesUsed": 0,
+  "lastUsed": null,
+  "tags": [],
+  "relatedProcedures": []
+}

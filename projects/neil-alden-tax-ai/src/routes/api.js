@@ -53,10 +53,10 @@ function handleApiRoutes(url, req, res, json, user) {
   // API: search
   if (url.pathname === '/api/search' && req.method === 'POST') {
     return (async () => {
-      const { query, topK } = await parseBody(req);
-      const results = await search(query, topK || 5);
+      const body = await parseBody(req);
+      const results = await search(body.query, body.topK || body.limit || 5);
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify(results));
+      return res.end(JSON.stringify({ results }));
     })();
   }
 

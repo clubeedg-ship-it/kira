@@ -126,10 +126,10 @@ test.describe('1. Auth Flow', () => {
     await expect(page.locator('#authError')).toBeVisible({ timeout: 5000 });
   });
 
-  test('Register with short password (<6 chars) → shows error', async ({ page }) => {
+  test('Register with short password (<8 chars) → shows error', async ({ page }) => {
     await registerViaUI(page, 'Short Pass', `short_${Date.now()}@test.com`, '123');
     await expect(page.locator('#authError')).toBeVisible({ timeout: 5000 });
-    await expect(page.locator('#authError')).toContainText('6');
+    await expect(page.locator('#authError')).toContainText('8');
   });
 
   test('Register with missing fields → shows error', async ({ page }) => {
@@ -391,6 +391,7 @@ test.describe('5. API Endpoints', () => {
       { Authorization: `Bearer ${apiToken}` }
     );
     expect(res.status).toBe(200);
+    expect(res.data.results).toBeTruthy();
   });
 
   test('POST /api/analyze (with form data) → returns analysis', async () => {

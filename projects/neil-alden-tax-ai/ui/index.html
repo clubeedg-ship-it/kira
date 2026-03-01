@@ -93,7 +93,7 @@
           <p class="auth-subtitle">Comece a gerar pareceres em minutos</p>
           <input type="text" id="regName" placeholder="Nome completo" class="auth-input" />
           <input type="email" id="regEmail" placeholder="E-mail profissional" class="auth-input" />
-          <input type="password" id="regPassword" placeholder="Senha (mín. 6 caracteres)" class="auth-input" onkeydown="if(event.key==='Enter')doRegister()" />
+          <input type="password" id="regPassword" placeholder="Senha (mín. 8 caracteres)" class="auth-input" onkeydown="if(event.key==='Enter')doRegister()" />
           <button type="button" onclick="doRegister()" class="auth-btn">Criar Conta</button>
           <p class="auth-switch">Já tem conta? <a href="#" onclick="showLogin();return false">Entrar</a></p>
         </div>
@@ -359,7 +359,7 @@
       const email = document.getElementById('regEmail').value.trim();
       const password = document.getElementById('regPassword').value;
       if (!name || !email || !password) return showError('Preencha todos os campos');
-      if (password.length < 6) return showError('Senha deve ter no mínimo 6 caracteres');
+      if (password.length < 8) return showError('Senha deve ter no mínimo 8 caracteres');
       try {
         const r = await fetch(API+'/api/auth/register', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify({name,email,password}) });
         const d = await r.json();
