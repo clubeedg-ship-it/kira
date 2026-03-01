@@ -253,7 +253,8 @@ function parseCookies(req) {
 }
 
 function setAuthCookie(res, token) {
-  res.setHeader('Set-Cookie', `sv_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=${7 * 86400}`);
+  const secure = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+  res.setHeader('Set-Cookie', `sv_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=${7 * 86400}${secure}`);
 }
 
 function clearAuthCookie(res) {
@@ -451,7 +452,7 @@ function buildContentSecurityPolicy(nonce) {
     "script-src-attr 'unsafe-inline'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
-    "img-src 'self' data: https://api.qrserver.com",
+    "img-src 'self' data:",
     "connect-src 'self' ws: wss:",
     "object-src 'none'",
     "base-uri 'self'",
