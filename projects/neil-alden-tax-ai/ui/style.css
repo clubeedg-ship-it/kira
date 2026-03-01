@@ -102,10 +102,26 @@ html, body {
   color: var(--accent);
   font-weight: 600;
 }
+/* Monochrome SVG icons */
+svg.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.nav-icon svg.icon { width: 18px; height: 18px; }
+.stat-icon svg.icon { width: 32px; height: 32px; }
+.module-icon svg.icon { width: 28px; height: 28px; }
+.coming-soon-icon svg.icon { width: 48px; height: 48px; opacity: 0.5; }
+.practice-chip svg.icon { width: 14px; height: 14px; }
+
 .sidebar-nav-item .nav-icon {
-  font-size: 1.1rem;
   width: 24px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nav-badge-soon {
   margin-left: auto;
@@ -299,7 +315,7 @@ html, body {
   transition: box-shadow .2s;
 }
 .stat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.06); }
-.stat-icon { font-size: 2rem; }
+.stat-icon { display: flex; align-items: center; justify-content: center; color: var(--accent, #c9a84c); }
 .stat-number {
   font-size: 1.6rem;
   font-weight: 700;
