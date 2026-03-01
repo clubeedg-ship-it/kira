@@ -89,6 +89,11 @@ const server = http.createServer(async (req, res) => {
       return serveStatic(res, path.join(__dirname, '..', 'ui', path.basename(url.pathname).split('?')[0]), 'application/javascript; charset=utf-8');
     }
 
+    // About page (public)
+    if (url.pathname === '/about') {
+      return serveHtml(res, path.join(__dirname, '..', 'ui', 'about-ottogen.html'), cspNonce);
+    }
+
     // Auth routes (public)
     if (url.pathname.startsWith('/api/auth/')) {
       const result = handleAuthRoutes(url, req, res, json, clientIP);
