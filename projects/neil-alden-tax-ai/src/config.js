@@ -1,14 +1,13 @@
 /**
- * Configuration: PORT, LLM, CORS, Anthropic client, cost constants
+ * Configuration: PORT, LLM, CORS, cost constants
+ * LLM calls routed through Claude CLI (Claude Max subscription)
  */
-const Anthropic = require('@anthropic-ai/sdk');
 
 const PORT = 3870;
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
-const LLM_MODEL = 'claude-opus-4-6';
-const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+const LLM_MODEL = process.env.LLM_MODEL || 'claude-opus-4-6';
 
-// Opus 4.6 pricing: $15/1M input, $75/1M output
+// Cost tracking (Claude Max = subscription, but track for analytics)
+// These are notional costs based on API pricing for usage estimation
 const LLM_INPUT_COST_PER_TOKEN = 15.0 / 1e6;
 const LLM_OUTPUT_COST_PER_TOKEN = 75.0 / 1e6;
 
@@ -86,9 +85,7 @@ REGRAS OBRIGATÓRIAS — NUNCA VIOLE:
 
 module.exports = {
   PORT,
-  ANTHROPIC_API_KEY,
   LLM_MODEL,
-  anthropic,
   LLM_INPUT_COST_PER_TOKEN,
   LLM_OUTPUT_COST_PER_TOKEN,
   CORS_ALLOWLIST,

@@ -3,10 +3,7 @@
  * Second LLM pass to review generated opinions for errors
  */
 
-const Anthropic = require('@anthropic-ai/sdk');
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
-const LLM_MODEL = 'claude-opus-4-6';
-const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+const { generateWithLLM } = require('./llm');
 
 const AUDIT_PROMPT = `Você é um auditor jurídico tributário sênior. Revise o parecer abaixo e identifique:
 
@@ -45,15 +42,7 @@ async function auditOpinion(opinion, formData, legalContext) {
     .replace('{opinion}', opinion);
 
   try {
-    const response = await anthropic.messages.create({
-      model: LLM_MODEL,
-      max_tokens: 4000,
-      temperature: 0.2,
-      system: 'Você é um auditor jurídico tributário independente. Seja rigoroso e preciso.',
-      messages: [{ role: 'user', content: prompt }]
-    });
-
-    let raw = response.content?.[0]?.text || '';
+    let raw = await generateWithLLM(prompt, 'Você é um auditor jurídico tributário independente. Seja rigoroso e preciso.');
 
     const approved = raw.includes('APROVADO') && raw.includes('sem correções necessárias');
     
@@ -75,7 +64,7 @@ async function auditOpinion(opinion, formData, legalContext) {
       issues,
       summary: approved ? 'Parecer aprovado sem correções.' : `${issues.length} observação(ões) identificada(s).`,
       raw,
-      usage: response.usage ? { prompt_tokens: response.usage.input_tokens, completion_tokens: response.usage.output_tokens } : null
+      usage: null
     };
   } catch (e) {
     console.error('Audit error:', e.message);

@@ -3,7 +3,8 @@
  */
 const { authDb } = require('../auth');
 const { parseBody } = require('../http-helpers');
-const { anthropic, LLM_MODEL, LLM_INPUT_COST_PER_TOKEN, LLM_OUTPUT_COST_PER_TOKEN } = require('../config');
+const { LLM_MODEL, LLM_INPUT_COST_PER_TOKEN, LLM_OUTPUT_COST_PER_TOKEN } = require('../config');
+const { generateWithLLM } = require('../llm');
 
 const supportSystem = `Você é o assistente de suporte do sistema MSTA — Parecer Tributário Inteligente.
 
@@ -47,17 +48,12 @@ function handleSupportRoutes(url, req, res, json, user) {
       const userMessages = history.map(m => ({ role: m.role, content: m.image ? m.content + '\n[Imagem anexada]' : m.content }));
 
       try {
-        const response = await anthropic.messages.create({
-          model: LLM_MODEL,
-          max_tokens: 2000,
-          temperature: 0.5,
-          system: supportSystem,
-          messages: userMessages
-        });
-        let reply = response.content?.[0]?.text || 'Desculpe, não consegui processar sua mensagem.';
+        // Build conversation as single prompt for Claude CLI
+        const chatPrompt = userMessages.map(m => `${m.role === 'user' ? 'Usuário' : 'Assistente'}: ${m.content}`).join('\n\n');
+        let reply = await generateWithLLM(chatPrompt, supportSystem) || 'Desculpe, não consegui processar sua mensagem.';
 
-        const sInputTokens = response.usage?.input_tokens || 0;
-        const sOutputTokens = response.usage?.output_tokens || 0;
+        const sInputTokens = Math.ceil(chatPrompt.length / 4);
+        const sOutputTokens = Math.ceil(reply.length / 4);
         const sCost = (sInputTokens * LLM_INPUT_COST_PER_TOKEN) + (sOutputTokens * LLM_OUTPUT_COST_PER_TOKEN);
         try {
           authDb.prepare('INSERT INTO usage_logs (user_id, action, model, input_tokens, output_tokens, cost_usd, metadata) VALUES (?,?,?,?,?,?,?)')
