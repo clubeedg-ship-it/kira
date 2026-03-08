@@ -50,11 +50,24 @@ He's lived systems failing. Knows having nothing truly his. Building something t
 
 **Goal:** $1B valuation for Oopuo in 8 months (by Oct 2026)
 
-**Strategy:**
-1. AI services → immediate revenue
-2. ZenithCred/SentinAgro → funding rounds
-3. OttoGen → content + audience
-4. Chimera → the endgame infrastructure
+**Core Thesis (confirmed 2026-03-08):**
+Service company → data advantage → embedded finance → tokenized impact economy.
+The $1B valuation comes from being the **infrastructure layer where service data, financial products, and impact verification converge**.
+
+**3-Phase Strategy:**
+1. **Phase 1 (Now → 6mo):** Pure revenue. AI services. $30K MRR by Aug 2026. Personal branding (YouTube + X). Build data moat + distribution.
+2. **Phase 2 (6-12mo):** Embedded finance. Token usage limits per subscription. Gamified cost-per-watt. Local facility installs = enterprise trust.
+3. **Phase 3 (12-24mo):** Impact layer. ZenithCred + SentinAgro + Chimera converge into tokenized impact economy.
+
+**Revenue Targets (Phase 1):**
+- March 2026: $700 MRR (at $300, need 2 more deals)
+- April: $2K MRR
+- May: $7.5K MRR
+- August: $30K MRR
+
+**Execution Model:** Paperclip + Kira for sequential focus with parallel background projects. Each portfolio project = autonomous entity with daily review.
+
+**Full strategy doc:** `memory/2026-03-08-oopuo-strategy.md`
 
 ---
 

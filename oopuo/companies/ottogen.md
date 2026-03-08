@@ -1,57 +1,59 @@
-# OttoGen.io
+# OttoGen — Otto's Personal Brand
 
-**Status:** Pre-launch
-**Model:** AI education → Lead gen → System sales
-
----
-
-## Strategy
-
-### Phase 1: Content Hook
-- "Why I stopped teaching prompts"
-- Show current AI limitations
-- Tease advanced systems (voice agents, multi-agent)
-- Target: AI-curious SMB owners
-
-### Phase 2: Community Building
-- Free value → email list
-- TikTok/IG for Gen-Z (freedom, post-labour)
-- Discord/Telegram community
-
-### Phase 3: Monetization
-- Sell existing systems (voice agents, automations)
-- Consulting for implementation
-- Premium community access
+**Status:** Launch prep
+**Purpose:** Content & distribution engine for Oopuo ecosystem
 
 ---
 
-## Content Pillars
+## What It Is
 
-1. **Current AI is broken** - Why prompting isn't enough
-2. **The future is autonomous** - Multi-agent systems
-3. **Post-labour freedom** - Gen-Z hook
-4. **Case studies** - Real implementations
-
----
-
-## Assets Ready to Sell
-- [ ] Voice agent system
-- [ ] Automation frameworks
-- [ ] Kira-lite for SMBs?
+OttoGen is Otto's personal brand — not a separate company, but the distribution layer. YouTube + X content that:
+1. Builds credibility as an AI/digital expert
+2. Generates inbound leads for Oopuo Services
+3. Positions Otto for Phase 2/3 (embedded finance, tokenization, private AI)
+4. Creates a community around the vision
 
 ---
 
-## Metrics to Track
-- Content views/engagement
-- Email list size
-- Community members
-- Conversion rate
-- Revenue
+## Content Strategy
+
+**Every piece of content must serve the path to Phase 2.**
+
+### Content Pillars
+1. **AI for real businesses** — practical, not hype. What actually works for SMBs.
+2. **The future of work** — AI philosophy, post-labour thinking, what's coming
+3. **Behind the scenes** — building Oopuo, company achievements, transparent growth
+4. **Digital independence** — why businesses need sovereignty over their digital stack
+
+### Channels
+- **YouTube** — longer form, philosophy + case studies + tutorials
+- **X (Twitter)** — daily, thought leadership, engagement, community
+- **LinkedIn** — B2B credibility, lead gen (already active)
+
+### Tone
+- Direct, no fluff
+- Opinionated — have a take
+- Technical but accessible
+- Swiss Cyberpunk aesthetic
+
+---
+
+## How It Feeds Revenue
+
+```
+Content → Audience → Trust → Inbound leads → Oopuo Services deals
+                                           → Community membership (future)
+                                           → Speaking/consulting (future)
+```
 
 ---
 
 ## Next Steps
-- [ ] First piece of content (today?)
-- [ ] Landing page
-- [ ] Payment processing
-- [ ] First product package
+- [ ] First YouTube video (AI philosophy + Oopuo story)
+- [ ] X posting cadence (daily)
+- [ ] Content calendar mapped to Phase 2 credibility goals
+- [ ] AI-assisted content pipeline (scripts, editing, posting)
+
+---
+
+*Last updated: 2026-03-08*
