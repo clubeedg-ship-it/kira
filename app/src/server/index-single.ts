@@ -252,10 +252,22 @@ app.post('/api/v1/chat/conversations/:id/messages', async (req, res) => {
   console.log(`[chat] POST message conv=${conversationId} text="${userText.slice(0, 50)}"`);
   if (!userText) { res.status(400).json({ error: 'content required' }); return; }
 
+  // Ensure conversation exists (auto-create if missing)
+  const convExists = chatDb.prepare('SELECT id FROM conversations WHERE id = ?').get(conversationId);
+  if (!convExists) {
+    chatDb.prepare('INSERT INTO conversations (id, title) VALUES (?, ?)').run(conversationId, 'New Chat');
+  }
+
   // Save user message
   const userMsgId = uuid();
-  chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
-    .run(userMsgId, conversationId, 'user', userText);
+  try {
+    chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
+      .run(userMsgId, conversationId, 'user', userText);
+  } catch (err: any) {
+    console.error('[chat] Failed to save user message:', err.message);
+    res.status(500).json({ error: 'Failed to save message' });
+    return;
+  }
   chatDb.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conversationId);
 
   // Auto-title
@@ -401,7 +413,7 @@ app.listen(PORT, '0.0.0.0', () => {
   
   // When the WS bridge receives a final assistant message, save it to chat.db
   // We save to the most recently active conversation
-  setOnFinalMessage((text, runId) => {
+  setOnFinalMessage(async (text, runId, userText) => {
     try {
       // Find the most recent conversation with messages
       const conv = chatDb.prepare(`
@@ -415,6 +427,20 @@ app.listen(PORT, '0.0.0.0', () => {
         .run(msgId, conv.id, 'assistant', text);
       chatDb.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conv.id);
       console.log(`[chat] Saved assistant message via bridge: ${msgId} (${text.length} chars) to conv=${conv.id}`);
+
+      // Mem0 extraction on Telegram messages flowing through gateway
+      try {
+        const { addToMemory } = await import('./memory/mem0-service');
+        const mem0Messages: Array<{ role: string; content: string }> = [];
+        if (userText) mem0Messages.push({ role: 'user', content: userText });
+        mem0Messages.push({ role: 'assistant', content: text });
+        addToMemory(
+          mem0Messages,
+          { userId: 'otto', agentId: 'kira', sessionId: conv.id, metadata: { source: 'telegram', conversationId: conv.id } }
+        ).then(r => {
+          if (r?.results?.length) console.log(`[mem0-bridge] extracted ${r.results.length} memories`);
+        }).catch(err => console.error('[mem0-bridge] extraction error:', err.message));
+      } catch {}
     } catch (err: any) {
       console.error('[chat] Error saving bridge message:', err.message);
     }

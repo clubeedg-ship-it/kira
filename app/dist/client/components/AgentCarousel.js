@@ -22,11 +22,11 @@ export default function AgentCarousel() {
         queryKey: ['openclaw-agents-carousel'],
         queryFn: async () => {
             try {
-                const resp = await fetch('/api/v1/agents/openclaw', { credentials: 'include' });
+                const resp = await fetch('/api/v1/agents/runs?status=all&limit=10', { credentials: 'include' });
                 if (!resp.ok)
                     return [];
                 const json = await resp.json();
-                return json.data || [];
+                return Array.isArray(json.data) ? json.data : [];
             }
             catch {
                 return [];

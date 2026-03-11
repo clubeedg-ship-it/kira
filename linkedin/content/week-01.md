@@ -8,7 +8,7 @@
 ```
 At 18, I moved to the Netherlands alone. No money, no network, no safety net.
 
-Today I run three companies at the intersection of technology and human potential.
+Today I run Oopuo — a group of companies at the intersection of technology and human potential.
 
 Here's what nobody tells you about building something from nothing:
 
@@ -18,13 +18,13 @@ Here's what nobody tells you about building something from nothing:
 
 3. Speed beats perfection. 500+ installations later, our first prototype would embarrass me. But it worked. And it shipped.
 
-Now I'm applying these same lessons to corporate wellness (ZenithCred) and AI for small businesses (OttoGen).
+Now through Oopuo, I'm applying these same lessons to corporate wellness (ZenithCred) and AI services for businesses.
 
 The common thread? Technology should make people MOVE — physically, mentally, professionally.
 
 What's one lesson you learned the hard way as a founder? 👇
 
-#startup #entrepreneurship #interactivetechnology #netherlands #founder
+#startup #entrepreneurship #interactivetechnology #netherlands #founder #oopuo
 ```
 
 ---

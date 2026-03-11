@@ -6,6 +6,7 @@
  * Also captures assistant responses to save to chat.db.
  */
 import WebSocket from 'ws';
+import { addToMemory } from './memory/mem0-service';
 
 export interface AgentActivity {
   state: 'idle' | 'thinking' | 'streaming' | 'tool_call';
@@ -38,7 +39,10 @@ let currentActivity: AgentActivity = { state: 'idle', updatedAt: Date.now() };
 let rpcIdCounter = 0;
 
 // Callback for saving messages to chat.db
-let onFinalMessage: ((text: string, runId?: string) => void) | null = null;
+let onFinalMessage: ((text: string, runId?: string, userText?: string) => void) | null = null;
+
+// Track user input per session for Mem0 context pairing
+const userInputBySession = new Map<string, string>();
 
 const GATEWAY_WS_URL = process.env.OPENCLAW_GATEWAY_WS || 'ws://127.0.0.1:18789';
 const GATEWAY_TOKEN = process.env.OPENCLAW_GATEWAY_TOKEN || 'cf56f0d0881f98620828918a6b1d782344483ee54713b226';
@@ -143,6 +147,15 @@ function handleChatEvent(payload: any) {
   if (!payload) return;
   const { state, runId, sessionKey, message } = payload;
   
+  // Capture user input if present in the payload (varies by gateway version)
+  const userInput = payload.userMessage?.content?.[0]?.text
+    || payload.userMessage?.text
+    || payload.input?.text
+    || payload.prompt;
+  if (userInput && sessionKey) {
+    userInputBySession.set(sessionKey, userInput);
+  }
+  
   switch (state) {
     case 'delta': {
       const text = message?.content?.[0]?.text || '';
@@ -156,11 +169,14 @@ function handleChatEvent(payload: any) {
     }
     case 'final': {
       const text = message?.content?.[0]?.text || '';
+      // Retrieve captured user input for this session
+      const capturedUserInput = sessionKey ? userInputBySession.get(sessionKey) : undefined;
+      if (sessionKey) userInputBySession.delete(sessionKey);
       // Forward final message
       broadcastChat({ type: 'final', runId, sessionKey, text });
       // Save to chat.db if we have a callback
       if (text && onFinalMessage) {
-        onFinalMessage(text, runId);
+        onFinalMessage(text, runId, capturedUserInput);
       }
       setActivity({
         state: 'idle', runId: undefined, sessionKey: undefined, text: undefined,
@@ -187,7 +203,7 @@ function handleChatEvent(payload: any) {
 }
 
 // Called from server to register the DB save callback
-export function setOnFinalMessage(cb: (text: string, runId?: string) => void) {
+export function setOnFinalMessage(cb: (text: string, runId?: string, userText?: string) => void) {
   onFinalMessage = cb;
 }
 

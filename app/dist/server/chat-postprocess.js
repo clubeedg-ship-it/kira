@@ -1,31 +1,38 @@
 import { eq, and } from 'drizzle-orm';
 import { db } from '../db/index';
 import { conversations, messages, entities, extractedSuggestions } from '../db/schema';
-import { extractFromText, mergeExtractions } from './nlp-extract';
-import { storeExtractions } from './nlp-store';
+import { addToMemory } from './memory/mem0-service';
 /**
  * Post-process assistant messages after they're stored.
  * Fire-and-forget — never block the chat response.
+ *
+ * Uses Mem0 for intelligent memory extraction (replaces heuristic NLP).
  */
 export async function postProcessMessage(userId, conversationId, content, userContent) {
     await Promise.allSettled([
         autoTitle(userId, conversationId),
         extractTasks(userId, conversationId, content),
-        extractEntities(userId, conversationId, content),
-        nlpExtractAndStore(userId, content, userContent),
+        mem0Extract(userId, conversationId, content, userContent),
     ]);
 }
 /**
- * NLP extraction: extract entities, facts, relations from both user and assistant
- * messages, merge, and store to the knowledge graph.
+ * Mem0 extraction: send the conversation turn to Mem0 for intelligent
+ * entity/fact/relation extraction, deduplication, and storage.
+ * Replaces the old heuristic nlpExtractAndStore.
  */
-async function nlpExtractAndStore(userId, assistantContent, userContent) {
-    const assistantResult = extractFromText(assistantContent);
-    const userResult = userContent ? extractFromText(userContent) : { entities: [], facts: [], relations: [] };
-    const merged = mergeExtractions(assistantResult, userResult);
-    if (merged.entities.length || merged.facts.length || merged.relations.length) {
-        await storeExtractions(userId, merged);
-    }
+async function mem0Extract(userId, conversationId, assistantContent, userContent) {
+    const msgs = [];
+    if (userContent)
+        msgs.push({ role: 'user', content: userContent });
+    msgs.push({ role: 'assistant', content: assistantContent });
+    if (msgs.length === 0)
+        return;
+    await addToMemory(msgs, {
+        userId,
+        agentId: 'kira',
+        sessionId: conversationId,
+        metadata: { conversationId, source: 'chat' },
+    });
 }
 /**
  * Auto-title: If the conversation title is still "New conversation",

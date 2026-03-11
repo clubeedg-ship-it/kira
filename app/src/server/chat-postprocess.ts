@@ -1,12 +1,15 @@
 import { eq, and, sql } from 'drizzle-orm';
 import { db } from '../db/index';
-import { conversations, messages, entities, extractedSuggestions } from '../db/schema';
-import { extractFromText, mergeExtractions } from './nlp-extract';
-import { storeExtractions } from './nlp-store';
+import { conversations, messages } from '../db/schema';
+import { addToMemory } from './memory/mem0-service';
+import { extractTasksLLM } from './task-extractor';
 
 /**
  * Post-process assistant messages after they're stored.
  * Fire-and-forget — never block the chat response.
+ *
+ * Uses Mem0 for intelligent memory extraction (replaces heuristic NLP).
+ * Uses Kimi K2.5 for LLM-powered task extraction.
  */
 export async function postProcessMessage(
   userId: string,
@@ -16,28 +19,34 @@ export async function postProcessMessage(
 ): Promise<void> {
   await Promise.allSettled([
     autoTitle(userId, conversationId),
-    extractTasks(userId, conversationId, content),
-    extractEntities(userId, conversationId, content),
-    nlpExtractAndStore(userId, content, userContent),
+    extractTasksLLM(userId, conversationId, content, userContent),
+    mem0Extract(userId, conversationId, content, userContent),
   ]);
 }
 
 /**
- * NLP extraction: extract entities, facts, relations from both user and assistant
- * messages, merge, and store to the knowledge graph.
+ * Mem0 extraction: send the conversation turn to Mem0 for intelligent
+ * entity/fact/relation extraction, deduplication, and storage.
+ * Replaces the old heuristic nlpExtractAndStore.
  */
-async function nlpExtractAndStore(
+async function mem0Extract(
   userId: string,
+  conversationId: string,
   assistantContent: string,
   userContent?: string,
 ): Promise<void> {
-  const assistantResult = extractFromText(assistantContent);
-  const userResult = userContent ? extractFromText(userContent) : { entities: [], facts: [], relations: [] };
-  const merged = mergeExtractions(assistantResult, userResult);
+  const msgs: Array<{ role: string; content: string }> = [];
+  if (userContent) msgs.push({ role: 'user', content: userContent });
+  msgs.push({ role: 'assistant', content: assistantContent });
 
-  if (merged.entities.length || merged.facts.length || merged.relations.length) {
-    await storeExtractions(userId, merged);
-  }
+  if (msgs.length === 0) return;
+
+  await addToMemory(msgs, {
+    userId,
+    agentId: 'kira',
+    sessionId: conversationId,
+    metadata: { conversationId, source: 'chat' },
+  });
 }
 
 /**
@@ -90,102 +99,6 @@ async function autoTitle(userId: string, conversationId: string): Promise<void> 
     .where(and(eq(conversations.id, conversationId), eq(conversations.userId, userId)));
 }
 
-/**
- * Extract task-like patterns from assistant message.
- */
-async function extractTasks(
-  userId: string,
-  conversationId: string,
-  content: string,
-): Promise<void> {
-  const taskPatterns = [
-    /Created task[:\s]+["']?(.+?)["']?\s*$/gim,
-    /(?:TODO|TASK|Action item)[:\s]+(.+?)$/gim,
-    /(?:You should|I recommend|I suggest|Consider)\s+(.{10,80}?)(?:\.|$)/gim,
-  ];
-
-  const extracted = new Set<string>();
-
-  for (const pattern of taskPatterns) {
-    let match;
-    while ((match = pattern.exec(content)) !== null) {
-      const task = match[1].trim();
-      if (task.length >= 5 && task.length <= 200) {
-        extracted.add(task);
-      }
-    }
-  }
-
-  if (extracted.size === 0) return;
-
-  const values = Array.from(extracted).map((task) => ({
-    userId,
-    conversationId,
-    type: 'task' as const,
-    content: task,
-    metadata: { source: 'auto-extract' },
-    status: 'pending' as const,
-  }));
-
-  await db.insert(extractedSuggestions).values(values);
-}
-
-/**
- * Extract entities (capitalized multi-word phrases) from assistant message.
- */
-async function extractEntities(
-  userId: string,
-  conversationId: string,
-  content: string,
-): Promise<void> {
-  // Match capitalized multi-word phrases (2-4 words, likely names/companies)
-  const entityPattern = /\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b/g;
-
-  // Common false positives to skip
-  const skipList = new Set([
-    'New York', 'United States', 'The End', 'Thank You',
-    'Good Morning', 'Good Evening', 'Good Night', 'No Problem',
-    'Of Course', 'For Example', 'In Addition', 'On The',
-    'Created Task', 'Action Item',
-  ]);
-
-  const extracted = new Set<string>();
-  let match;
-  while ((match = entityPattern.exec(content)) !== null) {
-    const entity = match[1].trim();
-    if (!skipList.has(entity) && entity.length >= 4) {
-      extracted.add(entity);
-    }
-  }
-
-  if (extracted.size === 0) return;
-
-  for (const name of extracted) {
-    // Check if entity already exists for this user
-    const [existing] = await db
-      .select({ id: entities.id })
-      .from(entities)
-      .where(and(eq(entities.userId, userId), eq(entities.name, name)))
-      .limit(1);
-
-    if (!existing) {
-      // Insert into knowledge graph
-      await db.insert(entities).values({
-        userId,
-        type: 'auto-extracted',
-        name,
-        properties: { source: 'chat', conversationId },
-      });
-    }
-
-    // Also store as suggestion
-    await db.insert(extractedSuggestions).values({
-      userId,
-      conversationId,
-      type: 'entity',
-      content: name,
-      metadata: { source: 'auto-extract' },
-      status: 'pending',
-    });
-  }
-}
+// Old extractTasks (regex) and extractEntities removed — replaced by:
+// - extractTasksLLM (GPT-4.1-nano, ~3s, accurate)
+// - Mem0 (handles entity/fact extraction automatically)

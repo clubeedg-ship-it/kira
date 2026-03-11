@@ -3,6 +3,8 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { skillsRouter } from './routes/skills';
+import { initGatewayBridge, addSSEClient, removeSSEClient, getActivity, setOnFinalMessage } from './gateway-bridge';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const KIRA_HOME = process.env.KIRA_HOME || '/home/adminuser/kira';
@@ -11,6 +13,7 @@ const MEMORY_DIR = path.join(KIRA_HOME, 'memory');
 const GATEWAY_URL = "http://127.0.0.1:18789";
 const GATEWAY_TOKEN = process.env.OPENCLAW_GATEWAY_TOKEN || "cf56f0d0881f98620828918a6b1d782344483ee54713b226";
 const PORT = parseInt(process.env.PORT || '3847', 10);
+console.log('[kira-app] GATEWAY MODE v3 —', GATEWAY_URL);
 // Open unified.db read-only for knowledge graph
 let db = null;
 try {
@@ -41,6 +44,16 @@ chatDb.exec(`
     created_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE
   );
+  CREATE TABLE IF NOT EXISTS panels (
+    id TEXT PRIMARY KEY,
+    conversation_id TEXT NOT NULL,
+    agent_id TEXT,
+    title TEXT DEFAULT 'New Chat',
+    position INTEGER DEFAULT 0,
+    is_active INTEGER DEFAULT 1,
+    created_at TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE
+  );
 `);
 function query(sql, params = []) {
     if (!db)
@@ -64,21 +77,43 @@ function queryOne(sql, params = []) {
 }
 const app = express();
 app.use(express.json());
+// Request logger — log all API requests
+app.use('/api', (req, _res, next) => {
+    console.log(`[req] ${req.method} ${req.path} from ${req.ip}`);
+    next();
+});
 // Serve static build if exists
 const clientDist = path.join(__dirname, '../../dist/client');
 if (fs.existsSync(clientDist)) {
-    app.use(express.static(clientDist));
+    // Cache JS/CSS assets (they have content hashes), but never cache HTML
+    app.use(express.static(clientDist, {
+        setHeaders: (res, filePath) => {
+            if (filePath.endsWith('.html')) {
+                res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+            }
+        },
+    }));
 }
 const wrap = (data) => ({ data });
 // Health & Config
 app.get('/api/health', (_r, res) => res.json({ status: 'ok', singleTenant: true }));
 app.get('/api/v1/config', (_r, res) => res.json({ singleTenant: true }));
-// SSE Events
-app.get('/api/v1/events', (_req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
+// SSE Events — wired to gateway bridge for real-time agent activity
+app.get('/api/v1/events/stream', (_req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive', 'X-Accel-Buffering': 'no' });
     res.write('data: {"type":"connected"}\n\n');
-    const iv = setInterval(() => res.write(': keepalive\n\n'), 30000);
-    _req.on('close', () => clearInterval(iv));
+    // Send current activity state immediately so refreshed clients know what's happening
+    res.write(`event: activity\ndata: ${JSON.stringify(getActivity())}\n\n`);
+    const clientId = addSSEClient(res);
+    const iv = setInterval(() => { try {
+        res.write(': keepalive\n\n');
+    }
+    catch { } }, 15000);
+    _req.on('close', () => { clearInterval(iv); removeSSEClient(clientId); });
+});
+// Agent activity status (polling fallback)
+app.get('/api/v1/agent/activity', (_req, res) => {
+    res.json({ data: getActivity() });
 });
 // Knowledge Graph
 app.get('/api/v1/knowledge/entities', (req, res) => {
@@ -217,135 +252,65 @@ app.get('/api/v1/chat/history', (_req, res) => {
   `).all();
     res.json({ data: rows });
 });
-// Send message — stream directly from OpenClaw gateway
-app.post('/api/v1/chat/conversations/:id/messages', (req, res) => {
+// Send message — fire-and-forget to gateway, response comes via WS bridge SSE
+app.post('/api/v1/chat/conversations/:id/messages', async (req, res) => {
     const conversationId = req.params.id;
     const { content, message } = req.body || {};
     const userText = content || message || '';
+    console.log(`[chat] POST message conv=${conversationId} text="${userText.slice(0, 50)}"`);
     if (!userText) {
         res.status(400).json({ error: 'content required' });
         return;
     }
+    // Ensure conversation exists (auto-create if missing)
+    const convExists = chatDb.prepare('SELECT id FROM conversations WHERE id = ?').get(conversationId);
+    if (!convExists) {
+        chatDb.prepare('INSERT INTO conversations (id, title) VALUES (?, ?)').run(conversationId, 'New Chat');
+    }
     // Save user message
     const userMsgId = uuid();
-    chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
-        .run(userMsgId, conversationId, 'user', userText);
-    chatDb.prepare(`UPDATE conversations SET updated_at = datetime('now') WHERE id = ?`).run(conversationId);
-    // Auto-title from first message
+    try {
+        chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
+            .run(userMsgId, conversationId, 'user', userText);
+    }
+    catch (err) {
+        console.error('[chat] Failed to save user message:', err.message);
+        res.status(500).json({ error: 'Failed to save message' });
+        return;
+    }
+    chatDb.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conversationId);
+    // Auto-title
     const msgCount = chatDb.prepare('SELECT COUNT(*) as c FROM messages WHERE conversation_id = ?').get(conversationId)?.c || 0;
     if (msgCount <= 1) {
         const autoTitle = userText.slice(0, 60) + (userText.length > 60 ? '...' : '');
         chatDb.prepare('UPDATE conversations SET title = ? WHERE id = ?').run(autoTitle, conversationId);
     }
-    // SSE headers
-    res.writeHead(200, {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-        'X-Accel-Buffering': 'no',
-    });
-    res.flushHeaders();
-    // Stream directly from OpenClaw gateway
-    const gatewayChatUrl = `${GATEWAY_URL}/v1/chat/completions`;
-    const postBody = JSON.stringify({
-        model: 'openclaw:main',
-        messages: [{ role: 'user', content: userText }],
-        stream: true,
-    });
-    const controller = new AbortController();
-    req.on('close', () => controller.abort());
-    (async () => {
-        try {
-            const upstream = await fetch(gatewayChatUrl, {
-                method: 'POST',
-                headers: {
-                    Authorization: `Bearer ${GATEWAY_TOKEN}`,
-                    'Content-Type': 'application/json',
-                    'x-openclaw-agent-id': 'main',
-                    'x-openclaw-session-key': 'agent:main:main',
-                },
-                body: postBody,
-                signal: controller.signal,
-            });
-            if (!upstream.ok || !upstream.body) {
-                const errBody = await upstream.text().catch(() => '');
-                const error = errBody
-                    ? `Gateway returned ${upstream.status}: ${errBody}`
-                    : `Gateway returned ${upstream.status}`;
-                if (!res.writableEnded) {
-                    res.write(`data: ${JSON.stringify({ type: 'error', error })}\n\n`);
-                    res.write(`data: ${JSON.stringify({ type: 'done' })}\n\n`);
-                    res.end();
-                }
-                return;
-            }
-            let fullResponse = '';
-            let buffer = '';
-            const reader = upstream.body.getReader();
-            const decoder = new TextDecoder();
-            let gotDone = false;
-            const saveAssistantMessage = () => {
-                if (!fullResponse.trim())
-                    return;
-                chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
-                    .run(uuid(), conversationId, 'assistant', fullResponse.trim());
-                chatDb.prepare(`UPDATE conversations SET updated_at = datetime('now') WHERE id = ?`).run(conversationId);
-            };
-            const processDataLine = (line) => {
-                if (!line.startsWith('data:'))
-                    return;
-                const payload = line.slice(5).trim();
-                if (!payload)
-                    return;
-                if (payload === '[DONE]') {
-                    gotDone = true;
-                    return;
-                }
-                try {
-                    const evt = JSON.parse(payload);
-                    const delta = evt?.choices?.[0]?.delta?.content;
-                    if (typeof delta === 'string' && delta.length > 0) {
-                        fullResponse += delta;
-                        res.write(`data: ${JSON.stringify({ type: 'delta', content: delta })}\n\n`);
-                    }
-                }
-                catch { }
-            };
-            readLoop: while (true) {
-                const { done, value } = await reader.read();
-                if (done)
-                    break;
-                buffer += decoder.decode(value, { stream: true });
-                const lines = buffer.split(/\r?\n/);
-                buffer = lines.pop() || '';
-                for (const line of lines) {
-                    processDataLine(line.trim());
-                    if (gotDone)
-                        break readLoop;
-                }
-            }
-            // Handle any trailing partial line
-            if (!gotDone && buffer.trim()) {
-                processDataLine(buffer.trim());
-            }
-            saveAssistantMessage();
-            if (!res.writableEnded) {
-                res.write(`data: ${JSON.stringify({ type: 'done' })}\n\n`);
-                res.end();
-            }
-        }
-        catch (err) {
-            if (err.name === 'AbortError')
-                return;
-            console.error('[chat gateway] error:', err.message);
-            try {
-                res.write(`data: ${JSON.stringify({ type: 'error', error: err.message })}\n\n`);
-                res.write(`data: ${JSON.stringify({ type: 'done' })}\n\n`);
-                res.end();
-            }
-            catch { }
-        }
-    })();
+    // Send to gateway (fire-and-forget — response comes via WS bridge)
+    try {
+        const upstream = await fetch(GATEWAY_URL + '/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + GATEWAY_TOKEN,
+                'Content-Type': 'application/json',
+                'x-openclaw-agent-id': 'main',
+            },
+            body: JSON.stringify({
+                model: 'openclaw:main',
+                messages: [{ role: 'user', content: userText }],
+                stream: false,
+                user: 'kira-dashboard',
+            }),
+        });
+        console.log(`[chat] Gateway accepted: ${upstream.status}`);
+        // We don't need the response body — the WS bridge captures the streamed events
+        // Just drain it to avoid memory leaks
+        upstream.body?.cancel().catch(() => { });
+    }
+    catch (err) {
+        console.error('[chat] Gateway send error:', err.message);
+    }
+    // Return immediately with the saved user message
+    res.json({ data: { id: userMsgId, conversationId, role: 'user', content: userText, createdAt: new Date().toISOString() } });
 });
 // Stubs
 const emptyArrayRoutes = ['tasks', 'projects', 'objectives', 'areas', 'agents', 'vision', 'dashboards', 'reviews', 'time-blocks', 'principles'];
@@ -368,11 +333,113 @@ app.patch('/api/v1/settings', (req, res) => {
     res.json(wrap(merged));
 });
 app.get('/api/v1/xp', (_r, res) => res.json(wrap({ level: 1, xp: 0 })));
+// ── Panels ──────────────────────────────────────────────────────────
+app.get('/api/v1/panels', (_r, res) => {
+    const rows = chatDb.prepare(`
+    SELECT id, conversation_id as conversationId, agent_id as agentId, title, position, is_active as isActive
+    FROM panels ORDER BY position ASC
+  `).all();
+    console.log(`[panels] GET /api/v1/panels → ${rows.length} panels`);
+    res.json({ data: rows });
+});
+app.post('/api/v1/panels', (req, res) => {
+    console.log(`[panels] POST /api/v1/panels — body:`, JSON.stringify(req.body));
+    const { title, agentId } = req.body || {};
+    const convId = uuid();
+    const panelId = uuid();
+    const panelTitle = title || 'New Chat';
+    chatDb.prepare('INSERT INTO conversations (id, title) VALUES (?, ?)').run(convId, panelTitle);
+    const pos = chatDb.prepare('SELECT COUNT(*) as c FROM panels').get()?.c || 0;
+    chatDb.prepare('INSERT INTO panels (id, conversation_id, agent_id, title, position) VALUES (?, ?, ?, ?, ?)')
+        .run(panelId, convId, agentId || null, panelTitle, pos);
+    res.json({ data: {
+            id: panelId,
+            conversationId: convId,
+            agentId: agentId || null,
+            title: panelTitle,
+            position: pos,
+            isActive: 1,
+            conversation: { id: convId, title: panelTitle },
+        } });
+});
+app.delete('/api/v1/panels/:id', (req, res) => {
+    chatDb.prepare('DELETE FROM panels WHERE id = ?').run(req.params.id);
+    res.json({ data: { ok: true } });
+});
+// User agents stub
+app.get('/api/v1/user-agents', (_r, res) => res.json({ data: [] }));
+app.get('/api/v1/user-agents/runs/recent', (_r, res) => res.json({ data: [] }));
+// ── Skills (real router, bridged to OpenClaw) ────────────────────────────
+app.use('/api/v1/skills', skillsRouter);
+// ── Transcribe (voice input → Whisper) ───────────────────────────────────
+import { transcribeRouter } from './routes/transcribe';
+app.use('/api/v1/transcribe', transcribeRouter);
+// ── Agents / OpenClaw bridge ─────────────────────────────────────────────
+app.get('/api/v1/agents/openclaw', async (_r, res) => {
+    try {
+        const { execFile } = await import('child_process');
+        const { promisify } = await import('util');
+        const execFileAsync = promisify(execFile);
+        const { stdout } = await execFileAsync('openclaw', ['skills', 'check', '--json'], {
+            timeout: 15_000,
+            env: { ...process.env },
+        });
+        const parsed = JSON.parse(stdout);
+        res.json({ data: parsed });
+    }
+    catch (err) {
+        res.json({ data: { eligible: [], disabled: [], blocked: [], missingRequirements: [] } });
+    }
+});
 // Catch-all for unknown /api/v1 routes
-app.all('/api/v1/*', (_r, res) => res.json({ data: [] }));
+app.all('/api/v1/*', (req, res) => {
+    console.log(`[catch-all] ${req.method} ${req.path}`);
+    res.json({ data: [] });
+});
 // SPA fallback
 if (fs.existsSync(clientDist)) {
-    app.get('*', (_r, res) => res.sendFile(path.join(clientDist, 'index.html')));
+    app.get('*', (_r, res) => {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.sendFile(path.join(clientDist, 'index.html'));
+    });
 }
-app.listen(PORT, '0.0.0.0', () => console.log(`Kira single-tenant server on :${PORT}`));
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Kira single-tenant server on :${PORT}`);
+    initGatewayBridge();
+    // When the WS bridge receives a final assistant message, save it to chat.db
+    // We save to the most recently active conversation
+    setOnFinalMessage(async (text, runId, userText) => {
+        try {
+            // Find the most recent conversation with messages
+            const conv = chatDb.prepare(`
+        SELECT c.id FROM conversations c
+        JOIN messages m ON m.conversation_id = c.id
+        ORDER BY m.created_at DESC LIMIT 1
+      `).get();
+            if (!conv)
+                return;
+            const msgId = uuid();
+            chatDb.prepare('INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)')
+                .run(msgId, conv.id, 'assistant', text);
+            chatDb.prepare("UPDATE conversations SET updated_at = datetime('now') WHERE id = ?").run(conv.id);
+            console.log(`[chat] Saved assistant message via bridge: ${msgId} (${text.length} chars) to conv=${conv.id}`);
+            // Mem0 extraction on Telegram messages flowing through gateway
+            try {
+                const { addToMemory } = await import('./memory/mem0-service');
+                const mem0Messages = [];
+                if (userText)
+                    mem0Messages.push({ role: 'user', content: userText });
+                mem0Messages.push({ role: 'assistant', content: text });
+                addToMemory(mem0Messages, { userId: 'otto', agentId: 'kira', sessionId: conv.id, metadata: { source: 'telegram', conversationId: conv.id } }).then(r => {
+                    if (r?.results?.length)
+                        console.log(`[mem0-bridge] extracted ${r.results.length} memories`);
+                }).catch(err => console.error('[mem0-bridge] extraction error:', err.message));
+            }
+            catch { }
+        }
+        catch (err) {
+            console.error('[chat] Error saving bridge message:', err.message);
+        }
+    });
+});
 //# sourceMappingURL=index-single.js.map

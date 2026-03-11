@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { I18nProvider } from './i18n';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import AppShell from './components/layout/AppShell';
 import QuickAdd from './components/QuickAdd';
 import { useGlobalShortcuts } from './hooks/useGlobalShortcuts';
@@ -41,6 +42,6 @@ function AppWithShortcuts() {
     return (_jsxs(_Fragment, { children: [_jsxs(Routes, { children: [_jsx(Route, { path: "/login", element: _jsx(Login, {}) }), _jsx(Route, { path: "/signup", element: _jsx(Signup, {}) }), _jsxs(Route, { element: _jsx(AppShell, {}), children: [_jsx(Route, { index: true, element: _jsx(CommandCenter, {}) }), _jsx(Route, { path: "/inbox", element: _jsx(Inbox, {}) }), _jsx(Route, { path: "/chat", element: _jsx(Chat, {}) }), _jsx(Route, { path: "/operations", element: _jsx(Navigate, { to: "/operations/today", replace: true }) }), _jsx(Route, { path: "/operations/today", element: _jsx(TodayView, {}) }), _jsx(Route, { path: "/operations/board", element: _jsx(BoardView, {}) }), _jsx(Route, { path: "/documents", element: _jsx(Documents, {}) }), _jsx(Route, { path: "/knowledge", element: _jsx(Knowledge, {}) }), _jsx(Route, { path: "/memory", element: _jsx(Memory, {}) }), _jsx(Route, { path: "/dashboards", element: _jsx(Dashboards, {}) }), _jsx(Route, { path: "/agents", element: _jsx(Agents, {}) }), _jsx(Route, { path: "/agents/monitor", element: _jsx(AgentMonitor, {}) }), _jsx(Route, { path: "/canvas/:id", element: _jsx(CanvasPage, {}) }), _jsx(Route, { path: "/skills", element: _jsx(Skills, {}) }), _jsx(Route, { path: "/settings", element: _jsx(Settings, {}) })] }), _jsx(Route, { path: "*", element: _jsx(Navigate, { to: "/", replace: true }) })] }), _jsx(QuickAdd, { open: quickAddOpen, onClose: closeQuickAdd })] }));
 }
 export default function App() {
-    return (_jsx(QueryClientProvider, { client: queryClient, children: _jsx(I18nProvider, { children: _jsx(BrowserRouter, { children: _jsx(AppWithShortcuts, {}) }) }) }));
+    return (_jsx(QueryClientProvider, { client: queryClient, children: _jsx(I18nProvider, { children: _jsx(ErrorBoundary, { children: _jsx(BrowserRouter, { children: _jsx(AppWithShortcuts, {}) }) }) }) }));
 }
 //# sourceMappingURL=App.js.map

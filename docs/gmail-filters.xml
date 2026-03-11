@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+  <title>Oopuo Gmail Filters</title>
+  
+  <entry>
+    <category term='filter'/>
+    <title>Inbound (info@)</title>
+    <apps:property name='to' value='info@oopuo.com'/>
+    <apps:property name='label' value='📥 Inbound'/>
+    <apps:property name='shouldStar' value='true'/>
+  </entry>
+  
+  <entry>
+    <category term='filter'/>
+    <title>Finance</title>
+    <apps:property name='to' value='finance@oopuo.com'/>
+    <apps:property name='label' value='💰 Finance'/>
+    <apps:property name='shouldArchive' value='true'/>
+  </entry>
+  
+  <entry>
+    <category term='filter'/>
+    <title>Support</title>
+    <apps:property name='to' value='support@oopuo.com'/>
+    <apps:property name='label' value='🎧 Support'/>
+    <apps:property name='shouldStar' value='true'/>
+  </entry>
+  
+  <entry>
+    <category term='filter'/>
+    <title>Hello</title>
+    <apps:property name='to' value='hello@oopuo.com'/>
+    <apps:property name='label' value='👋 Hello'/>
+  </entry>
+</feed>

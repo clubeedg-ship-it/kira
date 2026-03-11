@@ -21,11 +21,11 @@ What DOES change behavior: gamification.
 
 When movement becomes a game — with real-time feedback, team competition, and rewards — participation goes from 15% to 80%+.
 
-That's exactly what we're building at ZenithCred: interactive light panels + biofeedback + gamification tokens that make workplace wellness something people actually WANT to do.
+That's exactly what we're building at ZenithCred (an Oopuo company): interactive light panels + biofeedback + gamification tokens that make workplace wellness something people actually WANT to do.
 
 Currently piloting with Dutch companies. DM if your organization wants to be among the first.
 
-#corporatewellness #employeewellbeing #gamification #hrtech #zenithcred
+#corporatewellness #employeewellbeing #gamification #hrtech #zenithcred #oopuo
 ```
 
 ---
@@ -34,25 +34,25 @@ Currently piloting with Dutch companies. DM if your organization wants to be amo
 **Post type:** Photo of workspace/hardware + casual text
 
 ```
-Mensen vragen me: "Hoe manage je drie bedrijven tegelijk?"
+Mensen vragen me: "Hoe manage je meerdere bedrijven tegelijk?"
 
 Eerlijk antwoord: niet altijd even elegant.
 
-Maar hier is het systeem:
+Maar hier is het systeem achter Oopuo:
 
 1. InterActiveMove draait op bewezen processen — 10+ jaar ervaring, sterk partnernetwerk. Dit is de motor.
 
 2. ZenithCred is de volgende stap — dezelfde technologie, nieuw segment (corporate wellness). De R&D overlapt.
 
-3. OttoGen is hoe we AI gebruiken om alles sneller en slimmer te doen — én dat delen met andere bedrijven.
+3. AI-diensten helpen ons alles sneller en slimmer te doen — én dat delen we met andere bedrijven.
 
-Ze versterken elkaar. IAM bewijst de technologie. ZenithCred schaalt het. OttoGen optimaliseert alles.
+Ze versterken elkaar. IAM bewijst de technologie. ZenithCred schaalt het. AI optimaliseert alles.
 
 Het geheim? Niet alles zelf doen. De juiste mensen, de juiste tools, en de discipline om te focussen.
 
 Wat is jouw geheim om meerdere projecten te balanceren? 👇
 
-#ondernemer #startup #nederland #multitasking #founder
+#ondernemer #startup #nederland #oopuo #founder
 ```
 
 ---

@@ -29,6 +29,7 @@ import { sandboxRouter } from './sandbox';
 import { canvasRouter } from './canvas';
 import { identityRouter } from './identity';
 import { memoryRouter } from './memory';
+import { mem0Router } from './mem0';
 import { skillsRouter } from './skills';
 const apiV1Router = Router();
 // Chat files: serve endpoint is public, upload requires auth (handled inside)
@@ -65,6 +66,7 @@ apiV1Router.use('/sandbox', sandboxRouter);
 apiV1Router.use('/canvas', canvasRouter);
 apiV1Router.use('/identity', identityRouter);
 apiV1Router.use('/memory', memoryRouter);
+apiV1Router.use('/mem0', mem0Router);
 apiV1Router.use('/skills', skillsRouter);
 export { apiV1Router };
 //# sourceMappingURL=index.js.map

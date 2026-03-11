@@ -2,7 +2,7 @@
 
 ---
 
-## Tuesday — AI for SMBs (OttoGen angle)
+## Tuesday — AI for SMBs (Oopuo angle)
 **Post type:** Text with infographic
 
 ```
@@ -22,11 +22,11 @@ After helping dozens of businesses integrate AI, here are the 3 biggest blockers
 3. "What about privacy/GDPR?"
 → Valid concern. That's why implementation matters more than the tool. Local models, proper data handling, clear policies. It's solvable.
 
-At OttoGen, we don't sell AI hype. We implement AI that actually saves time and money.
+At Oopuo, we don't sell AI hype. We implement AI that actually saves time and money.
 
 What's stopping YOUR business from using AI? 👇
 
-#ai #mkb #automatisering #ottogen #digitalisering #nederland
+#ai #mkb #automatisering #oopuo #digitalisering #nederland
 ```
 
 ---
@@ -72,11 +72,11 @@ Why? Because:
 
 The companies that combine physical technology (not just apps) with game mechanics will own this space.
 
-That's the thesis behind ZenithCred: interactive hardware + biometric sensors + gamification tokens.
+That's the thesis behind ZenithCred — part of the Oopuo group: interactive hardware + biometric sensors + gamification tokens.
 
 The app-only era of corporate wellness is ending. The hardware-software era is beginning.
 
 Agree or disagree? Let me know 👇
 
-#wellness #gamification #hrtech #futureofwork #zenithcred
+#wellness #gamification #hrtech #futureofwork #zenithcred #oopuo
 ```
