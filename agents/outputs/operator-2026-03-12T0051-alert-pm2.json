@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T00:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "PM2 process `whisper` is stopped while the expected operator baseline is online services only.",
+    "action": "Inspect `pm2 logs whisper`, verify whether the service is intentionally disabled, and restart if it should be active."
+  }
+}

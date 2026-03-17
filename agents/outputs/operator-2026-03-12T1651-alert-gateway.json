@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T16:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "OpenClaw gateway is reachable by RPC on 127.0.0.1:18789, but systemd reports the gateway service inactive/dead and the installed service config is outdated/non-standard with an embedded token.",
+    "action": "Standardize gateway management: verify PM2 vs systemd ownership, then reinstall or clean up the systemd unit as recommended by openclaw doctor/openclaw gateway install --force."
+  }
+}

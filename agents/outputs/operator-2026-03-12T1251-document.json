@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T12:51:30Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 12:51 UTC",
+    "filename": "operator-health-check-2026-03-12T1251.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\n- **Time:** 2026-03-12 12:51 UTC\n- **Overall:** Warning — host is up, but several services need attention.\n\n## PM2\n- Online: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\n- **Stopped:** whisper\n\n## Docker\n- Healthy/up: most containers running\n- **Unhealthy:** lidaros-frontend-1, omiximo-email-automation\n- **Restarting:** langfuse_langfuse-web_1\n\n## Disk\n- Root filesystem: 69% used (452G / 662G)\n- No disk pressure alert\n\n## Memory\n- RAM: 11.3 GB used / 27.5 GB total\n- Available: 16.2 GB\n- No high-memory alert\n- Swap: disabled\n\n## GPU\n- NVIDIA RTX 4090\n- Memory usage: 20550 MiB / 24564 MiB (~84%)\n- Utilization: 0%\n- Main consumer: VLLM::EngineCore\n- Below alert threshold, but GPU memory is heavily reserved\n\n## OpenClaw Gateway\n- PM2 process openclaw-gateway: online\n- openclaw RPC probe: ok\n- Port 18789 listening on 127.0.0.1\n- **Issue:** `openclaw gateway status` reports systemd runtime inactive/dead with non-standard/out-of-date service config and embedded token warning\n- **Doctor warnings:** Telegram/WhatsApp group allowlists empty, so group messages are likely being silently dropped\n\n## Recommended Next Actions\n1. Check why PM2 process `whisper` is stopped and whether it is intentionally disabled\n2. Inspect Docker logs for `langfuse_langfuse-web_1`, `lidaros-frontend-1`, and `omiximo-email-automation`\n3. Clean up OpenClaw gateway service installation to remove duplicated/outdated systemd state and embedded token config\n4. Review Telegram/WhatsApp group allowlist configuration if group message handling is expected\n",
+    "replaces": null
+  }
+}

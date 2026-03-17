@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPUO - Privacy-First AI Infrastructure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/oopuo-logo.svg">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div id="app-container">
+        <!-- Main Content Area where slides will be swapped -->
+        <main id="deck-container" hx-get="slides/01_hero.html" hx-trigger="load" hx-swap="innerHTML transition:true">
+        </main>
+
+        <!-- Navigation Controls (Persistent) -->
+        <nav class="nav-controls">
+            <div class="lang-selector">
+                <select id="lang-switch" onchange="changeLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="pt">PT</option>
+                    <option value="nl">NL</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
+            <button class="nav-btn" id="prev-btn" onclick="triggerPrev()">←</button>
+            <span id="slide-counter">01 / 10</span>
+            <button class="nav-btn" id="next-btn" onclick="triggerNext()">→</button>
+        </nav>
+    </div>
+
+    <script src="background.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        // Simple state management for navigation
+        let currentSlide = 1;
+        const totalSlides = 10;
+        let currentLang = 'en';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            translatePage();
+        }
+
+        function translatePage() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) {
+                    el.innerText = TRANSLATIONS[currentLang][key];
+                }
+            });
+
+            // Update nav buttons if needed (though arrows are universal)
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            if (TRANSLATIONS[currentLang]["nav.prev"]) prevBtn.innerText = TRANSLATIONS[currentLang]["nav.prev"];
+            if (TRANSLATIONS[currentLang]["nav.next"]) nextBtn.innerText = TRANSLATIONS[currentLang]["nav.next"];
+        }
+
+        // Hook into HTMX swap to translate new content
+        document.body.addEventListener('htmx:afterSwap', function (evt) {
+            translatePage();
+
+            // Re-trigger animations if needed (handled by CSS, but good to know)
+
+            // Re-trigger count up if on relevant slide
+            const counters = document.querySelectorAll('[data-count-to]');
+            // ... existing count up logic ...
+        });
+
+        function updateSlide(direction) {
+            if (direction === 'next' && currentSlide < totalSlides) {
+                currentSlide++;
+            } else if (direction === 'prev' && currentSlide > 1) {
+                currentSlide--;
+            } else {
+                return; // Boundary reached
+            }
+
+            loadSlide(currentSlide);
+        }
+
+        function loadSlide(slideNum) {
+            const slideId = slideNum.toString().padStart(2, '0');
+            // Update Counter
+            document.getElementById('slide-counter').innerText = `${slideId} / ${totalSlides}`;
+
+            // Mapping slide numbers to filenames (simplified logic)
+            // In a real app, we might use a map or data attributes
+            const slideNames = {
+                1: '01_hero',
+                2: '02_challenge',
+                3: '03_verticals',
+                4: '04_infra',
+                5: '05_growth',
+                6: '06_sentinagro',
+                7: '07_business_model',
+                8: '08_tech_ip',
+                9: '09_traction',
+                10: '10_cta'
+            };
+
+            const filename = slideNames[slideNum];
+            if (filename) {
+                // Append timestamp to bust cache
+                htmx.ajax('GET', `slides/${filename}.html?v=${Date.now()}`, '#deck-container');
+            }
+        }
+
+        function triggerPrev() { updateSlide('prev'); }
+        function triggerNext() { updateSlide('next'); }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') triggerNext();
+            if (e.key === 'ArrowLeft') triggerPrev();
+        });
+
+        // Animation & Interactivity Logic
+        document.body.addEventListener('htmx:afterSwap', function (evt) {
+            // 1. Trigger Count-Up Animations
+            const counters = document.querySelectorAll('[data-count-to]');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-count-to'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const duration = 1500; // ms
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // EaseOutQuart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    const currentVal = Math.floor(start + (target - start) * ease);
+                    counter.innerText = currentVal + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target + suffix; // Ensure final value is exact
+                    }
+                }
+
+                requestAnimationFrame(update);
+            });
+        });
+
+        // Force scroll to top on load/reload
+        window.onload = function () {
+            window.scrollTo(0, 0);
+            const deckContainer = document.getElementById('deck-container');
+            if (deckContainer) {
+                deckContainer.scrollTop = 0;
+            }
+        };
+    </script>
+</body>
+
+</html>

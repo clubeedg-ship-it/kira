@@ -5,6 +5,7 @@ unset OPENCLAW_SERVICE_KIND
 unset OPENCLAW_PATH_BOOTSTRAPPED
 unset OPENCLAW_SYSTEMD_UNIT
 unset MEMORY_PRESSURE_WATCH
+node /home/adminuser/kira/scripts/sync-codex-auth-to-openclaw.mjs >/dev/null
 cd /home/adminuser/kira/app
 set -a; source .env 2>/dev/null; set +a
 exec npx tsx src/server/index-single.ts

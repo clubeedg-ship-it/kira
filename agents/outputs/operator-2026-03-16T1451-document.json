@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-16T14:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check - 2026-03-16",
+    "filename": "health-check-2026-03-16.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — 2026-03-16\n\n## Summary\nOverall system is functional, but several services are down or unhealthy. Resource usage is within safe limits.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website.\n- **Down:** `whisper` (stopped).\n\n### Docker Containers\n- **Healthy/Up:** postgres (client-ops), nginx (iam), scribe-service, nextjs-server, neo4j, iam-ghost, iam-mysql, lidaros-backend, kali-osint, inventree (frontend/server/worker/db/redis), langfuse (postgres/redis/minio), omiximo-bridge, evolution (api/postgres), ollama, n8n.\n- **Unhealthy:** `lidaros-frontend-1`, `omiximo-email-automation`.\n- **Restarting:** `langfuse_langfuse-web_1`.\n\n### OpenClaw Gateway\n- **Status:** Running (PID 258937).\n- **RPC Probe:** OK.\n- **Warnings:** Several group policy allowlist warnings (group messages will be dropped).\n\n## System Resources\n- **Disk:** 69% used (455G/662G). **Status: OK**.\n- **RAM:** 12GB used of 27GB. **Status: OK**.\n- **GPU:** RTX 4090. Memory: 20550MiB / 24564MiB (vLLM EngineCore active). **Status: OK**.\n\n## Actions Taken\n- Recorded status in outputs.\n- Triggered alert for unhealthy/down services.\n"
+  }
+}

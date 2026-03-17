@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T00:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "OpenClaw gateway probe is responding on 127.0.0.1:18789, but openclaw gateway status reports the systemd service as stopped/out-of-date and recommends reinstalling the service config. During this check, a SIGUSR1 restart signal was also triggered manually.",
+    "action": "Audit gateway supervision path (PM2 vs systemd), reinstall the service only if systemd is intended, and confirm logs after the triggered restart."
+  }
+}

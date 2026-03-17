@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T06:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "PM2 process 'whisper' is stopped (0 uptime, 37 restarts)",
+    "action": "Inspect whisper logs and restart only after confirming why it stopped repeatedly"
+  }
+}

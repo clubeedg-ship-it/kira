@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T10:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 10:51 UTC",
+    "filename": "operator-health-check-2026-03-12-1051.md",
+    "category": "operations",
+    "content": "# Operator Health Check — 2026-03-12 10:51 UTC\n\n## Summary\nHealth check completed. System resources are currently within thresholds, but several service health issues need follow-up.\n\n## PM2\n- online: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\n- stopped: whisper\n\n## Docker\n- healthy/up: most containers running normally\n- unhealthy: lidaros-frontend-1\n- unhealthy: omiximo-email-automation\n- restarting: langfuse_langfuse-web_1\n\n## Disk\n- root filesystem /dev/sda1: 452G used / 662G total (69%)\n- no disk alert threshold breached\n\n## Memory\n- RAM used: 11300 MB / 27532 MB (~41%)\n- RAM available: 16231 MB\n- swap: 0 MB configured\n\n## GPU\n- NVIDIA GeForce RTX 4090\n- temp: 42C\n- utilization: 0%\n- memory: 20550 MiB / 24564 MiB (~84%)\n- main GPU consumer: VLLM::EngineCore (20540 MiB)\n\n## OpenClaw Gateway\n- PM2 process openclaw-gateway: online\n- CLI probe: RPC probe ok, listening on 127.0.0.1:18789\n- systemd service runtime reported inactive/dead\n- service config flagged as out of date/non-standard and embeds gateway token\n- recommendation from CLI: reinstall/repair service config if using systemd (`openclaw gateway install --force` / `openclaw doctor --repair`)\n\n## Notes\n- Gateway appears reachable despite systemd reporting inactive, suggesting PM2-managed runtime or stale systemd state/config mismatch.\n- Doctor warnings also note empty group allowlists for WhatsApp and Telegram group policy settings; this is configuration-related, not an immediate runtime failure.\n\n## Status\nNeeds attention: stopped PM2 service, unhealthy/restarting Docker services, and inconsistent OpenClaw gateway service state.",
+    "replaces": ""
+  }
+}

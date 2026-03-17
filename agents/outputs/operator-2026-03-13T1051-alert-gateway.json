@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T10:51:32Z",
+  "alert": {
+    "severity": "high",
+    "message": "OpenClaw gateway service is inconsistent: RPC probe is reachable on 127.0.0.1:18789, but service runtime reports inactive/dead with an out-of-date embedded-token systemd unit",
+    "action": "Run openclaw doctor, inspect competing gateway services, and reinstall the user service with openclaw gateway install --force if this host should use the OpenClaw systemd service"
+  }
+}

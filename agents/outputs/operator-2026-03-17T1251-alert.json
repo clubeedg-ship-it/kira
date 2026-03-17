@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T12:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service failures: langfuse (restarting loop), lidaros-frontend (unhealthy), and omiximo-email-automation (unhealthy).",
+    "action": "Inspect logs for langfuse, lidaros-frontend, and omiximo-email-automation. Attempt manual restarts if logs don't indicate configuration errors."
+  }
+}

@@ -31,9 +31,9 @@ European corporate wellness market: **€23.6B by 2030** (3% CAGR). Hardware-int
 
 ## Traction
 
-- **Proven hardware:** Built on Interactive Move (IAM) — deployed in 50+ kindergartens across the Netherlands ([interactivemove.nl](https://interactivemove.nl))
-- **Corporate pilots:** 3 LOIs from Dutch corporates for Q2 2026 deployment
-- **Working prototype:** Full-stack system (projectors + sensors + token platform) in testing
+- **Proven hardware base:** Built on Interactive Move (IAM) — deployed in 50+ kindergartens across the Netherlands ([interactivemove.nl](https://interactivemove.nl))
+- **Pilot-readiness plan:** 3-company Dutch pilot structure defined with measurable engagement goals; do not present as signed LOIs until verified
+- **Working demo path:** Full-stack buyer demo and MVP specification exist; live pilot metrics remain the next milestone
 
 ## Business Model
 

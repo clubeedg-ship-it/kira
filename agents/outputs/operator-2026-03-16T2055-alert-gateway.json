@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T20:55:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "OpenClaw Gateway PM2 process (ID 42) is in a crash loop due to port conflict.",
+    "action": "Investigate why PM2 is attempting to start a gateway on port 18789 when PID 2121141 (managed by systemd) is already using it. PM2 ID 42 should likely be stopped or removed if systemd is the intended supervisor."
+  }
+}

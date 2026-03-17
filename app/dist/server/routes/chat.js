@@ -47,7 +47,7 @@ import { recordContextMetrics } from '../middleware/context-monitor';
 const OPENCLAW_BRIDGE_URL = process.env.OPENCLAW_BRIDGE_URL || 'http://host.docker.internal:3855';
 const OPENCLAW_BRIDGE_TOKEN = process.env.OPENCLAW_BRIDGE_TOKEN || 'kira-bridge-2024';
 const USE_OPENCLAW = process.env.USE_OPENCLAW === 'true';
-// Comma-separated list of usernames allowed to use OpenClaw (Claude Max).
+// Comma-separated list of usernames allowed to use OpenClaw-routed chat.
 // Empty or unset = all users (backwards-compatible when USE_OPENCLAW is on).
 const OPENCLAW_ALLOWED_USERS = (process.env.OPENCLAW_ALLOWED_USERS || '')
     .split(',')

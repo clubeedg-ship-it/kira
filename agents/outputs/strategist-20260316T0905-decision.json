@@ -1,0 +1,21 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-03-16T09:05:00Z",
+  "decision": {
+    "question": "Should we halt ALL internal infrastructure development for 2 weeks to force a 'Sales Blitz'?",
+    "recommendation": "Yes. We have built a world-class operating system (Kira/Memory/Apollo) but have no revenue to sustain it. A 14-day total focus on outreach is required to break the 'infrastructure trap'.",
+    "evidence": [
+      "Current MRR: $300 (Target: $700 by end of March)",
+      "February revenue goal was missed due to infra focus",
+      "Kira infrastructure is now mature enough (200k+ facts) to support high-volume outreach",
+      "IAM lead list (60+ chains) and ZenithCred sequences are ready to be fired"
+    ],
+    "options": [
+      {"label": "14-Day Sales Blitz", "description": "0 hours on code/infra. 100% on OttoGen/IAM/ZenithCred outreach."},
+      {"label": "Hybrid Focus (80/20)", "description": "80% Sales, 20% critical maintenance only."},
+      {"label": "Maintain Status Quo", "description": "Continue current balance (Infra-heavy)."}
+    ],
+    "urgency": "high"
+  }
+}

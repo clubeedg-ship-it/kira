@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T20:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 20:51 UTC",
+    "filename": "operator-health-2026-03-12T2051.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\n**Time:** 2026-03-12 20:51 UTC\n\n## Summary\nInfrastructure is **degraded**, not critical. Core host resources are within limits, but several services need attention.\n\n## PM2\n- Online: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\n- **Stopped:** whisper\n\n## Docker\n- Healthy/running core containers present for IAM, InvenTree, Omiximo bridge, Evolution API, Ollama, n8n, Neo4j stack\n- **Unhealthy:** lidaros-frontend-1\n- **Unhealthy:** omiximo-email-automation\n- **Restarting:** langfuse_langfuse-web_1\n\n## Disk\n- Root filesystem /dev/sda1: 452G used / 662G total (**69%**)\n- No disk alert threshold crossed\n\n## Memory\n- RAM used: 11352 MB / 27532 MB (**41%**)\n- Cache/buffers: 14088 MB\n- Available: 16180 MB\n- Swap: 0 MB configured\n\n## GPU\n- NVIDIA RTX 4090 visible\n- Driver/CUDA: 580.126.09 / 13.0\n- GPU memory in use: 20550 MiB / 24564 MiB (**84%**)\n- Utilization: 0%\n- Main process: VLLM::EngineCore\n\n## OpenClaw Gateway\n- PM2 process openclaw-gateway: online\n- `openclaw gateway status` RPC probe: ok\n- Listener detected on 127.0.0.1:18789\n- **Service layer reports non-standard/out-of-date config**\n- **Runtime status reports stopped/inactive despite RPC probe success**\n- Doctor warnings: Telegram/WhatsApp group allowlists empty, so group messages will be silently dropped under current policy\n\n## Alerts\n1. whisper stopped in PM2\n2. lidaros-frontend-1 unhealthy\n3. omiximo-email-automation unhealthy\n4. langfuse_langfuse-web_1 restarting\n5. OpenClaw gateway service configuration needs cleanup/reinstall review\n\n## Recommended next actions\n- Check why `whisper` is intentionally stopped vs failed\n- Inspect health check logs for `lidaros-frontend-1` and `omiximo-email-automation`\n- Inspect Langfuse web logs and restart cause\n- Reconcile OpenClaw gateway service state/config (`openclaw doctor` / service reinstall)\n- Review Telegram/WhatsApp group allowlist settings if group message handling is expected\n",
+    "replaces": null
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-13T22:51:00Z",
+  "document": {
+    "title": "Health Check — 2026-03-13 22:51 UTC",
+    "filename": "health-check-2026-03-13.md",
+    "category": "ops",
+    "content": "# Health Check — 2026-03-13 22:51 UTC\n\n## Summary: ⚠️ 4 issues found\n\n## PM2 Services (14 processes)\n- **12 online**, 1 stopped, 1 high-restart\n- ❌ **whisper** — stopped (37 restarts)\n- ⚠️ **openclaw-gateway** — online but 111+ restarts, using 811MB RAM\n- All others healthy\n\n## Docker Containers (25 containers)\n- ❌ **langfuse_langfuse-web_1** — restart loop (exit code 1)\n- ⚠️ **lidaros-frontend-1** — unhealthy\n- ⚠️ **omiximo-email-automation** — unhealthy\n- All others running normally\n\n## System Resources\n- **Disk:** 454G/662G (69%) ✅\n- **RAM:** 11.5G/27.5G (42%) ✅\n- **GPU:** RTX 4090 — 20.5G/24.5G VRAM (84%), 41°C, idle ✅\n- **GPU Process:** VLLM engine core using 20.5GB VRAM\n- **Swap:** None configured ⚠️\n\n## OpenClaw Gateway\n- Running via PM2 (pid 1366390, 7h uptime)\n- Systemd service exists but inactive (dual setup — PM2 is primary)\n- Doctor warnings: multiple group allowlist configs empty (non-critical)\n\n## No Action Required\n- whisper: intentionally stopped (not in active use)\n- langfuse: known restart loop, non-critical service\n- Disk and RAM well within limits"
+  }
+}

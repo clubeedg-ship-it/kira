@@ -22,6 +22,16 @@ interface UserSettings {
   [key: string]: unknown;
 }
 
+interface ConnectionStatus {
+  openClawEnabled: boolean;
+  connected: boolean;
+  model: string | null;
+  modelId: string | null;
+  provider: string | null;
+  providerLabel: string;
+  fallbackProvider: string;
+}
+
 type ModelTier = 'frontier' | 'production' | 'fast' | 'coding';
 
 interface ModelEntry {
@@ -36,6 +46,8 @@ const AVAILABLE_MODELS: ModelEntry[] = [
   // Reasoning / Frontier
   { id: 'anthropic/claude-opus-4-6', name: 'Claude Opus 4.6', provider: 'Anthropic', tier: 'frontier' },
   { id: 'anthropic/claude-sonnet-4-5', name: 'Claude Sonnet 4.5', provider: 'Anthropic', tier: 'frontier' },
+  { id: 'openai/gpt-5.4', name: 'GPT-5.4', provider: 'OpenAI', tier: 'frontier' },
+  { id: 'openai-codex/gpt-5.4-codex', name: 'GPT-5.4 Codex', provider: 'OpenAI Codex', tier: 'coding' },
   { id: 'openai/o3', name: 'OpenAI o3', provider: 'OpenAI', tier: 'frontier' },
   { id: 'openai/o4-mini', name: 'OpenAI o4-mini', provider: 'OpenAI', tier: 'frontier' },
   { id: 'google/gemini-2.5-pro', name: 'Gemini 2.5 Pro', provider: 'Google', tier: 'frontier' },
@@ -195,7 +207,7 @@ export default function Settings() {
       const res = await fetch('/api/v1/settings/connection-status', { credentials: 'include' });
       if (!res.ok) return null;
       const json = await res.json();
-      return json.data as { claudeMax: boolean; model: string | null; provider: string };
+      return json.data as ConnectionStatus;
     },
   });
 
@@ -268,33 +280,34 @@ export default function Settings() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {/* Claude Max connection status */}
-            {connStatus?.claudeMax && (
+            {/* OpenClaw connection status */}
+            {connStatus?.openClawEnabled && (
               <div className="flex items-center gap-3 rounded-lg border border-violet-500/20 bg-violet-500/5 px-4 py-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500/15">
                   <Zap size={16} className="text-violet-400" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 text-sm font-medium text-text-primary">
-                    Claude Max
+                    {connStatus.providerLabel}
                     <span className="flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
                       <Check size={10} /> Connected
                     </span>
                   </div>
                   <p className="text-xs text-text-tertiary mt-0.5">
-                    Routing through Claude Max subscription — model selector and OpenRouter key are not used.
+                    Routing through OpenClaw using {connStatus.provider ?? 'the configured provider'}
+                    {connStatus.model ? ` (${connStatus.model})` : ''}. The selector below is only used when OpenClaw is off.
                   </p>
                 </div>
               </div>
             )}
 
-            {/* Model selector — only effective when not on Claude Max */}
-            <div className={cn('space-y-1.5', connStatus?.claudeMax && 'opacity-40 pointer-events-none')}>
+            {/* Model selector — only effective when not routed through OpenClaw */}
+            <div className={cn('space-y-1.5', connStatus?.openClawEnabled && 'opacity-40 pointer-events-none')}>
               <label className="text-sm font-semibold text-text-primary">Default Model</label>
               <p className="text-xs text-text-tertiary">
-                {connStatus?.claudeMax
-                  ? 'Overridden by Claude Max — using Claude Opus 4.6'
-                  : 'Choose the AI model for all interactions'}
+                {connStatus?.openClawEnabled
+                  ? `Overridden by OpenClaw${connStatus.model ? ` — using ${connStatus.model}` : ''}`
+                  : 'Choose the AI model for all non-OpenClaw interactions'}
               </p>
               <ModelSelector
                 value={local.selectedModel ?? DEFAULT_MODEL}
@@ -304,8 +317,8 @@ export default function Settings() {
 
             <div className="border-t border-border pt-4" />
 
-            <div className={cn('space-y-1.5', connStatus?.claudeMax && 'opacity-40 pointer-events-none')}>
-              <label className="text-xs font-medium text-text-secondary">OpenRouter API Key</label>
+            <div className={cn('space-y-1.5', connStatus?.openClawEnabled && 'opacity-40 pointer-events-none')}>
+              <label className="text-xs font-medium text-text-secondary">OpenRouter API Key (Fallback)</label>
               <div className="flex gap-2">
                 <div className="flex-1">
                   <Input
@@ -319,6 +332,9 @@ export default function Settings() {
                   {showKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </Button>
               </div>
+              <p className="text-xs text-text-tertiary">
+                Used by the app’s direct API path when OpenClaw routing is disabled.
+              </p>
             </div>
           </div>
         </CardContent>

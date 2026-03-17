@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-16T10:53:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-16",
+    "filename": "infra-health-2026-03-16.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-16\n\n## Summary\nOverall system is stable, but two services require attention.\n\n## PM2 Status\n- **Total Services:** 14\n- **Stopped:** 1 (whisper)\n- **Issues:** `openclaw-gateway` (PM2 id 42) shows 0s uptime and 423k restarts — however, `openclaw gateway status` reports the systemd-managed gateway is healthy at PID 258937. The PM2 entry may be a stale or conflicting instance.\n\n## Docker Status\n- **Containers Up:** 21\n- **Issues:** `langfuse_langfuse-web_1` is in a restart loop.\n- **Unhealthy:** `lidaros-frontend-1`, `omiximo-email-automation` (marked unhealthy but Up).\n\n## System Resources\n- **Disk Space:** 69% used (208G available). **Healthy.**\n- **Memory:** 11.5GB used / 27GB total. **Healthy.**\n- **GPU (RTX 4090):** 41°C, 20.5GB/24GB VRAM used (VLLM EngineCore). **Heavy usage but stable.**\n\n## Gateway Health\n- **OpenClaw Gateway:** RPC probe OK. Running via systemd.\n- **Note:** Multiple gateway-like services detected (clawdbot/openclaw). Recommend cleanup to avoid port conflicts."
+  }
+}

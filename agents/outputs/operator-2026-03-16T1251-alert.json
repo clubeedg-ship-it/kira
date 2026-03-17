@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T12:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Multiple services in warning/stopped state",
+    "action": "Investigate lidaros-frontend (unhealthy), omiximo-email-automation (unhealthy), whisper (stopped), and langfuse-web (restarting)."
+  }
+}

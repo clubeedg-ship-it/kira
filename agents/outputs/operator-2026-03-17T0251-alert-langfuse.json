@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T02:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Docker container 'langfuse_langfuse-web_1' is in a crash loop (Restarting).",
+    "action": "Check docker logs langfuse_langfuse-web_1 for errors."
+  }
+}

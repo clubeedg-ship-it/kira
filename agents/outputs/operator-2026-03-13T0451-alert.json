@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T04:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "Service health issues detected: PM2 process 'whisper' is stopped; Docker containers 'langfuse_langfuse-web_1' is restarting, 'lidaros-frontend-1' is unhealthy, and 'omiximo-email-automation' is unhealthy.",
+    "action": "Investigate container/service logs and restart or repair the affected services before they impact users."
+  }
+}

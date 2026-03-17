@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T10:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Containers lidaros-frontend-1 and omiximo-email-automation are reporting unhealthy.",
+    "action": "Inspect container health check logs and verify upstream dependencies."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T20:55:02Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Docker containers 'omiximo-email-automation' and 'lidaros-frontend-1' are reporting unhealthy status.",
+    "action": "Check healthcheck logs within containers. Omiximo logs show 'A520 NOT FOUND' but continue processing. Lidaros logs show Nginx started but status remains unhealthy."
+  }
+}

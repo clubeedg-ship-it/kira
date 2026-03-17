@@ -1,0 +1,1 @@
+A 2-person hardware company used AI to build a go-to-market engine that rivals a 20-person sales team. No hires. No agency. Just AI-powered lead gen, automated outreach & smart sales infra. Targeting 30K MRR by August. Full case study 👇 #AI #SMB #Oopuo

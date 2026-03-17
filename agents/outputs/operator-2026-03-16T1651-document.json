@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-16T16:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-16",
+    "filename": "health-check-2026-03-16.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — March 16, 2026\n\n## Summary\nOverall system is stable but with a few service failures requiring attention.\n\n## System Resources\n- **Disk:** 69% used (207G available). Status: OK.\n- **RAM:** 12.6GB used of 27.5GB. Status: OK.\n- **GPU:** 20.5GB/24.5GB VRAM used by VLLM. Utilization: 0% (Idle). Status: OK.\n\n## PM2 Services\n- **Total Services:** 14\n- **Stopped:** `whisper` (ID: 25)\n- **Issues:** `openclaw-gateway` has a very high restart count (457k) and low uptime (4s), though it currently probes OK. This suggests a flapping process or monitoring loop error.\n\n## Docker Containers\n- **Total Containers:** 26\n- **Issue:** `langfuse_langfuse-web_1` is in a Restarting loop.\n- **Issue:** `lidaros-frontend-1` and `omiximo-email-automation` are reporting Unhealthy status.\n\n## OpenClaw Gateway\n- **Status:** Running (RPC probe OK).\n- **Warnings:** Channel group policies are set to 'allowlist' with empty allow-lists, meaning group messages will be dropped. This is a configuration note rather than a failure.\n\n## Actions Taken\n- Generated alerts for `whisper` and `langfuse` failures.\n"
+  }
+}

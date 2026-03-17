@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T10:52:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Service issues detected: PM2 'whisper' is stopped; Docker 'langfuse_langfuse-web_1' is in a restart loop.",
+    "action": "Check logs for whisper (pm2 logs whisper) and langfuse (docker logs langfuse_langfuse-web_1)."
+  }
+}

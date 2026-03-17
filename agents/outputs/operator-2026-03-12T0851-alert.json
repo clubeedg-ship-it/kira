@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T08:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "Infrastructure health check found degraded services: PM2 process whisper is stopped; Docker containers lidaros-frontend and omiximo-email-automation are unhealthy; langfuse_langfuse-web_1 is restarting.",
+    "action": "Investigate service logs and restart or repair the affected PM2 and Docker services."
+  }
+}

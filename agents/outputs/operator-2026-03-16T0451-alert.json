@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T04:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services down or unhealthy: PM2 'whisper' is stopped; Docker 'langfuse-web' is restarting; 'lidaros-frontend' and 'omiximo-email-automation' are unhealthy.",
+    "action": "Check logs for PM2 whisper (pm2 logs whisper) and Docker containers (docker logs langfuse_langfuse-web_1) to determine cause of failures."
+  }
+}

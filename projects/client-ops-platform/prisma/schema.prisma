@@ -1,0 +1,513 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrganizationStatus {
+  active
+  paused
+  archived
+}
+
+enum OrganizationRole {
+  owner
+  admin
+  editor
+  viewer
+  client
+}
+
+enum WebsiteHostType {
+  hostnet
+  hostinger
+  generic_sftp
+  local
+  other
+}
+
+enum ContentBlockType {
+  text
+  rich_text
+  image
+  cta
+  link_list
+  stats
+}
+
+enum ContentStatus {
+  draft
+  published
+}
+
+enum ServiceType {
+  website
+  blog
+  ai_support
+  automation
+  crm
+  ads
+  custom
+}
+
+enum ServiceStatus {
+  setup
+  active
+  warning
+  paused
+  error
+}
+
+enum HealthStatus {
+  healthy
+  degraded
+  down
+  unknown
+}
+
+enum SupportStatus {
+  open
+  in_progress
+  resolved
+  closed
+}
+
+enum SupportPriority {
+  low
+  normal
+  high
+  urgent
+}
+
+enum IntegrationType {
+  ghost
+  retell
+  webhook
+  analytics
+  custom
+}
+
+enum IntegrationStatus {
+  connected
+  disconnected
+  pending
+  error
+}
+
+enum DeploymentTargetType {
+  hostnet
+  hostinger
+  sftp
+  local_fs
+  git
+}
+
+enum DeploymentJobType {
+  publish
+  verify
+  backup
+  restore
+  test_connection
+}
+
+enum DeploymentJobStatus {
+  queued
+  running
+  success
+  failed
+  cancelled
+}
+
+enum ReleaseStatus {
+  draft
+  publishing
+  published
+  failed
+  rolled_back
+}
+
+enum ReleaseSourceType {
+  config_export
+  static_bundle
+  manual_upload
+}
+
+enum BackupKind {
+  site_bundle
+  assets
+  config
+  database_export
+  full_snapshot
+}
+
+enum BackupStatus {
+  creating
+  ready
+  failed
+  restoring
+  restored
+}
+
+model User {
+  id              String               @id @default(uuid())
+  email           String               @unique
+  passwordHash    String?
+  fullName        String?
+  isPlatformAdmin Boolean              @default(false)
+  lastLoginAt     DateTime?
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+
+  memberships     OrganizationMember[]
+  brandUpdates    BrandSettings[]
+  contentUpdates  ContentBlock[]
+  uploadedAssets  Asset[]
+  activityEvents  ActivityEvent[]
+  supportRequests SupportRequest[]     @relation("SupportRequestCreatedBy")
+  supportAssigned SupportRequest[]     @relation("SupportRequestAssignedTo")
+  releasesCreated SiteRelease[]
+  backupsCreated  Backup[]
+  auditLogs       AuditLog[]
+}
+
+model Organization {
+  id                String                @id @default(uuid())
+  name              String
+  slug              String                @unique
+  status            OrganizationStatus    @default(active)
+  primaryDomain     String?
+  websiteHostType   WebsiteHostType?
+  appSubdomain      String?
+  blogSubdomain     String?
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @updatedAt
+
+  members           OrganizationMember[]
+  brandSettings     BrandSettings?
+  contentBlocks     ContentBlock[]
+  assets            Asset[]
+  services          Service[]
+  activityEvents    ActivityEvent[]
+  supportRequests   SupportRequest[]
+  integrations      IntegrationConnection[]
+  deploymentTargets DeploymentTarget[]
+  siteReleases      SiteRelease[]
+  deploymentJobs    DeploymentJob[]
+  backups           Backup[]
+  auditLogs         AuditLog[]
+  healthChecks      HealthCheck[]
+}
+
+model OrganizationMember {
+  id             String           @id @default(uuid())
+  organizationId String
+  userId         String
+  role           OrganizationRole
+  createdAt      DateTime         @default(now())
+
+  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, userId])
+  @@index([userId])
+}
+
+model Asset {
+  id               String          @id @default(uuid())
+  organizationId   String?
+  storageProvider  String
+  storageKey       String
+  originalFilename String?
+  mimeType         String?
+  sizeBytes        BigInt?
+  checksum         String?
+  uploadedById     String?
+  createdAt        DateTime        @default(now())
+
+  organization     Organization?   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  uploadedBy       User?           @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+
+  logoFor          BrandSettings[] @relation("BrandLogo")
+  faviconFor       BrandSettings[] @relation("BrandFavicon")
+  releaseArtifacts SiteRelease[]
+  backupAssets     Backup[]
+
+  @@index([organizationId])
+}
+
+model BrandSettings {
+  id                 String        @id @default(uuid())
+  organizationId     String        @unique
+  companyDisplayName String?
+  logoAssetId        String?
+  faviconAssetId     String?
+  primaryColor       String?
+  secondaryColor     String?
+  accentColor        String?
+  fontHeading        String?
+  fontBody           String?
+  heroTitle          String?
+  heroSubtitle       String?
+  ctaText            String?
+  aboutText          String?
+  contactEmail       String?
+  contactPhone       String?
+  addressText        String?
+  socialLinks        Json          @default("{}")
+  updatedById        String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  organization       Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  logoAsset          Asset?        @relation("BrandLogo", fields: [logoAssetId], references: [id], onDelete: SetNull)
+  faviconAsset       Asset?        @relation("BrandFavicon", fields: [faviconAssetId], references: [id], onDelete: SetNull)
+  updatedBy          User?         @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+}
+
+model ContentBlock {
+  id             String           @id @default(uuid())
+  organizationId String
+  key            String
+  label          String?
+  type           ContentBlockType
+  value          Json
+  status         ContentStatus    @default(draft)
+  version        Int              @default(1)
+  updatedById    String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  updatedBy      User?            @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@unique([organizationId, key])
+  @@index([organizationId, status])
+}
+
+model Service {
+  id            String         @id @default(uuid())
+  organizationId String
+  name          String
+  type          ServiceType
+  status        ServiceStatus
+  description   String?
+  externalUrl   String?
+  healthStatus  HealthStatus   @default(unknown)
+  lastCheckedAt DateTime?
+  lastUpdatedAt DateTime?
+  metadata      Json           @default("{}")
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  organization  Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@index([organizationId, status])
+}
+
+model ActivityEvent {
+  id             String       @id @default(uuid())
+  organizationId String
+  actorUserId    String?
+  source         String
+  eventType      String
+  title          String
+  description    String?
+  metadata       Json         @default("{}")
+  createdAt      DateTime     @default(now())
+
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actorUser      User?        @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model SupportRequest {
+  id               String          @id @default(uuid())
+  organizationId   String
+  createdByUserId  String?
+  subject          String
+  message          String
+  status           SupportStatus   @default(open)
+  priority         SupportPriority @default(normal)
+  channel          String?
+  assignedToUserId String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  resolvedAt       DateTime?
+
+  organization     Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdByUser    User?           @relation("SupportRequestCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull)
+  assignedToUser   User?           @relation("SupportRequestAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, status])
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model IntegrationConnection {
+  id             String            @id @default(uuid())
+  organizationId String
+  type           IntegrationType
+  name           String
+  status         IntegrationStatus @default(disconnected)
+  config         Json              @default("{}")
+  lastTestedAt   DateTime?
+  lastError      String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  organization   Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  secrets        IntegrationSecret[]
+
+  @@index([organizationId, type])
+}
+
+model IntegrationSecret {
+  id                    String                @id @default(uuid())
+  integrationConnectionId String
+  secretKey             String
+  encryptedValue        String
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+
+  integrationConnection IntegrationConnection @relation(fields: [integrationConnectionId], references: [id], onDelete: Cascade)
+
+  @@unique([integrationConnectionId, secretKey])
+}
+
+model DeploymentTarget {
+  id             String                   @id @default(uuid())
+  organizationId String
+  name           String
+  targetType     DeploymentTargetType
+  status         String                   @default("active")
+  config         Json                     @default("{}")
+  isPrimary      Boolean                  @default(false)
+  createdAt      DateTime                 @default(now())
+  updatedAt      DateTime                 @updatedAt
+
+  organization   Organization             @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  secrets        DeploymentTargetSecret[]
+  releases       SiteRelease[]
+  jobs           DeploymentJob[]
+
+  @@index([organizationId])
+}
+
+model DeploymentTargetSecret {
+  id                 String            @id @default(uuid())
+  deploymentTargetId String
+  secretKey          String
+  encryptedValue     String
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  deploymentTarget   DeploymentTarget  @relation(fields: [deploymentTargetId], references: [id], onDelete: Cascade)
+
+  @@unique([deploymentTargetId, secretKey])
+}
+
+model SiteRelease {
+  id                 String             @id @default(uuid())
+  organizationId     String
+  deploymentTargetId String?
+  releaseVersion     Int
+  status             ReleaseStatus
+  sourceType         ReleaseSourceType
+  artifactAssetId    String?
+  checksum           String?
+  notes              String?
+  createdById        String?
+  createdAt          DateTime           @default(now())
+  publishedAt        DateTime?
+
+  organization       Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  deploymentTarget   DeploymentTarget?  @relation(fields: [deploymentTargetId], references: [id], onDelete: SetNull)
+  artifactAsset      Asset?             @relation(fields: [artifactAssetId], references: [id], onDelete: SetNull)
+  createdBy          User?              @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  deploymentJobs     DeploymentJob[]
+  backups            Backup[]
+
+  @@unique([organizationId, releaseVersion])
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model DeploymentJob {
+  id                 String              @id @default(uuid())
+  organizationId     String
+  deploymentTargetId String?
+  siteReleaseId      String?
+  jobType            DeploymentJobType
+  status             DeploymentJobStatus @default(queued)
+  startedAt          DateTime?
+  finishedAt         DateTime?
+  errorMessage       String?
+  logExcerpt         String?
+  metadata           Json                @default("{}")
+  createdAt          DateTime            @default(now())
+
+  organization       Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  deploymentTarget   DeploymentTarget?   @relation(fields: [deploymentTargetId], references: [id], onDelete: SetNull)
+  siteRelease        SiteRelease?        @relation(fields: [siteReleaseId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, status])
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model Backup {
+  id              String       @id @default(uuid())
+  organizationId  String
+  kind            BackupKind
+  status          BackupStatus
+  storageAssetId  String?
+  sourceReleaseId String?
+  checksum        String?
+  sizeBytes       BigInt?
+  createdById     String?
+  createdAt       DateTime     @default(now())
+  restoredAt      DateTime?
+
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  storageAsset    Asset?       @relation(fields: [storageAssetId], references: [id], onDelete: SetNull)
+  sourceRelease   SiteRelease? @relation(fields: [sourceReleaseId], references: [id], onDelete: SetNull)
+  createdBy       User?        @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model AuditLog {
+  id             String        @id @default(uuid())
+  organizationId String?
+  actorUserId    String?
+  action         String
+  entityType     String
+  entityId       String?
+  metadata       Json          @default("{}")
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime      @default(now())
+
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actorUser      User?         @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt(sort: Desc)])
+}
+
+model HealthCheck {
+  id             String       @id @default(uuid())
+  organizationId String
+  targetType     String
+  targetId       String?
+  status         HealthStatus
+  responseTimeMs Int?
+  statusCode     Int?
+  summary        String?
+  checkedAt      DateTime     @default(now())
+
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, checkedAt(sort: Desc)])
+}

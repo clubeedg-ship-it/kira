@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T06:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 06:51 UTC",
+    "filename": "operator-health-check-2026-03-12-0651.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\n## Summary\n- Overall status: degraded\n- PM2: 12 online, 1 stopped\n- Docker: most containers up, 2 unhealthy\n- Disk: root at 69% used\n- RAM: 11.3 GB / 27.5 GB used (~41%)\n- GPU: RTX 4090 healthy, 20.55 GB / 24.56 GB VRAM in use by VLLM::EngineCore\n- OpenClaw gateway: reachable on 127.0.0.1:18789, but service status output is inconsistent and service config is out of date\n\n## PM2\nOnline: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\nStopped: whisper\n\n## Docker\nHealthy/Up: iam-web-3007, scribe-service, nextjs-server, neo4j-server, iam-ghost, iam-mysql, lidaros-backend-1, inventree stack, langfuse postgres/redis/minio, omiximo-bridge, evolution_api, evolution_postgres, ollama, n8n, kali-osint\nUnhealthy: lidaros-frontend-1, omiximo-email-automation\nNotable: langfuse_langfuse-web_1 had just restarted and was up for less than a second at check time\n\n## Resources\n- Disk: /dev/sda1 452G used / 210G available (69%)\n- RAM: 11351 MB used / 27532 MB total\n- Swap: disabled\n- GPU temp/power normal: 40C, 20W idle-state power profile\n\n## Gateway\n- Probe target responding at ws://127.0.0.1:18789\n- Service layer reports: stopped/inactive, last exit 203\n- Service unit warning: embedded OPENCLAW_GATEWAY_TOKEN, config looks out of date or non-standard\n- Multiple gateway-like user services detected, which increases risk of drift/confusion\n\n## Recommended follow-up\n1. Investigate whisper failure before restarting blindly\n2. Check healthcheck/logs for lidaros-frontend-1 and omiximo-email-automation\n3. Clean up OpenClaw gateway service state and reinstall service unit if systemd-managed gateway is intended\n",
+    "replaces": ""
+  }
+}

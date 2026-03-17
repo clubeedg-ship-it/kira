@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "strategist",
+  "timestamp": "2026-03-16T09:00:00Z",
+  "document": {
+    "title": "Weekly Portfolio Review — W12 2026",
+    "filename": "portfolio-review-w12.md",
+    "category": "strategy",
+    "content": "# Weekly Portfolio Review — W12 2026\n*Monday, March 16th, 2026*\n\n## 1. Executive Summary\nWe are mid-way through March. The February 'First Revenue' goal was missed. March is now the critical pivot point. While infrastructure (Kira, Apollo.io, MiCA research) is world-class, **outbound sales activity remains the primary bottleneck.**\n\n## 2. Portfolio Scorecard\n\n| Project | Priority | Status | Insight |\n|---------|----------|--------|---------|\n| **OttoGen** | 60% (Rev) | 🔴 Stalled | Positioning is ready; outreach volume is 0. |\n| **IAM** | 60% (Rev) | 🟡 Warm | Prospect list of 60+ chains built; Apollo.io infra ready. Outreach needed. |\n| **ZenithCred** | 30% (Fund)| 🟡 Prep | Seed round materials (€1.1M) and MiCA research done. Outreach sequence drafted. |\n| **Chimera** | 10% (Infra)| 🟢 On Track| 162+ tests passing. Architecture solid. Ready for open-source prep. |\n| **Kira/Oopuo OS**| Support | 🟢 High | Memory graph (208K facts) and agent fleet are mature. |\n\n## 3. Strategic Analysis\n\n### The 'Infrastructure Trap'\nWe have spent ~65% of effort on building the 'Oopuo OS' and Kira's capabilities. This has created a massive competitive advantage in *efficiency*, but we are not applying that efficiency to *markets*. We are over-engineered for our current revenue level ($300 MRR).\n\n### ZenithCred vs. Chimera\nZenithCred is the immediate 'Funding' bet (€1.1M seed). Chimera is the 'Infinity' bet ($500M+ valuation). We must not let Chimera's technical allure distract from the ZenithCred funding cycle, which provides the cash to hire for Chimera.\n\n## 4. Revenue & Funding Targets (March)\n- **OttoGen:** Close 2 clients (€500+ MRR). *Status: 0/2*\n- **IAM:** Secure 1 pilot installation. *Status: 0/1*\n- **ZenithCred:** 3 investor meetings booked. *Status: 0/3*\n\n## 5. Recommended Resource Allocation\n- **Otto (Sales/Closer):** 70% Outreach & Calls | 20% Product Vision | 10% Admin\n- **Kira (Operator/Strategist):** 80% Lead Gen & Follow-up | 20% Strategy & Research\n\n---",
+    "replaces": "portfolio-review-w9.md"
+  }
+}

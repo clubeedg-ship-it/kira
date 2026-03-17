@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T16:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Health check detected non-green services: PM2 app whisper is stopped; Docker containers lidaros-frontend-1 and omiximo-email-automation are unhealthy; langfuse_langfuse-web_1 is restarting.",
+    "action": "Inspect recent logs for whisper and affected containers; restart or repair after confirming root cause."
+  }
+}

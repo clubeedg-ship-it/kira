@@ -2,8 +2,8 @@
 **Light Up Your Workforce**
 *Interactive Corporate Wellness Through Light + Gamification*
 
-**February 2025**  
-**Version:** 1.0 - Investor Ready  
+**March 2026**  
+**Version:** 2.0 - Investor Ready (Honest Traction Revision)  
 **Document Type:** Complete Pitch Deck
 
 ---
@@ -19,7 +19,7 @@
         │         Light + Gamification                │
         │                                             │
         │           Seed Round - €1.1M                │
-        │            February 2025                    │
+        │             March 2026                     │
         │                                             │
         │         Otto van [Last Name] - CEO          │
         │        Kira [Last Name] - Chief Wellness    │
@@ -168,43 +168,44 @@ Filtering for companies with:
 
 ---
 
-## Slide 6: Traction - Early Validation
+## Slide 6: Traction - Pilot Readiness & Evidence Plan
 
-### Current Status: Pre-Revenue, MVP Development
+### Current Status: Pre-Revenue, Demo-Ready, Pilot Preparation Underway
 
-**Customer Validation:**
-- **3 paying pilot customers** in Netherlands (100-400 employee companies)
-- **Positive HR feedback** on employee participation in early tests
-- Active sales pipeline of **15+ qualified prospects**
+**What is real today:**
+- **IAM hardware base exists**: interactive projection systems already proven in a different market (50+ kindergarten deployments referenced across ZenithCred materials)
+- **ZenithCred positioning, pricing model, and financial model** are documented and internally consistent enough for investor conversations
+- **MVP demo environment exists**: `vdr/zenithcred/mvp-demo.html` + `mvp-spec.md` define the buyer/product story
+- **Investor materials exist**: one-pager, financial model, target list, outreach drafts, and pitch narrative
 
-**Product Development Status:**
-- ✅ MVP app with basic gamification functional
-- ✅ Light panel API integration working
-- 🔄 Wearable integrations (Oura, WHOOP) in development
-- 🔄 Analytics dashboard for HR teams
-- ✅ GDPR-compliant data architecture implemented
+**What is not claimed yet:**
+- No paying corporate customers should be stated until signed and verified
+- No pilot LOIs should be stated until stored in the data room
+- No wellness outcome metrics should be presented as real customer data until collected
 
-**Partnership Progress:**
-- **Interactive Move**: Light panel hardware partner (Netherlands-based)
-- **Target pilot customers**: Mid-size Dutch tech companies identified
-- **HR network**: Building relationships with Chief People Officers
+### Pilot Company Data Slide (Use this instead of fake traction)
 
-**Go-to-Market Traction:**
-- **LinkedIn thought leadership**: Otto positioned as workplace wellness innovator
-- **Event pipeline**: HRcoreLAB Amsterdam, Workplace Wellness Festival Rotterdam
-- **Sales automation**: HubSpot CRM implemented, outreach sequences ready
+**Pilot design target:** 3 Dutch companies, 100-400 employees, office-based teams, wellness/HR budget owner identified
 
-### Key Metrics (To Be Updated With Pilot Data)
-- Daily engagement rate in pilot sites: **[Measuring]**
-- Employee NPS improvement: **[In Progress]**
-- HR satisfaction scores: **[Tracking]**
+| Pilot Slot | Company Type | Employee Range | Buyer | Pilot Goal | Success Metric |
+|------------|--------------|----------------|-------|------------|----------------|
+| **Pilot A** | Tech / digital services | 100-150 | HR Director | Validate weekly engagement | 40%+ weekly participation |
+| **Pilot B** | Professional services | 150-250 | People & Culture Lead | Prove team challenge adoption | 3+ team sessions/week |
+| **Pilot C** | Hybrid office employer | 250-400 | Facilities + HR | Measure office activation effect | 25%+ repeat usage after week 4 |
 
-### Letters of Intent & Pipeline
-- **[X]** letters of intent from prospects
-- **€[X]** ARR committed from current pilots
-- **[X]** companies in active sales discussions
+### Product Development Status
+- ✅ Core concept grounded in existing IAM hardware capability
+- ✅ Demo architecture and buyer-facing flow defined
+- ✅ Financial model corrected and aligned to seed narrative
+- 🔄 Wearable integrations (Oura / WHOOP) remain roadmap, not traction
+- 🔄 HR analytics dashboard should be shown as MVP/demo unless live pilots exist
 
-*[Note: Actual metrics to be updated as pilot data becomes available]*
+### What Investors Can Trust
+- We understand the target buyer and deployment motion
+- We have a credible pilot design with measurable success criteria
+- We are not inflating traction before it exists
+
+*[Note: Replace this slide with signed LOIs, named pilots, and measured engagement metrics immediately after collection. Until then, present this as pilot-readiness evidence, not live traction.]*
 
 ---
 
@@ -396,9 +397,9 @@ Filtering for companies with:
 **Milestones Required**: €1M+ ARR, 35+ customers, proven unit economics, <15% churn
 
 ### Current Funding Status
-- **Pre-seed Completed**: €150K (founders + angels)
-- **Seed Target**: €1.1M (this round)
-- **Total Runway**: 24 months to cash-flow positive
+- **Seed target**: €1.1M
+- **Positioning**: early-stage / pre-revenue with demo + pilot-readiness materials
+- **Next proof point**: signed pilot commitments and measured usage data
 
 ---
 
@@ -596,6 +597,6 @@ Filtering for companies with:
 
 ---
 
-*This pitch deck contains forward-looking statements and projections. All financial projections are estimates based on current market research and pilot customer data. Actual results may vary. This document is confidential and proprietary to ZenithCred.*
+*This pitch deck contains forward-looking statements and projections. Financial projections are estimates based on market research, modeled unit economics, and the planned pilot design described in this deck. Do not present modeled pilot assumptions as signed customers or measured outcomes. Actual results may vary. This document is confidential and proprietary to ZenithCred.*
 
-*Document Version: 1.0 | Created: February 2025 | For: Seed Round Investors*
+*Document Version: 2.0 | Updated: March 2026 | For: Seed Round Investors*

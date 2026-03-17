@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T14:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "PM2 process 'whisper' is stopped while other monitored services are online.",
+    "action": "Inspect whisper service logs and restart if it is meant to be active."
+  }
+}

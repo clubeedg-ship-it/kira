@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T14:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 14:51 UTC",
+    "filename": "operator-health-check-2026-03-12-1451.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\nTime: 2026-03-12 14:51 UTC\n\n## Summary\n- PM2: Mostly healthy; 12 online, 1 stopped (`whisper`).\n- Docker: Most containers running, but 3 degraded (`langfuse_langfuse-web_1` restarting, `lidaros-frontend-1` unhealthy, `omiximo-email-automation` unhealthy).\n- Disk: `/` at 69% usage (within threshold).\n- Memory: 11.3 GB used / 27.5 GB total, ~41% used (within threshold).\n- GPU: RTX 4090 present; 20.6 GB / 24.6 GB VRAM in use by `VLLM::EngineCore`; 0% utilization at sample time.\n- OpenClaw gateway: Responding on 127.0.0.1:18789, but `openclaw gateway status` reports the systemd service as inactive/sub dead with outdated non-standard service config embedding a token.\n\n## PM2\nOnline: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website.\nStopped: whisper.\n\n## Docker\nHealthy/running core services observed, including IAM staging nginx, IAM Ghost/MySQL, omiximo inventory stack, ollama, n8n, Evolution API, and Nomad-managed app containers.\n\nDegraded containers:\n- `langfuse_langfuse-web_1` — restarting\n- `lidaros-frontend-1` — unhealthy\n- `omiximo-email-automation` — unhealthy\n\n## Resources\n- Disk `/`: 452G used / 662G total / 210G available (69%).\n- RAM: 11,285 MB used / 27,532 MB total; no swap configured.\n- GPU: 20,550 MiB / 24,564 MiB VRAM used by `VLLM::EngineCore`; temperature 43C; power 21W.\n\n## OpenClaw Gateway\n- Bind: 127.0.0.1:18789\n- RPC probe: OK\n- Listening: yes\n- Service manager view: inactive / sub dead / last exit 203\n- Config warning: service appears out of date and embeds `OPENCLAW_GATEWAY_TOKEN`\n- Recommendation from tooling: run `openclaw doctor` or `openclaw doctor --repair`; reinstall service with `openclaw gateway install --force` if systemd is still the intended control plane\n\n## Assessment\nSystem resources are fine. Main concerns are service consistency and degraded app containers, not host capacity.\n",
+    "replaces": ""
+  }
+}

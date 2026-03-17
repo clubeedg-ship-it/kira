@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T00:51:30Z",
+  "alert": {
+    "severity": "medium",
+    "message": "OpenClaw gateway is reachable and the PM2 `openclaw-gateway` process is online, but `openclaw gateway status` reports the user systemd service inactive and its service config outdated/non-standard with an embedded token warning.",
+    "action": "Standardize gateway ownership/launch path, inspect `openclaw doctor`, and reinstall the service if systemd is meant to be authoritative."
+  }
+}

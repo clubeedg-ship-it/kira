@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T06:55:00Z",
+  "document": {
+    "title": "Post-Check Update — 2026-03-17",
+    "filename": "health-update-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Post-Check Update — 2026-03-17\n\n## Actions Taken\n- **Restarted whisper (pm2):** Service is now 'online' (pid 962034).\n- **Restarted Langfuse (docker):** Container 'langfuse_langfuse-web_1' has been manually restarted. Monitoring status.\n\n## Outstanding Issues\n- **Gateway Restart Count:** `openclaw-gateway` (PM2 id 42) has 536k restarts. While currently online (uptime 5s), this indicates a serious persistent crash-loop issue. I recommend a deeper log review: `pm2 logs openclaw-gateway`.\n- **Unhealthy Containers:** `lidaros-frontend-1` and `omiximo-email-automation` are marked as 'unhealthy' despite being 'Up'. Need to check their internal health check endpoints."
+  }
+}

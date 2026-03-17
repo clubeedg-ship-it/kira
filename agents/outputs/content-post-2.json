@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-03-17T08:35:00Z",
+  "decision": {
+    "question": "Post about MiCA regulation and Oopuo tokenomics?",
+    "recommendation": "Use this to position Otto as a forward-thinking founder building compliant infrastructure, not just 'another crypto project'. High 'Swiss Cyberpunk' vibe.",
+    "evidence": [
+      "Completed deep research on MiCA (EU crypto regulation).",
+      "Strategic pivot to 'non-transferable platform credits' and 'verifiable credentials' to bypass early compliance costs.",
+      "Shows Oopuo is building for the long term (tokenized impact economy)."
+    ],
+    "options": [
+      {
+        "label": "Twitter Thread: Building in the Shadows",
+        "description": "Text draft: 'Building a tokenized impact economy in Europe means dealing with MiCA.\n\nMost projects run from regulation. We’re building into it.\n\nOur strategy:\n1. Non-transferable credits first (outside MiCA scope).\n2. Verifiable credentials for impact proof (soulbound, not financial instruments).\n3. Selective tokenization when the business justifies the €50k-€100k compliance cost.\n\nInfrastructure that can't be killed is infrastructure that follows the rules where they matter.'"
+      },
+      {
+        "label": "LinkedIn: Real Innovation vs. Regulation",
+        "description": "Text draft: 'MiCA isn't a wall. It's a roadmap.\n\nSpent the last few days deep-diving into EU crypto regulation for Oopuo. The takeaway: You can build a decentralized impact economy today if you're smart about classification.\n\nWe’re using verifiable credentials for our impact proofs—proving carbon reduction without triggering financial laws. \n\nCompliance is a competitive advantage if you understand it before your competitors do.'"
+      },
+      {
+        "label": "Skip",
+        "description": "Too technical for general audience."
+      }
+    ],
+    "urgency": "today"
+  }
+}

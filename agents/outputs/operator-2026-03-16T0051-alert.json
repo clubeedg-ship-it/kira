@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T00:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Service 'whisper' is stopped and 'langfuse-web' is in a restart loop.",
+    "action": "Investigate whisper stop reason and langfuse-web logs."
+  }
+}

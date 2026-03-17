@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T10:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-17",
+    "filename": "health-report-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report - 2026-03-17\n\n## Summary\nOverall system is stable but requires attention on specific Docker services. PM2 processes are healthy (though high CPU on Whisper), and system resources (Disk/RAM/GPU) are within safe limits.\n\n## PM2 Status\n- **Healthy:** 14/14 online.\n- **Observation:** `whisper` (PID 2006629) is at 100% CPU. This is expected during processing but should be monitored if it persists without load.\n\n## Docker Status\n- **Running:** 22 containers.\n- **Critical:** `langfuse_langfuse-web_1` is in a restart loop.\n- **Unhealthy:** `lidaros-frontend-1` and `omiximo-email-automation` are reporting unhealthy status.\n\n## System Resources\n- **Disk:** 69% used (454G/662G). Well below 85% threshold.\n- **RAM:** ~59% used (16.2G/27.5G). Available: 11.2G.\n- **GPU:** RTX 4090 memory at 85% (20.9G/24.5G) primarily due to VLLM EngineCore (20.5G). GPU utility at 0%.\n\n## OpenClaw Gateway\n- **Status:** Running (ok).\n- **Notes:** Multiple gateway-like services detected (`clawdbot-*`). Doctor warnings regarding empty group allowlists for WhatsApp and Telegram.\n"
+  }
+}

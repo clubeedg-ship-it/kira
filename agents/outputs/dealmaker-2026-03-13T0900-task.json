@@ -1,0 +1,21 @@
+{
+  "type": "task",
+  "agent": "dealmaker",
+  "timestamp": "2026-03-13T09:00:00Z",
+  "task": {
+    "title": "Prioritize nearest-to-money outreach for OttoGen and ZenithCred",
+    "description": "Use the already-defined offers and outreach materials to pursue the shortest path to cash. For OttoGen, focus on selling SIGNAL and selected AMPLIFY packages to Dutch SMBs. For ZenithCred, stop treating the round as a deck problem and move the top-priority investor list plus the 3 pilot LOIs into active follow-up.",
+    "priority": "high",
+    "sourceContext": "Dealmaker weekly review on 2026-03-13 found packaged OttoGen offers and ZenithCred fundraising materials, but no visible live CRM data showing current calls, proposals, outreach sent, or cash collected.",
+    "keyPoints": [
+      "OttoGen SIGNAL is the fastest sale: €500–€1,000 entry offer with low friction",
+      "OttoGen AMPLIFY is the best near-term higher-ticket close: €2,000–€5,000",
+      "ZenithCred has 3 pilot LOIs and 20 mapped VCs, but execution status is not visible",
+      "Top ZenithCred priority funds already identified: HERAN, NLC Health Ventures, naturalX",
+      "Closest proof for ZenithCred is converting LOIs into paying pilots, not more collateral"
+    ],
+    "assignee": "user",
+    "project": "revenue",
+    "dueDate": "2026-03-20"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T08:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper (OOM) and OpenClaw Gateway (Conflict) are failing.",
+    "action": "Whisper: CUDA Out of Memory (check GPU processes). OpenClaw Gateway: PM2 conflict with systemd service (pid 3975860). Stop PM2 process 'openclaw-gateway' if systemd is the primary."
+  }
+}

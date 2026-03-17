@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-13T02:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-13 02:51 UTC",
+    "filename": "operator-health-check-2026-03-13-0251.md",
+    "category": "operations",
+    "content": "# Operator Health Check — 2026-03-13 02:51 UTC\n\n## Summary\nSystem resources are currently within safe thresholds, but there are multiple service health issues requiring follow-up.\n\n## PM2\n- Online: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\n- Issue: `whisper` is `stopped`\n- Notable: `openclaw-gateway` shows `online` in PM2 with very high restart count (`1497`) and uptime `0s` at check time\n\n## Docker\n- Running containers present across IAM, Omiximo, InvenTree, Langfuse, Evolution API, Ollama, and n8n stacks\n- Issues:\n  - `langfuse_langfuse-web_1` is `Restarting (1)`\n  - `lidaros-frontend-1` is `Up ... (unhealthy)`\n  - `omiximo-email-automation` is `Up ... (unhealthy)`\n\n## Disk\n- Root filesystem `/dev/sda1`: 452G / 662G used (`69%`)\n- No disk alert threshold breached\n\n## Memory\n- RAM: 11.6G used / 27.5G total (~42%)\n- Available: 15.9G\n- Swap: disabled / none configured\n\n## GPU\n- NVIDIA RTX 4090 detected\n- GPU memory in use: 20550 MiB / 24564 MiB (~84%)\n- Utilization: 0% at sample time\n- Main process: `VLLM::EngineCore` using ~20.5 GiB VRAM\n- No immediate thermal or utilization concern at check time\n\n## OpenClaw Gateway\n- `openclaw gateway status` reports RPC probe OK and listener active on `127.0.0.1:18789`\n- But service runtime state reports: `stopped (state inactive, sub dead, last exit 203, reason 1)`\n- Service config flagged as `out of date or non-standard`\n- Recommendation from tooling: `openclaw doctor` and possibly `openclaw gateway install --force`\n- Additional config warnings: Telegram/WhatsApp group allowlists are empty, so group messages will be silently dropped for affected accounts\n\n## Overall Assessment\nResource health is acceptable. Service health is degraded. Priority issues are the stopped `whisper` process, failing/unhealthy Docker containers, and the inconsistent OpenClaw gateway service state/configuration.",
+    "replaces": ""
+  }
+}

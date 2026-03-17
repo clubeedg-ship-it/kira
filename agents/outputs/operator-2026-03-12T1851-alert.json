@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T18:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Health check found service and container issues: PM2 process whisper is stopped; Docker containers lidaros-frontend and omiximo-email-automation are unhealthy; langfuse_langfuse-web_1 is restarting; OpenClaw systemd gateway service is inactive with outdated embedded-token config, although RPC probe is responding and PM2 openclaw-gateway is online.",
+    "action": "Investigate and restart failed services/containers as appropriate; reconcile OpenClaw to a single supported gateway service configuration; verify whether whisper is intentionally disabled. Disk usage is 69% on /, RAM usage ~41%, GPU healthy but vLLM is using ~20.5 GiB VRAM."
+  }
+}

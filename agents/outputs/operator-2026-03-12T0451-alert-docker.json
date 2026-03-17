@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T04:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Docker health issues detected: `langfuse_langfuse-web_1` is restarting; `lidaros-frontend-1` and `omiximo-email-automation` are unhealthy",
+    "action": "Check container logs and healthcheck definitions before attempting restarts"
+  }
+}

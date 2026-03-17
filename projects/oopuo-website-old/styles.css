@@ -1,0 +1,563 @@
+/* Design System & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Petrona:wght@400;500;600&display=swap');
+
+:root {
+    /* Colors */
+    --bg-color: #f5f5f6;
+    --text-primary: #262424;
+    --primary-blue: #007ebc;
+    --accent-light-blue: #b1d4e5;
+    --accent-dark-blue: #00324d;
+    --accent-medium-blue: #006395;
+    --highlight-blue: #cceeff;
+    --white: #ffffff;
+
+    /* Typography */
+    --font-heading: 'Petrona', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Transitions */
+    --transition-speed: 0.4s;
+    --transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Layout Shell */
+#app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#deck-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    /* Allow scrolling */
+    overflow-x: hidden;
+}
+
+/* Slide Base Styles */
+.slide {
+    width: 100%;
+    min-height: 100%;
+    /* Allow content to grow beyond 100% */
+    padding: var(--spacing-lg);
+    margin-bottom: 15vh;
+    /* Extra space for scrolling using margin */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn var(--transition-speed) forwards;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.text-primary {
+    color: var(--primary-blue);
+}
+
+.text-dark {
+    color: var(--accent-dark-blue);
+}
+
+.text-medium {
+    color: var(--accent-medium-blue);
+}
+
+/* Navigation Controls */
+.nav-controls {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 100;
+    align-items: center;
+    align-items: center;
+    /* Vertically center items */
+}
+
+.lang-selector select {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    outline: none;
+}
+
+#slide-counter {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--text-primary);
+    min-width: 80px;
+    text-align: center;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.nav-btn:hover {
+    background: var(--text-primary);
+    color: var(--white);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.htmx-swapping {
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-out;
+}
+
+/* Utility Classes */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.gap-md {
+    gap: var(--spacing-md);
+}
+
+.icon-circle {
+    height: 60px;
+    width: 60px;
+    background: var(--accent-light-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    /* Monochrome effect - Robust Cross-Browser Fix */
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    /* Fallback for some mobile browsers: transparent text with black shadow */
+    color: transparent;
+    text-shadow: 0 0 0 var(--text-primary);
+}
+
+.bg-soft {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    height: 100%;
+    transition: background 0.3s ease;
+}
+
+.bg-soft:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.card {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    /* Slight rounding, keeping it mostly sharp like PDF */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .slide {
+        padding: var(--spacing-sm);
+        height: auto;
+        min-height: 100vh;
+        justify-content: flex-start;
+        padding-top: var(--spacing-lg);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-controls {
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+
+    .mobile-only-hint {
+        display: block !important;
+    }
+}
+
+.mobile-only-hint {
+    display: none;
+}
+
+/* --- New Animations & Interactivity --- */
+
+/* Staggered Entrance */
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-5 {
+    animation-delay: 0.5s;
+}
+
+.animate-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bar Chart Growth */
+.bar-grow {
+    transform-origin: bottom;
+    animation: growBar 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    transform: scaleY(0);
+}
+
+@keyframes growBar {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* Hover Lift Effect for Cards */
+.card {
+    /* Existing styles... */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-medium-blue);
+    transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-medium-blue);
+    transform: translateY(-2px);
+}
+
+/* Slide 1 - Hero Layout */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-logo-wrapper {
+    flex: 0 0 auto;
+}
+
+/* Mobile Hero Overrides */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        /* Logo on top */
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    /* Adjust font sizes for mobile if not already covered */
+    .hero-text h1 {
+        font-size: 4rem !important;
+        /* Smaller on mobile */
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-logo-wrapper img {
+        width: 150px !important;
+    }
+}
+
+/* Portfolio Dropdown */
+/* Header Group for Slide 5 */
+.header-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.header-group h2 {
+    margin-bottom: 0;
+}
+
+/* Portfolio Dropdown - Inline Layout */
+.portfolio-dropdown {
+    display: contents;
+    /* Allows children to participate in flex container */
+}
+
+.portfolio-dropdown summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--primary-blue);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--accent-light-blue);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.portfolio-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.portfolio-dropdown summary:hover {
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-dropdown summary::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+}
+
+.portfolio-dropdown[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.portfolio-content {
+    width: 100%;
+    /* Force full width */
+    flex-basis: 100%;
+    background: var(--white);
+    border: 1px solid var(--accent-light-blue);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 1rem;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.portfolio-item:last-child {
+    border-bottom: none;
+}
+
+.portfolio-item h4 {
+    color: var(--accent-dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+}
+
+.portfolio-item a:hover {
+    text-decoration: underline;
+}

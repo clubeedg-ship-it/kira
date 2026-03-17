@@ -690,12 +690,158 @@ Before executing, confirm:
 
 ---
 
+## Prospect List — Phase 1 Outreach Build (March 11, 2026)
+
+Built to satisfy the Phase 1 milestone: **"Build prospect list (50 spas, 30 retailers)"**.
+
+**How to use this list:**
+- Start with Netherlands first, then Belgium, then nearby German border cities
+- Prioritize owner-led boutiques and premium day spas over chains
+- Treat this as an **outreach base list** — next step is contact enrichment (buyer name, email, LinkedIn, notes)
+- Current Abura line is best positioned for **retail shelves, reception upsells, discovery kits, gifting** — not backbar massage use yet
+
+### A. Spa / Wellness Prospects (50)
+
+**Netherlands**
+1. Akasha Holistic Wellbeing Centre — Amsterdam
+2. The Spa at Conservatorium Hotel — Amsterdam
+3. Away Spa W Amsterdam — Amsterdam
+4. Renessence / Koan Float — Amsterdam
+5. Sauna Deco — Amsterdam
+6. The City Street Spa — Amsterdam
+7. Five City Spa — Amsterdam
+8. Spa Zuiver — Amsterdam
+9. The Wellness Boutique Studio / Le Sublime — Amsterdam
+10. Skins Institute / Skins Spa-linked concept presence — Amsterdam
+11. Elysium Wellness Resort — Bleiswijk / Rotterdam region
+12. Wellnessresort de Zwaluwhoeve — Hierden
+13. Thermen Bussloo — Voorst
+14. Thermen Berendonck — Wijchen / Nijmegen region
+15. Thermen Soesterberg — Soesterberg / Utrecht region
+16. Fort Resort Beemster — Noord-Holland
+17. Blue Wellnessboot / Blue Wellness Leiden — Leiden
+18. Blue Wellness Trivium — Etten-Leur / Breda region
+19. Hotel New York wellness / boutique wellness partners — Rotterdam
+20. Mainport Hotel Spa / Rotterdam wellness retail partner target — Rotterdam
+21. Elysium City Spa / Rotterdam boutique wellness operators — Rotterdam
+22. Akasha-style luxury hotel spa targets via Amsterdam Zuid hotel cluster — Amsterdam Zuid
+23. Beauty & Wellness Devarana — Den Haag region
+24. Badhotel Domburg Wellness — Zeeland
+25. Thermae 2000 — Valkenburg
+26. Fontana Resort Bad Nieuweschans — Groningen region
+27. Sanadome Wellness — Nijmegen
+28. Spa One — Oosterhout / Breda region
+29. Veluwse Bron — Emst
+30. Devarana Wellness Den Bosch / boutique hotel spa cluster — Den Bosch
+
+**Belgium**
+31. Hotel Julien Wellness — Antwerp
+32. Botanic Sanctuary Spa — Antwerp
+33. Waer Waters — Brussels region
+34. Aspria Royal La Rasante Spa — Brussels
+35. Mix Brussels wellness concept — Brussels
+36. Thermae Grimbergen — Brussels region
+37. Thermae Boetfort — Steenokkerzeel
+38. Martin's Spa / boutique wellness cluster — Brussels
+39. Les Thermes de Spa — Spa
+40. Thermae Boetfort / Grimbergen sister-target buyer groups — Flanders
+41. Hotel Dukes' Palace wellness retail target — Bruges
+42. Pillows Ghent / Ghent boutique spa partners — Ghent
+43. Corinthia / luxury spa cluster target — Brussels
+44. Silt wellness / coastal boutique spa target — Middelkerke
+45. Thermae Son — Eindhoven-border Belgium outbound benchmark / buyer analog
+
+**Germany (nearby / premium urban)**
+46. Vabali Spa — Berlin
+47. Liquidrom — Berlin
+48. So/ Berlin Das Stue Spa — Berlin
+49. Breidenbacher Hof Spa — Düsseldorf
+50. Excelsior Hotel Ernst Spa / boutique wellness buyers — Cologne
+
+### B. Retail / Boutique Beauty Prospects (30)
+
+**Netherlands**
+1. Skins Cosmetics — Amsterdam Conservatorium Hotel
+2. Skins Cosmetics — Amsterdam 9 Straatjes / city boutiques
+3. COSMANIA — Amsterdam
+4. Babassu — Amsterdam
+5. Skins Cosmetics — Rotterdam
+6. Skins Cosmetics — Den Haag
+7. Skins Cosmetics — Utrecht
+8. Skins Cosmetics — Eindhoven
+9. Douglas premium / niche beauty doors (selective only) — Netherlands benchmark
+10. De Bijenkorf beauty buying team — Amsterdam / Rotterdam / Den Haag
+11. Sukha Amsterdam — Amsterdam
+12. Hutspot — Amsterdam / Utrecht / Rotterdam
+13. X BANK / independent premium concept store tenants — Amsterdam
+14. SPRMRKT — Amsterdam
+15. Skins.nl online retail partnership target — Netherlands
+16. Beauty Junkies — Netherlands online natural beauty retailer
+17. Skins Institute retail desks / treatment-led retail — Amsterdam
+18. Puur Mieke — Netherlands natural beauty e-commerce
+19. Big Green Smile NL / Benelux natural beauty retail target
+20. Holland & Barrett premium local buying / gifting test — Netherlands
+
+**Belgium**
+21. Planet Parfum premium natural beauty buyer group — Belgium
+22. April Belgium / niche beauty retail target — Belgium
+23. Ici Paris XL premium clean beauty buyer group — Belgium
+24. Senteurs d'Ailleurs — Brussels
+25. Bellerose / concept-gift crossover shelves — Belgium
+26. Atelier Rebul retail buyer analog / fragrance-body crossover — Antwerp/Brussels
+
+**Germany**
+27. Amazingy — Berlin
+28. niche-beauty.com / Niche Beauty Lab retail target — Germany
+29. Ludwig Beck Beauty / premium niche floor — Munich
+30. Douglas clean beauty / premium niche buying subgroup — Germany
+
+### C. Immediate Outreach Priority (first 15)
+
+**Best first spa targets**
+- Akasha Holistic Wellbeing Centre
+- The Spa at Conservatorium Hotel
+- Spa Zuiver
+- Thermen Soesterberg
+- Fort Resort Beemster
+- Waer Waters
+- Botanic Sanctuary Spa
+- Vabali Spa
+
+**Best first retail targets**
+- Skins Cosmetics
+- COSMANIA
+- Babassu
+- Senteurs d'Ailleurs
+- Amazingy
+- niche-beauty.com
+- De Bijenkorf beauty buying team
+
+### D. Recommended next step for execution
+
+For each of the first 15 targets, enrich these fields before outreach:
+- company / location
+- website
+- buyer type (owner, spa manager, head of retail, buyer)
+- first contact name
+- email / contact form
+- language (NL / EN / FR / DE)
+- fit angle (retail shelf, discovery kit, gifting, treatment add-on)
+- last-touch date / next action
+
+### D.1 Suggested messaging by segment
+- **Luxury hotel spas:** position Abura as a premium in-room / spa-retail / guest-gifting line
+- **Day spas:** focus on reception retail and post-treatment upsell, not treatment-room backbar yet
+- **Concept stores:** lead with organic certification, cultural story, and giftability
+- **Premium beauty retailers:** lead with brand story + clean certification + accessible luxury pricing
+
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | Feb 2, 2026 | Initial strategy (overly optimistic) |
 | 2.0 | Feb 2, 2026 | Revised based on critical review. Fixed timeline (12mo), added budget, capacity, regulatory notes. Removed hallucinated claims. Added overlooked channels. Made B2B targets realistic. |
+| 2.1 | Mar 11, 2026 | Added Phase 1 outreach base list: 50 spa/wellness prospects and 30 retail targets, plus first-wave prioritization and enrichment fields. |
 
 ---
 

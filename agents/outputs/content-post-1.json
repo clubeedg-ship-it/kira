@@ -1,0 +1,29 @@
+{
+  "type": "decision",
+  "agent": "content",
+  "timestamp": "2026-03-17T08:30:00Z",
+  "decision": {
+    "question": "Post about the IAM 'Whale' target list?",
+    "recommendation": "Use this to show Otto's strategic focus on market consolidation. It positions IAM as a serious player targeting the biggest chains in the NL kindergarten market.",
+    "evidence": [
+      "New 'Whale' list finalized mapping top 60 Dutch kindergarten chains.",
+      "Strategic shift from individual sales to 'one deal = 500+ locations' (Partou/Humankind).",
+      "Aligns with 'Revenue > everything' principle."
+    ],
+    "options": [
+      {
+        "label": "LinkedIn: The Whale Strategy",
+        "description": "Text draft: 'Most founders chase single sales. We’re chasing the whales.\n\nJust mapped the top 60 kindergarten chains in the Netherlands for IAM. \n\nTarget #1: Partou (1,039 locations).\nTarget #2: Humankind (465 locations).\n\nOne deal = 500+ locations transformed with interactive AI projections. \n\nStop selling products. Start selling infrastructure for entire ecosystems.'"
+      },
+      {
+        "label": "Video: Behind the Scenes",
+        "description": "Script: 'I just finished mapping the top 60 kindergarten chains in the Netherlands. We’re not looking for one or two sales anymore. We’re looking for the whales. Partou has over a thousand locations. One partnership with them changed everything for IAM. This is how you scale—don't look for customers, look for partners who OWN the customers.'"
+      },
+      {
+        "label": "Skip",
+        "description": "Keep the target list internal for now."
+      }
+    ],
+    "urgency": "today"
+  }
+}

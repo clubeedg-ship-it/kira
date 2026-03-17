@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T12:51:30Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Infrastructure health check found service issues: OpenClaw systemd gateway runtime is inactive/misconfigured, PM2 process whisper is stopped, Docker containers langfuse_langfuse-web_1 is restarting, and lidaros-frontend plus omiximo-email-automation are unhealthy.",
+    "action": "Investigate gateway service install/state, confirm whether PM2 whisper is intentionally disabled, and repair unhealthy/restarting Docker containers."
+  }
+}

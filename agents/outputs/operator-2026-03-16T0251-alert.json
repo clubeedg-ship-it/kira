@@ -1,0 +1,20 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T02:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services down or unhealthy",
+    "details": {
+      "pm2": [
+        "whisper is stopped (id 25)"
+      ],
+      "docker": [
+        "langfuse_langfuse-web_1 is Restarting",
+        "lidaros-frontend-1 is unhealthy",
+        "omiximo-email-automation is unhealthy"
+      ]
+    },
+    "action": "Investigate logs for whisper, langfuse, and unhealthy docker containers."
+  }
+}

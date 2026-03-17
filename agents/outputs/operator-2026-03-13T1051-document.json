@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-13T10:51:33Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-13 10:51 UTC",
+    "filename": "operator-health-check-2026-03-13-1051.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\nTime: 2026-03-13 10:51 UTC\n\n## Summary\n- PM2: 12 online, 1 stopped (`whisper`)\n- Docker: most containers healthy/up; issues on `lidaros-frontend-1` (unhealthy), `omiximo-email-automation` (unhealthy), `langfuse_langfuse-web_1` (restarting)\n- Disk: `/` at 69% used (453G / 662G)\n- RAM: 11.9 GB used, 15.6 GB available, no swap configured\n- GPU: RTX 4090 present, 20.5 GB / 24.6 GB VRAM in use by `VLLM::EngineCore`, utilization idle at check time\n- OpenClaw gateway: RPC reachable on 127.0.0.1:18789, but service status/config is inconsistent and needs cleanup\n\n## Details\n### PM2\nStopped process: `whisper`\n\n### Docker\nProblem containers:\n- `lidaros-frontend-1` — unhealthy\n- `omiximo-email-automation` — unhealthy\n- `langfuse_langfuse-web_1` — restarting\n\n### Storage\n- Root filesystem `/`: 69% used\n\n### Memory\n- Total: 27.5 GB\n- Used: 11.9 GB\n- Available: 15.6 GB\n- Swap: 0 GB\n\n### GPU\n- Driver/CUDA: 580.126.09 / 13.0\n- Memory usage: 20550 MiB / 24564 MiB\n- Main process: `VLLM::EngineCore`\n\n### OpenClaw gateway\n- Probe OK on loopback: `ws://127.0.0.1:18789`\n- systemd service reports inactive/dead and looks out of date/non-standard\n- Embedded service token warning present\n- Multiple gateway-like services detected on host\n\n## Assessment\nHost resources are currently acceptable. Main concerns are one stopped PM2 service, unhealthy/restarting containers, and gateway service drift/multiplicity.",
+    "replaces": ""
+  }
+}

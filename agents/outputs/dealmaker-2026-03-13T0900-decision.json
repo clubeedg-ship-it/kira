@@ -1,0 +1,31 @@
+{
+  "type": "decision",
+  "agent": "dealmaker",
+  "timestamp": "2026-03-13T09:00:00Z",
+  "decision": {
+    "question": "Which offer and price point should be pushed first for near-term cash: OttoGen SIGNAL, OttoGen AMPLIFY, or ZenithCred fundraising/pilot conversion?",
+    "recommendation": "Push OttoGen SIGNAL first as the primary front-door offer, selectively upsell AMPLIFY on discovery calls, and treat ZenithCred as a parallel funding track rather than the main cash bet this week. Keep ZenithCred focused on converting the 3 LOIs and contacting only the top-priority investors instead of broad outreach.",
+    "evidence": [
+      "OttoGen already has explicit package pricing: SIGNAL €500–€1,000, AMPLIFY €2,000–€5,000, OVERDRIVE €10,000+",
+      "OttoGen playbook states 10 clients in 30 days could generate €8,000–€20,000",
+      "OttoGen strategy estimates a realistic one-person sweet spot of 3–4 engagements/month and €3,000–€6,000/month without overload",
+      "ZenithCred is documented as pre-revenue with MVP in development and 3 pilot LOIs",
+      "ZenithCred fundraising materials are prepared, but reviewed files do not show active investor meeting volume or committed capital"
+    ],
+    "options": [
+      {
+        "label": "Push SIGNAL first",
+        "description": "Use the lowest-friction offer to create immediate cash flow and case studies; upsell later"
+      },
+      {
+        "label": "Push AMPLIFY first",
+        "description": "Aim for fewer but larger deals, accepting a narrower buyer pool and longer sales cycle"
+      },
+      {
+        "label": "Focus on ZenithCred",
+        "description": "Prioritize pilot conversion and seed fundraising over OttoGen service sales"
+      }
+    ],
+    "urgency": "this_week"
+  }
+}

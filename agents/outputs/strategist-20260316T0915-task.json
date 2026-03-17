@@ -1,0 +1,19 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-03-16T09:15:00Z",
+  "task": {
+    "title": "Start ZenithCred Investor Outreach Batch #1",
+    "description": "Send the cold outreach sequence (Email 1B) to the first 5 health-tech/B2B VCs on the target list.",
+    "priority": "high",
+    "sourceContext": "March goal: 3 investor calls booked. No emails sent yet.",
+    "keyPoints": [
+      "Use templates in ~/kira/vdr/zenithcred/investor-outreach.md",
+      "Personalize for health-tech focus",
+      "Focus on the 'physical infrastructure for wellness' differentiator"
+    ],
+    "assignee": "user",
+    "project": "zenithcred",
+    "dueDate": "2026-03-17"
+  }
+}

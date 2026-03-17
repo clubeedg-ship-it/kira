@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T22:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "OpenClaw gateway service is misconfigured and reports runtime stopped/inactive even though RPC probe responds on 127.0.0.1:18789.",
+    "action": "Inspect gateway ownership/process model, run openclaw doctor, and reinstall service with `openclaw gateway install --force` if systemd service should be authoritative."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T04:51:31Z",
+  "alert": {
+    "severity": "high",
+    "message": "OpenClaw gateway status is inconsistent: RPC probe is OK and 127.0.0.1:18789 is listening, but 'openclaw gateway status' reports runtime stopped/inactive with a non-standard outdated systemd service config embedding a gateway token. PM2 also shows 'openclaw-gateway' online with 2995 restarts.",
+    "action": "Audit the active gateway supervisor path (PM2 vs systemd), inspect restart cause, and reinstall the systemd unit with 'openclaw gateway install --force' only after confirming the intended deployment mode."
+  }
+}

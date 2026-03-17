@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T02:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Telegram and WhatsApp group policies are set to allowlist with empty allowed-sender lists, so group messages will be silently dropped",
+    "action": "Add explicit allowed sender IDs or switch the affected group policies to open if group traffic is intended"
+  }
+}

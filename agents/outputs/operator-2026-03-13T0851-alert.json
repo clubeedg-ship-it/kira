@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T08:51:30Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Health check found degraded services: PM2 process whisper is stopped; Docker containers lidaros-frontend-1 and omiximo-email-automation are unhealthy; langfuse_langfuse-web_1 is restarting; OpenClaw gateway service config is out of date and systemd runtime reports inactive even though RPC probe on 127.0.0.1:18789 is responding.",
+    "action": "Investigate unhealthy/restarting containers, confirm whether whisper should be running, and repair or remove the stale OpenClaw systemd service (recommended: openclaw doctor or openclaw gateway install --force) while preserving the currently responding local gateway."
+  }
+}

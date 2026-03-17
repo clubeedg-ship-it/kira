@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-14T04:51:00Z",
+  "document": {
+    "title": "Health Check — 2026-03-14 04:51 UTC",
+    "filename": "health-check-2026-03-14.md",
+    "category": "ops",
+    "content": "# Health Check — Sat Mar 14, 2026 04:51 UTC\n\n## Summary\n🟡 **Degraded** — 4 issues found, none critical.\n\n## System Resources\n- **Disk:** 454G/662G (69%) ✅\n- **RAM:** 12.4G/27.5G (45%) ✅\n- **GPU:** RTX 4090 — 20.5G/24.6G VRAM (84%), 41°C, idle ✅\n- **Swap:** None configured ⚠️\n\n## PM2 Services (14 total)\n- **12 online** ✅\n- **1 stopped:** `whisper` (37 restarts, currently down)\n- **Notable:** `openclaw-gateway` — 1163 restarts, 877MB RAM\n\n## Docker Containers (26 total)\n- **23 healthy/running** ✅\n- **3 issues:**\n  - `langfuse_langfuse-web_1` — **restart loop** (Restarting every ~21s)\n  - `lidaros-frontend-1` — **unhealthy**\n  - `omiximo-email-automation` — **unhealthy**\n\n## OpenClaw Gateway\n- **Status:** Running (pid 4174187) ✅\n- **Warnings:** 6 group policy allowlist warnings (empty allowFrom lists)\n\n## Issues\n| # | Severity | Issue |\n|---|----------|-------|\n| 1 | Medium | `langfuse_langfuse-web_1` stuck in restart loop |\n| 2 | Low | `lidaros-frontend-1` unhealthy |\n| 3 | Low | `omiximo-email-automation` unhealthy |\n| 4 | Low | `whisper` PM2 process stopped |"
+  }
+}

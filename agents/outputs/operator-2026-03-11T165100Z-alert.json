@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-11T16:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Health check found service issues: PM2 process whisper is stopped; Docker containers langfuse_langfuse-web_1 is restarting, lidaros-frontend-1 is unhealthy, and omiximo-email-automation is unhealthy; OpenClaw gateway RPC is reachable on 127.0.0.1:18789 but the user systemd service is inactive/misconfigured.",
+    "action": "Investigate failed PM2 and Docker services, then repair or restart as appropriate. Reinstall or clean up the OpenClaw user service if systemd management is expected."
+  }
+}

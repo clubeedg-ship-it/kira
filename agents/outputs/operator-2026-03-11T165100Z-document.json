@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-11T16:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-11 16:51 UTC",
+    "filename": "operator-health-check-2026-03-11T165100Z.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\n## Summary\n- Overall state: degraded\n- PM2: 12 online, 1 stopped\n- Docker: multiple application containers running, but 3 unhealthy/degraded states detected\n- Disk: / at 69% used\n- RAM: 11093 MiB used / 27532 MiB total (~40%)\n- GPU: RTX 4090 present, 20550 MiB / 24564 MiB in use by VLLM::EngineCore, 0% util at sample time\n- OpenClaw gateway: RPC reachable on 127.0.0.1:18789, but user systemd service reports inactive/dead and service config is flagged as out of date/non-standard\n\n## PM2\nOnline:\n- agent-log\n- gpu-router\n- iam-chat-proxy\n- kira-admin\n- kira-app\n- kira-dashboard\n- oopuo-website\n- openclaw-bridge\n- openclaw-gateway\n- stella-tax\n- whatsapp-bridge\n- zenithcred-website\n\nProblem:\n- whisper: stopped\n\n## Docker concerns\n- langfuse_langfuse-web_1: restarting\n- lidaros-frontend-1: unhealthy\n- omiximo-email-automation: unhealthy\n\n## Docker healthy/running sample\n- neo4j-server: up\n- iam-ghost / iam-nginx / iam-mysql: up (mysql healthy)\n- inventree stack: backend/db/redis healthy, frontend up\n- omiximo-bridge: healthy\n- ollama: up\n- n8n: up\n- evolution_api: up\n\n## Resource checks\n- Disk pressure is acceptable; no filesystem above alert threshold\n- Memory pressure is acceptable; no swap configured\n- GPU memory use is high but below alert threshold and appears assigned to active inference service\n\n## OpenClaw notes\n- Listening on 127.0.0.1:18789\n- RPC probe succeeded\n- systemd user service state: inactive/dead, last exit 203\n- Service file embeds token and is recommended for reinstall/cleanup by CLI diagnostics\n- Doctor warnings also note empty group allowlists for WhatsApp/Telegram group policies; this is configuration drift, not an immediate outage\n\n## Recommended next actions\n1. Check why whisper is stopped and whether it is expected\n2. Inspect logs for langfuse web restart loop\n3. Inspect healthcheck failures for lidaros-frontend-1 and omiximo-email-automation\n4. Decide whether OpenClaw should be managed by PM2 only or by systemd; remove or reinstall stale user service accordingly\n",
+    "replaces": ""
+  }
+}

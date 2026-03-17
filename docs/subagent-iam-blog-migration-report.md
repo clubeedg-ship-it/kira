@@ -1,0 +1,99 @@
+# IAM blog migration report
+
+- Source: https://interactivemove.nl/blog/
+- Integration path: Ghost-safe local fallback dataset added to the existing blog frontend. Ghost remains untouched; if Ghost has valid posts they still render first, and migrated posts are used as a fallback.
+- Posts found via WordPress API: 11
+- Posts migrated: 11
+- Image files downloaded: 13
+- Missing local image files after verification: 0
+
+## Posts migrated
+- Interactieve Vloer met 4K Laserprojectie: Ook Inzetbaar Bij Veel Licht
+  - slug: interactieve-vloer-met-4k-laserprojectie-ook-inzetbaar-bij-veel-licht
+  - url: https://interactivemove.nl/interactieve-vloer-met-4k-laserprojectie-ook-inzetbaar-bij-veel-licht/
+  - published_at: 2025-11-24T22:13:32Z
+  - author: n/a
+  - feature_image: /media/blog/interactieve-vloer-met-4k-laserprojectie-ook-inzetbaar-bij-veel-licht/Screenshot-2025-11-25-at-00-01-13-JPEG-Image-1126--C3-97-2000-pixels--E2-80-94-Scaled-38.png
+  - embedded_images: 0
+- Waarom een interactieve vloer een slimme investering is voor scholen en zorginstellingen
+  - slug: interactieve-vloer-investering
+  - url: https://interactivemove.nl/interactieve-vloer-investering/
+  - published_at: 2025-07-28T18:48:04Z
+  - author: n/a
+  - feature_image: /media/blog/interactieve-vloer-investering/IAM_Mobiele_interactieve_vloer_resized.png
+  - embedded_images: 0
+- Waarom een interactieve vloer onmisbaar is in het speciaal onderwijs
+  - slug: waarom-een-interactieve-vloer-onmisbaar-is-in-het-speciaal-onderwijs
+  - url: https://interactivemove.nl/waarom-een-interactieve-vloer-onmisbaar-is-in-het-speciaal-onderwijs/
+  - published_at: 2025-07-18T19:44:10Z
+  - author: n/a
+  - feature_image: /media/blog/waarom-een-interactieve-vloer-onmisbaar-is-in-het-speciaal-onderwijs/Geometric-shapes-in-interactive-games-on-the-projection-floor-mp4-image.jpg
+  - embedded_images: 0
+- IAM VitalVloer: interactieve vloeroplossing voor ouderen in beweging.
+  - slug: iam-vitalvloer-interactieve-vloeroplossing-voor-ouderen-in-beweging
+  - url: https://interactivemove.nl/iam-vitalvloer-interactieve-vloeroplossing-voor-ouderen-in-beweging/
+  - published_at: 2025-05-08T20:09:25Z
+  - author: n/a
+  - feature_image: /media/blog/iam-vitalvloer-interactieve-vloeroplossing-voor-ouderen-in-beweging/IAM-Vitalvloer_klein_voor_wordpress.png
+  - embedded_images: 0
+- Waarom kiezen voor een interactieve muur?
+  - slug: waarom-kiezen-voor-een-interactieve-muur
+  - url: https://interactivemove.nl/waarom-kiezen-voor-een-interactieve-muur/
+  - published_at: 2025-04-22T19:32:13Z
+  - author: n/a
+  - feature_image: /media/blog/waarom-kiezen-voor-een-interactieve-muur/Screenshot_560.png
+  - embedded_images: 0
+- Wat is een interactieve zandbak?
+  - slug: wat-is-een-interactieve-zandbak
+  - url: https://interactivemove.nl/wat-is-een-interactieve-zandbak/
+  - published_at: 2025-04-15T19:41:23Z
+  - author: n/a
+  - feature_image: /media/blog/wat-is-een-interactieve-zandbak/Interactieve-Zandbak--E2-80-93-Inter-Active-Move.png
+  - embedded_images: 0
+- Wat heb je nodig om een interactieve beweegmuur te plaatsen in een sporthal?
+  - slug: wat-heb-je-nodig-om-een-interactieve-beweegmuur-te-plaatsen-in-een-sporthal
+  - url: https://interactivemove.nl/wat-heb-je-nodig-om-een-interactieve-beweegmuur-te-plaatsen-in-een-sporthal/
+  - published_at: 2025-04-10T19:24:35Z
+  - author: n/a
+  - feature_image: /media/blog/wat-heb-je-nodig-om-een-interactieve-beweegmuur-te-plaatsen-in-een-sporthal/Interactive-sports-mp4-image.jpg
+  - embedded_images: 0
+- Gezondheidsvoordelen van interactief bewegen:
+  - slug: gezondheidsvoordelen-van-interactief-bewegen
+  - url: https://interactivemove.nl/gezondheidsvoordelen-van-interactief-bewegen/
+  - published_at: 2025-03-24T19:44:19Z
+  - author: n/a
+  - feature_image: /media/blog/gezondheidsvoordelen-van-interactief-bewegen/Interactive-Virtual-Reality-Game-on-the-interactive-wall-mp4-image.jpg
+  - embedded_images: 0
+- IAM presenteert: 2-in-1 Mobiele Interactieve Muur- en Vloerprojectie
+  - slug: iam-2-in-1-interactieve-vloer-en-muurprojectie-voor-scholen-en-zorg
+  - url: https://interactivemove.nl/iam-2-in-1-interactieve-vloer-en-muurprojectie-voor-scholen-en-zorg/
+  - published_at: 2025-03-13T19:52:59Z
+  - author: n/a
+  - feature_image: /media/blog/iam-2-in-1-interactieve-vloer-en-muurprojectie-voor-scholen-en-zorg/2-in-1-Interactive-Wall-and-Floor-DIY.png
+  - embedded_images: 1
+- Beweeg, Leer en Speel met InterActiveMove!
+  - slug: beweeg-leer-en-speel-met-interactivemove
+  - url: https://interactivemove.nl/beweeg-leer-en-speel-met-interactivemove/
+  - published_at: 2025-02-15T16:20:23Z
+  - author: n/a
+  - feature_image: /media/blog/waarom-een-interactieve-vloer-onmisbaar-is-in-het-speciaal-onderwijs/Geometric-shapes-in-interactive-games-on-the-projection-floor-mp4-image.jpg
+  - embedded_images: 1
+- Plaswijck Park Rotterdam
+  - slug: plaswijck-park-rotterdam
+  - url: https://interactivemove.nl/plaswijck-park-rotterdam/
+  - published_at: 2025-01-20T03:32:10Z
+  - author: n/a
+  - feature_image: /media/blog/plaswijck-park-rotterdam/vis.jpeg
+  - embedded_images: 1
+
+## Files changed
+- js/blog-local-data.js
+- media/blog/ (downloaded assets)
+- blog.html
+- index.html
+- js/blog-carousel.js
+- tools/migrate_live_blog.py
+
+## Failures / gaps
+- None during automated extraction.
+- Ghost content was not imported directly because no admin import credential path was available in-repo; local fallback was safer for launch and preserves current blog behavior.

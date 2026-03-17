@@ -1,0 +1,17 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T18:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "System Health Alert: Service issues and container unhealthy states detected.",
+    "details": [
+      "PM2: 'whisper' (id 25) is STOPPED.",
+      "Docker: 'langfuse_langfuse-web_1' is RESTARTING.",
+      "Docker: 'omiximo-email-automation' is UNHEALTHY (Up 8 days).",
+      "Docker: 'lidaros-frontend-1' is UNHEALTHY (Up 8 days).",
+      "Gateway: Multiple doctor warnings regarding groupAllowFrom/groupPolicy for Telegram and WhatsApp."
+    ],
+    "action": "Investigate 'whisper' process, check logs for Langfuse restart loop, and review health check failures for Omiximo and Lidaros containers."
+  }
+}

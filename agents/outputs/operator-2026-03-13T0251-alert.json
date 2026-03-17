@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T02:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Health check found service degradation: PM2 process whisper is stopped, Docker containers langfuse_langfuse-web_1 is restarting, lidaros-frontend-1 and omiximo-email-automation are unhealthy, and OpenClaw gateway service state is inactive/non-standard despite local RPC probe responding.",
+    "action": "Investigate whisper PM2 process, inspect failing/unhealthy containers, and repair or reinstall OpenClaw gateway service configuration (recommended: openclaw doctor / openclaw gateway install --force)."
+  }
+}

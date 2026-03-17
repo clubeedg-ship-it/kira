@@ -11,10 +11,15 @@
 
 import http from 'node:http';
 import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 const PORT = parseInt(process.env.BRIDGE_PORT || '3855');
 const TOKEN = process.env.BRIDGE_TOKEN || 'kira-bridge-2024';
 const OPENCLAW_BIN = process.env.OPENCLAW_BIN || 'openclaw';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const SYNC_CODEX_AUTH_SCRIPT = path.resolve(__dirname, '..', 'scripts', 'sync-codex-auth-to-openclaw.mjs');
 
 function auth(req) {
   const h = req.headers.authorization || '';
@@ -38,12 +43,45 @@ function readBody(req) {
   });
 }
 
+function syncCodexAuthToOpenClaw() {
+  const proc = spawn(process.execPath, [SYNC_CODEX_AUTH_SCRIPT], {
+    env: { ...process.env, NO_COLOR: '1' },
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: 15_000,
+  });
+
+  return new Promise((resolve, reject) => {
+    let stdout = '';
+    let stderr = '';
+
+    proc.stdout.on('data', chunk => {
+      stdout += chunk.toString();
+    });
+
+    proc.stderr.on('data', chunk => {
+      stderr += chunk.toString();
+    });
+
+    proc.on('close', (code) => {
+      if (code === 0) {
+        resolve(stdout);
+        return;
+      }
+      reject(new Error(stderr || stdout || `Codex auth sync exited with code ${code}`));
+    });
+
+    proc.on('error', reject);
+  });
+}
+
 /**
  * Stream a chat message through openclaw agent CLI.
  * The CLI handles session management, tool use, everything.
  * We just capture stdout and stream it as SSE.
  */
 async function handleChat(req, res) {
+  await syncCodexAuthToOpenClaw();
+
   const body = await readBody(req);
   const message = body.message;
   if (!message) {
@@ -148,6 +186,8 @@ async function handleHistory(req, res) {
   const limit = parseInt(url.searchParams.get('limit') || '50');
 
   try {
+    await syncCodexAuthToOpenClaw();
+
     const proc = spawn(OPENCLAW_BIN, ['sessions', 'history', '--json', '--limit', String(limit)], {
       env: { ...process.env, NO_COLOR: '1' },
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -216,4 +256,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`[bridge] OpenClaw bridge running on port ${PORT}`);
+  syncCodexAuthToOpenClaw().catch((err) => {
+    console.error(`[bridge] codex auth sync failed: ${err.message}`);
+  });
 });

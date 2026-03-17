@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T14:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Several Docker containers are degraded: 'langfuse_langfuse-web_1' is restarting, 'lidaros-frontend-1' is unhealthy, and 'omiximo-email-automation' is unhealthy.",
+    "action": "Review container logs and health checks for the affected services and restart or repair as needed."
+  }
+}

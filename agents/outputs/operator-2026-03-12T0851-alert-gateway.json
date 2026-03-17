@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T08:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "OpenClaw gateway status is inconsistent: systemd service reports inactive/dead with last exit 203, while RPC probe is OK and gateway is listening on 127.0.0.1:18789. Service configuration is also flagged as out of date/non-standard with an embedded token.",
+    "action": "Audit active gateway process ownership, reconcile to a single supported gateway instance, and reinstall the service definition if needed (for example via openclaw gateway install --force after validation)."
+  }
+}

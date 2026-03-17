@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T08:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical Docker Containers: langfuse_langfuse-web_1 (Restarting), lidaros-frontend-1 (Unhealthy), omiximo-email-automation (Unhealthy).",
+    "action": "Check docker logs for langfuse-web, lidaros-frontend, and email-automation."
+  }
+}

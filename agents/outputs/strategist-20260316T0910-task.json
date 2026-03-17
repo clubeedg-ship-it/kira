@@ -1,0 +1,19 @@
+{
+  "type": "task",
+  "agent": "strategist",
+  "timestamp": "2026-03-16T09:10:00Z",
+  "task": {
+    "title": "Send first batch of 10 IAM pilot proposals",
+    "description": "Using the Tier 1 list in ~/kira/vdr/iam/prospects.md, send the first 10 pilot proposals to the Dutch kindergarten chains (Partou, Humankind, etc.).",
+    "priority": "high",
+    "sourceContext": "March revenue goal requires 1 pilot installation. Outreach is the bottleneck.",
+    "keyPoints": [
+      "Target decision makers in Pedagogy or Facilities",
+      "Offer 2-week free trial",
+      "Focus on the 'active play' and 'differentiation' angle"
+    ],
+    "assignee": "user",
+    "project": "iam",
+    "dueDate": "2026-03-18"
+  }
+}

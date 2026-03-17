@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-11T18:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "OpenClaw gateway service configuration is non-standard/outdated and systemd runtime reports inactive/dead, although RPC probe is responding on 127.0.0.1:18789.",
+    "action": "Run openclaw doctor or reinstall the gateway service with openclaw gateway install --force after confirming the intended single-gateway setup."
+  }
+}

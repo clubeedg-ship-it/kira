@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-11T18:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "PM2 process health issue: whisper is stopped while other managed services are online.",
+    "action": "Verify whether whisper is intentionally disabled; if not, inspect logs and restart the process."
+  }
+}

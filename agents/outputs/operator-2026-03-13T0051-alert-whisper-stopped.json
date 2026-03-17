@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-13T00:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "PM2 process whisper is stopped (id 25, restarts 37, pid 0).",
+    "action": "Inspect whisper logs and restart only after confirming failure cause."
+  }
+}

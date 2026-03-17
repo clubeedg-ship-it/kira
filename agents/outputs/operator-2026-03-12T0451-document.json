@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-12T04:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-12 04:51 UTC",
+    "filename": "operator-healthcheck-2026-03-12T0451.md",
+    "category": "operations",
+    "content": "# Operator Health Check\n\nChecked at 2026-03-12 04:51 UTC.\n\n## Summary\n- PM2: mostly healthy; 12 online, 1 stopped (`whisper`)\n- Docker: multiple healthy workloads running; 1 restarting container (`langfuse_langfuse-web_1`), 2 unhealthy containers (`lidaros-frontend-1`, `omiximo-email-automation`)\n- Disk: `/` at 69% used (210G free)\n- RAM: 11.3 GB used / 27.5 GB total (~41%), no swap configured\n- GPU: RTX 4090 present; 20.6 GB / 24.6 GB in use by `VLLM::EngineCore`, GPU util 0%, temp 40C\n- OpenClaw gateway: RPC responding on loopback `127.0.0.1:18789`, but `openclaw gateway status` reports systemd runtime as stopped/inactive with an out-of-date service config\n\n## PM2\nOnline: agent-log, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website\nStopped: whisper\n\n## Docker concerns\n- Restarting: `langfuse_langfuse-web_1`\n- Unhealthy: `lidaros-frontend-1`\n- Unhealthy: `omiximo-email-automation`\n\n## OpenClaw notes\n- Gateway probe is OK on `ws://127.0.0.1:18789`\n- Service mode shows disabled / inactive / last exit 203\n- Service file appears outdated and embeds a gateway token\n- Doctor warnings: WhatsApp + Telegram group allowlists are configured with empty allow lists, so group messages will be silently dropped until configured or policies are opened\n\n## Recommended follow-up\n1. Investigate why `whisper` is stopped in PM2\n2. Check logs/healthchecks for `langfuse_langfuse-web_1`, `lidaros-frontend-1`, and `omiximo-email-automation`\n3. Reconcile OpenClaw service state vs PM2-managed process and reinstall gateway service if systemd should own it\n4. Review Telegram/WhatsApp group allowlist config if group intake is expected\n",
+    "replaces": ""
+  }
+}

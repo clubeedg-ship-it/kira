@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-14T00:51:00Z",
+  "document": {
+    "title": "Health Check — 2026-03-14 00:51 UTC",
+    "filename": "health-check-2026-03-14.md",
+    "category": "operations",
+    "content": "# Health Check — 2026-03-14 00:51 UTC\n\n## Summary: ⚠️ Minor Issues\n\n### PM2 Services (13 total)\n- **12 online**, 1 stopped\n- ⚠️ **whisper** — stopped (37 restarts). Likely intentional.\n- Notable: openclaw-gateway at 784MB RAM, 1112 restarts (just restarted 28s ago)\n\n### Docker Containers (27 total)\n- ❌ **langfuse-web** — restart loop (\"Restarting (1) 13 seconds ago\"). Persistent issue.\n- ⚠️ **lidaros-frontend** — unhealthy\n- ⚠️ **omiximo-email-automation** — unhealthy\n- All other containers running normally\n\n### Disk\n- `/` — 69% used (454G/662G) ✅ Under 85% threshold\n\n### Memory\n- RAM: 12,094 / 27,532 MB (44%) ✅\n- No swap configured\n\n### GPU\n- RTX 4090: 41°C, 21W idle, 20,550 / 24,564 MiB VRAM (84%)\n- VLLM engine consuming nearly all VRAM — normal for model serving\n\n### OpenClaw Gateway\n- Running via PM2 (port 18789), RPC probe OK\n- Systemd service shows inactive (PM2 manages it instead)\n- Doctor warnings: multiple group chat allowlists empty (groups silently dropped)\n\n## Action Items\n- **langfuse-web** restart loop needs investigation (has been ongoing)\n- **lidaros-frontend** and **omiximo-email-automation** unhealthy status should be checked\n- Group policy warnings are cosmetic unless group chat functionality is needed"
+  }
+}

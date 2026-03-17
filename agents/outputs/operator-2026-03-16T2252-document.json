@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-16T22:52:00Z",
+  "document": {
+    "title": "System Health Report — 2026-03-16",
+    "filename": "system-health-2026-03-16.md",
+    "category": "infrastructure",
+    "content": "# System Health Report — 2026-03-16 22:52 UTC\n\n## Summary\nOverall system is operational but several services require attention. Disk and Memory are within safe limits. GPU is heavily utilized by VLLM.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway, stella-tax, whatsapp-bridge, zenithcred-website.\n- **Stopped:** `whisper` (id: 25). Needs investigation.\n- **Gateway:** `openclaw-gateway` (id: 42) shows 491 restarts but is currently online with 906MB RAM usage.\n\n### Docker Containers\n- **Unhealthy/Restarting:**\n  - `langfuse_langfuse-web_1`: Constant restarting.\n  - `lidaros-frontend-1`: Unhealthy.\n  - `omiximo-email-automation`: Unhealthy.\n- **Healthy/Up:** postgres (client-ops), nginx (iam), scribe-service, nextjs-server, neo4j, ghost (iam), mysql (iam), lidaros-backend, kali-osint, inventree stack, omiximo-bridge, evolution-api, ollama, n8n.\n\n## Resource Usage\n- **Disk:** 69% (454G / 662G). **Safe.**\n- **Memory:** 45% used (12.4GB / 27.5GB). **Safe.**\n- **GPU (RTX 4090):** 83% memory utilization (20.5GB / 24.5GB). Exclusively used by `VLLM::EngineCore`. **Safe but high.**\n\n## Gateway Status\n- **OpenClaw Gateway:** Running (PID 2121141). RPC Probe: OK.\n- **Warnings:** Multiple doctor warnings regarding empty allowlists for Telegram/WhatsApp groups. This will cause group messages to be dropped.\n\n## Actions Required\n1. `pm2 logs whisper` to see why it's stopped.\n2. `docker logs langfuse_langfuse-web_1` to debug restart loop.\n3. Restart unhealthy containers: `lidaros-frontend-1` and `omiximo-email-automation`.\n4. Address OpenClaw group allowlist warnings in config if group access is intended."
+  }
+}

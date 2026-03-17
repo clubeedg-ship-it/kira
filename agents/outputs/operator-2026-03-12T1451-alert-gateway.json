@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T14:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "OpenClaw gateway systemd service is inactive with an out-of-date service configuration embedding OPENCLAW_GATEWAY_TOKEN, although the gateway still responds on 127.0.0.1:18789 via another runtime path.",
+    "action": "Normalize to a single gateway runtime, inspect openclaw status, and reinstall the service with 'openclaw gateway install --force' if systemd management is intended."
+  }
+}

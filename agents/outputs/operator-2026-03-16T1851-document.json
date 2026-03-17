@@ -1,0 +1,33 @@
+# Infrastructure Health Report — 2026-03-16 18:51 UTC
+
+## Summary
+- **Overall Status:** Warning
+- **Resources:** Good (Disk 69%, RAM 45%, GPU 83% VRAM used by vLLM)
+- **Services:** Issues detected in PM2 and Docker
+
+## System Resources
+- **Disk (`/`):** 454G / 662G (69%) — **Healthy**
+- **Memory:** 12GB / 27GB Used (45%) — **Healthy**
+- **GPU (RTX 4090):** 21W idle, 20.5GB/24GB VRAM (83%) used by `VLLM::EngineCore`. **Normal for active inference server.**
+
+## Process Monitoring (PM2)
+- **Whisper:** Stopped (ID 25).
+- **Gateway:** Online (ID 42). Note: Uptime only 4 seconds? Potentially recently restarted or flapping.
+- **Other Services:** 13 services online.
+
+## Container Monitoring (Docker)
+- **Unhealthy:** 
+  - `omiximo-email-automation` (Up 8 days)
+  - `lidaros-frontend-1` (Up 8 days)
+- **Restarting:** 
+  - `langfuse_langfuse-web_1`
+- **Healthy:** 
+  - `client-ops-postgres`, `iam-mysql`, `lidaros-backend-1`, `inventree-db`, `inventree-redis`, `langfuse_minio_1`, etc.
+
+## OpenClaw Gateway
+- **Status:** Running (PID 2121141)
+- **Warnings:** Several 'Doctor' warnings regarding `groupPolicy`. Configuration likely needs update to allow group messages.
+
+## Actions Taken
+- Generated alert JSON for automated processing.
+- Logged status for today's memory.

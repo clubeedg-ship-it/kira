@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T12:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "Infrastructure health check found service issues: PM2 process whisper is stopped; Docker containers langfuse_langfuse-web_1 is restarting, lidaros-frontend-1 is unhealthy, omiximo-email-automation is unhealthy; OpenClaw gateway status is inconsistent (RPC probe ok and port 18789 listening, but systemd runtime reports inactive/dead and service config is out of date with embedded token).",
+    "action": "Investigate failed/unhealthy services and reconcile OpenClaw gateway to a single clean service installation."
+  }
+}

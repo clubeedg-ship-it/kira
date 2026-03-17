@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-16T20:55:01Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Service 'whisper' (PM2 ID 25) is stopped.",
+    "action": "Verify if whisper is required. If it should be running, run 'pm2 restart whisper'."
+  }
+}

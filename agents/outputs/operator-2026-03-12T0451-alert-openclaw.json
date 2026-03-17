@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-12T04:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "OpenClaw gateway responds on loopback, but `openclaw gateway status` reports the systemd runtime inactive with an outdated service config embedding a token",
+    "action": "Decide whether PM2 or systemd should own the gateway, then normalize the service configuration and run `openclaw doctor`"
+  }
+}
