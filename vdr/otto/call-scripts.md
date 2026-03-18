@@ -1,4 +1,4 @@
-# OttoGen — AI Workshop Script (Group Session)
+# Otto — AI Workshop Script (Group Session)
 
 > **Format:** Group workshop (video call or in-person) · **Duration:** 30-45 min · **Audience:** ~5 business owners from a coach's network · **Goal:** Educate → Impress → Offer naturally
 
@@ -23,7 +23,7 @@
 
 ### Set the Stage
 
-> *"Hey everyone! Welcome, thanks for being here. I'm Otto, founder of OttoGen. I'm 20 years old and I've spent the last [X] years deep in the AI trenches — not the sci-fi stuff, the real stuff that actually saves businesses time and money every single week."*
+> *"Hey everyone! Welcome, thanks for being here. I'm Otto, founder of Otto. I'm 20 years old and I've spent the last [X] years deep in the AI trenches — not the sci-fi stuff, the real stuff that actually saves businesses time and money every single week."*
 >
 > *"Today is NOT a sales pitch. This is a workshop. You're going to leave here understanding exactly what AI can do for YOUR business — and I'll show you some things live that will blow your mind a little. Sound good?"*
 

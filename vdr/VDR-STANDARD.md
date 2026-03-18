@@ -35,9 +35,9 @@ Before creating any file:
 ```
 vdr/
 ├── VDR-STANDARD.md              ← This file (meta-protocol)
-├── brand-framework.md           ← OttoGen vs Oopuo brand separation & messaging
+├── brand-framework.md           ← Otto vs Oopuo brand separation & messaging
 │
-├── ottogen/                     ← OttoGen (client-facing AI studio)
+├── ottogen/                     ← Otto (client-facing AI studio)
 │   ├── brand-positioning.md     ← Messaging, tone, taglines, personas
 │   ├── website-copy.md          ← Full website content
 │   ├── website-design.md        ← Wireframes, visual direction
@@ -48,7 +48,7 @@ vdr/
 │   ├── sales-playbook.md        ← Client acquisition strategy
 │   ├── call-scripts.md          ← Discovery/audit call scripts
 │   ├── webinar-modules.md       ← All webinar content
-│   └── strategy.md              ← OttoGen deep strategy
+│   └── strategy.md              ← Otto deep strategy
 │
 ├── oopuo/                       ← Oopuo (holding company)
 │   ├── structure.md             ← Legal, org structure

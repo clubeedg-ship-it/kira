@@ -85,7 +85,7 @@ Self-hosted works for transactional email or newsletters to opted-in lists. For 
 - **Pros:** Good personalization, LinkedIn integration
 - **Cons:** More expensive for email-only, 3 email accounts on base plan
 
-### Apollo.io
+### Saleshandy
 - **Pricing:** Free (250 emails/day) | Basic $49/mo (unlimited emails)
 - **Key features:** Built-in B2B database, email finding, sequences
 - **Pros:** Lead database included — may have Dutch kindergarten contacts

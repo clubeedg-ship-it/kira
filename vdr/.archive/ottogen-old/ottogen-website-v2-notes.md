@@ -1,4 +1,4 @@
-# OttoGen.io Website V2 — Design Decisions
+# Otto.io Website V2 — Design Decisions
 
 ## Color Palette
 - **Primary background:** #0a0a0a (near-black)

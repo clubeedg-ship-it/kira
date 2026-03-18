@@ -17,10 +17,10 @@
 - Goal | 🗓️ 3-Month Objective | ZenithCred | Build MVP demo (light panels + app prototype) | 300a6c94-88ca-817f-b9ee-cbaea13bc774
 - Goal | 🗓️ 3-Month Objective | ZenithCred | Conduct 15 investor meetings | 300a6c94-88ca-8106-8c5a-eb18da7f2551
 - Goal | 🗓️ 3-Month Objective | ZenithCred | Secure 2 LOIs from pilot customers | 300a6c94-88ca-817c-8bd2-eb1cac204c0a
-- Goal | 🗓️ 3-Month Objective | OttoGen | Launch ottogen.io website (Swiss Cyberpunk design) | 300a6c94-88ca-8189-9f7f-edca2d12be6c
-- Goal | 🗓️ 3-Month Objective | OttoGen | Create first 4 webinar modules | 300a6c94-88ca-81f2-9c74-fda112cc02de
-- Goal | 🗓️ 3-Month Objective | OttoGen | Sign 5 SMB AI service clients | 300a6c94-88ca-81c7-bf44-fba7435c6ce4
-- Goal | 🗓️ 3-Month Objective | OttoGen | Build content pipeline (2 posts/week) | 300a6c94-88ca-81d0-81c1-ec80759b288f
+- Goal | 🗓️ 3-Month Objective | Otto | Launch ottogen.io website (Swiss Cyberpunk design) | 300a6c94-88ca-8189-9f7f-edca2d12be6c
+- Goal | 🗓️ 3-Month Objective | Otto | Create first 4 webinar modules | 300a6c94-88ca-81f2-9c74-fda112cc02de
+- Goal | 🗓️ 3-Month Objective | Otto | Sign 5 SMB AI service clients | 300a6c94-88ca-81c7-bf44-fba7435c6ce4
+- Goal | 🗓️ 3-Month Objective | Otto | Build content pipeline (2 posts/week) | 300a6c94-88ca-81d0-81c1-ec80759b288f
 - Goal | 🗓️ 3-Month Objective | CuttingEdge | Complete 2 active projects | 300a6c94-88ca-81ec-8e01-c2bb69eae1f8
 - Goal | 🗓️ 3-Month Objective | CuttingEdge | Build referral pipeline | 300a6c94-88ca-8181-9349-f87ccb3c6501
 - Goal | 🗓️ 3-Month Objective | CuttingEdge | Create portfolio showcase website | 300a6c94-88ca-81c9-a18e-ea56f3babcbf
@@ -38,10 +38,10 @@
 - Goal | 📋 1-Month Target | ZenithCred | Create clickable app prototype | 300a6c94-88ca-8168-86c3-f50b3384c7dc
 - Goal | 📋 1-Month Target | ZenithCred | Research and list 20 target investors | 300a6c94-88ca-8182-af91-e6ce4933933b
 - Goal | 📋 1-Month Target | ZenithCred | Draft LOI template and identify 5 pilot candidates | 300a6c94-88ca-81f7-a0d7-c3939c4a41d3
-- Goal | 📋 1-Month Target | OttoGen | Design and build ottogen.io landing page | 300a6c94-88ca-81cf-94ad-d69936690812
-- Goal | 📋 1-Month Target | OttoGen | Outline and script webinar module 1 | 300a6c94-88ca-811e-b467-c6c335a6a0ce
-- Goal | 📋 1-Month Target | OttoGen | Close 1-2 AI service clients | 300a6c94-88ca-8177-ad48-cc11b3abf126
-- Goal | 📋 1-Month Target | OttoGen | Set up LinkedIn content calendar | 300a6c94-88ca-81ee-86fa-c7b4564cf920
+- Goal | 📋 1-Month Target | Otto | Design and build ottogen.io landing page | 300a6c94-88ca-81cf-94ad-d69936690812
+- Goal | 📋 1-Month Target | Otto | Outline and script webinar module 1 | 300a6c94-88ca-811e-b467-c6c335a6a0ce
+- Goal | 📋 1-Month Target | Otto | Close 1-2 AI service clients | 300a6c94-88ca-8177-ad48-cc11b3abf126
+- Goal | 📋 1-Month Target | Otto | Set up LinkedIn content calendar | 300a6c94-88ca-81ee-86fa-c7b4564cf920
 - Goal | 📋 1-Month Target | CuttingEdge | Deliver milestone 1 on active projects | 300a6c94-88ca-81c8-a6d8-da5beca58162
 - Goal | 📋 1-Month Target | CuttingEdge | Map referral network and make 5 asks | 300a6c94-88ca-8118-97e0-f2da9520249c
 - Goal | 📋 1-Month Target | CuttingEdge | Gather portfolio content and case studies | 300a6c94-88ca-81f5-93fe-f8076bb1ff59
@@ -55,8 +55,8 @@
 - Goal | 🏃 Weekly Sprint | IAM | W2: Begin kindergarten outreach & finalize wireframes | 300a6c94-88ca-8190-b5e7-fbfa8dc3acc3
 - Goal | 🏃 Weekly Sprint | ZenithCred | W1: Update pitch deck & research 20 investors | 300a6c94-88ca-8112-b61f-ea2ef2a41ccd
 - Goal | 🏃 Weekly Sprint | ZenithCred | W2: Start investor outreach & prototype screens | 300a6c94-88ca-818b-b63a-c1e10466d3e8
-- Goal | 🏃 Weekly Sprint | OttoGen | W1: Brand messaging & website wireframes | 300a6c94-88ca-81f7-9cd7-e8d2bcaee3cf
-- Goal | 🏃 Weekly Sprint | OttoGen | W2: Website build & first content published | 300a6c94-88ca-8159-a623-e5644454bcd9
+- Goal | 🏃 Weekly Sprint | Otto | W1: Brand messaging & website wireframes | 300a6c94-88ca-81f7-9cd7-e8d2bcaee3cf
+- Goal | 🏃 Weekly Sprint | Otto | W2: Website build & first content published | 300a6c94-88ca-8159-a623-e5644454bcd9
 - Goal | 🏃 Weekly Sprint | CuttingEdge | W1: Project review & client updates | 300a6c94-88ca-81dd-8f42-cfbab03df419
 - Goal | 🏃 Weekly Sprint | CuttingEdge | W2: Portfolio content & referral outreach | 300a6c94-88ca-815b-b6f5-c1deb07b30f7
 - Goal | 🏃 Weekly Sprint | SentinAgro | W1: Market research deep-dive | 300a6c94-88ca-813a-b9e9-c7cbd4de63d1
@@ -73,11 +73,11 @@
 - Task | ZenithCred | Draft investor outreach email sequence | 300a6c94-88ca-81d0-b939-dab77a2fd34f
 - Task | ZenithCred | Schedule 3 investor intro calls | 300a6c94-88ca-815e-aba4-e702e7aa60ed
 - Task | ZenithCred | Build simple product demo mockup | 300a6c94-88ca-81bd-8ed2-db34e34495e0
-- Task | OttoGen | Finalize brand messaging and positioning | 300a6c94-88ca-8196-9c11-d538812dcdc3
-- Task | OttoGen | Design website wireframes | 300a6c94-88ca-81b6-ad06-e456938a0e5c
-- Task | OttoGen | Write first webinar module outline | 300a6c94-88ca-810a-b123-f26a2f710c2f
-- Task | OttoGen | Set up social media accounts and branding | 300a6c94-88ca-8135-93ec-dbac7878abfc
-- Task | OttoGen | Draft first 2 LinkedIn posts | 300a6c94-88ca-8180-a649-ed91154cc953
+- Task | Otto | Finalize brand messaging and positioning | 300a6c94-88ca-8196-9c11-d538812dcdc3
+- Task | Otto | Design website wireframes | 300a6c94-88ca-81b6-ad06-e456938a0e5c
+- Task | Otto | Write first webinar module outline | 300a6c94-88ca-810a-b123-f26a2f710c2f
+- Task | Otto | Set up social media accounts and branding | 300a6c94-88ca-8135-93ec-dbac7878abfc
+- Task | Otto | Draft first 2 LinkedIn posts | 300a6c94-88ca-8180-a649-ed91154cc953
 - Task | CuttingEdge | Review active project timelines | 300a6c94-88ca-819c-83bd-db92ab282e50
 - Task | CuttingEdge | Create client update reports | 300a6c94-88ca-81ac-87fe-efd84c164d6a
 - Task | CuttingEdge | Draft portfolio website content | 300a6c94-88ca-81ee-b03f-c3673aebb62b
@@ -91,7 +91,7 @@
 - Task | Cross | Review and approve Notion structure | 300a6c94-88ca-8138-9887-d3bfa38ac62d
 - Company Update | IAM | 300a6c94-88ca-81f9-a3d7-fe4f215ab5b5
 - Company Update | ZenithCred | 300a6c94-88ca-81db-bb93-f124cabe902e
-- Company Update | OttoGen | 300a6c94-88ca-8163-be7b-fe202976c026
+- Company Update | Otto | 300a6c94-88ca-8163-be7b-fe202976c026
 - Company Update | CuttingEdge | 300a6c94-88ca-814b-b23b-c9bf0ca4a97d
 - Company Update | SentinAgro | 300a6c94-88ca-81fd-a190-c3dffeeee3f3
 - Company Update | Chimera | 300a6c94-88ca-81e3-9a79-ca6f3a0983b7
@@ -105,10 +105,10 @@
 - ZenithCred: Build MVP demo (light panels + app prototype) = 300a6c94-88ca-817f-b9ee-cbaea13bc774
 - ZenithCred: Conduct 15 investor meetings = 300a6c94-88ca-8106-8c5a-eb18da7f2551
 - ZenithCred: Secure 2 LOIs from pilot customers = 300a6c94-88ca-817c-8bd2-eb1cac204c0a
-- OttoGen: Launch ottogen.io website (Swiss Cyberpunk design) = 300a6c94-88ca-8189-9f7f-edca2d12be6c
-- OttoGen: Create first 4 webinar modules = 300a6c94-88ca-81f2-9c74-fda112cc02de
-- OttoGen: Sign 5 SMB AI service clients = 300a6c94-88ca-81c7-bf44-fba7435c6ce4
-- OttoGen: Build content pipeline (2 posts/week) = 300a6c94-88ca-81d0-81c1-ec80759b288f
+- Otto: Launch ottogen.io website (Swiss Cyberpunk design) = 300a6c94-88ca-8189-9f7f-edca2d12be6c
+- Otto: Create first 4 webinar modules = 300a6c94-88ca-81f2-9c74-fda112cc02de
+- Otto: Sign 5 SMB AI service clients = 300a6c94-88ca-81c7-bf44-fba7435c6ce4
+- Otto: Build content pipeline (2 posts/week) = 300a6c94-88ca-81d0-81c1-ec80759b288f
 - CuttingEdge: Complete 2 active projects = 300a6c94-88ca-81ec-8e01-c2bb69eae1f8
 - CuttingEdge: Build referral pipeline = 300a6c94-88ca-8181-9349-f87ccb3c6501
 - CuttingEdge: Create portfolio showcase website = 300a6c94-88ca-81c9-a18e-ea56f3babcbf
@@ -128,10 +128,10 @@
 - ZenithCred: Create clickable app prototype = 300a6c94-88ca-8168-86c3-f50b3384c7dc
 - ZenithCred: Research and list 20 target investors = 300a6c94-88ca-8182-af91-e6ce4933933b
 - ZenithCred: Draft LOI template and identify 5 pilot candidates = 300a6c94-88ca-81f7-a0d7-c3939c4a41d3
-- OttoGen: Design and build ottogen.io landing page = 300a6c94-88ca-81cf-94ad-d69936690812
-- OttoGen: Outline and script webinar module 1 = 300a6c94-88ca-811e-b467-c6c335a6a0ce
-- OttoGen: Close 1-2 AI service clients = 300a6c94-88ca-8177-ad48-cc11b3abf126
-- OttoGen: Set up LinkedIn content calendar = 300a6c94-88ca-81ee-86fa-c7b4564cf920
+- Otto: Design and build ottogen.io landing page = 300a6c94-88ca-81cf-94ad-d69936690812
+- Otto: Outline and script webinar module 1 = 300a6c94-88ca-811e-b467-c6c335a6a0ce
+- Otto: Close 1-2 AI service clients = 300a6c94-88ca-8177-ad48-cc11b3abf126
+- Otto: Set up LinkedIn content calendar = 300a6c94-88ca-81ee-86fa-c7b4564cf920
 - CuttingEdge: Deliver milestone 1 on active projects = 300a6c94-88ca-81c8-a6d8-da5beca58162
 - CuttingEdge: Map referral network and make 5 asks = 300a6c94-88ca-8118-97e0-f2da9520249c
 - CuttingEdge: Gather portfolio content and case studies = 300a6c94-88ca-81f5-93fe-f8076bb1ff59
@@ -147,8 +147,8 @@
 - IAM: W2: Begin kindergarten outreach & finalize wireframes = 300a6c94-88ca-8190-b5e7-fbfa8dc3acc3
 - ZenithCred: W1: Update pitch deck & research 20 investors = 300a6c94-88ca-8112-b61f-ea2ef2a41ccd
 - ZenithCred: W2: Start investor outreach & prototype screens = 300a6c94-88ca-818b-b63a-c1e10466d3e8
-- OttoGen: W1: Brand messaging & website wireframes = 300a6c94-88ca-81f7-9cd7-e8d2bcaee3cf
-- OttoGen: W2: Website build & first content published = 300a6c94-88ca-8159-a623-e5644454bcd9
+- Otto: W1: Brand messaging & website wireframes = 300a6c94-88ca-81f7-9cd7-e8d2bcaee3cf
+- Otto: W2: Website build & first content published = 300a6c94-88ca-8159-a623-e5644454bcd9
 - CuttingEdge: W1: Project review & client updates = 300a6c94-88ca-81dd-8f42-cfbab03df419
 - CuttingEdge: W2: Portfolio content & referral outreach = 300a6c94-88ca-815b-b6f5-c1deb07b30f7
 - SentinAgro: W1: Market research deep-dive = 300a6c94-88ca-813a-b9e9-c7cbd4de63d1

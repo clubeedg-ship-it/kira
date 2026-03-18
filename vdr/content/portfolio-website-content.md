@@ -85,9 +85,9 @@ Floor and wall projectors that turn physical spaces into interactive learning en
 ### Oopuo AI
 **AI services for SMBs**
 
-Previously OttoGen. Practical AI implementation for small and medium businesses — not theoretical, not hype. Automation, workflows, and intelligence layers that produce measurable ROI within 90 days.
+Previously Otto. Practical AI implementation for small and medium businesses — not theoretical, not hype. Automation, workflows, and intelligence layers that produce measurable ROI within 90 days.
 
-- **Status:** Active — rebranding from OttoGen
+- **Status:** Active — rebranding from Otto
 - **Market:** AI services / SMB automation
 - **Value prop:** Enterprise-grade AI made accessible. No PhD required.
 

@@ -1,4 +1,4 @@
-# OttoGen → Oopuo Personal Brand: Social Media Strategy
+# Otto → Oopuo Personal Brand: Social Media Strategy
 
 *Created: 2026-03-13*
 
@@ -70,7 +70,7 @@ Practical AI implementations for SMBs. No hype, just results.
 The raw reality of building a portfolio company young, self-taught, in the Netherlands.
 - "I moved to the Netherlands at 18 with nothing. Here's what I'm building now."
 - Weekly portfolio updates (revenue, milestones, lessons)
-- Honest failures and pivots (OttoGen → Oopuo rebrand story)
+- Honest failures and pivots (Otto → Oopuo rebrand story)
 
 ### Pillar 3: The Future of Work & AI
 Philosophy and vision — where AI, privacy, and business intersect.
@@ -90,7 +90,7 @@ Showcasing the Oopuo ecosystem — IAM, CuttingEdge, Omiximo, ZenithCred — as 
 
 | # | Date | Platform | Pillar | Content |
 |---|------|----------|--------|---------|
-| 1 | Week 1 Mon | X | Building at 20 | **Launch post:** "OttoGen is now Oopuo. Here's why I'm rebranding my personal brand into something bigger." Short thread (4 tweets) on the vision. |
+| 1 | Week 1 Mon | X | Building at 20 | **Launch post:** "Otto is now Oopuo. Here's why I'm rebranding my personal brand into something bigger." Short thread (4 tweets) on the vision. |
 | 2 | Week 1 Tue | LinkedIn | Building at 20 | **Rebrand announcement:** Longer narrative — from solo AI freelancer to portfolio company. Include 2-3 metrics. |
 | 3 | Week 1 Thu | X | AI for Real Businesses | **Quick win post:** "Automated a client's email workflow yesterday. 40 emails/day → 0 manual effort. Here's the stack:" (screenshot) |
 | 4 | Week 1 Fri | Instagram | Behind the Portfolio | **Carousel:** "Inside Oopuo — 8 companies, 1 vision." Swiss Cyberpunk design. Each slide = one company + one-liner. |

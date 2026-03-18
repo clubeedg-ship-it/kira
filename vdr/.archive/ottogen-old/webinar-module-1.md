@@ -1,6 +1,6 @@
-# OttoGen Webinar Module 1: "The AI Edge — How Small Businesses Are Quietly Outperforming Giants"
+# Otto Webinar Module 1: "The AI Edge — How Small Businesses Are Quietly Outperforming Giants"
 
-> **Format:** 60–90 min live webinar | **Host:** Otto (OttoGen) | **Aesthetic:** Swiss Cyberpunk — precision meets rebellion
+> **Format:** 60–90 min live webinar | **Host:** Otto (Otto) | **Aesthetic:** Swiss Cyberpunk — precision meets rebellion
 
 ---
 
@@ -53,7 +53,7 @@ SMB owners & operators (10–50 employees) who are AI-curious but overwhelmed by
 
 **Goal:** Give them a mental model they can use immediately.
 
-**The OttoGen A.I.R. Framework:**
+**The Otto A.I.R. Framework:**
 
 > **A**udit → **I**mplement → **R**efine
 
@@ -169,4 +169,4 @@ SMB owners & operators (10–50 employees) who are AI-curious but overwhelmed by
 
 ---
 
-*OttoGen — Precision AI for businesses that move fast.*
+*Otto — Precision AI for businesses that move fast.*

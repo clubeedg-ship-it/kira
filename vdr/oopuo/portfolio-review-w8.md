@@ -5,7 +5,7 @@
 
 ## Executive Summary
 
-**Status: RED.** February is nearly over. The roadmap called for OttoGen's first 3-5 paying clients, IAM warm leads, ZenithCred investor-ready deck, and Chimera public repo. Evidence of completion on any of these: zero. The portfolio is producing documents, not revenue. We are in a strategy-execution gap that is now critical.
+**Status: RED.** February is nearly over. The roadmap called for Otto's first 3-5 paying clients, IAM warm leads, ZenithCred investor-ready deck, and Chimera public repo. Evidence of completion on any of these: zero. The portfolio is producing documents, not revenue. We are in a strategy-execution gap that is now critical.
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Company | Feb Target | Actual Status | Grade |
 |---------|-----------|---------------|-------|
-| **OttoGen** | 3-5 paying clients, €2-5K revenue | 0 clients, 0 revenue. DM templates drafted, brand done, website iterated 3x. No outreach sent. | F |
+| **Otto** | 3-5 paying clients, €2-5K revenue | 0 clients, 0 revenue. DM templates drafted, brand done, website iterated 3x. No outreach sent. | F |
 | **IAM** | 2-3 warm kindergarten leads | 50-lead prospect list built, outreach templates ready, website audited. No contacts made. | F |
 | **ZenithCred** | Investor-ready pitch deck | Deck exists, pilot targets researched, competitive analysis done. No investor contacted. | D |
 | **Chimera** | Public GitHub repo | Architecture docs written, 162 tests passing. Repo still private. | D |
@@ -36,7 +36,7 @@ The daily plans from Feb 6, 7, and 8 are literally identical — same tasks, sam
 ## What Must Happen in the Last Week of February
 
 ### Non-negotiable (do or the month is a total loss):
-1. **Send 10 OttoGen LinkedIn DMs** — templates exist, targets identified. Just send them.
+1. **Send 10 Otto LinkedIn DMs** — templates exist, targets identified. Just send them.
 2. **Email 5 IAM kindergarten prospects** — list of 50 exists. Pick 5, send.
 3. **Send ZenithCred deck to 3 investors** — Volta Ventures, Peak Capital, Keen Venture Partners (already identified in roadmap).
 
@@ -50,8 +50,8 @@ The daily plans from Feb 6, 7, and 8 are literally identical — same tasks, sam
 
 - **Current monthly revenue across entire portfolio:** Unknown, likely <€1K (CuttingEdge/Abura only)
 - **Monthly burn (Otto's living costs):** Estimated €1.5-2K minimum
-- **Cash runway:** Critical. Every week without OttoGen revenue is a week closer to desperation decisions.
-- **Feb roadmap target was €2-5K from OttoGen.** We'll hit €0.
+- **Cash runway:** Critical. Every week without Otto revenue is a week closer to desperation decisions.
+- **Feb roadmap target was €2-5K from Otto.** We'll hit €0.
 
 ---
 
@@ -66,7 +66,7 @@ The daily plans from Feb 6, 7, and 8 are literally identical — same tasks, sam
 ## Document-to-Action Ratio
 
 The VDR now contains 80+ strategy documents. This is impressive research infrastructure. But documents don't generate revenue. A rough inventory:
-- OttoGen: 15+ docs (brand, DMs, website, service packages, playbook) → 0 clients
+- Otto: 15+ docs (brand, DMs, website, service packages, playbook) → 0 clients
 - IAM: 18+ docs (outreach, prospects, proposals, ROI calc) → 0 outreach sent
 - ZenithCred: 20+ docs (deck, financials, targets, strategy) → 0 investor meetings
 
@@ -77,7 +77,7 @@ The VDR now contains 80+ strategy documents. This is impressive research infrast
 ## Recommendations
 
 1. **Declare a 'Ship Week' (Feb 22-28):** No new documents. Only outbound actions. Measure: messages sent, calls booked.
-2. **OttoGen first:** 10 DMs Monday, follow up Wednesday, book 2 calls by Friday. This is existential — no cash = no company.
+2. **Otto first:** 10 DMs Monday, follow up Wednesday, book 2 calls by Friday. This is existential — no cash = no company.
 3. **IAM second:** 5 kindergarten emails by Wednesday. Use the free trial package already created.
 4. **ZenithCred third:** 3 investor emails by Thursday. Deck is good enough. Perfect is the enemy of funded.
 5. **Park everything else:** CuttingEdge and Abura on autopilot. SentinAgro formally shelved. Chimera gets 2 hours max for repo publish.

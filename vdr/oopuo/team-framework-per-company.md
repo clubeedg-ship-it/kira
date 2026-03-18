@@ -60,7 +60,7 @@ Human Needs:
 
 ---
 
-### OttoGen (AI Education)
+### Otto (AI Education)
 
 **Team Structure:**
 ```
@@ -215,7 +215,7 @@ Human Needs:
 ### €200k/month budget
 1. Department leads per company
 2. Engineering team for Chimera
-3. Marketing team for OttoGen
+3. Marketing team for Otto
 
 ---
 

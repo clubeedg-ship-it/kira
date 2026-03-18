@@ -1,4 +1,4 @@
-# OttoGen LinkedIn DM Templates
+# Otto LinkedIn DM Templates
 
 > 20 outreach templates for SMB decision-makers. Personalize [BRACKETS] before sending.
 

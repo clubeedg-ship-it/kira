@@ -24,7 +24,7 @@ We propose a strategic partnership with **Partou** (~700 locations) and **KidsFo
 Dutch children spend increasing time on screens. The Kenniscentrum Sport & Bewegen reports that a majority of young children do not meet daily physical activity guidelines. Childcare centers — where children spend 8–10 hours daily — are a critical intervention point.
 
 ### Differentiation Pressure
-The Dutch childcare market is competitive. With ~9,315 kinderdagverblijven nationwide, parents compare locations on quality, innovation, and engagement. Traditional play equipment wears out, requires constant replacement (€500–€1,500/year), and offers limited variety.
+The Dutch childcare market is competitive. With ~9,300 kinderdagverblijven nationwide, parents compare locations on quality, innovation, and engagement. Traditional play equipment wears out, requires constant replacement (€500–€1,500/year), and offers limited variety.
 
 ### Pedagogical Demands
 GGD inspections and VVE (Voorschoolse en Vroegschoolse Educatie) programs require documented developmental activities. Staff spend significant time preparing activities and managing transitions — time that could be better supported by smart tools.

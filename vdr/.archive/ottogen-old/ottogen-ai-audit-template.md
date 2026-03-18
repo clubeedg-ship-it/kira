@@ -1,4 +1,4 @@
-# OttoGen — Free 15-Minute AI Audit
+# Otto — Free 15-Minute AI Audit
 
 ## How to Use This
 

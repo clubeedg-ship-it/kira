@@ -7,8 +7,8 @@
 
 | Project | Status | Next Milestone | Risk |
 |---------|--------|---------------|------|
-| **OttoGen** | Launch prep | LinkedIn DMs drafted, brand positioning finalized (tonight) | 🟡 No revenue yet — need first client by March |
-| **IAM (Interactive Move)** | Active | Contact top 10 kindergarten prospects | 🟡 Lead tracking (Apollo.io) not set up |
+| **Otto** | Launch prep | LinkedIn DMs drafted, brand positioning finalized (tonight) | 🟡 No revenue yet — need first client by March |
+| **IAM (Interactive Move)** | Active | Contact top 10 kindergarten prospects | 🟡 Lead tracking (Saleshandy) not set up |
 | **CuttingEdge** | Active | Client update reports needed | 🟢 Steady |
 | **Abura Cosmetics** | Active | Sales support ongoing | 🟢 Steady |
 
@@ -29,9 +29,9 @@
 
 ## Critical Path Items (Next 2 Weeks)
 
-1. **OttoGen first revenue** — LinkedIn outreach → first call → first contract
+1. **Otto first revenue** — LinkedIn outreach → first call → first contract
 2. **ZenithCred investor pipeline** — Schedule 3 intro calls, complete pitch deck
-3. **IAM kindergarten pipeline** — Contact 10 prospects, set up Apollo.io
+3. **IAM kindergarten pipeline** — Contact 10 prospects, set up Saleshandy
 4. **Chimera public launch prep** — Clean repo, documentation
 
 ## Bottleneck Analysis
@@ -42,7 +42,7 @@
 
 ## Recommendations
 
-1. **This week:** Launch OttoGen LinkedIn outreach (DMs ready tonight)
+1. **This week:** Launch Otto LinkedIn outreach (DMs ready tonight)
 2. **This week:** Otto schedules 3 investor intro calls for ZenithCred
 3. **Next week:** IAM kindergarten prospect outreach
 4. **Ongoing:** Kira handles content, analysis, documentation autonomously

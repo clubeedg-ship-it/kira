@@ -1,4 +1,4 @@
-# OttoGen — LinkedIn Content Calendar
+# Otto — LinkedIn Content Calendar
 ## February 16 – March 27, 2026 (6 Weeks)
 
 *Post schedule: Monday / Wednesday / Friday — 8:30 AM CET*
@@ -9,7 +9,7 @@
 ## Hashtag Strategy
 
 **Core (use on every post, pick 3-4):**
-`#AIAutomation` `#MKB` `#SmallBusiness` `#OttoGen`
+`#AIAutomation` `#MKB` `#SmallBusiness` `#Otto`
 
 **Rotating (match to topic, pick 2-3):**
 - Thought leadership: `#FutureOfWork` `#AIStrategy` `#DigitalTransformatie`
@@ -64,7 +64,7 @@ That's it. No "digital transformation." No 6-month roadmap. Just find the bottle
 
 What's the most time-consuming repetitive task in your business right now? 👇
 
-#AIAutomation #MKB #SmallBusiness #FutureOfWork #OttoGen
+#AIAutomation #MKB #SmallBusiness #FutureOfWork #Otto
 
 ---
 
@@ -94,7 +94,7 @@ AI doesn't replace your people. It removes the work your people shouldn't be doi
 
 Know a recruiter drowning in admin? Tag them 👇
 
-#AIAutomation #Recruitment #Productivity #MKB #OttoGen
+#AIAutomation #Recruitment #Productivity #MKB #Otto
 
 ---
 
@@ -117,7 +117,7 @@ I thought: I can fix this.
 
 So I started building automations for small businesses. Not billion-dollar enterprise contracts — real companies with 5-50 employees who actually feel the difference.
 
-Now I run OttoGen — AI consulting for SMBs in the Netherlands.
+Now I run Otto — AI consulting for SMBs in the Netherlands.
 
 No venture capital. No 50-person team. Just me, my AI systems, and the results I deliver.
 
@@ -125,7 +125,7 @@ If you're an SMB owner curious about what AI can actually do for YOUR specific b
 
 What would you do with 10 extra hours per week? 👇
 
-#BuildingInPublic #Entrepreneurship #AIAutomation #MKB #OttoGen
+#BuildingInPublic #Entrepreneurship #AIAutomation #MKB #Otto
 
 ---
 
@@ -160,7 +160,7 @@ That's a half-time employee. Except it costs €200-500/month, not €2,000+.
 
 Which of these would have the biggest impact on your business? Vote below 👇
 
-#AIAutomation #SmallBusiness #MKB #Productivity #OttoGen
+#AIAutomation #SmallBusiness #MKB #Productivity #Otto
 
 ---
 
@@ -182,7 +182,7 @@ The real bottleneck is almost always something you've normalized.
 
 Vote and I'll share what the data says next week 👇
 
-#AIAutomation #MKB #SmallBusiness #OttoGen
+#AIAutomation #MKB #SmallBusiness #Otto
 
 ---
 
@@ -211,7 +211,7 @@ The irony? I now deliver MORE automations per client than before — because tru
 
 What's a lesson that completely changed how you work? 👇
 
-#BuildingInPublic #Entrepreneurship #LessonsLearned #AIAutomation #OttoGen
+#BuildingInPublic #Entrepreneurship #LessonsLearned #AIAutomation #Otto
 
 ---
 
@@ -245,7 +245,7 @@ That's the point. AI handles the repeatable work. Humans do the human work.
 
 Any real estate professionals here? What task eats most of your time? 👇
 
-#RealEstate #AIAutomation #MKB #Productivity #OttoGen
+#RealEstate #AIAutomation #MKB #Productivity #Otto
 
 ---
 
@@ -277,7 +277,7 @@ Stop prompting. Start automating.
 
 Agree or disagree? 👇
 
-#AIStrategy #SmallBusiness #FutureOfWork #MKB #OttoGen
+#AIStrategy #SmallBusiness #FutureOfWork #MKB #Otto
 
 ---
 
@@ -307,7 +307,7 @@ The question is: will YOUR business be part of that?
 
 What's your experience with AI adoption in your industry? 👇
 
-#DutchStartup #AIStrategy #MKBNederland #FutureOfWork #OttoGen
+#DutchStartup #AIStrategy #MKBNederland #FutureOfWork #Otto
 
 ---
 
@@ -345,7 +345,7 @@ This isn't futuristic tech. This is available right now, for businesses your siz
 
 What repetitive customer questions does your team answer every day? 👇
 
-#Ecommerce #AIAutomation #CustomerService #MKB #OttoGen
+#Ecommerce #AIAutomation #CustomerService #MKB #Otto
 
 ---
 
@@ -377,7 +377,7 @@ The best time to start was last year. The second best time is this quarter.
 
 Does this match what you're seeing in your business? 👇
 
-#AIStrategy #ROI #SmallBusiness #MKB #OttoGen
+#AIStrategy #ROI #SmallBusiness #MKB #Otto
 
 ---
 
@@ -410,7 +410,7 @@ The ones that don't will lose them to companies that do.
 
 What part of your job do you wish you never had to do again? 👇
 
-#FutureOfWork #AI #Entrepreneurship #BuildingInPublic #OttoGen
+#FutureOfWork #AI #Entrepreneurship #BuildingInPublic #Otto
 
 ---
 
@@ -445,7 +445,7 @@ Everyone says that. No one says "we started too early."
 
 Know an accountant or bookkeeper still doing manual data entry? Tag them — they'll thank you 👇
 
-#Accounting #AIAutomation #ProcessOptimization #MKB #OttoGen
+#Accounting #AIAutomation #ProcessOptimization #MKB #Otto
 
 ---
 
@@ -484,7 +484,7 @@ DM me "SCAN" or comment below and I'll reach out.
 
 Spots are limited — I do these personally, so I can only take 10 this month.
 
-#AIAutomation #MKB #SmallBusiness #FreeConsultation #OttoGen
+#AIAutomation #MKB #SmallBusiness #FreeConsultation #Otto
 
 ---
 
@@ -512,7 +512,7 @@ Is this paranoia? No. It's pattern recognition.
 
 Which of these signs have you noticed in your industry? 👇
 
-#AIStrategy #Competition #SmallBusiness #FutureOfWork #OttoGen
+#AIStrategy #Competition #SmallBusiness #FutureOfWork #Otto
 
 ---
 
@@ -546,7 +546,7 @@ The founder told me: "Friday afternoons used to be our worst day. Now it's when 
 
 What task does your team dread most every week? 👇
 
-#MarketingAgency #AIAutomation #Reporting #MKB #OttoGen
+#MarketingAgency #AIAutomation #Reporting #MKB #Otto
 
 ---
 
@@ -585,7 +585,7 @@ The leaders will be at Level 5.
 
 Where are you honestly? Drop your level in the comments 👇
 
-#AIStrategy #DigitalTransformatie #MKB #SmallBusiness #OttoGen
+#AIStrategy #DigitalTransformatie #MKB #SmallBusiness #Otto
 
 ---
 
@@ -617,7 +617,7 @@ If the numbers don't make sense, I'll tell you. I'd rather have your trust than 
 
 Ready to stop thinking about AI and start using it? 👇
 
-#AIAutomation #MKB #SmallBusiness #Q2Goals #OttoGen
+#AIAutomation #MKB #SmallBusiness #Q2Goals #Otto
 
 ---
 

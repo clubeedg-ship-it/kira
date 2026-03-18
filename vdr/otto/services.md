@@ -1,4 +1,4 @@
-# OttoGen AI Services — Package Tiers
+# Otto AI Services — Package Tiers
 
 *AI transformation for SMBs. No fluff. Just results.*
 
@@ -92,7 +92,7 @@
 - €3,500: 3 automations, complex integrations, full training
 - €5,000: 4 automations, enterprise tool integrations, extended support
 - Target ROI: 3–5x within 6 months through time savings and error reduction
-- Competitive positioning: traditional consultancies charge €150–250/hr and deliver PowerPoints. OttoGen delivers running systems.
+- Competitive positioning: traditional consultancies charge €150–250/hr and deliver PowerPoints. Otto delivers running systems.
 
 ---
 
@@ -184,9 +184,9 @@ The funnel is designed so SIGNAL clients naturally upgrade: the roadmap document
 
 ---
 
-## Why OttoGen Over Traditional Consultancies?
+## Why Otto Over Traditional Consultancies?
 
-| Traditional Consultancy | OttoGen |
+| Traditional Consultancy | Otto |
 |------------------------|---------|
 | €150–250/hr, open-ended | Fixed price, clear scope |
 | Delivers reports | Delivers running systems |

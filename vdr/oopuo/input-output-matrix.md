@@ -27,9 +27,9 @@
 | **NEEDS** | Sales automation setup, email templates, CRM config |
 | **DELIVERS** | Monthly revenue, client list, case studies |
 | **FREQUENCY** | Weekly check-in, daily automation |
-| **TOOLS** | Apollo, Instantly, Vapi |
+| **TOOLS** | Saleshandy, Instantly, Vapi |
 
-### OttoGen
+### Otto
 | Direction | Item |
 |-----------|------|
 | **NEEDS** | Content strategy, webinar scripts, brand assets |

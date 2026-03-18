@@ -68,8 +68,8 @@ This document reads like a competent first draft by someone who's read a lot of 
 
 | Line/Claim | Issue | Severity |
 |------------|-------|----------|
-| "Budget Estimate: ~€200-400/month" | **Wildly underestimated.** Apollo.io alone is $49-99/user/month. Lemlist is €59-99/month. Expandi is €99/month. HubSpot Starter is €45/month. That's €250-350 MINIMUM, and doesn't include overages, seat scaling, or integrations. | 🔴 High |
-| "Apollo.io: Best for NL/EU B2B contacts" | **Questionable for NL specifically.** Apollo's data quality in Netherlands is weaker than US/UK. Consider Lusha or local alternatives. | 🟡 Medium |
+| "Budget Estimate: ~€200-400/month" | **Wildly underestimated.** Saleshandy alone is $49-99/user/month. Lemlist is €59-99/month. Expandi is €99/month. HubSpot Starter is €45/month. That's €250-350 MINIMUM, and doesn't include overages, seat scaling, or integrations. | 🔴 High |
+| "Saleshandy: Best for NL/EU B2B contacts" | **Questionable for NL specifically.** Saleshandy's data quality in Netherlands is weaker than US/UK. Consider Lusha or local alternatives. | 🟡 Medium |
 | "Expandi.io: Safe, NL-based" | Expandi is Lithuanian, not Dutch. Minor error but suggests surface-level research. | 🟢 Low |
 | "AI handles everything until human reply" | **Oversimplified.** What about bounces, out-of-office, wrong person replies, "unsubscribe" requests? Need exception handling. | 🟡 Medium |
 

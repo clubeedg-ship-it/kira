@@ -19,7 +19,7 @@ Interior design & rebuilding project management. Unclear if it's a tool (SaaS) o
 **Honest assessment:**
 - There's no clear competitive advantage
 - Market isn't aligned with Oopuo's AI/tech narrative
-- Every hour spent here is an hour NOT spent on OttoGen, IAM, ZenithCred, or Chimera
+- Every hour spent here is an hour NOT spent on Otto, IAM, ZenithCred, or Chimera
 - If it's currently generating revenue from active projects, maintain it at minimum effort
 - If it's not generating revenue, **park it**
 

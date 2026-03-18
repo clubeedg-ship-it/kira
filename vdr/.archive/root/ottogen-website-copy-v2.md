@@ -1,4 +1,4 @@
-# OttoGen.io — Website Copy v2
+# Otto.io — Website Copy v2
 
 *Created: 2026-03-02 | Kira*
 
@@ -122,7 +122,7 @@ There's a third path.
 
 ### What We Build
 
-OttoGen designs and deploys **local AI installations** that run entirely on your premises, on hardware you own.
+Otto designs and deploys **local AI installations** that run entirely on your premises, on hardware you own.
 
 **Commodity silicon. Not GPU clusters.**
 
@@ -148,7 +148,7 @@ This isn't a compromise — it's an advantage. You get:
 
 ### What This Means for Your Firm
 
-| Cloud AI | Private AI (OttoGen) |
+| Cloud AI | Private AI (Otto) |
 |----------|---------------------|
 | Data leaves your building | Data never leaves your building |
 | Per-token costs scale with usage | Fixed hardware cost, unlimited inference |
@@ -189,7 +189,7 @@ The firms that got the most from us weren't the ones who wanted a chatbot or an 
 
 **So we narrowed.**
 
-OttoGen now works with a small circle of partners. Firms we choose as carefully as they choose us. Long-term engagements where we embed deeply, understand fully, and build systems that compound in value over years — not weeks.
+Otto now works with a small circle of partners. Firms we choose as carefully as they choose us. Long-term engagements where we embed deeply, understand fully, and build systems that compound in value over years — not weeks.
 
 This isn't exclusivity for its own sake. It's the only way to do work this deep.
 
@@ -252,7 +252,7 @@ He's built across fintech, agritech, cybersecurity, identity systems, and AI inf
 
 **What you've built matters more than where you went to school.**
 
-OttoGen is the distillation of that belief: an AI studio where every engagement is founder-led, every system is built by the same person teaching the frameworks, and every client gets the depth that comes from someone who's done it — repeatedly, across industries, under real constraints.
+Otto is the distillation of that belief: an AI studio where every engagement is founder-led, every system is built by the same person teaching the frameworks, and every client gets the depth that comes from someone who's done it — repeatedly, across industries, under real constraints.
 
 The person on your strategy call is the person building your system. There's no handoff. There's no junior team. There's the builder.
 
@@ -281,7 +281,7 @@ Or reach out directly: **otto@ottogen.io**
 
 ### Footer
 
-© 2026 OttoGen · An Oopuo company
+© 2026 Otto · An Oopuo company
 Privacy · Terms · LinkedIn
 
 ---

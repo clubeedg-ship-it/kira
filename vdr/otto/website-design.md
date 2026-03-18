@@ -1,4 +1,4 @@
-# OttoGen — Website Wireframes & Content Architecture
+# Otto — Website Wireframes & Content Architecture
 
 *Created: 2026-02-15 | Kira Night Shift*
 
@@ -19,7 +19,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  [OttoGen Logo]                    [Services] [Blog] [Contact] │
+│  [Otto Logo]                    [Services] [Blog] [Contact] │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │   "AI infrastructure for businesses               │

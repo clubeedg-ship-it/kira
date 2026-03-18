@@ -17,7 +17,7 @@
 - Setup + monthly management fee
 - Price: €500 setup + €200-500/month
 - Challenge: Each client needs customization, which is Otto's time
-- Verdict: Possible but competes with OttoGen (cannibalization risk)
+- Verdict: Possible but competes with Otto (cannibalization risk)
 
 **Model 2: Autonomous COO Service**
 - Position Kira as a virtual COO for startups
@@ -34,11 +34,11 @@
 
 ### Honest Assessment
 Kira Ops as a standalone business is premature. The better play:
-1. **Short-term:** Kira's capabilities power OttoGen (Kira IS the competitive advantage)
+1. **Short-term:** Kira's capabilities power Otto (Kira IS the competitive advantage)
 2. **Medium-term:** Kira's framework becomes a Chimera showcase/demo
 3. **Long-term:** Kira Ops becomes a product when Chimera has distribution
 
 ## Recommendation
-**STATUS: INTERNAL CAPABILITY, NOT A PRODUCT.** Use Kira's capabilities to deliver OttoGen services faster and better. Don't try to sell "Kira" as a product until Chimera provides the infrastructure to run multiple Kira instances at scale.
+**STATUS: INTERNAL CAPABILITY, NOT A PRODUCT.** Use Kira's capabilities to deliver Otto services faster and better. Don't try to sell "Kira" as a product until Chimera provides the infrastructure to run multiple Kira instances at scale.
 
-The best marketing for Kira Ops is Otto talking about Kira on LinkedIn/YouTube as part of the OttoGen personal brand. "My AI COO runs my companies" = content gold.
+The best marketing for Kira Ops is Otto talking about Kira on LinkedIn/YouTube as part of the Otto personal brand. "My AI COO runs my companies" = content gold.

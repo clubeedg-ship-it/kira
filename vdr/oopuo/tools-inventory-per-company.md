@@ -56,7 +56,7 @@
 
 ---
 
-## OttoGen (AI Education)
+## Otto (AI Education)
 
 ### Current Tools
 | Tool | Purpose | Status |
@@ -87,7 +87,7 @@
 ### Recommended Stack
 | Tool | Purpose | Priority | Cost |
 |------|---------|----------|------|
-| Apollo | Lead data | High | €49/month |
+| Saleshandy | Lead data | High | €49/month |
 | Instantly | Email outreach | High | €37/month |
 | Calendly | Scheduling | Medium | Free tier |
 | Loom | Async video | Medium | Free tier |
@@ -166,8 +166,8 @@
 ## Integration Priorities
 
 ### Phase 1: Revenue Enablement
-1. Sales tools (Apollo, Instantly) → IAM/Abura
-2. Content tools (Canva, Descript) → OttoGen
+1. Sales tools (Saleshandy, Instantly) → IAM/Abura
+2. Content tools (Canva, Descript) → Otto
 3. CRM (HubSpot) → All
 
 ### Phase 2: Operations

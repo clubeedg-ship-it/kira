@@ -1,4 +1,4 @@
-# OttoGen — Pre-Call Social Calendar
+# Otto — Pre-Call Social Calendar
 > **Period:** Thursday March 5 – Tuesday March 10, 2026 (6 days, 12 posts)
 > **Goal:** Build LinkedIn from zero → credible presence before Tuesday client call
 > **Platforms:** LinkedIn (primary) + X (mirror key posts)
@@ -9,7 +9,7 @@
 ## 🔧 LINKEDIN PROFILE SETUP (Do This FIRST — Wednesday Night or Thursday Morning)
 
 ### Headline
-`Building private AI systems for professional firms | Founder @ OttoGen`
+`Building private AI systems for professional firms | Founder @ Otto`
 
 ### About Section
 ```
@@ -19,13 +19,13 @@ I've built 50+ AI automations — voice agents, workflow engines, email systems,
 
 Most of those clients were paying too much for too little. So I stopped taking everyone and started going deep with a few.
 
-Now I run OttoGen: a small AI studio that builds intelligent systems for firms that take their data seriously. We run private AI on commodity hardware — no cloud dependency, no expensive GPUs, your data never leaves your walls.
+Now I run Otto: a small AI studio that builds intelligent systems for firms that take their data seriously. We run private AI on commodity hardware — no cloud dependency, no expensive GPUs, your data never leaves your walls.
 
 If your firm is still duct-taping ChatGPT into sensitive workflows, we should talk.
 ```
 
 ### Banner Concept
-Dark matte background, subtle grid pattern (Swiss design). Left side: "OttoGen" in clean sans-serif (Inter or Helvetica). Right side: a minimal circuit/node pattern with one accent color (electric cyan or white). No photos, no clutter. Think: technical, clean, confident.
+Dark matte background, subtle grid pattern (Swiss design). Left side: "Otto" in clean sans-serif (Inter or Helvetica). Right side: a minimal circuit/node pattern with one accent color (electric cyan or white). No photos, no clutter. Think: technical, clean, confident.
 
 ### Profile Photo Guidance
 - Clean headshot, neutral or dark background
@@ -53,7 +53,7 @@ But I noticed a pattern: the ones that actually transformed were the ones where 
 
 So I made a decision that felt insane at 20: I stopped saying yes to everyone.
 
-Now OttoGen works with a small circle of firms. Fewer clients. Deeper work. Systems that actually stick.
+Now Otto works with a small circle of firms. Fewer clients. Deeper work. Systems that actually stick.
 
 Building less, but building better.
 
@@ -230,7 +230,7 @@ The AI hardware industry wants you to think you need a supercomputer. For most b
 **Topic:** What "selective" means in practice
 **Copy:**
 ```
-People ask what OttoGen actually does differently.
+People ask what Otto actually does differently.
 
 Here's an honest answer: we say no a lot.
 

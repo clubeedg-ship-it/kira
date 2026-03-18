@@ -32,7 +32,7 @@
 │   COMPANY CARDS (horizontally scrollable)                       │
 │                                                                 │
 │   ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐          │
-│   │ZenithCred│ │SentinAgro│ │ OttoGen  │ │   IAM    │ →        │
+│   │ZenithCred│ │SentinAgro│ │ Otto  │ │   IAM    │ →        │
 │   │ 🟢 OK    │ │ 🟡 NEED  │ │ 🟢 OK    │ │ 🟢 OK    │          │
 │   │ €XX rev  │ │ €XX rev  │ │ €XX rev  │ │ €XX rev  │          │
 │   │ 3 tasks  │ │ 5 tasks  │ │ 2 tasks  │ │ 1 task   │          │

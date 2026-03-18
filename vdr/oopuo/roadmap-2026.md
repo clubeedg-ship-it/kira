@@ -20,7 +20,7 @@
 
 ### FEBRUARY 2026 — "First Revenue"
 **What must be true by Feb 28:**
-- OttoGen has landed 3-5 paying clients (€2K-5K total)
+- Otto has landed 3-5 paying clients (€2K-5K total)
 - IAM has 2-3 warm leads in kindergarten pipeline
 - ZenithCred pitch deck is investor-ready
 - Chimera open-source repo is public with README
@@ -28,11 +28,11 @@
 **Critical path:** Otto's first paid AI services gig. Everything else is noise until rent is covered.
 
 **Resource allocation:**
-- Otto: 60% OttoGen sales, 20% IAM sales, 20% ZenithCred prep
+- Otto: 60% Otto sales, 20% IAM sales, 20% ZenithCred prep
 - Kira: Lead gen automation, pitch deck refinement, Chimera docs
 
 **Key milestones:**
-- [ ] 20 SMBs contacted (OttoGen) — **Target list needed: define verticals (e.g., NL-based agencies, e-commerce, logistics SMBs with 5-50 employees), source from KvK/LinkedIn Sales Navigator, prioritize by AI-readiness signals (job posts mentioning automation, active on LinkedIn)**
+- [ ] 20 SMBs contacted (Otto) — **Target list needed: define verticals (e.g., NL-based agencies, e-commerce, logistics SMBs with 5-50 employees), source from KvK/LinkedIn Sales Navigator, prioritize by AI-readiness signals (job posts mentioning automation, active on LinkedIn)**
 - [ ] First €500+ invoice sent
 - [ ] IAM prospect list contacted (top 10)
 - [ ] ZenithCred pitch deck v3 complete
@@ -42,19 +42,19 @@
 
 ### MARCH 2026 — "Pipeline Building"
 **What must be true by Mar 31:**
-- OttoGen: 5-8 clients, €3-7K monthly run rate *(revised down — industry data shows $8-15K/month typically takes 12-24 months for AI consulting; 5-8 clients in month 2 is already aggressive)*
+- Otto: 5-8 clients, €3-7K monthly run rate *(revised down — industry data shows $8-15K/month typically takes 12-24 months for AI consulting; 5-8 clients in month 2 is already aggressive)*
 - IAM: 1-2 pilot installations (free/discounted for case study)
 - ZenithCred: First 3-5 investor meetings scheduled
 - Chimera: Technical whitepaper published
 
-**Critical path:** OttoGen revenue scaling. Need enough cash flow that Otto isn't stressed about rent.
+**Critical path:** Otto revenue scaling. Need enough cash flow that Otto isn't stressed about rent.
 
 **Resource allocation:**
-- Otto: 50% OttoGen delivery, 20% IAM pilots, 20% ZenithCred meetings, 10% Chimera
+- Otto: 50% Otto delivery, 20% IAM pilots, 20% ZenithCred meetings, 10% Chimera
 - Kira: Client automation, investor outreach sequences, whitepaper drafting
 
 **Key milestones:**
-- [ ] OttoGen monthly revenue > €3K (stretch: €5K)
+- [ ] Otto monthly revenue > €3K (stretch: €5K)
 - [ ] IAM pilot installed and filming testimonial
 - [ ] ZenithCred investor pipeline of 20+ prospects
 - [ ] Chimera whitepaper published online
@@ -63,7 +63,7 @@
 
 ### APRIL 2026 — "Validation"
 **What must be true by Apr 30:**
-- OttoGen: €5-8K/month, systematizing delivery *(revised — €8-12K by month 3 requires exceptional close rate; first hire is premature without €10K+ stable MRR)*
+- Otto: €5-8K/month, systematizing delivery *(revised — €8-12K by month 3 requires exceptional close rate; first hire is premature without €10K+ stable MRR)*
 - IAM: 1-3 paying lease customers *(revised — going from free pilots in March to 3-5 paying in April assumes instant conversion; 1-3 is more realistic)*
 - ZenithCred: 5+ investor meetings completed, warm interest from 1-2 *(revised — term sheet by April requires product progress or exceptional team narrative; LOI/term sheet more realistic for May-June)*
 - Chimera: Developer community forming (Discord 50-100 members)
@@ -71,28 +71,28 @@
 **Critical path:** Building ZenithCred investor conviction. Term sheet likely slips to May-June without demo/MVP progress.
 
 **Resource allocation:**
-- Otto: 40% OttoGen, 20% IAM, 30% ZenithCred (investor meetings), 10% Chimera
+- Otto: 40% Otto, 20% IAM, 30% ZenithCred (investor meetings), 10% Chimera
 - Kira: Everything operational + investor follow-up automation
 
 **Key milestones:**
 - [ ] IAM ARR hits €10K+
 - [ ] ZenithCred has 5+ investor meetings completed, 1-2 warm leads
 - [ ] Chimera Discord launched, 50+ devs
-- [ ] OttoGen: identify first contractor candidate (hire when MRR > €8K stable)
+- [ ] Otto: identify first contractor candidate (hire when MRR > €8K stable)
 
 ---
 
 ### MAY 2026 — "Seed Round"
 **What must be true by May 31:**
 - ZenithCred seed: term sheet signed or near-closing (€1.1M at €2.5-3.5M pre-money) *(moved from April — more realistic timeline)*
-- OttoGen: €8-12K/month, 1 contractor onboarding
+- Otto: €8-12K/month, 1 contractor onboarding
 - IAM: 8-10 paying units, expanding to BSO market
 - Chimera: Testnet alpha running
 
 **Critical path:** Seed close. Money in the bank.
 
 **Resource allocation:**
-- Otto: 30% OttoGen (delegating), 20% IAM, 20% ZenithCred close, 30% Chimera
+- Otto: 30% Otto (delegating), 20% IAM, 20% ZenithCred close, 30% Chimera
 - Kira: Seed round logistics, Chimera development support
 - New: ZenithCred hire (product/engineering)
 
@@ -109,14 +109,14 @@
 - ZenithCred MVP being built with seed money
 - Chimera: Open testnet, first external node operators
 - IAM: 12-15 units, €36-54K ARR
-- OttoGen: €15K/month, mostly delegated
+- Otto: €15K/month, mostly delegated
 
 **Critical path:** Chimera testnet launch. This is what creates the narrative for a bigger round.
 
 **Resource allocation:**
-- Otto: 40% Chimera, 20% ZenithCred oversight, 20% IAM growth, 20% OttoGen oversight
+- Otto: 40% Chimera, 20% ZenithCred oversight, 20% IAM growth, 20% Otto oversight
 - Kira: Chimera community management, ZenithCred product ops
-- Team: 2-3 people (ZenithCred dev, OttoGen contractor, Chimera contributor)
+- Team: 2-3 people (ZenithCred dev, Otto contractor, Chimera contributor)
 
 ---
 
@@ -169,7 +169,7 @@
 - Chimera: Funded at €15-30M, growing community
 - ZenithCred: Post-seed, €3.5-5M valuation, revenue generating
 - IAM: €75-100K ARR, profitable unit economics
-- OttoGen: €180K+ annualized, 2-3 contractors
+- Otto: €180K+ annualized, 2-3 contractors
 - Team: 8-12 people total
 - Cash position: €1-2M+ (from ZenithCred seed + Chimera seed)
 
@@ -177,7 +177,7 @@
 
 ## 5 Highest-Leverage Moves
 
-### 1. OttoGen First 5 Clients (February)
+### 1. Otto First 5 Clients (February)
 **Why:** Cash flow eliminates desperation. A desperate founder makes bad decisions. €5K/month changes everything psychologically and practically.
 
 ### 2. ZenithCred Seed Close (April-May)
@@ -196,14 +196,14 @@
 
 ## Resource Constraints (Real Talk)
 
-**Money:** Near zero. OttoGen must generate cash immediately.
+**Money:** Near zero. Otto must generate cash immediately.
 **People:** Just Otto + Kira. Must leverage AI automation maximally until funding.
 **Time:** Otto is one human. He can do ~50 productive hours/week max. Spreading across 7 companies = 7 hours each = nothing gets done.
 
-**Hour reality check:** At 50h/week with 3 active companies, that's ~17h each. OttoGen sales + delivery alone could consume 30h/week. Otto must ruthlessly delegate to Kira anything that doesn't require a human face (proposals, follow-ups, scheduling, invoicing, CRM updates).
+**Hour reality check:** At 50h/week with 3 active companies, that's ~17h each. Otto sales + delivery alone could consume 30h/week. Otto must ruthlessly delegate to Kira anything that doesn't require a human face (proposals, follow-ups, scheduling, invoicing, CRM updates).
 
 **The answer:** Focus. Maximum 3 active companies at any time.
-- **Feb-Apr:** OttoGen (cash), IAM (revenue), ZenithCred (funding)
+- **Feb-Apr:** Otto (cash), IAM (revenue), ZenithCred (funding)
 - **May-Jul:** ZenithCred (build), Chimera (launch), IAM (grow)
 - **Aug-Oct:** Chimera (fundraise), ZenithCred (scale), IAM (auto-pilot)
 

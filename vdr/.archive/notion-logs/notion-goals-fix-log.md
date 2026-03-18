@@ -16,7 +16,7 @@ Two goals databases with overlapping content:
 |------|-------|---------|
 | Grow Abura Sales | 📅 6-Month Goal | (none - Abura not in Companies DB) |
 | Close ZenithCred Investment Round | 📅 6-Month Goal | ZenithCred (`300a6c94-88ca-81db-bb93-f124cabe902e`) |
-| Launch OTTOGEN.IO Website | 🗓️ 3-Month Objective | OttoGen (`300a6c94-88ca-8163-be7b-fe202976c026`) |
+| Launch OTTOGEN.IO Website | 🗓️ 3-Month Objective | Otto (`300a6c94-88ca-8163-be7b-fe202976c026`) |
 | Launch IAM Website Rebrand | 🗓️ 3-Month Objective | IAM (`300a6c94-88ca-81f9-a3d7-fe4f215ab5b5`) |
 | Launch Bot Triagem MVP | 🗓️ 3-Month Objective | (none - no company match) |
 

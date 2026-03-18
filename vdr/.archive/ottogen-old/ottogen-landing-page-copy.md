@@ -1,4 +1,4 @@
-# OttoGen Landing Page Copy
+# Otto Landing Page Copy
 
 *Full copy deck — ready for design implementation.*
 
@@ -11,7 +11,7 @@
 **AI rebuilt them yesterday.**
 
 ### Subheadline
-OttoGen helps European SMBs implement AI that actually works — deployed in weeks, not PowerPoints. Built by a 20-year-old who runs six companies on these exact systems.
+Otto helps European SMBs implement AI that actually works — deployed in weeks, not PowerPoints. Built by a 20-year-old who runs six companies on these exact systems.
 
 ### CTA
 **[Get Your Free AI Audit →]**
@@ -56,7 +56,7 @@ You need someone who's done this. Not theorised about it. Done it.
 
 **We don't sell AI. We install it.**
 
-OttoGen takes your existing business processes — the ones your team runs every day — and rebuilds them with AI at the core. Not as a layer on top. Not as a chatbot in the corner. As infrastructure.
+Otto takes your existing business processes — the ones your team runs every day — and rebuilds them with AI at the core. Not as a layer on top. Not as a chatbot in the corner. As infrastructure.
 
 **How it works:**
 
@@ -164,7 +164,7 @@ While established consultants were learning what a "prompt" was, Otto was alread
 - **IAM** — Intelligent ambient environments
 - **CuttingEdge** — Interior design with AI tooling
 
-Every OttoGen service is built on systems Otto uses daily across real companies. This isn't theory extracted from a textbook. It's practice extracted from the trenches.
+Every Otto service is built on systems Otto uses daily across real companies. This isn't theory extracted from a textbook. It's practice extracted from the trenches.
 
 **Why a 20-year-old?**
 
@@ -207,7 +207,7 @@ Good. Neither are most of our clients. We handle the technical. You handle the b
 **Your competitors are figuring this out right now.**
 **The question is whether you figure it out first.**
 
-Book a free 30-minute AI audit call. No slides. No sales pitch. Just an honest look at where AI fits in your business — and whether OttoGen is the right partner.
+Book a free 30-minute AI audit call. No slides. No sales pitch. Just an honest look at where AI fits in your business — and whether Otto is the right partner.
 
 ### CTA
 **[Book Your Free AI Audit →]**
@@ -225,14 +225,14 @@ Available for businesses in the Netherlands, Belgium, Germany, and across Europe
 
 [LinkedIn] · [X/Twitter] · [YouTube]
 
-© 2026 OttoGen · Netherlands
+© 2026 Otto · Netherlands
 
 ---
 
 ## SEO META
 
-**Title:** OttoGen — AI Services for European SMBs | From Audit to Transformation
-**Description:** OttoGen deploys AI automation for small and mid-size businesses across Europe. Fixed pricing. Real systems. Running in weeks, not months. Book a free AI audit.
+**Title:** Otto — AI Services for European SMBs | From Audit to Transformation
+**Description:** Otto deploys AI automation for small and mid-size businesses across Europe. Fixed pricing. Real systems. Running in weeks, not months. Book a free AI audit.
 **Keywords:** AI for SMBs, AI automation Netherlands, AI consulting Europe, SMB AI transformation, business process automation
 
 ---

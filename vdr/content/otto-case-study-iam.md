@@ -1,7 +1,7 @@
 # Case Study: How AI Transformed a Niche Hardware Business Into a Scalable Revenue Engine
 
 **Client:** InterActiveMove (IAM) — Interactive Floor & Wall Projectors for Early Childhood Education  
-**Partner:** OttoGen (now Oopuo) — AI-Powered Business Services for SMBs  
+**Partner:** Otto (now Oopuo) — AI-Powered Business Services for SMBs  
 **Timeline:** Q1–Q3 2026
 
 ---
@@ -42,7 +42,7 @@ Every sale required personal outreach: finding a contact, making a call, schedul
 
 ### AI as the Entire Go-to-Market Stack
 
-Rather than hiring a sales team or engaging a traditional marketing agency, IAM partnered with OttoGen (now Oopuo) to build an AI-powered go-to-market engine. The approach had three layers:
+Rather than hiring a sales team or engaging a traditional marketing agency, IAM partnered with Otto (now Oopuo) to build an AI-powered go-to-market engine. The approach had three layers:
 
 ### Layer 1: Intelligent Lead Generation
 
@@ -134,7 +134,7 @@ The tools and approaches used here were previously only available to companies w
 
 ## About Oopuo
 
-Oopuo (formerly OttoGen) builds AI-powered business infrastructure for small and medium businesses. We don't sell software licenses — we deploy complete AI systems tailored to your market, your customers, and your growth targets.
+Oopuo (formerly Otto) builds AI-powered business infrastructure for small and medium businesses. We don't sell software licenses — we deploy complete AI systems tailored to your market, your customers, and your growth targets.
 
 From lead generation to automated outreach to intelligent sales infrastructure, we help SMBs compete at a scale that was previously impossible without large teams and large budgets.
 

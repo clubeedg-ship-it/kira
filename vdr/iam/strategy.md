@@ -1,14 +1,13 @@
 # IAM (Interactive Move) — Deep Strategy
-*Kira | Feb 8, 2026*
+*Kira | Updated March 2026*
 
 ---
 
 ## Market Size — Netherlands Kindergartens
 
 ### The Numbers
-- **Kinderdagverblijven (daycare 0-4):** **9,315 locations** (CBS, October 2024 — verified via Stichting Lezen/CBS report)
+- **Kinderdagverblijven (daycare 0-4):** **~9,300 locations** (CBS verified data)
 - **BSO (after-school care 4-12):** ~5,000-6,000 locations
-- **Peuterspeelzalen (merged into KDV since 2018):** included above
 - **Total childcare locations:** ~15,000-16,000 in the Netherlands
 - **Major chains:** Partou (~700 locations), KidsFoundation (~500), Smallsteps (~400), Kinderrijk (~200), CompaNanny (~100)
 
@@ -18,52 +17,57 @@
 - Government subsidies (VVE programs) can partially fund educational tech
 - Municipality budgets for early childhood education: varies €500-2,000 per child/year
 
-### Addressable Market
-- Target: kinderdagverblijven that are progressive, urban, chain-operated
-- Realistic addressable: ~3,000-4,000 locations (chains + progressive independents)
-- At €249/mo average lease: 3,000 × €249 × 12 = **€8.96M total addressable in NL**
+---
+
+## Revenue Projections: Sales Models
+
+IAM operates under two distinct models to capture both CapEx and OpEx budgets.
+
+### 1. Purchase Model
+Customer buys the hardware outright + annual software subscription for updates and support.
+- **IAM Floor**: From €8,500
+- **IAM Wall**: From €9,500
+- **IAM Sandbox**: From €12,000
+- **IAM Climbing Wall**: From €15,000
+- **Annual Software Sub**: €450/year (Support + Content Updates)
+
+### 2. Lease Model
+Customer rents hardware + software included in a fixed monthly fee.
+- **Entry Level**: €199/mo
+- **Standard**: €249/mo
+- **Premium**: €299/mo
 
 ---
 
-## Revenue Projections: Lease Model
+## Unit Economics & Revenue Projections
 
-### Unit Economics
-| Metric | €199/mo | €249/mo | €299/mo |
-|--------|---------|---------|---------|
-| Annual per unit | €2,388 | €2,988 | €3,588 |
-| Hardware cost (est.) | €800-1,200 | €800-1,200 | €800-1,200 |
-| Installation | €200-300 | €200-300 | €200-300 |
-| Monthly content/support | €30-50 | €30-50 | €30-50 |
-| **Gross margin** | **~55-65%** | **~60-70%** | **~65-75%** |
-| **Payback period** | **5-7 months** | **4-5 months** | **3-4 months** |
+Assuming a mix of **60% Purchase** and **40% Lease** models.
 
-### Revenue at Scale
-| Units | Monthly Rev | Annual Rev | Annual Gross Profit |
-|-------|-------------|-----------|-------------------|
-| 10 | €2,490 | €29,880 | €18K-21K |
-| 25 | €6,225 | €74,700 | €45K-52K |
-| 50 | €12,450 | €149,400 | €90K-105K |
-| 100 | €24,900 | €298,800 | €180K-210K |
-| 250 | €62,250 | €747,000 | €448K-523K |
+### Per Unit Economics (Blended)
+| Metric | Purchase (Avg €9,500) | Lease (Avg €249/mo) |
+|--------|---------|---------|
+| Hardware cost (est.) | €1,200 | €1,200 |
+| Installation | €300 | €300 |
+| Monthly SaaS/Support | €37.50 (annual sub) | €50 (implied) |
+| **Upfront Profit** | **~€8,000** | **-€1,500** |
+| **Payback (Lease)** | **N/A** | **~6-7 months** |
 
-### Realistic 8-Month Trajectory
-- Feb: 0-1 units (pilot)
-- Mar: 2-3 (pilots converting)
-- Apr: 5-6 
-- May: 8-10
-- Jun: 12-15
-- Jul: 18-22
-- Aug: 25-28
-- Sep: 30-35
-- **Oct: 35-40 units = ~€105-120K ARR**
+### Projected Revenue (12-Month Target: 100 units)
+- **60 Purchase Units**: 60 × €9,500 = **€570,000** (Upfront)
+- **40 Lease Units**: 40 × €249 × 12 = **€119,520** (Annual Recurring)
+- **Total Year 1 Revenue**: **€689,520**
+- **Monthly Recurring Revenue (End of Y1)**: 
+    - Lease: 40 × €249 = €9,960
+    - Support Subs (from Purchases): 60 × (€450/12) = €2,250
+    - **Total MRR: ~€12,210**
 
 ---
 
 ## Partnership Strategy
 
 ### Tier 1: Large Chains (biggest impact)
-1. **Partou** (~700 locations) — Largest chain. One deal = massive scale. Contact: Central procurement.
-2. **KidsFoundation** (~500) — Second largest. Similar approach.
+1. **Partou** (~700 locations) — Largest chain. One deal = massive scale.
+2. **KidsFoundation** (~500) — Second largest. 
 3. **Smallsteps** (~400) — Third.
 
 **Approach:** Offer 2-4 week free trial at 1-2 locations. Film results. Present data to chain management. Pitch bulk deals (50+ units at discount).
@@ -74,29 +78,15 @@
 - Target: Amsterdam, Rotterdam, Den Haag, Utrecht first
 
 ### Tier 3: Progressive Independents
-- Already have the prospect list (50+ from yesterday's research)
-- Direct outreach via email templates
-- Focus on urban, upscale neighborhoods where parents expect tech
-
-### Franchise/Group Buying
-- Brancheorganisatie Kinderopvang (industry association) — get listed as recommended supplier
-- BOinK (parents' organization) — endorsement = trust
+- Focus on urban, upscale neighborhoods where parents expect tech.
+- Outreach via Saleshandy with personalized Dutch copy.
 
 ---
 
-## Website Review
-- Repo: github.com/clubeedg-ship-it/iam-website
-- Otto said: "there are things to be finished" — DO NOT rebuild
-- **TODO:** Clone and review what's unfinished, document gaps, prepare PR list for Otto
+## Website & Infrastructure
+- Website: interactivemove.nl
+- Lead Gen: **Saleshandy** for email automation and tracking (replacing Saleshandy).
+- CRM: Oopuo central CRM for pipeline management.
 
 ---
-
-## Immediate Actions (This Week)
-1. Contact top 10 prospects from kindergarten list
-2. Prepare free trial offer (2 weeks, no commitment)
-3. Draft partnership proposal for Partou/KidsFoundation
-4. Review iam-website repo and list unfinished items
-5. Set up Apollo.io for lead tracking
-
----
-*Critic-reviewed 2026-02-08*
+*Updated March 2026*

@@ -56,7 +56,7 @@ Here's the math.
 ### IAM (Interactive Move) — Hardware + Content
 - **Current revenue:** ~€0 (pre-sales)
 - **Product:** Interactive floor/wall projectors for kindergartens, €199-299/mo lease
-- **Netherlands market:** ~9,000-11,000 kinderdagverblijf locations (CBS data)
+- **Netherlands market:** ~9,300 kinderdagverblijf locations (CBS data)
 - **Realistic by Oct 2026:** 10-30 units placed → €24K-108K ARR
 - **Bull case:** 50 units → €180K ARR
 - **Valuation at 3-5x (hardware):** €72K-900K
@@ -71,7 +71,7 @@ Here's the math.
 - **Valuation (post-seed):** €3.5-5M
 - **Verdict:** Good seed-stage company. Not a $1B path.
 
-### OttoGen — AI Services Agency
+### Otto — AI Services Agency
 - **Current revenue:** €0
 - **Model:** €500-5,000 per SMB engagement
 - **Realistic by Oct 2026:** 20-50 clients → €30K-150K
@@ -119,7 +119,7 @@ Here's the math.
 |---------|-----------|-------|
 | IAM | €500K-1M | Revenue multiple on hardware |
 | ZenithCred | €3.5-5M | Post-seed valuation |
-| OttoGen | €200-500K | Revenue multiple on services |
+| Otto | €200-500K | Revenue multiple on services |
 | CuttingEdge | €100-200K | Cash flow |
 | SentinAgro | €0 | Parked |
 | Chimera | €5-50M | Pre-revenue AI infra (if funded) |
@@ -162,7 +162,7 @@ Portfolio/holding companies typically trade at a **20-40% discount** to sum-of-p
 How:
 - ZenithCred seed closes at €3.5M post-money ✓
 - IAM generates €50-100K ARR ✓
-- OttoGen generates €80-150K revenue ✓
+- Otto generates €80-150K revenue ✓
 - Chimera raises pre-seed/seed at €5-10M based on tech + vision ✓
 - Total: €10-15M across the portfolio
 
@@ -218,7 +218,7 @@ How:
 **The right goal:** Build the foundation that makes $1B achievable in 2-3 years.
 
 ### The 2-3 Year Path to $1B
-1. **Months 1-8 (now → Oct 2026):** Revenue from IAM/OttoGen pays rent. ZenithCred seed closes. Chimera gets pre-seed/seed. Build team.
+1. **Months 1-8 (now → Oct 2026):** Revenue from IAM/Otto pays rent. ZenithCred seed closes. Chimera gets pre-seed/seed. Build team.
 2. **Months 9-18 (Nov 2026 → Aug 2027):** Chimera Series A at $50-100M. Working testnet. Community of 10K+. 
 3. **Months 19-30 (Sep 2027 → 2028):** Chimera Series B at $500M-1B. Production network. Real usage.
 
@@ -228,7 +228,7 @@ How:
 
 ## 7. The Real Priority Order
 
-1. **OttoGen → Cash flow NOW** (pay rent, buy time)
+1. **Otto → Cash flow NOW** (pay rent, buy time)
 2. **IAM → Steady revenue** (monthly recurring, proven product)
 3. **ZenithCred → Seed round** (€1.1M gives runway)
 4. **Chimera → The big bet** (position for massive round in 12-18 months)
@@ -241,7 +241,7 @@ The $1B question isn't "how do we get there by October?" — it's "what must be 
 ## 8. Next Week Actions (w/c Feb 9, 2026)
 
 ### Monday–Tuesday: Cash & Revenue
-1. **OttoGen**: Send 5 outreach emails to SMBs needing AI automation (LinkedIn/cold). Target: book 2 discovery calls this week.
+1. **Otto**: Send 5 outreach emails to SMBs needing AI automation (LinkedIn/cold). Target: book 2 discovery calls this week.
 2. **IAM**: Follow up with any warm kindergarten leads. Target: 1 signed pilot LOI.
 
 ### Wednesday–Thursday: Funding Pipeline
@@ -261,7 +261,7 @@ The $1B question isn't "how do we get there by October?" — it's "what must be 
 6. **Park SentinAgro** officially — remove from active project list, free up mental bandwidth.
 
 ### Metrics to Track
-- OttoGen: # outreach sent, # calls booked, € invoiced
+- Otto: # outreach sent, # calls booked, € invoiced
 - IAM: # pilot conversations, # units in pipeline
 - ZenithCred: # investors contacted, # meetings scheduled
 - Chimera: GitHub stars (if open-sourced), # VC intros made

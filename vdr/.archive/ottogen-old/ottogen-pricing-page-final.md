@@ -1,4 +1,4 @@
-# OttoGen — Service Packages & Pricing
+# Otto — Service Packages & Pricing
 
 **AI automation for Dutch SMBs. Systems that run. Results you measure.**
 
@@ -138,9 +138,9 @@ Best fit: 20–200 employees · Multi-department · Strategic AI adoption
 
 ---
 
-## Why OttoGen?
+## Why Otto?
 
-| Traditional consultancy | OttoGen |
+| Traditional consultancy | Otto |
 |---|---|
 | €150–250/hr, open-ended | Fixed monthly price, clear scope |
 | Delivers reports | Delivers running systems |
@@ -160,7 +160,7 @@ Best fit: 20–200 employees · Multi-department · Strategic AI adoption
 
 ---
 
-# OttoGen — Pakketten & Prijzen (NL)
+# Otto — Pakketten & Prijzen (NL)
 
 **AI-automatisering voor het Nederlandse MKB. Systemen die draaien. Resultaten die je meet.**
 
@@ -243,4 +243,4 @@ Geschikt voor: 20–200 medewerkers · Meerdere afdelingen · Strategische AI-ad
 
 ---
 
-*OttoGen — Gebouwd in Nederland. Gebouwd voor snelheid.*
+*Otto — Gebouwd in Nederland. Gebouwd voor snelheid.*

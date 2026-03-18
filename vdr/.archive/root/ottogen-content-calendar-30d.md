@@ -1,4 +1,4 @@
-# OttoGen — 30-Day Content Calendar
+# Otto — 30-Day Content Calendar
 > **Platforms:** LinkedIn + Instagram
 > **Aesthetic:** Swiss Cyberpunk — clean Swiss design meets neon-lit tech noir
 > **Mix:** 40% Educational (AI for business) | 30% Thought Leadership (future of work) | 20% Case Studies | 10% Personal
@@ -182,7 +182,7 @@
 
 ### Day 28 — Sunday
 📌 **Type:** Personal | **Format:** IG Post (photo/video) + LinkedIn Text
-**Title:** "Building OttoGen: Month [X] Update"
+**Title:** "Building Otto: Month [X] Update"
 **Hook:** "Transparency post: here's what's working, what's not, and what's next."
 **Content Notes:** Behind-the-scenes, revenue/growth numbers if comfortable, lessons learned. Raw, authentic.
 

@@ -1,12 +1,12 @@
-# OttoGen — AI Automation for Dutch SMBs
+# Otto — AI Automation for Dutch SMBs
 
 ### Smart automation. Real results. No fluff.
 
 ---
 
-## Why OttoGen?
+## Why Otto?
 
-You don't need a 6-month "digital transformation." You need the repetitive work off your team's plate — fast. OttoGen builds focused AI automations for businesses with 5-50 employees across the Netherlands. We set up, we train, we maintain. You get your time back.
+You don't need a 6-month "digital transformation." You need the repetitive work off your team's plate — fast. Otto builds focused AI automations for businesses with 5-50 employees across the Netherlands. We set up, we train, we maintain. You get your time back.
 
 ---
 
@@ -107,4 +107,4 @@ You don't need a 6-month "digital transformation." You need the repetitive work 
 
 ---
 
-**OttoGen** — Built in the Netherlands. Built for speed.
+**Otto** — Built in the Netherlands. Built for speed.

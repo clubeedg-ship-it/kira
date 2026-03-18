@@ -1,4 +1,4 @@
-# OttoGen — First 10 Clients in 30 Days
+# Otto — First 10 Clients in 30 Days
 
 *A tactical playbook for the Dutch/European SMB market.*
 
@@ -16,7 +16,7 @@
 ## CONVERSION FUNNEL
 
 ```
-Awareness (200+ people see OttoGen)
+Awareness (200+ people see Otto)
     ↓
 Interest (80 visit site or respond)
     ↓
@@ -34,13 +34,13 @@ Client (10 sign and pay)
 ### Week 0: Profile Optimisation (Day 1)
 
 **Headline:**
-`I help European SMBs implement AI that actually works | Running 6 AI-powered companies | Founder @ OttoGen`
+`I help European SMBs implement AI that actually works | Running 6 AI-powered companies | Founder @ Otto`
 
 **About section (first 3 lines visible):**
 > Most AI consultants discovered ChatGPT last year. I've been building AI systems across 6 companies for years. Now I help SMBs do the same — fixed price, running systems in weeks. → ottogen.io
 
 **Featured section:**
-- OttoGen landing page link
+- Otto landing page link
 - 1 case study / portfolio piece
 - "Free AI Audit" booking link
 
@@ -58,7 +58,7 @@ Client (10 sign and pay)
 - "AI tip of the day" practical content
 - Contrarian takes on AI hype
 - Free audit CTAs (every 3rd post)
-- Behind-the-scenes of building OttoGen
+- Behind-the-scenes of building Otto
 
 ### Outbound DM Strategy (20 per day)
 
@@ -115,7 +115,7 @@ Client (10 sign and pay)
 ### Strategy: Attend 2–3 events per week
 
 **Intro pitch (30 seconds):**
-> "I'm Otto, I run OttoGen. We help small businesses implement AI — not the ChatGPT hype, but actual automations that save time and money. I'm doing free AI audits this month if anyone's curious what's possible for their business."
+> "I'm Otto, I run Otto. We help small businesses implement AI — not the ChatGPT hype, but actual automations that save time and money. I'm doing free AI audits this month if anyone's curious what's possible for their business."
 
 **Follow-up (within 24 hours):**
 > Hi [Name], great meeting you at [event] yesterday. I mentioned the free AI audit — happy to do a quick 20-minute call this week to look at [their business/industry]. Here's my calendar link: [link]. No pressure either way.
@@ -133,7 +133,7 @@ Reach out to these professionals who already serve SMBs:
 
 **Partnership script:**
 
-> Hi [Name], I run OttoGen — we implement AI automation for SMBs. I'm looking for referral partners who already work with business owners. For every client you refer who signs a package, I offer [20% referral fee / reciprocal referrals / co-branded workshop]. Worth a coffee to discuss?
+> Hi [Name], I run Otto — we implement AI automation for SMBs. I'm looking for referral partners who already work with business owners. For every client you refer who signs a package, I offer [20% referral fee / reciprocal referrals / co-branded workshop]. Worth a coffee to discuss?
 
 ---
 
@@ -142,7 +142,7 @@ Reach out to these professionals who already serve SMBs:
 ### Lead Sourcing
 
 - **KvK Handelsregister** — public Dutch business registry, filter by size/industry/region
-- **LinkedIn Sales Navigator** export (use a tool like Apollo.io or Phantombuster)
+- **LinkedIn Sales Navigator** export (use a tool like Saleshandy or Phantombuster)
 - **Google Maps** — search "[industry] [city]" and collect business emails from websites
 - **Industry directories** — BOVAG (automotive), Transport en Logistiek Nederland, etc.
 
@@ -165,7 +165,7 @@ Subject: `Quick question about [Company Name]`
 > Worth a quick call?
 >
 > Otto van [Last Name]
-> OttoGen — AI for businesses that move
+> Otto — AI for businesses that move
 > ottogen.io
 
 **Email 2 — Day 4 (no reply):**
@@ -296,7 +296,7 @@ Same cadence + start converting conversations to calls. Target: 10 calls booked.
 | Tool | Purpose | Cost |
 |------|---------|------|
 | **Calendly** | Booking audit calls | Free tier |
-| **Apollo.io** | Email finding + sequences | €50/month |
+| **Saleshandy** | Email finding + sequences | €50/month |
 | **LinkedIn Sales Navigator** | Advanced search + InMail | €80/month |
 | **PandaDoc** | Proposals + e-signatures | €25/month |
 | **Notion or Pipedrive** | CRM / pipeline tracking | Free–€25/month |
@@ -327,7 +327,7 @@ Same cadence + start converting conversations to calls. Target: 10 calls booked.
 - **Legal:** Use standard Dutch freelance/consultancy terms (algemene voorwaarden). Consider a simple opdrachtbevestiging over complex contracts for SIGNAL tier.
 - **Geography:** Focus on Randstad (Amsterdam, Rotterdam, The Hague, Utrecht) first — highest density of SMBs. Expand to Eindhoven (tech), Groningen, Brabant.
 - **Seasonality:** February–March is good timing — businesses have set 2026 budgets and are looking to invest in efficiency.
-- **KvK registration:** Ensure OttoGen is registered with proper SBI codes for consultancy/IT services.
+- **KvK registration:** Ensure Otto is registered with proper SBI codes for consultancy/IT services.
 
 ---
 

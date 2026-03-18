@@ -1,4 +1,4 @@
-# OttoGen — Email Follow-Up Sequence
+# Otto — Email Follow-Up Sequence
 
 > Trigger: LinkedIn connection accepted. Wait 24 hours before Email 1.
 
@@ -24,7 +24,7 @@ Happy to chat whenever it suits you.
 
 Best,
 **Otto**
-OttoGen AI Automation
+Otto AI Automation
 otto@ottogen.nl | ottogen.nl
 
 ---
@@ -82,7 +82,7 @@ Either way — good luck with everything at {{companyName}}.
 
 Best,
 **Otto**
-OttoGen AI Automation
+Otto AI Automation
 otto@ottogen.nl | ottogen.nl
 
 ---

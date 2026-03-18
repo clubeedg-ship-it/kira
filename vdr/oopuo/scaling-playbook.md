@@ -113,7 +113,7 @@ Specialized agents per company that report to me.
 ### Implementation
 1. **Agent Personas**
    - ZenithCred Risk Analyst
-   - OttoGen Content Producer
+   - Otto Content Producer
    - IAM Sales Dev
    - etc.
 

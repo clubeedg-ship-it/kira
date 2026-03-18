@@ -1,4 +1,4 @@
-# OttoGen Website V3 — Notes
+# Otto Website V3 — Notes
 
 ## Version History
 - **V1**: Too simple, lacked impact

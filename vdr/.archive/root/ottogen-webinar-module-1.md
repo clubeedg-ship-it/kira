@@ -1,4 +1,4 @@
-# OttoGen Webinar Series — Module 1: AI voor MKB
+# Otto Webinar Series — Module 1: AI voor MKB
 
 *"Hoe AI jouw bedrijf 10 uur per week bespaart — zonder technische kennis"*
 *Created: 2026-02-14*
@@ -12,7 +12,7 @@
 | **Title** | AI voor MKB: Van Hype naar Dagelijks Gebruik |
 | **Duration** | 45 min presentation + 15 min Q&A |
 | **Target** | MKB-ondernemers (1-50 medewerkers), geen technische achtergrond |
-| **Goal** | Position Otto as the go-to AI advisor, generate leads for OttoGen services |
+| **Goal** | Position Otto as the go-to AI advisor, generate leads for Otto services |
 | **Price** | Free (lead magnet) |
 | **CTA** | Book a free 30-min AI audit call |
 

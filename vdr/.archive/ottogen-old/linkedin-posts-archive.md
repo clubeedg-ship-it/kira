@@ -1,4 +1,4 @@
-# OttoGen LinkedIn Posts — First 2 Drafts
+# Otto LinkedIn Posts — First 2 Drafts
 
 *Created: 2026-02-10*
 
@@ -17,11 +17,11 @@ Now I'm building something different: AI that works FOR people, not on them.
 → Privacy-preserving. Distributed. Can't be shut down.
 → Not another ChatGPT wrapper. Real infrastructure.
 
-This is OttoGen — where I share what I'm building and why.
+This is Otto — where I share what I'm building and why.
 
 Follow along if you care about AI that doesn't require you to hand over your data.
 
-#AI #Privacy #Entrepreneurship #OttoGen
+#AI #Privacy #Entrepreneurship #Otto
 
 ---
 

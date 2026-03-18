@@ -1,11 +1,11 @@
-# Sales Automation Playbook — IAM & OttoGen
+# Sales Automation Playbook — IAM & Otto
 *Compiled: 2026-02-07*
 
 ---
 
 ## 1. AI Sales Tools — Comparison & Recommended Stack
 
-### Apollo.io — Lead Database + CRM + Outreach
+### Saleshandy — Lead Database + CRM + Outreach
 - **What:** 275M+ contact database, email finder, sequences, CRM, AI email writing
 - **Pricing:**
   - Free: 10,000 credits/mo, 250 emails/day
@@ -67,7 +67,7 @@
 
 | Tool | Plan | Monthly Cost | Purpose |
 |------|------|-------------|---------|
-| Apollo.io | Free | €0 | Lead sourcing + enrichment (10K credits/mo) |
+| Saleshandy | Free | €0 | Lead sourcing + enrichment (10K credits/mo) |
 | Instantly.ai | Growth | €30 | Cold email sending + warmup |
 | Cal.com | Free | €0 | Meeting booking link |
 | LinkedIn | Free/Premium | €0-40 | Manual DMs for high-value leads |
@@ -76,7 +76,7 @@
 **Phase 2 add-ons (once revenue flows):**
 - Clay.com Starter ($134/mo) — for hyper-personalization
 - Vapi.ai — for AI phone follow-ups
-- Apollo Basic ($49/mo) — for more credits + sequences
+- Saleshandy Basic ($49/mo) — for more credits + sequences
 
 ---
 
@@ -93,8 +93,8 @@
 
 **How to build your list:**
 1. Download/scrape LRK for all "kinderdagverblijf" and "peuterspeelzaal" entries
-2. Use Apollo.io or LinkedIn to find directors/managers (locatiemanager, directeur)
-3. Enrich with email using Apollo/Hunter.io
+2. Use Saleshandy or LinkedIn to find directors/managers (locatiemanager, directeur)
+3. Enrich with email using Saleshandy/Hunter.io
 4. Large chains to target first: KidsFoundation, Partou, Kindergarden, CompaNanny, Smallsteps
 
 **Key decision-makers:**
@@ -159,7 +159,7 @@
 
 ---
 
-## 3. OttoGen AI Services Pipeline
+## 3. Otto AI Services Pipeline
 
 ### Highest-Margin, Easiest-to-Deliver Services (Start Here)
 
@@ -208,7 +208,7 @@
 
 3. **Cold Email (via Instantly)**
    - Target: NL SMBs with 5-50 employees in services (accounting, recruitment, marketing agencies)
-   - Use Apollo to find them
+   - Use Saleshandy to find them
    - Expected: 1-3% meeting rate on cold email
 
 4. **Referrals**
@@ -231,8 +231,8 @@
 ```
 AUTOMATED                          OTTO DOES THIS
 ─────────                          ──────────────
-1. Lead Sourcing (Apollo)     →    
-2. Data Enrichment (Apollo)   →    
+1. Lead Sourcing (Saleshandy)     →    
+2. Data Enrichment (Saleshandy)   →    
 3. Email Sequences (Instantly) →   
 4. Auto Follow-ups (Instantly) →   
 5. Meeting Booking (Cal.com)  →    
@@ -260,7 +260,7 @@ AUTOMATED                          OTTO DOES THIS
 
 | Tool | Cost |
 |------|------|
-| Apollo.io Free | €0 |
+| Saleshandy Free | €0 |
 | Instantly Growth | €30 |
 | 3x email domains (for rotation) | €15 |
 | Cal.com Free | €0 |
@@ -269,7 +269,7 @@ AUTOMATED                          OTTO DOES THIS
 
 ### Time to First Revenue
 
-- **Week 1:** Set up Apollo, Instantly, Cal.com, email domains, warm up emails
+- **Week 1:** Set up Saleshandy, Instantly, Cal.com, email domains, warm up emails
 - **Week 2-3:** Email warmup (14 days minimum). Meanwhile: LinkedIn outreach manually
 - **Week 3:** First cold email campaigns go out
 - **Week 4:** First replies come in, first meetings booked
@@ -283,7 +283,7 @@ AUTOMATED                          OTTO DOES THIS
 
 ### Path to First €1K (Fastest)
 
-#### OttoGen (fastest path — sell what you already know):
+#### Otto (fastest path — sell what you already know):
 
 1. **TODAY:** Post on LinkedIn: "I help SMBs automate repetitive tasks with AI. What's the one task you wish you could stop doing manually?" — start conversations
 2. **TODAY:** Message 20 people in your network who run small businesses. Offer a free 30-min "AI Automation Audit"
@@ -307,13 +307,13 @@ AUTOMATED                          OTTO DOES THIS
 | 20 LinkedIn DMs to SMB owners | 2 hours | 3-5 conversations |
 | LinkedIn post about AI automation | 30 min | Visibility + inbound |
 | Free audit offer to warm network | 1 hour | 1-2 audit calls this week |
-| Set up Apollo free account | 30 min | Ready to source leads |
+| Set up Saleshandy free account | 30 min | Ready to source leads |
 | Set up Instantly + buy 3 domains | 1 hour | Ready to send in 2 weeks |
 | Register at Cal.com | 15 min | Booking link ready |
 
 ### The €1K Formula
 
-**OttoGen:** 20 DMs → 5 calls → 2 audits → 1 close at €1,500-€2,500 = **€1,500+ in 1-2 weeks**
+**Otto:** 20 DMs → 5 calls → 2 audits → 1 close at €1,500-€2,500 = **€1,500+ in 1-2 weeks**
 
 **IAM:** Not possible in 1 week. Hardware sales cycle is 4-8 weeks minimum. But starting outreach now means revenue in March.
 
@@ -322,7 +322,7 @@ AUTOMATED                          OTTO DOES THIS
 ## Summary: Recommended Action Plan
 
 ### Week 1 (This Week)
-- [ ] Set up Apollo.io (free), Instantly.ai ($30), Cal.com (free)
+- [ ] Set up Saleshandy (free), Instantly.ai ($30), Cal.com (free)
 - [ ] Buy 3 domains for cold email rotation (~€15)
 - [ ] Start email warmup in Instantly (takes 14 days)
 - [ ] Post on LinkedIn daily (AI automation content)
@@ -333,10 +333,10 @@ AUTOMATED                          OTTO DOES THIS
 - [ ] Deliver audits, convert 1-2 to paid projects (€1K-€3K each)
 - [ ] Scrape LRK kindergarten database
 - [ ] Build IAM target list (top 50 chains + 200 independent)
-- [ ] Start enriching kindergarten contacts via Apollo
+- [ ] Start enriching kindergarten contacts via Saleshandy
 
 ### Week 3
-- [ ] First cold email campaign goes live (OttoGen → Dutch SMBs)
+- [ ] First cold email campaign goes live (Otto → Dutch SMBs)
 - [ ] First cold email campaign goes live (IAM → kindergarten managers)
 - [ ] Continue LinkedIn content + DMs
 

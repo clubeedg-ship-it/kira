@@ -1,4 +1,4 @@
-# OttoGen LinkedIn Content Batch — Feb 17–28, 2026
+# Otto LinkedIn Content Batch — Feb 17–28, 2026
 
 ---
 
@@ -26,7 +26,7 @@ This is what AI for SMBs actually looks like. Not robots replacing people. Not s
 **CTA:**
 DM me "BAKERY" and I'll send you the exact tool stack we used — no strings attached.
 
-**Hashtags:** #AIforSMB #SmallBusinessGrowth #DigitalTransformation #OttoGen #AIConsulting
+**Hashtags:** #AIforSMB #SmallBusinessGrowth #DigitalTransformation #Otto #AIConsulting
 
 ---
 
@@ -39,7 +39,7 @@ DM me "BAKERY" and I'll send you the exact tool stack we used — no strings att
 **Body:**
 *[CAROUSEL — 7 slides]*
 
-**Slide 1 (Cover):** "5 AI Tools Every SMB Should Be Using in 2026" — OttoGen branding, Swiss cyberpunk visual
+**Slide 1 (Cover):** "5 AI Tools Every SMB Should Be Using in 2026" — Otto branding, Swiss cyberpunk visual
 
 **Slide 2:** 🔹 **Notion AI** — Your second brain. Meeting notes → action items in seconds. (~€10/mo)
 
@@ -55,7 +55,7 @@ DM me "BAKERY" and I'll send you the exact tool stack we used — no strings att
 
 **CTA:** Save this post 🔖 and tag a business owner who needs to see this.
 
-**Hashtags:** #AITools #SMBTips #ProductivityHacks #WorkSmarter #OttoGen
+**Hashtags:** #AITools #SMBTips #ProductivityHacks #WorkSmarter #Otto
 
 ---
 
@@ -84,7 +84,7 @@ The window is 18–24 months. After that, this becomes table stakes and the adva
 
 **CTA:** What's the ONE task eating most of your time? Drop it in the comments — I'll suggest an AI solution.
 
-**Hashtags:** #FutureOfWork #AIStrategy #SmallBusiness #Entrepreneurship #OttoGen
+**Hashtags:** #FutureOfWork #AIStrategy #SmallBusiness #Entrepreneurship #Otto
 
 ---
 
@@ -117,7 +117,7 @@ That's what I want to give other entrepreneurs.
 
 **CTA:** If you're building something against the odds — tell me about it. I want to hear your story.
 
-**Hashtags:** #FounderStory #Entrepreneurship #SelfTaught #BuildInPublic #OttoGen
+**Hashtags:** #FounderStory #Entrepreneurship #SelfTaught #BuildInPublic #Otto
 
 ---
 
@@ -149,7 +149,7 @@ This is the pattern I see over and over: the ROI isn't just financial. It's *emo
 
 **CTA:** Running an agency or service business? DM me "AGENCY" — I'll show you the 3 fastest wins.
 
-**Hashtags:** #RealEstateAI #BusinessAutomation #AIforSMB #OttoGen #PropTech
+**Hashtags:** #RealEstateAI #BusinessAutomation #AIforSMB #Otto #PropTech
 
 ---
 
@@ -182,7 +182,7 @@ What eats most of YOUR time?
 
 **CTA:** Vote and I'll share my recommended AI stack for the winning category next week.
 
-**Hashtags:** #AITools #BusinessProductivity #SMBOwner #OttoGen #Poll
+**Hashtags:** #AITools #BusinessProductivity #SMBOwner #Otto #Poll
 
 ---
 
@@ -214,11 +214,11 @@ Real AI consulting looks different:
 
 The best AI consultants should make themselves unnecessary within 3-6 months. If someone's building dependency, run.
 
-I built OttoGen on one principle: **teach the fishing, don't just sell the fish.** Every engagement ends with your team owning the system.
+I built Otto on one principle: **teach the fishing, don't just sell the fish.** Every engagement ends with your team owning the system.
 
 **CTA:** Evaluating an AI consultant? Send me their proposal — I'll give you an honest second opinion. Free.
 
-**Hashtags:** #AIConsulting #HonestBusiness #SMBAdvice #OttoGen #AIStrategy
+**Hashtags:** #AIConsulting #HonestBusiness #SMBAdvice #Otto #AIStrategy
 
 ---
 
@@ -254,4 +254,4 @@ And that gap is only getting wider.
 
 **CTA:** Would you trust an AI with your operations? Genuinely curious — drop your take below 👇
 
-**Hashtags:** #HumanAI #FutureOfWork #AIPartner #Entrepreneurship #OttoGen
+**Hashtags:** #HumanAI #FutureOfWork #AIPartner #Entrepreneurship #Otto

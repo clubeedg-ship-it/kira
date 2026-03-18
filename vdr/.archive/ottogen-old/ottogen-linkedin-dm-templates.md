@@ -1,4 +1,4 @@
-# OttoGen — LinkedIn DM Templates
+# Otto — LinkedIn DM Templates
 
 ## Version A: Direct Value Proposition
 

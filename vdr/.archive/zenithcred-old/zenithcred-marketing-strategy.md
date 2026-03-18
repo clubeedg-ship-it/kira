@@ -316,7 +316,7 @@ ZenithCred | [LinkedIn]
 | Layer | Tool | Why |
 |-------|------|-----|
 | **CRM** | HubSpot (Free → Starter) | Free tier is solid, scales well, good automation |
-| **Lead Data** | Apollo.io | Best for NL/EU B2B contacts, email finding, enrichment |
+| **Lead Data** | Saleshandy | Best for NL/EU B2B contacts, email finding, enrichment |
 | **Email Sequences** | Lemlist OR HubSpot Sequences | Lemlist for personalization at scale, HubSpot if staying in one tool |
 | **LinkedIn Automation** | Expandi.io | Safe, NL-based, good for connection + message sequences |
 | **Scheduling** | Calendly (or HubSpot Meetings) | Frictionless booking |
@@ -330,7 +330,7 @@ ZenithCred | [LinkedIn]
 ┌─────────────────────────────────────────────────────────────────┐
 │                         LEAD GENERATION                         │
 ├─────────────────────────────────────────────────────────────────┤
-│ Apollo.io: Build list of NL companies (100-500 emp)            │
+│ Saleshandy: Build list of NL companies (100-500 emp)            │
 │ → Filter: HR Director, Facility Manager, CHRO, CEO             │
 │ → Enrich with emails + LinkedIn                                 │
 │ → Export to HubSpot                                             │
@@ -489,7 +489,7 @@ ZenithCred | [LinkedIn]
 ### Week 1
 - [ ] Finalize tagline and positioning statement
 - [ ] Set up HubSpot CRM (free tier)
-- [ ] Create Apollo.io account, build first lead list (50 companies)
+- [ ] Create Saleshandy account, build first lead list (50 companies)
 - [ ] Optimize Otto's LinkedIn profile
 - [ ] Draft investor one-pager
 

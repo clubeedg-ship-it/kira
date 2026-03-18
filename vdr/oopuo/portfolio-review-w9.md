@@ -5,7 +5,7 @@
 
 ## Executive Summary
 
-We are 23 days into February. The roadmap said "First Revenue" by Feb 28. **Zero revenue has been generated.** No OttoGen clients. No IAM leases. No invoices sent. The critical path item — Otto's first paid AI services gig — has not happened.
+We are 23 days into February. The roadmap said "First Revenue" by Feb 28. **Zero revenue has been generated.** No Otto clients. No IAM leases. No invoices sent. The critical path item — Otto's first paid AI services gig — has not happened.
 
 This is not a minor delay. It's a structural problem: all effort has gone into infrastructure, deliverables, and planning. None into selling.
 
@@ -17,7 +17,7 @@ This is not a minor delay. It's a structural problem: all effort has gone into i
 
 | Project | Feb Target | Actual | Grade |
 |---------|-----------|--------|-------|
-| **OttoGen** | 3-5 clients, €2-5K | 0 clients, €0 | 🔴 F |
+| **Otto** | 3-5 clients, €2-5K | 0 clients, €0 | 🔴 F |
 | **IAM** | 2-3 warm leads | Leads list created, no outreach | 🔴 D |
 | **CuttingEdge** | Steady | Active | 🟢 B |
 | **Abura** | Steady | Active | 🟢 B |
@@ -50,7 +50,7 @@ February is effectively lost for revenue. The question is whether March can be s
 1. Kira agent infrastructure is genuinely powerful (21K entities, 109K facts, agent fleet)
 2. ZenithCred materials are investor-grade (competitive analysis, VC list, pilot proposals)
 3. IAM has a solid lead list of 50 kindergartens
-4. OttoGen brand positioning and content are ready
+4. Otto brand positioning and content are ready
 
 ## What's Not Working
 1. **No outbound sales activity.** DMs drafted but not sent. Prospects listed but not contacted.
@@ -63,10 +63,10 @@ February is effectively lost for revenue. The question is whether March can be s
 
 If February targets are missed (they will be), March must compensate:
 
-1. **Week 1 (Mar 2-8):** OttoGen — send 20 LinkedIn DMs, book 5 discovery calls
+1. **Week 1 (Mar 2-8):** Otto — send 20 LinkedIn DMs, book 5 discovery calls
 2. **Week 1-2:** IAM — contact top 10 kindergartens from the list
 3. **Week 2:** ZenithCred — schedule 3 investor intro calls
-4. **Week 3-4:** Close first OttoGen client, first IAM demo
+4. **Week 3-4:** Close first Otto client, first IAM demo
 
 **Minimum viable March:** €2K revenue + 3 investor calls booked.
 

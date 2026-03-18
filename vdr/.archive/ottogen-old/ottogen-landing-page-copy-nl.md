@@ -1,4 +1,4 @@
-# OttoGen Landingspagina — Nederlandse Versie
+# Otto Landingspagina — Nederlandse Versie
 
 *Volledige copy deck — klaar voor implementatie.*
 
@@ -259,12 +259,12 @@ Gewoon een gesprek over waar je tijd verspilt.
 
 ## FOOTER
 
-© 2026 OttoGen. Alle rechten voorbehouden.
+© 2026 Otto. Alle rechten voorbehouden.
 hello@ottogen.io
 
 ---
 
 ## SEO META
 
-**Titel:** OttoGen — AI voor Jouw Bedrijf
+**Titel:** Otto — AI voor Jouw Bedrijf
 **Beschrijving:** Ik breng AI naar bedrijven die geen tijd hebben om het zelf uit te zoeken. Bespaar 10-15 uur per week met praktische AI-oplossingen.

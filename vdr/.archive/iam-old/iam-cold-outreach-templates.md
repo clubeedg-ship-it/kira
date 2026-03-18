@@ -9,8 +9,8 @@ Use these merge fields in your outreach tool (Instantly/Woodpecker):
 
 | Token | Example | Source |
 |-------|---------|--------|
-| `{{voornaam}}` | Marieke | Apollo/LinkedIn |
-| `{{achternaam}}` | de Vries | Apollo/LinkedIn |
+| `{{voornaam}}` | Marieke | Saleshandy/LinkedIn |
+| `{{achternaam}}` | de Vries | Saleshandy/LinkedIn |
 | `{{organisatie}}` | Partou | Prospect list |
 | `{{locatie}}` | Amsterdam-Zuid | LRK/website |
 | `{{aantal_locaties}}` | 200+ | Research |

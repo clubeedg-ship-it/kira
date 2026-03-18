@@ -366,7 +366,7 @@ ZenithCred | [LinkedIn]
 | Layer | Tool | Monthly Cost | Why |
 |-------|------|--------------|-----|
 | **CRM** | HubSpot (Free → Starter) | €0-50 | Free tier is solid, scales well, good automation |
-| **Lead Data** | Apollo.io | €100-150 | Good for EU B2B contacts. Note: NL data quality variable—supplement with manual research |
+| **Lead Data** | Saleshandy | €100-150 | Good for EU B2B contacts. Note: NL data quality variable—supplement with manual research |
 | **Email Sequences** | Lemlist OR HubSpot Sequences | €60-100 | Lemlist for personalization at scale |
 | **LinkedIn Automation** | Expandi.io | €100 | Safe automation, good for connection + message sequences |
 | **Scheduling** | Calendly (or HubSpot Meetings) | €0-15 | Frictionless booking |
@@ -375,7 +375,7 @@ ZenithCred | [LinkedIn]
 
 **Realistic Budget Estimate:** €500-800/month for full stack (accounts for overages, scaling, integrations)
 
-**Note:** Apollo.io has variable data quality in Netherlands specifically. Consider supplementing with:
+**Note:** Saleshandy has variable data quality in Netherlands specifically. Consider supplementing with:
 - LinkedIn Sales Navigator (€80/month) for direct research
 - Lusha for additional EU contact data
 - Manual research for key accounts
@@ -386,7 +386,7 @@ ZenithCred | [LinkedIn]
 ┌─────────────────────────────────────────────────────────────────┐
 │                         LEAD GENERATION                         │
 ├─────────────────────────────────────────────────────────────────┤
-│ Apollo.io + Manual Research: Build list of NL companies        │
+│ Saleshandy + Manual Research: Build list of NL companies        │
 │ → Filter: 100-500 employees, visible wellness culture          │
 │ → Target: HR Director, Facility Manager, CHRO, CEO             │
 │ → Enrich with emails + LinkedIn                                 │
@@ -588,7 +588,7 @@ Use these instead of unsourced claims:
 ### Week 1
 - [ ] Finalize tagline and positioning statement
 - [ ] Set up HubSpot CRM (free tier)
-- [ ] Create Apollo.io account, build first lead list (50 companies)
+- [ ] Create Saleshandy account, build first lead list (50 companies)
 - [ ] Optimize Otto's LinkedIn profile
 - [ ] **Fill in ALL placeholders in one-pager with real data**
 

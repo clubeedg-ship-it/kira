@@ -1,4 +1,4 @@
-# OttoGen — Brand Messaging & Positioning Bible
+# Otto — Brand Messaging & Positioning Bible
 
 **Prepared by:** Kira, COO · Oopuo
 **Date:** 2026-02-18
@@ -25,7 +25,7 @@ A world where every SMB operates with the strategic and technological sophistica
 | **Swiss Precision, Punk Energy** | Meticulous quality delivered with rebellious urgency. |
 
 ### Brand Personality
-OttoGen is the **brilliant 20-year-old who already runs circles around consultants twice his age** — not because of credentials, but because of obsessive curiosity and relentless execution. The brand is:
+Otto is the **brilliant 20-year-old who already runs circles around consultants twice his age** — not because of credentials, but because of obsessive curiosity and relentless execution. The brand is:
 
 - **Sharp** — cuts through complexity fast
 - **Unapologetic** — doesn't perform corporate theater
@@ -78,14 +78,14 @@ OttoGen is the **brilliant 20-year-old who already runs circles around consultan
 ### Positioning Statement (Classic Format)
 
 > **For** small and medium businesses navigating AI transformation,
-> **OttoGen is** the AI strategy and implementation partner
+> **Otto is** the AI strategy and implementation partner
 > **that** delivers enterprise-grade AI solutions with radical transparency and zero corporate overhead,
 > **unlike** traditional consultancies, generic AI tools, or freelance developers,
-> **because** OttoGen combines deep AI expertise, first-principles business thinking, and a builder's obsession with real outcomes — all led by a practitioner who builds what he teaches.
+> **because** Otto combines deep AI expertise, first-principles business thinking, and a builder's obsession with real outcomes — all led by a practitioner who builds what he teaches.
 
 ### Elevator Pitch (30 seconds)
 
-> "OttoGen helps small businesses use AI the way big companies wish they could — fast, practical, no bullshit. We don't sell decks. We build systems, teach frameworks, and turn AI from a buzzword into your unfair advantage. Founded by a 20-year-old autodidact who's already built an AI portfolio across fintech, agritech, and cybersecurity — because in this era, what you've *built* matters more than where you went to school."
+> "Otto helps small businesses use AI the way big companies wish they could — fast, practical, no bullshit. We don't sell decks. We build systems, teach frameworks, and turn AI from a buzzword into your unfair advantage. Founded by a 20-year-old autodidact who's already built an AI portfolio across fintech, agritech, and cybersecurity — because in this era, what you've *built* matters more than where you went to school."
 
 ### Tagline Options
 
@@ -113,7 +113,7 @@ Supporting points:
 
 Supporting points:
 - Otto built 5 companies across different industries before age 21
-- OttoGen's curriculum distills hard-won lessons, not theoretical frameworks
+- Otto's curriculum distills hard-won lessons, not theoretical frameworks
 - We teach *how to think*, not just what tools to use
 - Credentials are legacy; portfolios are proof — and ours speaks
 
@@ -165,7 +165,7 @@ Supporting points:
 
 ### vs. Traditional Consultancies (McKinsey, Accenture, local firms)
 
-| Dimension | Traditional Consultancy | OttoGen |
+| Dimension | Traditional Consultancy | Otto |
 |---|---|---|
 | **Deliverable** | 80-page strategy deck | Working system + knowledge transfer |
 | **Pricing** | $50K–$500K+ engagements | SMB-accessible tiers |
@@ -178,7 +178,7 @@ Supporting points:
 
 ### vs. AI Tools (ChatGPT, Jasper, generic SaaS)
 
-| Dimension | AI Tools | OttoGen |
+| Dimension | AI Tools | Otto |
 |---|---|---|
 | **Scope** | Single-function (write, chat, generate) | Full business strategy + implementation |
 | **Customization** | Configure a dashboard | Custom-built for your operations |
@@ -190,7 +190,7 @@ Supporting points:
 
 ### vs. Freelancers / Solo AI Devs
 
-| Dimension | Freelancer | OttoGen |
+| Dimension | Freelancer | Otto |
 |---|---|---|
 | **Scope** | Task-based (build this model) | Business-outcome-based |
 | **Strategy** | Technical only | Business + technical |
@@ -229,19 +229,19 @@ Forward-looking content on AI's impact on work, society, economics, and human po
 - "The autodidact era: why self-taught builders will lead the next decade"
 
 ### Pillar 4: **"Build in Public"**
-Transparent content about OttoGen's own journey and the Oopuo portfolio. Behind-the-scenes, failures, learnings, growth. The "trust" content.
+Transparent content about Otto's own journey and the Oopuo portfolio. Behind-the-scenes, failures, learnings, growth. The "trust" content.
 
 *Example topics:*
 - "What I learned building 5 companies at 20 (and what I got wrong)"
 - "Our AI agent architecture — open-sourcing what we can"
-- "Monthly revenue, mistakes, and lessons: the OttoGen open playbook"
+- "Monthly revenue, mistakes, and lessons: the Otto open playbook"
 
 ### Pillar 5: **"Swiss Cyberpunk Culture"**
 Aesthetic, lifestyle, and identity content that reinforces the brand's visual and cultural DNA. The "vibe" content.
 
 *Example topics:*
 - "Why Swiss design principles make better AI interfaces"
-- "The workspace, the tools, the stack: an OttoGen studio tour"
+- "The workspace, the tools, the stack: an Otto studio tour"
 - "Cyberpunk wasn't fiction — it was a business plan"
 
 ---
@@ -250,17 +250,17 @@ Aesthetic, lifestyle, and identity content that reinforces the brand's visual an
 
 ```
 Oopuo (Holding)
-├── OttoGen — AI services + personal brand + content
+├── Otto — AI services + personal brand + content
 ├── ZenithCred — Fintech / credit intelligence
 ├── SentinAgro — Agritech / precision agriculture
 ├── Chimera — AI infrastructure / agents
 └── IAM — Identity & access management
 ```
 
-OttoGen serves as both a **standalone brand** and the **public-facing thought leadership arm** of the Oopuo portfolio. Otto's personal credibility is reinforced by the breadth of the portfolio — each company is proof that OttoGen's frameworks work across verticals.
+Otto serves as both a **standalone brand** and the **public-facing thought leadership arm** of the Oopuo portfolio. Otto's personal credibility is reinforced by the breadth of the portfolio — each company is proof that Otto's frameworks work across verticals.
 
-**Cross-brand narrative:** *"OttoGen isn't theory. It's the distilled playbook from building real AI companies in fintech, agriculture, cybersecurity, and identity — all before turning 21."*
+**Cross-brand narrative:** *"Otto isn't theory. It's the distilled playbook from building real AI companies in fintech, agriculture, cybersecurity, and identity — all before turning 21."*
 
 ---
 
-*This document should be reviewed quarterly and updated as OttoGen's market position, offerings, and competitive landscape evolve.*
+*This document should be reviewed quarterly and updated as Otto's market position, offerings, and competitive landscape evolve.*

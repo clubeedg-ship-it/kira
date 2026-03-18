@@ -120,7 +120,7 @@
 ## Data Enrichment Next Steps
 
 1. **Scrape LRK** (landelijkregisterkinderopvang.nl) for complete address/contact data per location
-2. **Use Apollo.io/LinkedIn** to find named decision-makers at each organization
+2. **Use Saleshandy/LinkedIn** to find named decision-makers at each organization
 3. **Hunter.io** to find email patterns (e.g., voornaam@partou.nl)
 4. **Enrich with website contact forms** as backup channel
 5. **Prioritize organizations with recent press about new locations, renovations, or pedagogy innovation** — they have budget and willingness to invest

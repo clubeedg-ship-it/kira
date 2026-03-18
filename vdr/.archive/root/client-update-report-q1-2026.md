@@ -11,7 +11,7 @@
 
 1. [Oopuo — Portfolio Overview & Synergies](#1-oopuo--portfolio-overview--synergies)
 2. [IAM (Interactive Move)](#2-iam-interactive-move)
-3. [OttoGen](#3-ottogen)
+3. [Otto](#3-ottogen)
 4. [ZenithCred](#4-zenithcred)
 5. [CuttingEdge](#5-cuttingedge)
 6. [Abura Cosmetics](#6-abura-cosmetics)
@@ -31,7 +31,7 @@ Oopuo operates as a venture studio and operational holding company, building and
 | Company | Sector | Stage | Status | Revenue Model |
 |---|---|---|---|---|
 | IAM (Interactive Move) | EdTech / Hardware | Pre-revenue / Outreach | 🟢 Active | Hardware sales + SaaS content license |
-| OttoGen | AI Services / Consulting | Early revenue | 🟢 Active | Project-based + retainer |
+| Otto | AI Services / Consulting | Early revenue | 🟢 Active | Project-based + retainer |
 | ZenithCred | Corporate Wellness / SaaS | Seed fundraise | 🟡 Fundraising | B2B SaaS subscription |
 | CuttingEdge | Interior Design / PM | Revenue-generating | 🟢 Active | Project management fees |
 | Abura Cosmetics | Consumer Goods / Beauty | Revenue-generating | 🟢 Active | Product sales (B2C + wholesale) |
@@ -40,10 +40,10 @@ Oopuo operates as a venture studio and operational holding company, building and
 
 Oopuo's portfolio is deliberately constructed to share resources and amplify each company's reach:
 
-- **Shared AI Infrastructure:** OttoGen's AI capabilities are leveraged across the portfolio. ZenithCred's gamification engine benefits from OttoGen's LLM integration expertise. IAM's content platform roadmap includes AI-generated interactive modules prototyped through OttoGen's R&D pipeline.
+- **Shared AI Infrastructure:** Otto's AI capabilities are leveraged across the portfolio. ZenithCred's gamification engine benefits from Otto's LLM integration expertise. IAM's content platform roadmap includes AI-generated interactive modules prototyped through Otto's R&D pipeline.
 - **Cross-Selling Channels:** CuttingEdge's network of corporate clients in interior design creates warm introductions for ZenithCred's workplace wellness platform. Abura Cosmetics' retail and e-commerce distribution knowledge feeds back into IAM's go-to-market for hardware sales.
 - **Centralized Operations:** All five companies share Oopuo's back-office stack — bookkeeping, legal counsel, HR compliance, and CRM tooling — reducing per-company overhead by an estimated 30–40% versus standalone operation.
-- **Brand & Content Flywheel:** OttoGen's Swiss cyberpunk aesthetic and content strategy expertise has informed brand guidelines across the portfolio. Abura Cosmetics and IAM both leverage visual identity frameworks originally developed under OttoGen's creative direction.
+- **Brand & Content Flywheel:** Otto's Swiss cyberpunk aesthetic and content strategy expertise has informed brand guidelines across the portfolio. Abura Cosmetics and IAM both leverage visual identity frameworks originally developed under Otto's creative direction.
 - **Investor Network:** ZenithCred's active fundraise surfaces investor relationships that benefit the entire portfolio for future rounds. Every pitch meeting is an opportunity to introduce the broader Oopuo thesis.
 
 ### 1.4 Consolidated Financials (Q1 2026)
@@ -106,7 +106,7 @@ The hardware is sourced and configured, the content library covers core early le
 
 ---
 
-## 3. OttoGen
+## 3. Otto
 
 **Website:** [ottogen.nl](https://ottogen.nl)  
 **Sector:** AI Services / Consulting  
@@ -115,7 +115,7 @@ The hardware is sourced and configured, the content library covers core early le
 
 ### 3.1 Executive Summary
 
-OttoGen is Otto's personal brand delivering AI-powered services to small and medium-sized businesses. The brand carries a distinctive Swiss cyberpunk aesthetic — a deliberate positioning choice that signals technical sophistication and creative edge, differentiating OttoGen from generic AI consultancies flooding the market.
+Otto is Otto's personal brand delivering AI-powered services to small and medium-sized businesses. The brand carries a distinctive Swiss cyberpunk aesthetic — a deliberate positioning choice that signals technical sophistication and creative edge, differentiating Otto from generic AI consultancies flooding the market.
 
 The landing page at ottogen.nl is live and serves as the primary conversion funnel. LinkedIn outreach is the active demand generation channel, targeting SMB founders and operations managers with tailored messaging around AI automation, workflow optimization, and AI-augmented content creation.
 
@@ -305,10 +305,10 @@ Oopuo's role is specifically in sales enablement: refining the sales pitch, supp
 | 1 | Seed round timeline slippage | ZenithCred | 🔴 High | Monitoring |
 | 2 | Enterprise sales cycle length | ZenithCred | 🔴 High | Mitigating |
 | 3 | Education procurement cycles | IAM | 🔴 High | Mitigating |
-| 4 | AI services market saturation | OttoGen | 🔴 High | Mitigating |
+| 4 | AI services market saturation | Otto | 🔴 High | Mitigating |
 | 5 | Beauty market competition | Abura | 🔴 High | Monitoring |
-| 6 | Key-person dependency | CuttingEdge / OttoGen | 🟡 Medium | Planning |
-| 7 | Single-channel dependency (LinkedIn) | OttoGen | 🟡 Medium | Diversifying |
+| 6 | Key-person dependency | CuttingEdge / Otto | 🟡 Medium | Planning |
+| 7 | Single-channel dependency (LinkedIn) | Otto | 🟡 Medium | Diversifying |
 | 8 | Hardware supply chain | IAM | 🟡 Medium | Buffered |
 | 9 | Portfolio concentration (pre-revenue) | Oopuo | 🟡 Medium | Balanced by CuttingEdge + Abura revenue |
 | 10 | Regulatory (GDPR, EU Cosmetics) | ZenithCred / Abura | 🟡 Medium | Counsel engaged |

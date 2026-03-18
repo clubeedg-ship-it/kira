@@ -1,4 +1,4 @@
-# OttoGen — Deep Strategy
+# Otto — Deep Strategy
 *Kira | Feb 8, 2026*
 
 ---
@@ -7,7 +7,7 @@
 
 ### Dutch AI Adoption Context (Verified Feb 2026)
 - **49% of Dutch businesses** projected to use AI by 2025 (23% YoY growth, above EU average) — *Source: FirstAIMovers.com, Dec 2025*
-- **95% adoption but only 5% see real ROI** — massive implementation gap = OttoGen's opportunity — *Source: DEV.to / Dutch SME research, Jan 2026*
+- **95% adoption but only 5% see real ROI** — massive implementation gap = Otto's opportunity — *Source: DEV.to / Dutch SME research, Jan 2026*
 - Sweet spot: businesses that *want* AI but lack skills to extract value from it
 
 ### The 20 SMBs to DM Monday
@@ -162,7 +162,7 @@
 ## Immediate Actions (This Week)
 1. Write 20 personalized DMs (Monday morning)
 2. Set up LinkedIn content calendar
-3. Post first OttoGen-branded content piece
+3. Post first Otto-branded content piece
 4. Create simple landing page (ottogen.nl or similar)
 5. Set up invoicing (Moneybird or similar Dutch-friendly tool)
 

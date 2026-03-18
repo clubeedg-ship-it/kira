@@ -1,48 +1,48 @@
-# OttoGen vs Oopuo — Brand & Messaging Framework
+# Otto vs Oopuo — Brand & Messaging Framework
 
 **Created:** 2026-03-02  
 **Author:** Kira ⚡, COO  
-**Status:** Single Source of Truth for all OttoGen/Oopuo communication  
+**Status:** Single Source of Truth for all Otto/Oopuo communication  
 
 ---
 
 ## 1. Brand Separation Matrix
 
-| Asset | OttoGen.io | Oopuo.com | Notes |
+| Asset | Otto.io | Oopuo.com | Notes |
 |-------|:----------:|:---------:|-------|
 | **AI consulting services** | ✅ | — | Client-facing, all service delivery lives here |
 | **Private AI infrastructure** | — | ✅ | Oopuo's core IP and differentiator |
-| **Chimera protocol** | — | ✅ | Core infrastructure, Oopuo IP. OttoGen *references* it as capability, never as product |
+| **Chimera protocol** | — | ✅ | Core infrastructure, Oopuo IP. Otto *references* it as capability, never as product |
 | **ZenithCred** | — | ✅ | Portfolio company under Oopuo holding |
 | **SentinAgro** | — | ✅ | Portfolio company under Oopuo holding |
 | **InterActiveMove (IAM)** | — | ✅ | Portfolio company under Oopuo holding |
 | **CuttingEdge** | — | ✅ | Portfolio company under Oopuo holding |
-| **Content / webinars** | ✅ | — | All public content ships under OttoGen brand |
-| **Otto's personal brand** | ✅ | — | Otto = OttoGen's face. Oopuo stays behind the curtain |
-| **Open source projects** | ✅ | ✅ | Published via OttoGen (visibility), owned by Oopuo (IP) |
+| **Content / webinars** | ✅ | — | All public content ships under Otto brand |
+| **Otto's personal brand** | ✅ | — | Otto = Otto's face. Oopuo stays behind the curtain |
+| **Open source projects** | ✅ | ✅ | Published via Otto (visibility), owned by Oopuo (IP) |
 | **Investor relations** | — | ✅ | All fundraising, cap tables, term sheets = Oopuo level |
 
 ### The Simple Rule
 
-> **OttoGen is the shopfront. Oopuo is the factory.**  
-> Clients interact with OttoGen. Investors interact with Oopuo. The public sees OttoGen. The structure lives in Oopuo.
+> **Otto is the shopfront. Oopuo is the factory.**  
+> Clients interact with Otto. Investors interact with Oopuo. The public sees Otto. The structure lives in Oopuo.
 
 ---
 
 ## 2. Messaging Framework
 
-### OttoGen.io
+### Otto.io
 
 #### Elevator Pitches
 
 **15 seconds:**
-> "OttoGen builds AI systems for professional firms — not slide decks, working systems. We've deployed across fintech, agriculture, cybersecurity, and identity."
+> "Otto builds AI systems for professional firms — not slide decks, working systems. We've deployed across fintech, agriculture, cybersecurity, and identity."
 
 **30 seconds:**
-> "OttoGen is an AI studio that helps professional firms actually use AI — not as a buzzword, but as infrastructure. We design strategy, build the systems, and stay until they produce results. Our founder has built AI products across five different industries before turning 21, so everything we teach comes from building, not theory."
+> "Otto is an AI studio that helps professional firms actually use AI — not as a buzzword, but as infrastructure. We design strategy, build the systems, and stay until they produce results. Our founder has built AI products across five different industries before turning 21, so everything we teach comes from building, not theory."
 
 **60 seconds:**
-> "Most businesses know AI matters but don't know where to start. The consultants give you decks. The tools give you chatbots. Neither gives you what you actually need: someone who understands your business AND builds AI systems daily. That's OttoGen. We're an AI studio — we work with a small circle of professional firms on deep, long-term AI transformation. Strategy, architecture, implementation, and ongoing support. Our founder built real AI companies in fintech, agriculture, cybersecurity, and identity — all before 21. We don't outsource the thinking. The person on the call is the person writing the code. And we only take clients where we know we can deliver real results."
+> "Most businesses know AI matters but don't know where to start. The consultants give you decks. The tools give you chatbots. Neither gives you what you actually need: someone who understands your business AND builds AI systems daily. That's Otto. We're an AI studio — we work with a small circle of professional firms on deep, long-term AI transformation. Strategy, architecture, implementation, and ongoing support. Our founder built real AI companies in fintech, agriculture, cybersecurity, and identity — all before 21. We don't outsource the thinking. The person on the call is the person writing the code. And we only take clients where we know we can deliver real results."
 
 #### Tagline Options
 
@@ -55,7 +55,7 @@
 #### Key Messages (3 Pillars)
 
 **Pillar 1: "We build, not advise."**  
-OttoGen delivers working systems, not strategy documents. Every engagement ends with something running in production.
+Otto delivers working systems, not strategy documents. Every engagement ends with something running in production.
 
 **Pillar 2: "Deep, not wide."**  
 We work with a small number of partners for meaningful transformation — not 50 shallow projects. Quality over volume, always.
@@ -108,7 +108,7 @@ Every piece of infrastructure we build is tested across real ventures in real ma
 We build systems with no central point of failure. Usage equals uptime. No single entity can shut it down.
 
 #### Tone: Institutional, Infrastructure-Focused, Visionary
-- More formal than OttoGen, but not corporate-stiff
+- More formal than Otto, but not corporate-stiff
 - Technical depth is welcome — this audience expects it
 - Long-term vision language: "building for the next decade"
 - References to protocol design, cryptographic privacy, distributed systems
@@ -119,7 +119,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### Website "About" Section
 
-> OttoGen started by building — a lot. Voice agents, text support bots, email automation, meeting schedulers, workflow engines — over fifty AI automations for businesses of all sizes. We learned what works, what doesn't, and most importantly, what actually transforms a business versus what just looks good in a demo. That experience led to a deliberate decision: stop building for everyone, start building deeply for a few. Today, OttoGen works with a small circle of professional firms on long-term AI transformation — strategy, architecture, implementation, and ongoing partnership. We chose depth over breadth because real transformation doesn't come from a chatbot. It comes from someone who understands your business, builds alongside you, and stays until the systems deliver.
+> Otto started by building — a lot. Voice agents, text support bots, email automation, meeting schedulers, workflow engines — over fifty AI automations for businesses of all sizes. We learned what works, what doesn't, and most importantly, what actually transforms a business versus what just looks good in a demo. That experience led to a deliberate decision: stop building for everyone, start building deeply for a few. Today, Otto works with a small circle of professional firms on long-term AI transformation — strategy, architecture, implementation, and ongoing partnership. We chose depth over breadth because real transformation doesn't come from a chatbot. It comes from someone who understands your business, builds alongside you, and stays until the systems deliver.
 
 ### LinkedIn Post Version
 
@@ -137,19 +137,19 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 >
 > If you're an AI builder stuck in the "more clients = more growth" trap — consider the opposite. Depth compounds. Breadth dilutes.
 >
-> #AI #BuilderCulture #OttoGen
+> #AI #BuilderCulture #Otto
 
 ### Verbal Pitch Version (What Otto Says on Calls)
 
-> "So here's my background — I've built over fifty AI automations. Voice agents, workflow engines, support bots, email systems, scheduling tools — the full range. And what I found is that the real impact doesn't come from bolting on a chatbot. It comes from sitting with a business, understanding how it actually works, and building AI into the core operations. So I made a deliberate choice: work with fewer partners, go much deeper, and focus on long-term transformation instead of one-off projects. That's what OttoGen does now."
+> "So here's my background — I've built over fifty AI automations. Voice agents, workflow engines, support bots, email systems, scheduling tools — the full range. And what I found is that the real impact doesn't come from bolting on a chatbot. It comes from sitting with a business, understanding how it actually works, and building AI into the core operations. So I made a deliberate choice: work with fewer partners, go much deeper, and focus on long-term transformation instead of one-off projects. That's what Otto does now."
 
 ---
 
 ## 4. Call Talking Points — Tuesday Client Meeting
 
-### How to Introduce OttoGen
+### How to Introduce Otto
 
-> "OttoGen is an AI studio. We help professional firms integrate AI into their core operations — not just surface-level tools, but the actual systems that run the business. Strategy, architecture, implementation, and ongoing support. I've built AI systems across five different industries, so we bring a cross-sector perspective that most specialists can't."
+> "Otto is an AI studio. We help professional firms integrate AI into their core operations — not just surface-level tools, but the actual systems that run the business. Strategy, architecture, implementation, and ongoing support. I've built AI systems across five different industries, so we bring a cross-sector perspective that most specialists can't."
 
 **Tips:**
 - Lead with what you DO, not who you ARE
@@ -158,7 +158,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### How to Explain the Oopuo Relationship (If Asked)
 
-> "OttoGen is the services arm. It sits within a broader infrastructure company called Oopuo, which builds privacy-first AI technology. Think of it this way: Oopuo builds the engine, OttoGen drives it for clients. But for all practical purposes, OttoGen is your point of contact for everything."
+> "Otto is the services arm. It sits within a broader infrastructure company called Oopuo, which builds privacy-first AI technology. Think of it this way: Oopuo builds the engine, Otto drives it for clients. But for all practical purposes, Otto is your point of contact for everything."
 
 **Tips:**
 - Only explain if directly asked
@@ -203,7 +203,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### vs. Traditional Consulting Firms (McKinsey, Accenture Digital)
 
-| Dimension | Traditional Firm | OttoGen |
+| Dimension | Traditional Firm | Otto |
 |-----------|-----------------|---------|
 | **What you get** | Strategy deck, 80 pages | Working system in production |
 | **Who does the work** | Junior analysts, offshore teams | Founder + senior practitioners |
@@ -216,7 +216,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### vs. AI Wrapper Startups
 
-| Dimension | AI Wrappers | OttoGen |
+| Dimension | AI Wrappers | Otto |
 |-----------|-------------|---------|
 | **Product** | ChatGPT with a skin | Custom-built for your operations |
 | **Strategy** | None — you figure it out | AI strategy is the starting point |
@@ -228,7 +228,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### vs. Freelance AI Developers
 
-| Dimension | Freelancer | OttoGen |
+| Dimension | Freelancer | Otto |
 |-----------|-----------|---------|
 | **Scope** | "Build this model" | "Transform this business" |
 | **Business understanding** | Technical only | Business + technical strategy |
@@ -240,7 +240,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ### vs. Cloud AI Providers (AWS, Azure AI, GCP)
 
-| Dimension | Cloud Providers | OttoGen |
+| Dimension | Cloud Providers | Otto |
 |-----------|----------------|---------|
 | **Privacy** | Your data on their servers | Private deployment, your infrastructure |
 | **Customization** | Configure their tools | Build your tools |
@@ -254,7 +254,7 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 
 ## Appendix: Quick Reference Card
 
-### When speaking as OttoGen:
+### When speaking as Otto:
 - ✅ AI studio, builder, practitioner, systems, transformation, partners
 - ❌ Startup, cheap, disruptive, revolutionary, "AI for everything"
 
@@ -263,8 +263,8 @@ We build systems with no central point of failure. Usage equals uptime. No singl
 - ❌ Consulting, services, content, personal brand
 
 ### The Golden Rule:
-> **OttoGen sells outcomes. Oopuo builds infrastructure. Never confuse the two in public.**
+> **Otto sells outcomes. Oopuo builds infrastructure. Never confuse the two in public.**
 
 ---
 
-*This framework is the single source of truth for all OttoGen and Oopuo external communication. Review quarterly or after any major strategic shift.*
+*This framework is the single source of truth for all Otto and Oopuo external communication. Review quarterly or after any major strategic shift.*

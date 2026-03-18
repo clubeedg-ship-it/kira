@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-03-17T11:00:02.250Z",
-  "totalFiles": 72,
-  "changedFiles": 0,
+  "timestamp": "2026-03-17T23:00:05.705Z",
+  "totalFiles": 73,
+  "changedFiles": 1,
   "findings": [
     {
       "file": "VDR-STANDARD.md",
@@ -4110,6 +4110,65 @@
       "isNew": false
     },
     {
+      "file": "reports/night-shift-2026-03-17.md",
+      "company": "Unknown",
+      "actions": [
+        {
+          "text": "** Updated IAM strategic content pipeline in Notion.",
+          "line": 7,
+          "section": "💰 1. Revenue (60%) — IAM (Interactive Move)",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "** Initialized visuals generation for Pitch Deck v1.",
+          "line": 12,
+          "section": "📈 2. Funding (30%) — ZenithCred",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "** Whitepaper chapter consolidation.",
+          "line": 17,
+          "section": "🛡️ 3. Infrastructure (10%) — Chimera Protocol",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        },
+        {
+          "text": "list for Kira assignment.",
+          "line": 23,
+          "section": "✅ Notion Updates",
+          "type": "Task",
+          "signifier": null,
+          "priority": "Medium",
+          "effort": null,
+          "assignee": "Kira"
+        }
+      ],
+      "questions": [],
+      "gaps": [
+        {
+          "type": "missing_section",
+          "text": "No next steps section"
+        },
+        {
+          "type": "missing_section",
+          "text": "No status/progress section"
+        }
+      ],
+      "staleIndicators": [],
+      "isNew": true
+    },
+    {
       "file": "research/mica-regulation-briefing.md",
       "company": "Unknown",
       "actions": [
@@ -5532,6 +5591,7 @@
     "ottogen/webinar-modules.md": 1772443196242.568,
     "ottogen/website-copy.md": 1772443196237.568,
     "ottogen/website-design.md": 1772443196240.568,
+    "reports/night-shift-2026-03-17.md": 1773781240677.4734,
     "research/mica-regulation-briefing.md": 1773522225249.6858,
     "sentinagro/financials.md": 1770636535677.6384,
     "sentinagro/pitch-deck.md": 1770421956483.375,
@@ -5550,9 +5610,9 @@
     "zenithcred/strategy.md": 1770522016628.8513
   },
   "stats": {
-    "totalActions": 356,
+    "totalActions": 360,
     "totalQuestions": 102,
-    "totalGaps": 149,
+    "totalGaps": 151,
     "totalStale": 1
   }
 }

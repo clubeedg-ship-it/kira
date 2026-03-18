@@ -1,4 +1,4 @@
-# OttoGen Webinar Module 1 — "AI for YOUR Business This Week"
+# Otto Webinar Module 1 — "AI for YOUR Business This Week"
 
 *First webinar blueprint | February 2026*
 
@@ -119,7 +119,7 @@
 - Brief overview: assessment + up to 3 automations + 90-day roadmap
 - "The ROI from quick wins alone typically covers the cost in the first month."
 
-**Tertiary CTA: Join the OttoGen Community**
+**Tertiary CTA: Join the Otto Community**
 - LinkedIn newsletter / Telegram group for ongoing tips
 - Weekly "AI Tool of the Week" content
 
@@ -156,7 +156,7 @@
 5. **Nudge (3 days after):** "Did you try Quick Win #1? Here's a 2-min setup guide" + booking link
 
 ### Tech Checklist
-- [ ] Zoom/StreamYard configured with OttoGen branding
+- [ ] Zoom/StreamYard configured with Otto branding
 - [ ] Slides in Swiss Cyberpunk aesthetic (dark theme, neon accents)
 - [ ] 5 live demo environments pre-loaded and tested
 - [ ] Poll questions pre-built in platform

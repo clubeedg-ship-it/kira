@@ -1,6 +1,6 @@
-# IAM Lead Gen Infrastructure — Apollo.io & LinkedIn Setup
+# IAM Lead Gen Infrastructure — Saleshandy & LinkedIn Setup
 
-**Prepared:** March 15, 2026  
+**Prepared:** March 18, 2026  
 **Purpose:** Infrastructure for systematic outreach to Dutch kindergarten chains.
 
 ---
@@ -9,29 +9,26 @@
 
 | Segment | Target Organizations | Decision Maker Titles |
 |---------|-----------------------|-----------------------|
-| **Tier 1: Whales** | Partou (1000+), Humankind (450+), Babilou NL (300+) | *Facilitair Manager, Directeur Innovatie, Hoofd Pedagogiek* |
+| **Tier 1: Whales** | Partou (~700), Humankind (450+), Babilou NL (300+) | *Facilitair Manager, Directeur Innovatie, Hoofd Pedagogiek* |
 | **Tier 2: Regionals** | Kindergarden, CompaNanny, Kibeo, gro-up | *Directie, Operationeel Manager* |
 | **Tier 3: Independents**| Top 50 premium KDVs in Randstad area | *Eigenaar, Locatiemanager* |
 
 ---
 
-## 2. Apollo.io Search & Export Schema
+## 2. Saleshandy Outreach Setup
 
-To be used for enriching the `prospects.md` list:
+To be used for enriching and executing the `prospects.md` list:
 
+- **Email Sequence:** 3-step Dutch sequence (Initial → Follow-up → Case Study).
+- **Tracking:** Open rates and click tracking for interest signal.
 - **Geography:** Netherlands
-- **Industry:** Individual & Family Services / Education Management
 - **Keywords:** "Kinderopvang", "KDV", "Kindercentrum"
-- **Company Headcount:** 
-    - Tier 1: 1001+
-    - Tier 2: 201 - 1000
-    - Tier 3: 11 - 200
 
 ---
 
 ## 3. Outreach CRM Tracking Fields
 
-Fields to be synced from Apollo/LinkedIn to Notion Sales Quest DB:
+Fields to be synced from Saleshandy/LinkedIn to Oopuo Sales Quest DB:
 
 1. **Organization Name**
 2. **Contact Name**
@@ -46,7 +43,7 @@ Fields to be synced from Apollo/LinkedIn to Notion Sales Quest DB:
 
 ## 4. Next Steps for Otto (Validation)
 
-1. **Apollo.io API Key:** Ensure key is stored in `~/.config/apollo/api_key` for autonomous enrichment.
+1. **Saleshandy Account:** Ensure account is active and domain warm-up is complete.
 2. **Sales Sequence:** First batch of "Whale" outreach should be manual-heavy; Tier 3 can be automated via the email sequence in `vdr/iam/cold-email-templates.md`.
 
 ---

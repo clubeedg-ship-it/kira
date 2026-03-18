@@ -11,7 +11,7 @@
 For IAM's email outreach to Dutch educational institutions, I recommend:
 - **Budget Option (<€100/mo):** Instantly.ai + Outscraper + built-in verification
 - **Best Value (€100-300/mo):** Woodpecker + Outscraper + Hunter.io
-- **Premium (€300+/mo):** Apollo.io with integrated database + email verification
+- **Premium (€300+/mo):** Saleshandy with integrated database + email verification
 
 ---
 
@@ -25,7 +25,7 @@ For IAM's email outreach to Dutch educational institutions, I recommend:
 | **Smartlead** | ~$39/mo (6K sends) | ~$79/mo (90K sends) | Agency/scale operations |
 | **Woodpecker** | $24/mo (500 contacts) | $126/mo (10K contacts) | EU compliance, quality |
 | **Lemlist** | $55/user/mo | $79/user/mo multichannel | Personalization, multichannel |
-| **Apollo.io** | Free tier available | Custom pricing | All-in-one with database |
+| **Saleshandy** | Free tier available | Custom pricing | All-in-one with database |
 
 ### Detailed Breakdown
 
@@ -118,7 +118,7 @@ For IAM's email outreach to Dutch educational institutions, I recommend:
 
 ---
 
-#### Apollo.io
+#### Saleshandy
 **Pricing:**
 - Free: 50 credits/mo
 - Basic: $39/mo - 900 credits/mo
@@ -148,7 +148,7 @@ For IAM's email outreach to Dutch educational institutions, I recommend:
 2. **Instantly.ai** ⭐⭐⭐⭐ - Good with proper warmup
 3. **Lemlist** ⭐⭐⭐⭐ - Strong infrastructure
 4. **Smartlead** ⭐⭐⭐½ - Improving, SmartDelivery helps
-5. **Apollo.io** ⭐⭐⭐ - Variable, depends on data quality
+5. **Saleshandy** ⭐⭐⭐ - Variable, depends on data quality
 
 ---
 

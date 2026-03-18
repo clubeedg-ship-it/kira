@@ -1,4 +1,4 @@
-# OttoGen LinkedIn DM Templates
+# Otto LinkedIn DM Templates
 
 > 20 personalized templates across 4 personas. Connection request (under 300 chars) + follow-up message.
 
@@ -203,4 +203,4 @@ Glad to connect! You seem like someone who thinks in systems. Here's what I'm se
 
 ---
 
-*OttoGen — Precision AI for businesses that move fast.*
+*Otto — Precision AI for businesses that move fast.*

@@ -1,4 +1,4 @@
-# OttoGen.io — Design Notes
+# Otto.io — Design Notes
 
 ## Concept
 Terminal aesthetic meets Swiss design. The site feels like stumbling into a genius's workstation — monospace everything, precise grid, dramatic ASCII art, and generous whitespace. Not corporate, not startup-bro. Something from the future.
