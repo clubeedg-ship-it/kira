@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T18:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services flapping and containers unhealthy",
+    "action": "Investigate PM2 restart loops (openclaw-gateway: 603k, whisper: 181k) and check unhealthy/restarting Docker containers (langfuse, lidaros-frontend, omiximo-email-automation)."
+  }
+}

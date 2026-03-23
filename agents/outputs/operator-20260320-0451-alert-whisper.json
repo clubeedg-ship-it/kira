@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T04:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is stopped and failing to restart (518 restarts).",
+    "action": "Investigate whisper logs: pm2 logs whisper"
+  }
+}

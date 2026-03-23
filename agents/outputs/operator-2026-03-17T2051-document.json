@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T20:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-17",
+    "filename": "operator-health-check-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — 2026-03-17\n\n## Summary\nCritical issues detected with OpenClaw-related PM2 processes. While reported as 'online', restart counts indicate they are crashing immediately upon startup. Other system resources (Disk, RAM, GPU) are within safe operating limits.\n\n## Status\n- **PM2**: **CRITICAL**\n  - `openclaw-gateway` (id 42): 614,000+ restarts. Uptime 2s. High CPU usage (100%).\n  - `whisper` (id 25): 211,000+ restarts. Uptime 0s.\n  - All other services (kira-app, stella-tax, etc.) are stable.\n- **Docker**: **WARNING**\n  - `langfuse-web`: Restarting loop.\n  - `omiximo-email-automation`: Unhealthy.\n  - `lidaros-frontend`: Unhealthy.\n  - Other containers (Neo4j, Postgres, InvenTree) are stable/healthy.\n- **System Resources**: **HEALTHY**\n  - Disk: 69% (207GB available).\n  - RAM: 13GB used / 27GB total (14GB available).\n  - GPU: RTX 4090 @ 37°C, 20.5GB/24GB VRAM utilized (VLLM EngineCore running).\n- **OpenClaw Gateway**: **ACTIVE** (systemd service running, RPC probe OK).\n\n## Recommendations\n1. **Investigate PM2 Crashes**: Run `pm2 logs openclaw-gateway` and `pm2 logs whisper` to diagnose the crash loops.\n2. **Docker Maintenance**: Check logs for `langfuse-web` and restart unhealthy containers (`docker restart omiximo-email-automation`).\n3. **Gateway Configuration**: Address 'Doctor' warnings regarding empty `groupAllowFrom` lists if group chat functionality is intended for those bots."
+  }
+}

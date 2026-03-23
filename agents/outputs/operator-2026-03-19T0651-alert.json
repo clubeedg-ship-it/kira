@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T06:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is stopped and 'langfuse' web container exited.",
+    "action": "Investigate whisper stop reason (restart count 518k+) and langfuse container exit (Exit 1)."
+  }
+}

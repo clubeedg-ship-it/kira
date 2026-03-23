@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T06:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-19",
+    "filename": "operator-2026-03-19T0651-document.json",
+    "category": "health",
+    "content": "# Infrastructure Health Report - 2026-03-19\n\n## Summary\nCritical services 'whisper' and 'langfuse' are down. All other PM2 and primary Docker services are operational. System resources are within healthy limits.\n\n## Status Details\n- **PM2 Processes**: 14 online, 1 stopped (whisper). Whisper has a high restart count (518k+).\n- **Docker Containers**: \n  - langfuse_langfuse-web_1: Exited (1) 29 hours ago.\n  - lidaros-frontend-1: Unhealthy.\n  - omiximo-email-automation: Unhealthy.\n  - Several other containers (vapi, kira-test-app, etc.) are exited, but status depends on whether they are expected to be persistent.\n- **Storage**: /dev/sda1 at 69% usage (456G used / 662G total). Within limits (<85%).\n- **Memory**: 11.7G used / 27.5G total. Healthy.\n- **GPU**: NVIDIA RTX 4090 at 41C, 20W, 20.5GB memory used (vLLM EngineCore). Healthy.\n- **OpenClaw Gateway**: Running (PID 2787462), RPC probe OK. 6 doctor warnings regarding group messaging policies.\n\n## Alerts\n- **whisper**: Service stopped. High restart loop detected.\n- **langfuse**: Web container exited (Code 1).\n- **Docker Health**: Lidaros and Omiximo Email automation reporting unhealthy status.\n\n## Actions Taken\n- Monitoring only. No autonomous restarts attempted due to high restart count for whisper (suggests persistent failure)."
+  }
+}

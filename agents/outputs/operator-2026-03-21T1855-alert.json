@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T18:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services unhealthy: whisper (flapping), lidaros-frontend (unhealthy), omiximo-email-automation (unhealthy)",
+    "action": "Investigate whisper restart loop (932k restarts) and check health logs for lidaros/omiximo docker containers."
+  }
+}

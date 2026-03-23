@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T12:53:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-19",
+    "filename": "health-report-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-19\n\n## Summary\nOverall system is operational, but multiple services are in an unhealthy or stopped state. Immediate attention required for Omiximo and Lidaros components.\n\n## PM2 Status\n- **Total Services:** 15\n- **Stopped:** 1 (whisper)\n- **Issues:** `whisper` has 518 restarts and is currently stopped. High restart counts on `stella-tax` (63) and `kira-app` (46).\n\n## Docker Status\n- **Unhealthy:** 2\n  - `lidaros-frontend-1` (unhealthy)\n  - `omiximo-email-automation` (unhealthy)\n- **Healthy:** Most core services (Postgres, Redis, Neo4j, n8n, Ollama) are Up and Healthy.\n\n## System Resources\n- **Disk:** 69% used (457G/662G). Well within safe limits (<85%).\n- **Memory:** 42% used (11.5GB/27.5GB). Sufficient headroom.\n- **GPU:** RTX 4090 at 43°C. Memory usage at 83% (20.5GB/24.5GB) due to `VLLM::EngineCore`. Utilization is 0%.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 198071)\n- **Warnings:** Multiple 'Doctor' warnings regarding `groupPolicy: allowlist` without allowed IDs. This will cause group messages to be dropped.\n\n## Actions Taken\n- Generated high-severity alert for unhealthy services.\n- Monitoring disk and memory (no action needed)."
+  }
+}

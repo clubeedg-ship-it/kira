@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T19:00:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-21 (Updated)",
+    "filename": "health-check-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — March 21, 2026\n\n## Critical Issues Found & Actions Taken\n\n### 1. Whisper Service (PM2 ID 25) - [STOPPED]\n- **Issue:** Process was in a rapid restart loop (932,000+ restarts). \n- **Root Cause:** `RuntimeError: CUDA failed with error out of memory`. \n- **Context:** VLLM is currently holding ~20.5GB of VRAM, leaving insufficient space for Faster-Whisper to initialize.\n- **Action Taken:** `pm2 stop whisper` to prevent system degradation.\n\n### 2. Omiximo Email Automation - [UNHEALTHY]\n- **Issue:** Container is healthy but application logic is failing.\n- **Root Cause:** `❌ InvenTree unreachable, skipping this run`. The container cannot resolve or connect to `http://inventree-server:8000/api`.\n- **Recommendation:** Check Docker network bridging or internal DNS for the `omiximo` stack.\n\n### 3. Lidaros Frontend - [UNHEALTHY]\n- **Issue:** Docker health check failing.\n- **Status:** Container is running, but internal health check script returns non-zero. Likely a timeout or configuration drift in the frontend service.\n\n## System Resources\n- **Disk:** 70% used. Healthy.\n- **RAM:** 52% used. Healthy.\n- **GPU:** RTX 4090 VRAM is heavily oversubscribed. VLLM (PID 1686041) is the primary consumer (20.5GB).\n\n## OpenClaw Gateway\n- **Status:** RPC Probe OK.\n- **Alert:** Group message policies are currently blocking all group input on Telegram/WhatsApp due to empty allowlists."
+  }
+}

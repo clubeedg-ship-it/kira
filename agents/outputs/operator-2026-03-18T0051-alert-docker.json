@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T00:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Docker container instability: langfuse_langfuse-web_1 is in a restart loop.",
+    "action": "Check docker logs for langfuse_langfuse-web_1."
+  }
+}

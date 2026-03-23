@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T22:56:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-21",
+    "filename": "health-check-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — March 21, 2026\n\n## Summary\nOverall system is stable with high resource availability. Major concern is the `whisper` service being stopped and two Docker containers reporting unhealthy states.\n\n## Service Status (PM2)\n- **Total Services:** 15\n- **Online:** 14\n- **Stopped:** 1 (`whisper` - ID 25)\n- **Note:** `whisper` has over 9 million restarts, suggesting a persistent crash loop or misconfiguration.\n\n## Container Status (Docker)\n- **Active Containers:** 21\n- **Unhealthy:** 2\n  - `lidaros-frontend-1` (unhealthy for 30 hours)\n  - `omiximo-email-automation` (unhealthy for 30 hours)\n- **Healthy/Up:** 19 (including Postgres, Redis, n8n, ollama, etc.)\n\n## System Resources\n- **Disk Space:** 70% used (457G/662G). 205G available.\n- **Memory (RAM):** 11.9G used / 27.5G total (43% usage). 15.6G available.\n- **GPU (RTX 4090):** 0% utilization. Memory: 20.5G / 24.5G used (VLLM EngineCore occupies 20.5G).\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **RPC Probe:** OK.\n- **Warnings:** Multiple 'allowlist' warnings for WhatsApp/Telegram channels where `groupAllowFrom` is empty. This prevents group message processing.\n\n## Recommendations\n1. **Whisper:** Inspect `pm2 logs whisper` to resolve the restart loop.\n2. **Docker Health:** Restart `lidaros-frontend-1` and `omiximo-email-automation` and check internal logs.\n3. **OpenClaw Config:** Update `groupAllowFrom` for relevant channels if group interaction is required."
+  }
+}

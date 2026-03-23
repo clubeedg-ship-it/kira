@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-22T10:51:40Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-22",
+    "filename": "infra-health-2026-03-22.md",
+    "category": "maintenance",
+    "content": "# Infrastructure Health Report — March 22, 2026\n\n## Summary\nOverall system health is stable but requires attention on several services. Disk and RAM usage are within safe limits.\n\n## PM2 Services\n- **whisper**: [STOPPED] — 17 restarts detected.\n- **Other Services**: All 14 other services (kira-admin, oopuo-website, etc.) are [ONLINE].\n\n## Docker Containers\n- **Healthy**: 15 containers are running normally (n8n, ollama, postgres, etc.).\n- **Unhealthy**: \n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n- **Action**: Check logs for healthcheck failures.\n\n## System Resources\n- **Disk**: 70% used (457G / 662G). Healthy.\n- **RAM**: 43% used (11.9G / 27.5G). Healthy.\n- **GPU**: RTX 4090 active, 83% VRAM used (20.5G / 24.5G) by VLLM EngineCore. Temperature stable at 41°C.\n\n## OpenClaw Gateway\n- **Status**: [RUNNING] (pid 3411437).\n- **Notes**: Several 'Doctor' warnings regarding group message policies on WhatsApp and Telegram accounts. Policy is 'allowlist' but 'allowFrom' is empty."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T00:51:00Z",
+  "document": {
+    "title": "System Health Status — 2026-03-18",
+    "filename": "health-status-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-18\n\n## Summary\nCritical issues detected with service stability. System resources are within acceptable limits, but key PM2 processes and one Docker container are failing to remain online.\n\n## PM2 Status\n- **Critical:** `openclaw-gateway` (ID 42) and `whisper` (ID 25) are flapping. Restart counts are extremely high (637k+ and 273k+).\n- All other PM2 services (12 total) are `online` with stable uptimes.\n\n## Docker Status\n- **Warning:** `langfuse_langfuse-web_1` is in a `Restarting` loop.\n- **Note:** `lidaros-frontend-1` and `omiximo-email-automation` are reported as `unhealthy` but remain `Up`.\n- Other containers (19 total) are `Up` and stable.\n\n## System Resources\n- **Disk:** 69% used (207G available). No immediate concern.\n- **Memory:** 15.1GB used of 27.5GB. ~12.3GB available. Stable.\n- **GPU:** RTX 4090 active. 20.9GB / 24.5GB VRAM used. GPU utility at 0%, but VLLM and Whisper processes are registered.\n\n## OpenClaw Gateway\n- The gateway service managed via systemd is `running` (PID 3742972).\n- **Conflict Note:** PM2 also shows a `openclaw-gateway` process (ID 42) which is crashing. This suggests a port conflict or redundant service definition.\n\n## Recommendations\n1. Stop PM2 process ID 42 (`openclaw-gateway`) to resolve conflict with the systemd service.\n2. Investigate high restart count for `whisper` (ID 25).\n3. Check logs for `langfuse` container to resolve restart loop."
+  }
+}

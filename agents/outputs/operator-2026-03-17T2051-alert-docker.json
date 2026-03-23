@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T20:51:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Multiple Docker containers (langfuse, omiximo-email-automation, lidaros-frontend) are unhealthy or in a restart loop.",
+    "action": "Check docker logs for langfuse_langfuse-web_1, omiximo-email-automation, and lidaros-frontend-1."
+  }
+}

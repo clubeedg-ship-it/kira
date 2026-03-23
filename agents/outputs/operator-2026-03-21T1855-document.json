@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T18:55:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-21",
+    "filename": "health-check-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — March 21, 2026\n\n## Summary\nOverall system is operational but experiencing critical stability issues with the Whisper service and health check failures in two Docker containers.\n\n## PM2 Status\n- **Whisper (ID 25):** CRITICAL. Status 'online' but has 932,000+ restarts. Uptime 1s. This indicates a rapid crash loop.\n- **All other processes:** Online and stable.\n\n## Docker Status\n- **lidaros-frontend-1:** UNHEALTHY. Container is Up but failing health checks.\n- **omiximo-email-automation:** UNHEALTHY. Container is Up but failing health checks.\n- **Other containers:** Healthy or Up (kali-osint, n8n, ollama, etc.).\n\n## System Resources\n- **Disk:** 70% used (457G/662G). Healthy.\n- **RAM:** 14.2GB used of 27.5GB (~52%). Healthy.\n- **GPU (RTX 4090):** 20.9GB / 24.5GB VRAM used. Utilization 0% (idle but memory reserved by VLLM and Whisper process). Temp 37C. Healthy.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Warnings:** Several 'Doctor' warnings regarding group message allowlists for WhatsApp and Telegram channels. Group messages will be dropped unless allowlists are updated or policies changed to 'open'.\n\n## Recommendations\n1. **Whisper:** Immediate investigation of logs (`pm2 logs whisper`) to identify the crash cause.\n2. **Docker Health:** Check logs for `lidaros-frontend-1` and `omiximo-email-automation` to determine why they are marked unhealthy.\n3. **Gateway Config:** Review group policy settings to ensure intended message flow."
+  }
+}

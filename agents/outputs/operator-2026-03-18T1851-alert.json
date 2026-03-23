@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T18:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is stopped and 'openclaw-gateway' is in a high-restart loop (737 restarts).",
+    "action": "Investigate whisper logs (pm2 logs whisper) and check openclaw-gateway crash reason. 'lidaros-frontend' and 'omiximo-email-automation' containers are also unhealthy."
+  }
+}

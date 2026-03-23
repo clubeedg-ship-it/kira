@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T18:56:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-19",
+    "filename": "health-report-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-19\n\n## Executive Summary\n- **Status:** Warning\n- **OpenClaw Gateway:** Online (Ok)\n- **PM2 Services:** 14/15 Online (Whisper STOPPED)\n- **Docker Containers:** 21 Up (2 Unhealthy: `lidaros-frontend`, `omiximo-email-automation`)\n- **Disk Usage:** 70% (205GB Free) - OK\n- **Memory:** 42% Used (15.7GB Available) - OK\n- **GPU:** RTX 4090 - 83% VRAM Used (VLLM), 0% Util - OK\n\n## Service Details\n\n### PM2 Status\n- **Whisper (ID 25):** STOPPED. Restart count 518. Needs investigation.\n- **iam-website (ID 55):** Recently restarted (60m uptime, 39 restarts).\n- **zenithcred-website (ID 44):** Recently restarted (42m uptime).\n- All other services (kira-app, oopuo-website, etc.) are stable.\n\n### Docker Status\n- **Unhealthy:** `lidaros-frontend-1` and `omiximo-email-automation` are reporting unhealthy status.\n- **Scribe & NextJS:** Healthy.\n- **Databases:** Neo4j, Postgres, Redis, MinIO are all healthy.\n- **Ollama:** Running.\n\n### Resource Usage\n- **Storage:** `/dev/sda1` is at 70%. Monitoring for >85% threshold.\n- **RAM:** 11.7GB/27.5GB used. Plenty of headroom.\n- **GPU:** 20.5GB/24.5GB VRAM allocated to VLLM. Temperature stable at 42C.\n\n### OpenClaw Gateway\n- Running via systemd.\n- RPC Probe: OK.\n- Multiple channel group policy warnings detected (allowlist but empty allowFrom) — affects Telegram/WhatsApp group message intake.\n\n## Actions Taken/Required\n1. **Alerted:** High severity alert generated for Whisper and Unhealthy containers.\n2. **Monitoring:** Increased monitoring on `iam-website` due to high restart count."
+  }
+}

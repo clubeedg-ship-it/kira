@@ -1,0 +1,21 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-03-23T09:39:00Z",
+  "decision": {
+    "question": "Should Nuke development be paused until March revenue target ($700 MRR) is secured?",
+    "recommendation": "Yes — defer Nuke Phase 0 work to evenings/weekends. Daytime hours this week must go to IAM follow-ups and closing the Oopuo website blocker.",
+    "evidence": [
+      "Week 13 was ~60% infrastructure vs target 60% revenue — completely inverted",
+      "March $700 MRR target with 8 days left and no closed deals",
+      "IAM outreach just started — Day 10 follow-ups coming but no pipeline management",
+      "Nuke is important but generates $0 in the next 90 days"
+    ],
+    "options": [
+      {"label": "Pause Nuke until April", "description": "Focus 100% on IAM outreach + Oopuo leads for remaining March days"},
+      {"label": "Nuke evenings only", "description": "Revenue work 9-17h, Nuke after hours"},
+      {"label": "Continue as-is", "description": "Accept March target miss, prioritize architecture"}
+    ],
+    "urgency": "this_week"
+  }
+}

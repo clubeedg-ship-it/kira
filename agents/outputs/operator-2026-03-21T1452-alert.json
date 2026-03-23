@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T14:52:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service instability and unhealthy containers detected.",
+    "action": "Investigate Whisper PM2 restart loop (86k+ restarts) and unhealthy Docker containers (lidaros-frontend, omiximo-email-automation)."
+  }
+}

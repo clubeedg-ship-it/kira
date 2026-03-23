@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T10:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-19",
+    "filename": "health-report-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — March 19, 2026\n\n## Summary\nOverall system is operational, but there are specific service failures in PM2 and Docker that require attention. System resources (Disk, RAM, GPU) are within healthy limits.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, paperclip, stella-tax, whatsapp-bridge, zenithcred-website.\n- **STOPPED:** `whisper` (id 25). This service has 518 restart cycles, suggesting a crash loop or configuration issue.\n\n### Docker Containers\n- **Healthy:** postgres:16-alpine (client-ops), scribe-service, nextjs-server, neo4j-server, lidaros-backend, kali-osint, inventree stack, langfuse stack, omiximo-bridge, evolution-api, ollama, n8n.\n- **UNHEALTHY:** \n  - `lidaros-frontend-1` (lidaros-frontend)\n  - `omiximo-email-automation` (docker-email-automation)\n\n### OpenClaw Gateway\n- **Status:** Running (pid 198071)\n- **Note:** Multiple gateway-related services detected (clawdbot-*). Doctor warnings regarding groupPolicy allowlists on Telegram/WhatsApp channels.\n\n## System Resources\n- **Disk Space:** `/dev/sda1` is at 69% usage (205G available). Healthy.\n- **Memory:** 11.5GB used out of 27.5GB. ~16GB available. Healthy.\n- **GPU (RTX 4090):** \n  - Temp: 42°C\n  - Usage: 22W / 450W\n  - Memory: 20.5GB / 24.5GB (VLLM::EngineCore active)\n  - Status: Healthy.\n\n## Alerts Sent\n- High severity alert issued for `whisper` (stopped) and unhealthy Docker containers (`lidaros-frontend`, `omiximo-email-automation`)."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T14:55:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Critical PM2 service instability detected",
+    "action": "Investigate 'whisper' and 'openclaw-gateway' crash loops. Both have extremely low uptimes (1s and 5s) and thousands of restarts."
+  }
+}

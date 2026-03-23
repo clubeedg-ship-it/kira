@@ -4,6 +4,37 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { skillsRouter } from './routes/skills';
+import { stateApiRouter } from './routes/state-api';
+
+// ── Full Drizzle-backed routes (Postgres) ──
+import { requireAuth } from './middleware/auth';
+import { tasksRouter } from './routes/tasks';
+import { projectsRouter, milestonesRouter } from './routes/projects';
+import { objectivesRouter, keyResultsRouter } from './routes/objectives';
+import { areasRouter } from './routes/areas';
+import { agentsRouter } from './routes/agents';
+import { visionRouter } from './routes/vision';
+import { dashboardsRouter } from './routes/dashboards';
+import { reviewsRouter } from './routes/reviews';
+import { timeBlocksRouter } from './routes/time-blocks';
+import { principlesRouter, decisionsRouter } from './routes/principles';
+import { documentsRouter } from './routes/documents';
+import { dependenciesRouter } from './routes/dependencies';
+import { inputQueueRouter } from './routes/input-queue';
+import { agentWorkLogRouter } from './routes/agent-work-log';
+import { userAgentsRouter } from './routes/user-agents';
+import { xpRouter } from './routes/xp';
+import { canvasRouter } from './routes/canvas';
+import { identityRouter } from './routes/identity';
+import { memoryRouter } from './routes/memory';
+import { mem0Router } from './routes/mem0';
+import { knowledgeRouter as pgKnowledgeRouter } from './routes/knowledge';
+import { suggestionsRouter } from './routes/suggestions';
+import { contextMetricsRouter } from './routes/context-metrics';
+import { chatRouter as pgChatRouter } from './routes/chat';
+import { chatFilesRouter } from './routes/chat-files';
+import { sandboxRouter } from './routes/sandbox';
+import { viewsRouter } from './routes/views';
 import { initGatewayBridge, addSSEClient, removeSSEClient, getActivity, notifyStreamStart, notifyStreamDelta, notifyStreamEnd, setOnFinalMessage } from './gateway-bridge';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -94,6 +125,9 @@ const wrap = (data: any) => ({ data });
 // Health & Config
 app.get('/api/health', (_r, res) => res.json({ status: 'ok', singleTenant: true }));
 app.get('/api/v1/config', (_r, res) => res.json({ singleTenant: true }));
+
+// ── State API — single source of truth for all backend state ──
+app.use('/api/v1/state', stateApiRouter);
 
 // SSE Events — wired to gateway bridge for real-time agent activity
 app.get('/api/v1/events/stream', (_req, res) => {
@@ -305,10 +339,63 @@ app.post('/api/v1/chat/conversations/:id/messages', async (req, res) => {
   res.json({ data: { id: userMsgId, conversationId, role: 'user', content: userText, createdAt: new Date().toISOString() } });
 });
 
-// Stubs
-const emptyArrayRoutes = ['tasks', 'projects', 'objectives', 'areas', 'agents', 'vision', 'dashboards', 'reviews', 'time-blocks', 'principles'];
-for (const r of emptyArrayRoutes) app.get(`/api/v1/${r}`, (_r, res) => res.json(wrap([])));
-// Settings — persisted in chat.db
+// ── Full Postgres-backed routes (Drizzle ORM) ──
+// Auth middleware auto-injects userId in SINGLE_TENANT mode
+const authMiddleware = requireAuth;
+
+app.use('/api/v1/tasks', authMiddleware, tasksRouter);
+app.use('/api/v1/projects', authMiddleware, projectsRouter);
+app.use('/api/v1/milestones', authMiddleware, milestonesRouter);
+app.use('/api/v1/objectives', authMiddleware, objectivesRouter);
+app.use('/api/v1/key-results', authMiddleware, keyResultsRouter);
+app.use('/api/v1/areas', authMiddleware, areasRouter);
+// OpenClaw agent info must come BEFORE the Drizzle agents router (which has /:id)
+app.get('/api/v1/agents/openclaw', async (_r, res) => {
+  try {
+    const { execFile } = await import('child_process');
+    const { promisify } = await import('util');
+    const execFileAsync = promisify(execFile);
+    const { stdout } = await execFileAsync('openclaw', ['skills', 'check', '--json'], {
+      timeout: 15_000, env: { ...process.env },
+    });
+    res.json({ data: JSON.parse(stdout) });
+  } catch { res.json({ data: { eligible: [], disabled: [], blocked: [] } }); }
+});
+app.get('/api/v1/agents/runs', authMiddleware, async (_r, res) => {
+  // agent runs listing
+  const { db } = await import('../db/index');
+  const { agentRuns } = await import('../db/schema');
+  const { desc, eq } = await import('drizzle-orm');
+  try {
+    const rows = await db.select().from(agentRuns).orderBy(desc(agentRuns.createdAt)).limit(50);
+    res.json({ data: rows });
+  } catch { res.json({ data: [] }); }
+});
+app.use('/api/v1/agents', authMiddleware, agentsRouter);
+app.use('/api/v1/vision', authMiddleware, visionRouter);
+app.use('/api/v1/dashboards', authMiddleware, dashboardsRouter);
+app.use('/api/v1/reviews', authMiddleware, reviewsRouter);
+app.use('/api/v1/time-blocks', authMiddleware, timeBlocksRouter);
+app.use('/api/v1/principles', authMiddleware, principlesRouter);
+app.use('/api/v1/decisions', authMiddleware, decisionsRouter);
+app.use('/api/v1/documents', authMiddleware, documentsRouter);
+app.use('/api/v1/dependencies', authMiddleware, dependenciesRouter);
+app.use('/api/v1/input-queue', authMiddleware, inputQueueRouter);
+app.use('/api/v1/agent-work-log', authMiddleware, agentWorkLogRouter);
+app.use('/api/v1/user-agents', authMiddleware, userAgentsRouter);
+app.use('/api/v1/xp', authMiddleware, xpRouter);
+app.use('/api/v1/canvas', authMiddleware, canvasRouter);
+app.use('/api/v1/identity', authMiddleware, identityRouter);
+app.use('/api/v1/pg-memory', authMiddleware, memoryRouter);
+app.use('/api/v1/mem0', authMiddleware, mem0Router);
+app.use('/api/v1/pg-knowledge', authMiddleware, pgKnowledgeRouter);
+app.use('/api/v1/suggestions', authMiddleware, suggestionsRouter);
+app.use('/api/v1/context-metrics', authMiddleware, contextMetricsRouter);
+app.use('/api/v1/chat-files', chatFilesRouter);
+app.use('/api/v1/sandbox', authMiddleware, sandboxRouter);
+app.use('/api/v1/views', authMiddleware, viewsRouter);
+
+// Settings — persisted in chat.db (fallback for quick settings)
 chatDb.exec(`CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)`);
 
 app.get('/api/v1/settings', (_r, res) => {
@@ -326,7 +413,6 @@ app.patch('/api/v1/settings', (req, res) => {
   chatDb.prepare('INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)').run('user_settings', JSON.stringify(merged));
   res.json(wrap(merged));
 });
-app.get('/api/v1/xp', (_r, res) => res.json(wrap({ level: 1, xp: 0 })));
 
 // ── Panels ──────────────────────────────────────────────────────────
 
@@ -365,9 +451,7 @@ app.delete('/api/v1/panels/:id', (req, res) => {
   res.json({ data: { ok: true } });
 });
 
-// User agents stub
-app.get('/api/v1/user-agents', (_r, res) => res.json({ data: [] }));
-app.get('/api/v1/user-agents/runs/recent', (_r, res) => res.json({ data: [] }));
+// User agents now handled by Drizzle router above
 
 // ── Skills (real router, bridged to OpenClaw) ────────────────────────────
 app.use('/api/v1/skills', skillsRouter);
@@ -376,22 +460,7 @@ app.use('/api/v1/skills', skillsRouter);
 import { transcribeRouter } from './routes/transcribe';
 app.use('/api/v1/transcribe', transcribeRouter);
 
-// ── Agents / OpenClaw bridge ─────────────────────────────────────────────
-app.get('/api/v1/agents/openclaw', async (_r, res) => {
-  try {
-    const { execFile } = await import('child_process');
-    const { promisify } = await import('util');
-    const execFileAsync = promisify(execFile);
-    const { stdout } = await execFileAsync('openclaw', ['skills', 'check', '--json'], {
-      timeout: 15_000,
-      env: { ...process.env },
-    });
-    const parsed = JSON.parse(stdout);
-    res.json({ data: parsed });
-  } catch (err) {
-    res.json({ data: { eligible: [], disabled: [], blocked: [], missingRequirements: [] } });
-  }
-});
+// ── Agents / OpenClaw bridge (main route declared above, before Drizzle router) ──
 
 // Catch-all for unknown /api/v1 routes
 app.all('/api/v1/*', (req, res) => {
@@ -438,7 +507,10 @@ app.listen(PORT, '0.0.0.0', () => {
           mem0Messages,
           { userId: 'otto', agentId: 'kira', sessionId: conv.id, metadata: { source: 'telegram', conversationId: conv.id } }
         ).then(r => {
-          if (r?.results?.length) console.log(`[mem0-bridge] extracted ${r.results.length} memories`);
+          if (r?.results?.length) {
+            console.log(`[mem0-bridge] extracted ${r.results.length} memories`);
+            import('./memory/mem0-sync').then(m => m.syncMem0ToMarkdown()).catch(e => console.error(e));
+          }
         }).catch(err => console.error('[mem0-bridge] extraction error:', err.message));
       } catch {}
     } catch (err: any) {

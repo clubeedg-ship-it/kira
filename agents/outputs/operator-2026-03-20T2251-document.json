@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T22:51:00Z",
+  "document": {
+    "title": "System Health Status — 2026-03-20",
+    "filename": "system-health-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# System Health Status — 2026-03-20 22:51 UTC\n\n## Summary\nCritical issues detected with Whisper service and specific Docker containers. System resources are within limits, but GPU memory is heavily utilized.\n\n## PM2 Status\n- **Total Services:** 15\n- **Issues:** \n  - `whisper` (ID 25): **CRITICAL**. 613 restarts, 100% CPU, 2.3GB RAM. Process is flapping.\n- **All other services:** Online.\n\n## Docker Status\n- **Unhealthy:**\n  - `lidaros-frontend-1` (unhealthy for 6 hours)\n  - `omiximo-email-automation` (unhealthy for 6 hours)\n- **Healthy/Up:** 19 other containers (including Postgres, Redis, n8n, Ollama).\n\n## Resource Usage\n- **Disk:** 70% used (457G/662G). **OK.**\n- **RAM:** 50% used (14G/27.5G). **OK.**\n- **GPU (RTX 4090):** 91% Memory Usage (22.4GB/24.5GB). 62% Util. **Heavy Load** (VLLM + Whisper).\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **RPC Probe:** OK.\n- **Warnings:** Several Telegram/WhatsApp group policy allowlist warnings (empty allowlists).\n\n## Actions Taken\n- Generated CRITICAL alert for Whisper.\n- Generated HIGH alert for unhealthy Docker containers."
+  }
+}

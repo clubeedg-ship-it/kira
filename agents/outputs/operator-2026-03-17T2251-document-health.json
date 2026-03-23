@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T22:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-17",
+    "filename": "health-check-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-17 22:51 UTC\n\n## Summary\nOverall system is functional but requires attention to Docker services. PM2 services are stable, resources are within limits, and GPU utilization is moderate.\n\n## System Resources\n- **Disk:** 69% used (207G available). Status: **OK**.\n- **Memory:** 14GB used / 27GB total (13GB available). Status: **OK**.\n- **GPU:** RTX 4090 at 60% util, 22GB/24GB VRAM used (mostly VLLM/Whisper). Status: **OK**.\n\n## PM2 Services\nAll 14 processes are `online`. \n- `whisper` and `openclaw-gateway` show very low uptimes (2s-3s) but high restart counts, suggesting they may have just been restarted or are cycling. *Action: Monitor uptime in next check.*\n\n## Docker Services\n- **Critical:** `langfuse_langfuse-web_1` is in a restart loop.\n- **Unhealthy:** `lidaros-frontend-1`, `omiximo-email-automation`.\n- **Healthy:** Neo4j, Postgres (x3), Redis (x2), n8n, Ollama, etc.\n\n## OpenClaw Gateway\n- Status: **Running** (PID 3742972).\n- RPC Probe: **OK**.\n- Warnings: Group policy allowlists are empty for several accounts. This is a configuration note, not a failure.\n\n## Actions Taken\n- Generated alerts for Langfuse and unhealthy containers.\n"
+  }
+}

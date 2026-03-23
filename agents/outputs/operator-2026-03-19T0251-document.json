@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T02:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-19",
+    "filename": "health-report-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — March 19, 2026\n\n## Summary\nOverall system is stable but requires minor intervention for stopped/unhealthy services.\n\n## Service Status\n### PM2 Processes\n- **Online:** 14 processes (agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, paperclip, stella-tax, whatsapp-bridge, zenithcred-website)\n- **Stopped:** 1 process (**whisper** - ID 25)\n\n### Docker Containers\n- **Total Containers:** 21\n- **Unhealthy:** 2 containers\n  - `lidaros-frontend-1` (Up 8 hours, unhealthy)\n  - `omiximo-email-automation` (Up 8 hours, unhealthy)\n- **Healthy/Up:** All others including `client-ops-postgres`, `lidaros-backend-1`, `inventree` stack, `langfuse` stack, and `ollama`.\n\n### OpenClaw Gateway\n- **Status:** Running (PID 2787462)\n- **RPC Probe:** OK\n- **Warnings:** Multiple group policy warnings (allowlist enabled but empty) for WhatsApp and Telegram accounts.\n\n## System Resources\n- **Disk Usage:** 69% (457G/662G) — **Status: OK**\n- **Memory Usage:** 42% used (11.6GB/27.5GB) — **Status: OK**\n- **GPU (RTX 4090):** 41°C, 20.5GB/24.5GB VRAM used by VLLM — **Status: OK**\n\n## Recommendations\n1.  **Restart Whisper:** `pm2 restart whisper` to restore audio processing capability.\n2.  **Check Docker Health:** Investigate why `lidaros-frontend-1` and `omiximo-email-automation` are failing health checks.\n3.  **Gateway Configuration:** Update group allowlists or set policy to 'open' to prevent silent dropping of group messages.\n"
+  }
+}

@@ -35,7 +35,7 @@ Now runs **Oopuo** — a portfolio of 8+ companies targeting $1B valuation by Oc
 | Company | What | Status |
 |---------|------|--------|
 | **IAM (InterActiveMove)** | Interactive floor/wall projectors, kindergarten market | Active, website at interactivemove.nl |
-| **OttoGen → Oopuo** | AI services for SMBs, personal brand, webinars | Rebranding |
+| **Oopuo** | AI services for SMBs, personal brand, webinars | Active |
 | **CuttingEdge** | Interior design & project management | Active |
 | **Abura Cosmetics** | Sales support (commission) | Active |
 | **Omiximo** | Email automation, inventory systems | Active |

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T20:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "OpenClaw services (openclaw-gateway, whisper) are in a crash loop (restart counts > 200,000 and > 600,000) despite PM2 reporting 'online'.",
+    "action": "Inspect PM2 logs for openclaw-gateway (id 42) and whisper (id 25) to determine the cause of the immediate exits."
+  }
+}

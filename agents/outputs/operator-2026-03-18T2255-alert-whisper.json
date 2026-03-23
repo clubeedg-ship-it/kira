@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T22:55:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Service 'whisper' is stopped in PM2.",
+    "action": "Investigate if whisper is needed or should be removed from auto-check."
+  }
+}

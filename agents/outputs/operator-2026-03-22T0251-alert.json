@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-22T02:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "PM2 service 'whisper' is stopped; Docker containers 'lidaros-frontend-1' and 'omiximo-email-automation' are unhealthy.",
+    "action": "Investigate whisper logs (pm2 logs whisper) and container health checks (docker inspect lidaros-frontend-1)."
+  }
+}

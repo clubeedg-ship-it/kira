@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T00:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "GPU VRAM Exhausted: Whisper failed to start (CUDA OOM). Lidaros-frontend and Omiximo-email-automation are unhealthy.",
+    "action": "VLLM is consuming 20.5GB/24GB. Whisper cannot load. Consider lowering VLLM memory-utilization or offloading whisper to CPU."
+  }
+}

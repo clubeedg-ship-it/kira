@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T12:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-20",
+    "filename": "health-report-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — March 20th, 2026\n\n## Summary\nOverall system is functional, but there are specific service failures and container health warnings that require attention.\n\n## PM2 Processes\n- **Whisper (ID 25):** STOPPED. It has a high restart count (518+), suggesting a boot loop or persistent failure.\n- **All other services (14 total):** ONLINE.\n\n## Docker Containers\n- **Unhealthy Containers:**\n  - `lidaros-frontend-1`: Unhealthy for 42 hours.\n  - `omiximo-email-automation`: Unhealthy for 42 hours.\n- **Healthy/Running:** 19 other containers (Postgres, Neo4j, n8n, Ollama, etc.) are UP and healthy where applicable.\n\n## System Resources\n- **Disk Space:** 70% used (457G/662G). Well within safe limits (<85%).\n- **Memory:** 11.7GB used / 27.5GB total (~42% usage). 15.8GB available. Healthy.\n- **GPU (RTX 4090):** \n  - Temp: 43°C\n  - Memory: 20.5GB / 24.5GB used (83%).\n  - Process: `VLLM::EngineCore` (PID 1686041) is occupying most of the VRAM. This is normal for a running LLM engine.\n\n## OpenClaw Gateway\n- **Status:** RUNNING (PID 3411437).\n- **Warnings:** Multiple 'Doctor' warnings regarding `groupPolicy` being set to `allowlist` with empty `groupAllowFrom`. This effectively blocks all group messages for several accounts (stella-debts, nova, kira-bot-2, etc.).\n\n## Recommendations\n1. **Whisper:** Check `pm2 logs whisper` to identify why it's failing.\n2. **Docker Health:** Inspect logs for `lidaros-frontend-1` and `omiximo-email-automation` to see why health checks are failing.\n3. **Gateway Config:** Review group policy settings if group interaction is intended for those accounts."
+  }
+}

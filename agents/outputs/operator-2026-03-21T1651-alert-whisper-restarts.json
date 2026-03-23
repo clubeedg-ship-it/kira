@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T16:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Whisper (PM2 ID 25) shows 900+ restarts",
+    "action": "Investigate logs for Whisper process to determine cause of rapid restart loop (pm2 logs 25)."
+  }
+}

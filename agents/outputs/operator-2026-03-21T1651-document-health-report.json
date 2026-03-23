@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T16:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-21",
+    "filename": "infra-health-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-21 16:51 UTC\n\n## Overview\nMost core services are online, but there are issues with the Whisper process and two Docker containers.\n\n## System Resources\n- **Disk:** 70% used (457G/662G). Healthy.\n- **RAM:** 45% used (12.5GB/27.5GB). Healthy.\n- **GPU:** RTX 4090 at 38°C. 20.5GB/24.5GB VRAM used by VLLM EngineCore.\n\n## Process Status (PM2)\n- **Online:** 15 processes (including `kira-app`, `oopuo-website`, `openclaw-bridge`).\n- **Alert:** `whisper` (ID 25) shows 900+ restarts. Investigating restart loop.\n\n## Container Status (Docker)\n- **Healthy:** `client-ops-postgres`, `lidaros-backend-1`, `inventree-db`, etc.\n- **Unhealthy:** \n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n- **Action:** Manual health check investigation needed for unhealthy containers.\n\n## Gateway Status\n- **OpenClaw Gateway:** Running (PID 3411437). RPC probe OK.\n- **Warnings:** Channel group policies set to 'allowlist' with empty 'groupAllowFrom' (messages will be dropped). This is a known configuration state for privacy/security."
+  }
+}

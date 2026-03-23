@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T08:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Containers 'lidaros-frontend-1' and 'omiximo-email-automation' are reporting unhealthy status.",
+    "action": "Investigate logs for lidaros-frontend-1 and omiximo-email-automation."
+  }
+}

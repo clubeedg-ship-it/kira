@@ -1,27 +1,26 @@
 {
   "type": "decision",
   "agent": "content",
-  "timestamp": "2026-03-17T08:30:00Z",
   "decision": {
-    "question": "Post about the IAM 'Whale' target list?",
-    "recommendation": "Use this to show Otto's strategic focus on market consolidation. It positions IAM as a serious player targeting the biggest chains in the NL kindergarten market.",
+    "question": "Post about the Oopuo form failure and the 'Whale' strategy?",
+    "recommendation": "Use the form failure as a 'raw build' lesson and the 'Whale' strategy to show the Oopuo operating scale. Rephrase in your words: 'Systems break when you move fast. We just realized our lead form was a ghost for a week. Fixed it, now focusing on the 5 companies that control 2,000 locations.'",
     "evidence": [
-      "New 'Whale' list finalized mapping top 60 Dutch kindergarten chains.",
-      "Strategic shift from individual sales to 'one deal = 500+ locations' (Partou/Humankind).",
-      "Aligns with 'Revenue > everything' principle."
+      "Based on: found placeholder formId in oopuo-website/js/main.js",
+      "Based on: identified 5 whale targets for IAM (Partou, Humankind, etc.) controlling 2k+ locations",
+      "Behind-the-scenes failures usually get 2x engagement from builders."
     ],
     "options": [
       {
-        "label": "LinkedIn: The Whale Strategy",
-        "description": "Text draft: 'Most founders chase single sales. We’re chasing the whales.\n\nJust mapped the top 60 kindergarten chains in the Netherlands for IAM. \n\nTarget #1: Partou (1,039 locations).\nTarget #2: Humankind (465 locations).\n\nOne deal = 500+ locations transformed with interactive AI projections. \n\nStop selling products. Start selling infrastructure for entire ecosystems.'"
+        "label": "Post as text",
+        "description": "Moved too fast, broke the front door.\n\nChecked our analytics and realized the Oopuo contact form hasn't been sending data for a week. A placeholder ID in the code was sitting there while we were busy scaling.\n\nMost people would hide that. I'm posting it because that's the cost of speed.\n\nForm is fixed. Now we're heads down on the 'Whale Strategy' for IAM. We identified 5 targets that control over 2,000 locations. \n\nFocus > Everything."
       },
       {
-        "label": "Video: Behind the Scenes",
-        "description": "Script: 'I just finished mapping the top 60 kindergarten chains in the Netherlands. We’re not looking for one or two sales anymore. We’re looking for the whales. Partou has over a thousand locations. One partnership with them changed everything for IAM. This is how you scale—don't look for customers, look for partners who OWN the customers.'"
+        "label": "Record video",
+        "description": "Record a 30s selfie video. Script: 'Yo, quick update from the trenches. We just found a major bug—our lead form was dead for a week because of a stupid placeholder. It happens when you build at this speed. Fixed now. But check this: we just mapped out the 5 biggest players in the Dutch kindergarten market for IAM. 2,000 locations in just 5 meetings. That’s the power of the Oopuo engine. Build fast, fix fast, aim big.'"
       },
       {
         "label": "Skip",
-        "description": "Keep the target list internal for now."
+        "description": "Too technical/small for the main feed."
       }
     ],
     "urgency": "today"

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T18:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-20",
+    "filename": "health-check-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — 2026-03-20\n\n## Summary\nOverall system is stable. PM2 processes are online, disk and memory usage are within safe limits, and the GPU is healthy. Two Docker containers are reporting unhealthy status.\n\n## Service Status\n\n### PM2 Processes\n- **Status:** All 15 processes are `online`.\n- **Notable:** `whisper` is using 2.8GB RAM (normal for model loading).\n\n### Docker Containers\n- **Status:** 21 containers total.\n- **Unhealthy:**\n  - `lidaros-frontend-1` (Up 2 hours, unhealthy)\n  - `omiximo-email-automation` (Up 2 hours, unhealthy)\n- **Healthy/Up:** All other critical services (Postgres, Neo4j, n8n, Ollama, etc.) are running.\n\n### System Resources\n- **Disk Space (/):** 70% used (457G/662G). **Status: OK**\n- **Memory:** 14.8GB used / 27.5GB total. **Status: OK**\n- **GPU (RTX 4090):** 0% Util, 20.9GB/24.5GB VRAM used (VLLM & Whisper). **Status: OK**\n\n### OpenClaw Gateway\n- **Status:** `running` (PID 3411437).\n- **RPC:** `ok`.\n- **Warnings:** Several channel group policies are set to `allowlist` with empty `groupAllowFrom` lists (group messages will be dropped).\n\n## Action Items\n1. Inspect logs for `lidaros-frontend-1` and `omiximo-email-automation`.\n2. Verify if the group allowlist settings in OpenClaw config are intentional.\n"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T22:55:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-19",
+    "filename": "health-report-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-19\n\n## Executive Summary\nOverall system is stable but requires intervention for three services. GPU and RAM resources are healthy; disk usage is at 70%.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** 14/15 services.\n- **Stopped:** `whisper` (ID: 25). This service has 518 restart cycles, suggesting a persistent crash loop or manual stop.\n- **Recent Restarts:** `iam-website` (39 restarts, 5h uptime) and `zenithcred-website` (7 restarts, 4h uptime) show recent instability.\n\n### Docker Containers\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 28 hours, unhealthy)\n  - `omiximo-email-automation` (Up 28 hours, unhealthy)\n- **Healthy:** 19 containers (including Postgres, Redis, n8n, Ollama, etc.).\n\n### OpenClaw Gateway\n- **Status:** Running (PID 1806887).\n- **RPC Probe:** OK.\n- **Warnings:** Multiple 'Doctor warnings' regarding empty allowlists for Telegram/WhatsApp group policies. Group messages will be dropped.\n\n## Resource Usage\n\n### System Resources\n- **CPU:** Minimal load across PM2 processes.\n- **Memory:** 11.7GB used / 27.5GB total (42% used). Plenty of headroom.\n- **Disk:** 457GB used / 662GB total (70% used). \n\n### GPU (NVIDIA RTX 4090)\n- **Memory:** 20.5GB / 24.5GB (83% allocated).\n- **Util:** 0% (Idle).\n- **Primary Process:** `VLLM::EngineCore` (PID 1686041) holding 20.5GB.\n\n## Recommendations\n1. **Restart `whisper`** and check logs for crash reasons.\n2. **Restart unhealthy Docker containers** (`lidaros-frontend-1`, `omiximo-email-automation`).\n3. **Review PM2 logs** for `iam-website` to identify cause of frequent restarts.\n4. **Update OpenClaw Config** to address allowlist warnings if group interaction is required."
+  }
+}

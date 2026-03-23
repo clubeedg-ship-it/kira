@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T04:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-21",
+    "filename": "health-check-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — 2026-03-21\n\n**Status Summary:** CAUTION. Critical service instability detected.\n\n## PM2 Status\n- **Total Processes:** 15\n- **Critical Alert:** `whisper` (ID 25) is in a rapid restart loop (70k+ restarts, uptime 1s). This is likely consuming CPU cycles and failing to process audio.\n- **Other Services:** 14 services online. `iam-website` and `zenithcred-website` have 30+ and 7 restarts respectively, but are currently stable.\n\n## Docker Status\n- **Total Containers:** 21\n- **Unhealthy:** \n    - `lidaros-frontend-1` (unhealthy for 12 hours)\n    - `omiximo-email-automation` (unhealthy for 12 hours)\n- **Healthy:** 19 containers, including critical databases (Postgres, Neo4j, Redis) and Oopuo-linked services.\n\n## System Resources\n- **Disk:** 70% used (457G/662G). Well within safe limits (<85%).\n- **RAM:** 52% used (14.3GB/27.5GB). Stable.\n- **GPU:** RTX 4090 at 85% memory usage (20.9GB/24.5GB). `VLLM::EngineCore` is the primary consumer. Temperature (36C) and Util (0%) indicate idling or purely memory-bound model residency.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Alerts:** Several \"Doctor warnings\" regarding group policy allowlists on Telegram and WhatsApp channels. Group messages will be dropped if sender IDs aren't added to `groupAllowFrom`.\n\n## Recommendations\n1. **Whisper Fix:** Check `pm2 logs whisper`. Likely a model path or port conflict.\n2. **Container Health:** Inspect `docker logs lidaros-frontend-1` and `omiximo-email-automation`.\n3. **Channel Config:** Review OpenClaw config for group policies if group participation is expected."
+  }
+}

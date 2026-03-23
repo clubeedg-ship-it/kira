@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T02:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-21",
+    "filename": "health-report-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report\n\n**Timestamp:** 2026-03-21 02:51 UTC\n\n## Summary\n\nOverall system is operational, but there are critical service failures and unhealthy containers that require attention.\n\n## Status Details\n\n### PM2 Processes\n- **Online:** 15 processes total.\n- **CRITICAL:** `whisper` (ID 25) is in a massive crash loop with over 677,000 restarts. Uptime shows 0s. This is likely consuming CPU/log space.\n- **Recent Restarts:** `iam-website` (39 restarts), `stella-tax` (63 restarts).\n\n### Docker Containers\n- **Healthy:** 12 containers (Postgres, Scribe, Neo4j, etc.)\n- **UNHEALTHY:**\n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n- **Note:** `ollama`, `n8n`, and others are Up but don't show health status (default).\n\n### Resources\n- **Disk:** 70% used (457G/662G). Healthy.\n- **Memory:** 12.6GB used of 27GB. ~15GB available. Healthy.\n- **GPU:** RTX 4090 at 51% utilization. 20.5GB/24GB VRAM used (VLLM EngineCore). Running within limits.\n\n### OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Probe:** OK.\n- **Warnings:** Multiple 'groupPolicy' allowlist warnings for Telegram/WhatsApp accounts. Group messages will be dropped until configured.\n\n## Actions Taken\n- Generated alerts for `whisper` crash loop and unhealthy Docker containers.\n"
+  }
+}

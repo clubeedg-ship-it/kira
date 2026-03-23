@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-22T04:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-22",
+    "filename": "health-check-2026-03-22.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-22\n\n## Summary\nOverall system is functional, but there are specific service failures and container health warnings that require attention.\n\n## Service Status\n### PM2 Processes\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, paperclip, stella-tax, whatsapp-bridge, zenithcred-website.\n- **Stopped:** `whisper` (id 25). This process has 932 restarts, suggesting a persistent crash loop before it was stopped.\n\n### Docker Containers\n- **Healthy:** client-ops-postgres, langfuse stack, inventree stack, n8n, ollama, evolution-api.\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 36 hours, unhealthy)\n  - `omiximo-email-automation` (Up 36 hours, unhealthy)\n\n## Resource Usage\n- **Disk:** 70% used (457G of 662G). Well within safe limits (<85%).\n- **Memory:** 12004MiB used / 27532MiB total (~43%). Available: 15528MiB. Healthy.\n- **GPU (RTX 4090):** 40°C, 20550MiB / 24564MiB VRAM used (~83%). VLLM::EngineCore is occupying most of the VRAM. GPU Utility is at 0%, indicating idle state with pre-allocated memory.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Warnings:** Multiple 'groupPolicy' warnings for Telegram and WhatsApp accounts (group messages currently dropped due to empty allowlists).\n\n## Recommendations\n1. **Whisper:** Inspect `pm2 logs whisper` to identify why it is failing/stopped.\n2. **Unhealthy Containers:** Run `docker inspect` or check application logs for `lidaros-frontend-1` and `omiximo-email-automation` to determine the cause of the unhealthy status.\n3. **Gateway Config:** Update group allowlists if group chat interaction is expected for the configured accounts."
+  }
+}

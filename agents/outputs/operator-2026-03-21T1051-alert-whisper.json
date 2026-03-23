@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T10:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper service (PM2 ID 25) is in a crash loop (805+ restarts, uptime 1s).",
+    "action": "Check whisper logs (pm2 logs whisper) and resolve the configuration or resource issue."
+  }
+}

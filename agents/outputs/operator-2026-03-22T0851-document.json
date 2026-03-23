@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-22T08:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-22",
+    "filename": "health-check-2026-03-22.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-22\n\n## Summary\nOverall system is functional, but several services require attention. Disk and Memory are within safe limits. GPU is active with a VLLM process.\n\n## Service Status\n### PM2 Processes\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, paperclip, stella-tax, whatsapp-bridge, zenithcred-website.\n- **Stopped:** `whisper` (id: 25). Needs investigation.\n\n### Docker Containers\n- **Healthy/Up:** postgres (client-ops), scribe, frontend-ui, neo4j, lidaros-backend, kali-osint, inventree (server, worker, frontend, db, redis), langfuse (postgres, redis, minio), omiximo-bridge, evolution-api, evolution_postgres, ollama, n8n.\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 40 hours, unhealthy)\n  - `omiximo-email-automation` (Up 40 hours, unhealthy)\n\n### OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Notes:** Several 'Doctor' warnings regarding group message policies on Telegram and WhatsApp channels (allowlist active but empty).\n\n## System Resources\n- **Disk:** 70% used (457G/662G). Status: OK.\n- **Memory:** 11.9G used / 27.5G total (~43%). Status: OK.\n- **GPU:** RTX 4090 active. 20.5GiB / 24.5GiB memory used by VLLM Core. Temp 40C. Status: OK.\n\n## Actions Required\n1. Restart or investigate `whisper` PM2 process.\n2. Check logs for `lidaros-frontend-1` and `omiximo-email-automation` to resolve unhealthy status.\n3. Review OpenClaw channel configurations for group message policies."
+  }
+}

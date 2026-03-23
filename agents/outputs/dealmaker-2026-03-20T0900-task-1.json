@@ -1,0 +1,19 @@
+{
+  "type": "task",
+  "agent": "dealmaker",
+  "timestamp": "2026-03-20T09:00:00Z",
+  "task": {
+    "title": "Launch ZenithCred VC Outreach Sequence",
+    "description": "Materials (investor-outreach.md, financials.md) are finalized. Need to personalize and send the first batch (5-8 investors) as per Email 1A/1B templates.",
+    "priority": "high",
+    "sourceContext": "ZenithCred Seed (€1.1M) round is in 'Launch' stage. 20 VCs already mapped.",
+    "keyPoints": [
+      "Target: 5-8 VCs in first batch (LUMO Labs, Newion, Peak, etc.)",
+      "Focus: Highlighting 3 pilot LOIs and interactive light panel differentiation",
+      "Goal: Schedule 20-minute fit check meetings"
+    ],
+    "assignee": "user",
+    "project": "zenithcred",
+    "dueDate": "2026-03-23"
+  }
+}

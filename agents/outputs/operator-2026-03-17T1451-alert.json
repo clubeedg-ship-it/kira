@@ -1,0 +1,21 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T14:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical Infrastructure Issues Detected",
+    "details": {
+      "pm2_restarts": [
+        "openclaw-gateway (581 restarts)",
+        "whisper (119 restarts)"
+      ],
+      "docker_issues": [
+        "langfuse_langfuse-web_1 (Restarting)",
+        "lidaros-frontend-1 (unhealthy)",
+        "omiximo-email-automation (unhealthy)"
+      ]
+    },
+    "action": "Investigate pm2 logs for openclaw-gateway and whisper; check docker logs for langfuse and unhealthy containers."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T16:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper transcription service is DOWN. Stopped manually due to CUDA Out of Memory crash loop.",
+    "action": "Adjust VLLM VRAM allocation or move Whisper to CPU."
+  }
+}

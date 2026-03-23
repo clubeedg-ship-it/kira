@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T02:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Service 'whisper' is in a crash loop (PM2 restarts: 677,000+)",
+    "action": "Investigate logs with 'pm2 logs whisper' and consider stopping or fixing the service."
+  }
+}

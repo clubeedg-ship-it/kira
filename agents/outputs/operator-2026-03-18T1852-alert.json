@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T18:52:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper failed to restart (CUDA OOM). Gateway PM2 process deleted to stop crash loop with systemd. Docker containers still unhealthy.",
+    "action": "Immediate action required: 1. Address GPU memory usage (VLLM reservation is blocking Whisper). 2. Investigate why lidaros-frontend-1 remains unhealthy after restart."
+  }
+}

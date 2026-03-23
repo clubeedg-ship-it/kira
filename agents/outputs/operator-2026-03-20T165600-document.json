@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T16:56:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-20",
+    "filename": "infra-health-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-20 16:56 UTC\n\n## Summary\nOverall system is operational but showing signs of instability in specific microservices. Disk and RAM are within healthy limits. GPU is heavily utilized by VLLM.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** 14/15 processes online.\n- **Stopped:** `whisper` (id: 25). Restart count is high (518+), suggesting a crash loop or environment issue.\n\n### Docker Containers\n- **Healthy/Up:** Most containers including `postgres`, `n8n`, `ollama`, and `inventree` stack.\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 46 hours, Unhealthy)\n  - `omiximo-email-automation` (Up 46 hours, Unhealthy)\n\n### OpenClaw Gateway\n- **Status:** Running (RPC ok).\n- **Warnings:** Several channel group policy warnings detected (allowlist but empty). All group messages currently dropped for Telegram/WhatsApp.\n\n## Resource Usage\n- **Disk:** 70% used (205GB free on `/`).\n- **RAM:** 43% used (11.8GB / 27.5GB).\n- **GPU:** RTX 4090 @ 43\u00b0C. Memory usage at 83% (20.5GB / 24.5GB) due to `VLLM::EngineCore`.\n\n## Alerts & Recommendations\n1. **Whisper:** Investigate why `whisper` is stopped. High restart count indicates it tried to recover many times.\n2. **Unhealthy Docker:** Restart `lidaros-frontend-1` and `omiximo-email-automation` to clear unhealthy states.\n3. **Channel Config:** Update group allowlists in OpenClaw config if group chat interaction is expected."
+  }
+}

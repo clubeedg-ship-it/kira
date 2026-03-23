@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-22T10:51:30Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is stopped in PM2.",
+    "action": "Investigate whisper logs and restart if appropriate."
+  }
+}

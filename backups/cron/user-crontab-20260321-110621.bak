@@ -1,0 +1,3 @@
+*/10 * * * * pgrep -f activity-daemon.js || node ~/clawd/scripts/activity-daemon.js &
+*/15 * * * * node /home/adminuser/kira/scripts/sync-codex-auth-to-openclaw.mjs >/dev/null 2>&1
+*/2 * * * * /home/adminuser/.openclaw/scripts/sync-claude-token.sh >> /home/adminuser/.openclaw/logs/sync-claude-token.log 2>&1

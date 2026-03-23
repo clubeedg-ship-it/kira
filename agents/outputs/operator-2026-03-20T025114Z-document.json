@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T02:51:14Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-20",
+    "filename": "health-check-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — March 20, 2026\n\n## Summary\nOverall system is operational, but requires attention for specific services and configuration warnings.\n\n## PM2 Status\n- **Total Services:** 15\n- **Online:** 14\n- **Stopped:** 1 (whisper - id: 25)\n- **Issues:** Whisper has 518+ restarts, currently stopped.\n\n## Docker Status\n- **Total Containers:** 21\n- **Healthy/Up:** 19\n- **Unhealthy:** 2\n    - `lidaros-frontend-1` (Up 32 hours, unhealthy)\n    - `omiximo-email-automation` (Up 32 hours, unhealthy)\n\n## System Resources\n- **Disk:** 70% used (457G/662G). Status: **OK**.\n- **RAM:** 11.6G used / 27.5G total (42%). Available: 15.9G. Status: **OK**.\n- **GPU (RTX 4090):** 41°C. Memory: 20550MiB / 24564MiB (83% used by VLLM). Status: **OK**.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **RPC Probe:** OK.\n- **Warnings:** Multiple `groupPolicy` warnings for WhatsApp and Telegram channels (groupPolicy set to 'allowlist' but 'groupAllowFrom' is empty). This will cause group messages to be dropped.\n\n## Recommendations\n1. **Whisper:** Debug why PM2 Whisper service is in a restart loop and currently stopped.\n2. **Docker Health:** Check logs for `lidaros-frontend-1` and `omiximo-email-automation` to identify why health checks are failing.\n3. **Config:** Update `openclaw.json` to either set `groupPolicy` to 'open' or populate `groupAllowFrom` if group interactions are expected."
+  }
+}

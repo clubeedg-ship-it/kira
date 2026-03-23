@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T19:00:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper OOM loop detected & stopped. Omiximo/Lidaros network issues.",
+    "action": "Whisper was in a 932k restart loop due to CUDA Out of Memory (VRAM fully allocated by VLLM). I have STOPPED the whisper process to prevent further CPU/log thrashing. Omiximo is failing because 'inventree-server' is unreachable from within the container network."
+  }
+}

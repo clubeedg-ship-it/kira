@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T07:05:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Service whisper (PM2 ID 25) crash loop: CUDA Out of Memory",
+    "action": "VLLM is consuming 20.5GB VRAM. Restart whisper on CPU or free VRAM from other services."
+  }
+}

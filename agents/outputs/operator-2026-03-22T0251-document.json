@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-22T02:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-22",
+    "filename": "health-status-2026-03-22.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-22 02:51 UTC\n\n## Summary\nOverall system is operational, but multiple services require attention. Disk and RAM are within safe limits.\n\n## Services Status\n### PM2 Processes\n- **Online:** stella-tax, agent-log, gpu-router, kira-admin, kira-app, whatsapp-bridge, oopuo-website, zenithcred-website, iam-chat-proxy, openclaw-bridge, kira-dashboard, client-ops-api, iam-website, paperclip.\n- **Stopped:** `whisper` (pm_id: 25)\n\n### Docker Containers\n- **Healthy/Running:** client-ops-postgres, scribe-service, nextjs-server, neo4j-server, lidaros-backend-1, kali-osint, inventree stack, langfuse stack, omiximo-bridge, evolution stack, ollama, n8n.\n- **Unhealthy:** `lidaros-frontend-1` (Up 34 hours), `omiximo-email-automation` (Up 34 hours).\n\n## System Resources\n- **Disk (Root):** 70% used (457G/662G). **Status: OK**\n- **Memory:** 11.9GB used / 27.5GB total (15.5GB available). **Status: OK**\n- **GPU (RTX 4090):** Temp 40°C, Util 0%, Memory 20.5GB/24.5GB. **Status: OK**\n\n## OpenClaw Gateway\n- **Status:** Running (pid 3411437)\n- **RPC Probe:** OK\n- **Warnings:** Group policy configuration warnings for WhatsApp and Telegram (allowlist active but empty).\n\n## Alerts Summary\n1. `whisper` service is stopped.\n2. `lidaros-frontend-1` container is unhealthy.\n3. `omiximo-email-automation` container is unhealthy.\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T06:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Service whisper (PM2 ID 25) is in a crash loop (uptime 1s, restarts 741...)",
+    "action": "Investigate whisper logs: `pm2 logs whisper`"
+  }
+}

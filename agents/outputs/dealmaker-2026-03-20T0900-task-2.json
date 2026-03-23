@@ -1,0 +1,19 @@
+{
+  "type": "task",
+  "agent": "dealmaker",
+  "timestamp": "2026-03-20T09:00:00Z",
+  "task": {
+    "title": "Convert 3 Pilot LOIs to Paying Contracts (ZenithCred)",
+    "description": "Convert current pilot LOIs (200 employees, Dutch tech co, etc.) to paying customers. Closing these increases valuation and de-risks Series A.",
+    "priority": "critical",
+    "sourceContext": "Current pilots are in NL. Base case Y1 target: 8 customers.",
+    "keyPoints": [
+      "Target: €25.9K SaaS ACV + €5.5K HW per install",
+      "Focus: Demonstrating >15% daily engagement benchmark",
+      "Goal: Tranche 2 funding trigger (5 paying customers + €100K ARR)"
+    ],
+    "assignee": "user",
+    "project": "zenithcred",
+    "dueDate": "2026-04-15"
+  }
+}

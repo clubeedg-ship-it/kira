@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T14:56:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-18",
+    "filename": "health-report-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-18\n\n## Executive Summary\n**Status: DEGRADED**\nMultiple services are in crash loops (PM2) or reporting unhealthy states (Docker). System resources are within safe limits, though GPU memory is nearly full.\n\n## Service Status (PM2)\n- **CRITICAL:** `whisper` (ID 25) — Uptime 1s, Restarts: 487k+. \n- **CRITICAL:** `openclaw-gateway` (ID 42) — Uptime 5s, Restarts: 714k+. \n- **STABLE:** All other 14 services are online. `kira-app` (ID 40) shows 46 restarts but is currently up (79m).\n\n## Container Status (Docker)\n- **UNHEALTHY:** `lidaros-frontend-1`\n- **UNHEALTHY:** `omiximo-email-automation`\n- **HEALTHY:** 11 other containers including `inventree` stack, `langfuse`, and `evolution-api` are healthy.\n\n## Resource Usage\n- **Disk:** 69% used (457G/662G). Safe (<85%).\n- **RAM:** 14.8GB used / 27.5GB total (54% usage). Safe (<90%).\n- **GPU (RTX 4090):** 20.9GB / 24.5GB VRAM used (85% usage). Utilized by VLLM and whisper. \n\n## OpenClaw Gateway\n- **Status:** Running (PID 3491996).\n- **Warnings:** Group policies are set to 'allowlist' but 'allowFrom' is empty for multiple channels (WhatsApp, Telegram). This will cause group messages to be dropped.\n\n## Recommendations\n1. **Debug PM2 Crash Loops:** Check logs for `whisper` and `openclaw-gateway` immediately (`pm2 logs whisper`).\n2. **Fix Container Health:** Investigate why `lidaros-frontend` and `omiximo-email-automation` are failing health checks.\n3. **Config Update:** Update `openclaw.json` to fix group policy allowlists to avoid message loss."
+  }
+}

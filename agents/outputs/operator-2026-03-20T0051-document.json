@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T00:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-20",
+    "filename": "health-report-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-20\n\n## Summary\nOverall system is functional, but there are specific service regressions requiring attention.\n\n## PM2 Status\n- **Total Services:** 15\n- **Online:** 14\n- **Stopped:** 1 (whisper - ID 25)\n- **Issues:** `whisper` has a restart count of 518, suggesting a persistent crash loop before it was stopped.\n\n## Docker Status\n- **Healthy/Up:** 19 containers\n- **Unhealthy:** 2 containers\n  - `lidaros-frontend-1` (Status: Up 30 hours, unhealthy)\n  - `omiximo-email-automation` (Status: Up 30 hours, unhealthy)\n\n## System Resources\n- **Disk Usage (/):** 70% (457G Used / 662G Total). Well within limits (<85%).\n- **Memory:** ~42% used (11.5GB / 27.5GB). Sufficient headroom.\n- **GPU (RTX 4090):** 83% VRAM usage (20.5GB / 24.5GB) by VLLM EngineCore. Utility is 0% (idle), but memory is reserved.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437)\n- **RPC:** OK\n- **Warnings:** Channel group policies for WhatsApp/Telegram are set to 'allowlist' but have no allowed IDs, which will cause group messages to be dropped.\n\n## Actions Taken\n- Generated alert for whisper and unhealthy containers.\n- Documented current state.",
+    "replaces": null
+  }
+}

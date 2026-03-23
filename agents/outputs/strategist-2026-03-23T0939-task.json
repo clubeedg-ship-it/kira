@@ -1,0 +1,58 @@
+[
+  {
+    "type": "task",
+    "agent": "strategist",
+    "timestamp": "2026-03-23T09:39:00Z",
+    "task": {
+      "title": "Fix Oopuo website HubSpot formId",
+      "description": "Go to HubSpot → Marketing → Forms → copy the GUID for the website contact form. Send to Kira or paste into projects/oopuo-website/js/main.js replacing INSERT_FORM_ID_HERE.",
+      "priority": "critical",
+      "sourceContext": "Broken since March 18. Flagged 4 consecutive days.",
+      "assignee": "user",
+      "project": "oopuo",
+      "dueDate": "2026-03-23"
+    }
+  },
+  {
+    "type": "task",
+    "agent": "strategist",
+    "timestamp": "2026-03-23T09:39:00Z",
+    "task": {
+      "title": "IAM Day 10 follow-up emails for Wave 1 Tier 1",
+      "description": "Prepare and send follow-up emails to all 5 Tier 1 targets that haven't responded. Day 10 = March 28.",
+      "priority": "high",
+      "sourceContext": "All 5 Tier 1 emails sent. No responses tracked. Follow-up sequence is critical for conversion.",
+      "assignee": "user",
+      "project": "iam",
+      "dueDate": "2026-03-28"
+    }
+  },
+  {
+    "type": "task",
+    "agent": "strategist",
+    "timestamp": "2026-03-23T09:39:00Z",
+    "task": {
+      "title": "Set up basic MRR tracking",
+      "description": "No visibility on actual revenue. Create a simple spreadsheet or Notion DB tracking: company, client, MRR amount, start date. Without this, can't measure progress toward $700→$2K→$7.5K targets.",
+      "priority": "high",
+      "sourceContext": "March $700 MRR target exists but no tracking mechanism to measure against it.",
+      "assignee": "user",
+      "project": "oopuo",
+      "dueDate": "2026-03-25"
+    }
+  },
+  {
+    "type": "task",
+    "agent": "strategist",
+    "timestamp": "2026-03-23T09:39:00Z",
+    "task": {
+      "title": "ZenithCred: Begin investor outreach",
+      "description": "Pitch Deck v2.0 is ready. Website is live. No investor outreach happened this week. Identify 5 target VCs from the mapped list and send intro emails.",
+      "priority": "medium",
+      "sourceContext": "€1.1M seed target with no active outreach momentum.",
+      "assignee": "user",
+      "project": "zenithcred",
+      "dueDate": "2026-03-28"
+    }
+  }
+]

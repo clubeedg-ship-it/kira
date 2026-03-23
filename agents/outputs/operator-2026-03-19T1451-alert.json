@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T14:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Service 'whisper' is failing with CUDA OOM. VLLM (PID 1686041) is hogging 20.5GB of GPU RAM.",
+    "action": "Reduce VLLM context size/concurrency or switch whisper to CPU mode (compute=float32, device=cpu) to restore functionality."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-19T14:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-19",
+    "filename": "health-check-2026-03-19.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-19\n\n## Summary\nOverall system is stable but requires attention on specific services. Disk and RAM are within healthy limits. GPU is heavily utilized by VLLM.\n\n## Service Status\n### PM2 Processes\n- **Online:** 14/15 services.\n- **Stopped:** `whisper` (id: 25). It has over 500 restarts, suggesting a crash loop or configuration issue.\n- **Recently Restarted:** `iam-website` (7s uptime).\n\n### Docker Containers\n- **Healthy:** Most containers (postgres, n8n, ollama, etc.) are up.\n- **Unhealthy:** \n  - `omiximo-email-automation` (Up 20 hours, unhealthy)\n  - `lidaros-frontend-1` (Up 20 hours, unhealthy)\n\n## Resource Usage\n- **Disk:** 69% used (205G available on `/`).\n- **RAM:** 42% used (11.8GB / 27.5GB). Buff/cache is healthy.\n- **GPU:** RTX 4090 at 83% memory usage (20.5GB / 24.5GB). Exclusively used by `VLLM::EngineCore`.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 198071).\n- **Warnings:** Several 'Doctor' warnings regarding `groupPolicy: allowlist` with empty `groupAllowFrom` on multiple Telegram accounts and WhatsApp. This means group messages are currently being dropped.\n\n## Recommendations\n1. **Whisper:** Inspect logs (`pm2 logs whisper`) to see why it's stopped/looping.\n2. **Docker:** Check health check logs for `omiximo-email-automation` and `lidaros-frontend-1`.\n3. **Gateway:** Update `openclaw.json` to either set `groupPolicy` to `open` or populate the allowlists if group interaction is expected."
+  }
+}

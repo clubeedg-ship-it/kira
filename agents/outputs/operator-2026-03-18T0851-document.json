@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T08:51:00Z",
+  "document": {
+    "title": "System Health Status — 2026-03-18",
+    "filename": "system-health-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# System Health Report — March 18, 2026\n\n## Summary\nOverall system is operational, but there are stability concerns with specific services (Whisper, OpenClaw Gateway) and unhealthy Docker containers (Omiximo Email, Lidaros Frontend).\n\n## Resource Usage\n- **Disk:** 69% used (206G available). Well within safety limits (<85%).\n- **Memory:** 14GB used / 27GB total (~51%). Stable.\n- **GPU:** RTX 4090 at 59°C. 20.9GB/24.5GB VRAM used (mostly by VLLM). Utilization 0% (idle).\n\n## Service Status\n### PM2 Processes\n- All 16 processes are `online`.\n- **Concern:** `openclaw-gateway` has 681 restarts. `whisper` has 396 restarts. These services are flapping.\n\n### Docker Containers\n- 21 containers running.\n- **Unhealthy:** `omiximo-email-automation`, `lidaros-frontend-1`.\n\n### OpenClaw Gateway\n- Status: `running` (RPC probe ok).\n- Warning: Multiple gateway-like services detected (clawdbot-gateway, etc.).\n- Warning: Group policies on multiple channels are set to `allowlist` with empty `allowFrom`, meaning group messages are dropped.\n\n## Actions Taken\n- Generated alerts for service restarts and unhealthy containers.\n- Logged system state for audit.\n"
+  }
+}

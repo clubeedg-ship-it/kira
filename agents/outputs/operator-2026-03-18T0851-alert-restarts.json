@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T08:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "High PM2 restart count for whisper (396) and openclaw-gateway (681).",
+    "action": "Investigate logs for whisper and openclaw-gateway to identify cause of frequent restarts."
+  }
+}

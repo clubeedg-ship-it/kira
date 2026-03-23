@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T16:55:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-17",
+    "filename": "health-report-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-17\n\n## Summary\nCritical system instability detected. Multiple services are in a flapping state or unhealthy.\n\n## PM2 Status\n- **Flapping Services:** `openclaw-gateway` (592 restarts) and `whisper` (150 restarts) show uptimes of only 2 seconds. These services are essentially unusable in this state.\n- **Online Services:** 12 other processes are stable, including `kira-dashboard`, `kira-app`, and `oopuo-website`.\n\n## Docker Status\n- **Unhealthy:** `lidaros-frontend-1`, `omiximo-email-automation`.\n- **Restart Loop:** `langfuse_langfuse-web_1`.\n- **Healthy:** 15 containers (including `postgres`, `neo4j`, `n8n`, `ollama`).\n\n## System Resources\n- **Disk:** 454G/662G (69% used) - **OK**\n- **RAM:** 13.8G/27.5G (50% used) - **OK**\n- **GPU (RTX 4090):** 23.5GB/24.5GB VRAM (95% used). `VLLM` and `Whisper` (python3) are consuming nearly all memory. This VRAM pressure might be causing the `whisper` flapping.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 1704618), but multiple doctor warnings regarding group policies being set to 'allowlist' with empty allow-from lists (breaking group chat functionality).\n\n## Recommendations\n1. Restart `openclaw-gateway` and `whisper` to clear flapping state.\n2. Check `whisper` logs (`pm2 logs whisper`) to see if it's OOMing on VRAM.\n3. Re-run health checks for `lidaros` and `omiximo` containers."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T10:52:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-20",
+    "filename": "health-report-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-20\n\n## Summary\nOverall system is functional, but there are specific service alerts regarding PM2 and Docker. GPU resources are heavily utilized by VLLM.\n\n## Services Status\n\n### PM2 Processes\n- **Online:** 14 processes (agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, paperclip, stella-tax, whatsapp-bridge, zenithcred-website).\n- **Stopped:** `whisper` (id 25).\n\n### Docker Containers\n- **Healthy/Up:** 19 containers (including postgres, neo4j, n8n, ollama, evolution-api, etc.).\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 40 hours, unhealthy)\n  - `omiximo-email-automation` (Up 40 hours, unhealthy)\n\n### OpenClaw Gateway\n- **Status:** Running (pid 3411437).\n- **RPC Probe:** OK.\n- **Doctor Warnings:** Multiple warnings about `groupPolicy` being set to `allowlist` with empty `groupAllowFrom`. This effectively drops all group messages.\n\n## System Resources\n\n### Disk Usage (`/`)\n- **Size:** 662G\n- **Used:** 457G (70%)\n- **Available:** 205G\n\n### Memory (RAM)\n- **Total:** 27.5GB\n- **Used:** 11.8GB\n- **Available:** 15.7GB\n\n### GPU (RTX 4090)\n- **Memory Usage:** 20550MiB / 24564MiB (83.6%)\n- **GPU Utilization:** 0%\n- **Active Process:** VLLM::EngineCore (PID 1686041)\n\n## Alerts Sent\n1. `whisper` service stopped.\n2. `lidaros-frontend-1` and `omiximo-email-automation` unhealthy."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T06:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Critical services whisper and openclaw-gateway are flapping (extremely low uptime). Containers lidaros-frontend and omiximo-email-automation are unhealthy.",
+    "action": "Investigate whisper/openclaw-gateway logs and restart unhealthy containers."
+  }
+}

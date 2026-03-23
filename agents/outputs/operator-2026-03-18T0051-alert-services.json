@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T00:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Critical service instability detected: openclaw-gateway and whisper are flapping (uptime < 5s, high restart counts).",
+    "action": "Investigate logs for openclaw-gateway (PM2 ID 42) and whisper (PM2 ID 25). Potential port conflict or resource exhaustion."
+  }
+}

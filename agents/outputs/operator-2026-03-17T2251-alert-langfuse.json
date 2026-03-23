@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T22:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "langfuse_langfuse-web_1 is in a restart loop.",
+    "action": "Diagnosed: 'Applying clickhouse migrations failed' (lookup clickhouse on 127.0.0.11:53: server misbehaving). ClickHouse container is missing or unreachable. Check docker-compose.yml or container status for ClickHouse."
+  }
+}

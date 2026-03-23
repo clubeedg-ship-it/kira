@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T22:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services down or unhealthy: PM2 'whisper' is stopped; Docker 'lidaros-frontend-1' and 'omiximo-email-automation' are unhealthy.",
+    "action": "Investigate and restart whisper (PM2 id 25), lidaros-frontend-1, and omiximo-email-automation."
+  }
+}

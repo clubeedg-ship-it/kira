@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T22:51:00Z",
+  "alert": {
+    "severity": "critical",
+    "message": "Whisper (PID 3997328) is flapping or stuck. 613 restarts, 100% CPU usage.",
+    "action": "Investigate Whisper process logs and check for stuck tasks."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-22T00:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services offline or unhealthy",
+    "action": "Check pm2 status for 'whisper' and investigate unhealthy Docker containers: 'lidaros-frontend-1', 'omiximo-email-automation'.",
+    "details": {
+      "pm2_stopped": ["whisper"],
+      "docker_unhealthy": ["lidaros-frontend-1", "omiximo-email-automation"]
+    }
+  }
+}

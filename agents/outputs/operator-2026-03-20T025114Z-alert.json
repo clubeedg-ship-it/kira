@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T02:51:14Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Whisper service (PM2) is stopped. 2 Docker containers (lidaros-frontend-1, omiximo-email-automation) report 'unhealthy' status. Multiple OpenClaw channel 'groupPolicy' warnings detected.",
+    "action": "Investigate Whisper exit logs (pm2 logs whisper). Check health check endpoints for unhealthy containers. Review openclaw.json groupPolicy configurations."
+  }
+}

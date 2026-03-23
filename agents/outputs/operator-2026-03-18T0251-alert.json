@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T02:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "PM2 'whisper' and 'openclaw-gateway' (PM2 managed) processes showing very low uptime/restarts.",
+    "action": "Investigate PM2 logs for whisper (ID 25) and openclaw-gateway (ID 42). Note: A separate systemd-managed gateway is also running and healthy."
+  }
+}

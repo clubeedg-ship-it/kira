@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T08:55:02Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-20",
+    "filename": "health-check-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-20\n\n**Status:** ⚠️ AT RISK\n**Timestamp:** 2026-03-20 08:55 UTC\n\n## Summary\nOverall system is operational but several services require immediate attention. Disk, RAM, and GPU resources are within healthy limits, though GPU VRAM is highly utilized.\n\n## Service Status\n\n### PM2 (Node.js/Python Services)\n- **Online:** 14/15 services.\n- **Stopped:** `whisper` (ID 25) — **Alert triggered.**\n- **Issues:** `iam-website` has 39 restarts; suggests instability.\n\n### Docker (Containers)\n- **Healthy:** Most core services (postgres, n8n, ollama, langfuse stack).\n- **Unhealthy:** \n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n- **Check needed:** These containers are running but failing internal health checks.\n\n## Resource Usage\n\n### System\n- **Disk (`/`):** 70% used (457G/662G). Healthy (<85%).\n- **RAM:** 11.7GB used / 27.5GB total. Healthy.\n- **Swap:** 0MB (Not configured/used).\n\n### GPU (RTX 4090)\n- **Utilization:** 0% (Idle)\n- **VRAM:** 20.5GB / 24.5GB (83% used by `VLLM::EngineCore`).\n- **Temp:** 41°C. Healthy.\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Warnings:** Group message policy is set to 'allowlist' with empty lists for several accounts (stella-debts, nova, kira-bot-2), effectively dropping all group messages.\n\n## Actions Taken\n- Generated alerts for stopped/unhealthy services.\n- Monitoring `iam-website` for further restarts."
+  }
+}

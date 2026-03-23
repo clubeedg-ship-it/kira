@@ -77,7 +77,7 @@ The $1B valuation comes from being the **infrastructure layer where service data
 | Project | Purpose | Status |
 |---------|---------|--------|
 | **IAM (Interactive Move)** | Interactive floor/wall projectors for kids & offices (interactivemove.nl). Hardware + content. Kindergarten market focus. | Active |
-| **OttoGen** | Otto's personal brand — AI services for SMBs + content/webinars/future-philosophy. The "genius behind all companies" curriculum. Swiss Cyberpunk aesthetic. | Launch prep |
+| **Oopuo** | Otto's personal brand — AI services for SMBs + content/webinars/future-philosophy. The "genius behind all companies" curriculum. Swiss Cyberpunk aesthetic. | Active |
 | **CuttingEdge** | Interior design & rebuilding project management | Active |
 | **Abura Cosmetics** | Sales support | Active |
 

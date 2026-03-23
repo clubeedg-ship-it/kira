@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T06:51:00Z",
+  "document": {
+    "title": "Operator Health Check — 2026-03-18T0651Z",
+    "filename": "operator-2026-03-18T0651-document.json",
+    "category": "health",
+    "content": "# Infrastructure Health Report — 2026-03-18\n\n## PM2 Status\n- **Issues:** `whisper` (id 25) and `openclaw-gateway` (id 42) show < 2s uptime and extremely high restart counts (36k-670k). They are likely in a crash loop.\n- **Operational:** Most other services (kira-dashboard, iam-website, oopuo-website, etc.) are online with stable uptimes.\n\n## Docker Status\n- **Unhealthy:** `lidaros-frontend-1` and `omiximo-email-automation` are reporting (unhealthy).\n- **Healthy:** `client-ops-postgres`, `lidaros-backend-1`, `inventree-db`, `langfuse_postgres_1`, etc.\n\n## System Resources\n- **Disk:** 69% used (456GB/662GB). Safe level (<85%).\n- **Memory:** ~51% used (14GB/27.5GB). Safe level (<90%).\n- **GPU:** RTX 4090 at 85% memory utilization (20.9GB/24.5GB), primarily VLLM (20.5GB). Utilization 0%.\n\n## OpenClaw Gateway\n- **Status:** Running (pid 1610351).\n- **Doctor Warnings:** Multiple warnings about `groupPolicy` being set to `allowlist` without `groupAllowFrom` IDs, affecting WhatsApp and Telegram.\n\n## Action Items\n1. Debug `whisper` and `openclaw-gateway` crash loops.\n2. Restart unhealthy Docker containers (`lidaros-frontend-1`, `omiximo-email-automation`).\n3. Configure group allowlists for Telegram/WhatsApp to resolve Doctor warnings."
+  }
+}

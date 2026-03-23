@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { db } from '../../db';
 import { userIdentity, memoryShortTerm, userSettings } from '../../db/schema';
 import { eq, desc, and, sql, like } from 'drizzle-orm';

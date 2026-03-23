@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T06:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-21",
+    "filename": "health-report-2026-03-21.md",
+    "category": "operations",
+    "content": "# Infrastructure Health Report — 2026-03-21\n\n## Summary\nCritical issue detected with the `whisper` service. Two Docker containers are reporting as unhealthy. Other system resources are within acceptable limits.\n\n## PM2 Services\n- **Total Services:** 15\n- **Online:** 15\n- **Issues:** \n  - `whisper` (ID 25) is in a high-frequency crash loop (Uptime: 1s, Restarts: >7k). Needs immediate investigation.\n\n## Docker Containers\n- **Total Containers:** 21\n- **Unhealthy:**\n  - `lidaros-frontend-1` (Up 14 hours, unhealthy)\n  - `omiximo-email-automation` (Up 14 hours, unhealthy)\n- **Healthy/Up:** All other containers (n8n, ollama, inventree stack, langfuse stack, etc.) are stable.\n\n## System Resources\n- **Disk Space (/):** 70% used (457G used, 205G available). **Status: OK**\n- **Memory (RAM):** 50% used (13.7GB used / 27.5GB total). **Status: OK**\n- **GPU (RTX 4090):** \n  - Util: 0%\n  - VRAM: 20.9GB / 24.5GB used (primarily by VLLM EngineCore). **Status: OK**\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437)\n- **RPC Probe:** OK\n- **Warnings:** Several 'Doctor' warnings regarding `groupPolicy` being set to `allowlist` with empty `groupAllowFrom` for WhatsApp and Telegram accounts. This will cause group messages to be dropped.\n\n## Action Items\n1. [ ] Debug `whisper` PM2 crash loop.\n2. [ ] Investigate unhealthy Docker containers (`lidaros-frontend`, `omiximo-email-automation`).\n3. [ ] Update OpenClaw config for group message allowlists or set to `open` if group interaction is intended."
+  }
+}

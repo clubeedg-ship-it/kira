@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T20:51:00Z",
+  "document": {
+    "title": "System Health Check — 2026-03-20T20:51Z",
+    "filename": "operator-2026-03-20T2051-document.json",
+    "category": "infrastructure",
+    "content": "# System Health Report - 2026-03-20 20:51 UTC\n\n## Summary\nOverall system is operational, but multiple service health issues require attention. Disk and Memory are within safe limits. GPU is active with VLLM.\n\n## Critical Alerts\n- **PM2: whisper (ID 25)**: 100% CPU usage, 581,000+ restarts. Serious instability or overload.\n- **Docker Unhealthy**: `lidaros-frontend-1` and `omiximo-email-automation` are marked unhealthy.\n\n## Metrics\n### 💾 Storage\n- **Root (/)**: 70% used (457G/662G). 205G available.\n\n### 🧠 Memory\n- **RAM**: 45% used (12.3G / 27.5G). 15.1G available.\n- **Swap**: 0/0 (None configured).\n\n### 🏎️ GPU (RTX 4090)\n- **Usage**: 15% Util / 83% Memory (20.5GiB / 24.5GiB).\n- **Process**: VLLM::EngineCore (PID 1686041).\n\n### 🔌 OpenClaw Gateway\n- **Status**: Running (PID 3411437).\n- **Warnings**: Multiple groupPolicy 'allowlist' warnings (empty allowFrom) for Telegram and WhatsApp accounts.\n\n## PM2 Status\n- 15 processes online.\n- **Concern**: `whisper` (ID 25) shows extreme restart count.\n\n## Docker Status\n- 21 containers total.\n- **Unhealthy**: `lidaros-frontend-1`, `omiximo-email-automation`."
+  }
+}

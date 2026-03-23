@@ -1,0 +1,33 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T14:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services down or unhealthy",
+    "details": {
+      "pm2": [
+        {
+          "service": "whisper",
+          "status": "stopped",
+          "restarts": 518
+        }
+      ],
+      "docker": [
+        {
+          "container": "lidaros-frontend-1",
+          "status": "unhealthy"
+        },
+        {
+          "container": "omiximo-email-automation",
+          "status": "unhealthy"
+        }
+      ],
+      "gateway_warnings": [
+        "Multiple gateway services detected (clawdbot vs openclaw)",
+        "Telegram/WhatsApp group policy allowlists are empty (group messages dropped)"
+      ]
+    },
+    "action": "Investigate whisper crash loop (pm2 logs whisper); check health logs for lidaros-frontend and omiximo-email-automation; consolidate gateway services."
+  }
+}

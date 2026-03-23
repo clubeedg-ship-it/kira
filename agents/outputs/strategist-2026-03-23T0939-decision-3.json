@@ -1,0 +1,20 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-03-23T09:39:00Z",
+  "decision": {
+    "question": "Abura positioning: Affordable luxury or True luxury? This is blocking the wholesale catalog.",
+    "recommendation": "Pick affordable luxury. Otto's background and Abura's current market position don't support true luxury pricing. Ship the catalog this week.",
+    "evidence": [
+      "VDR questions flagged this as a high-severity gap on March 22",
+      "Wholesale email sequence exists but can't be sent without pricing clarity",
+      "Every week of delay = missed wholesale season opportunities"
+    ],
+    "options": [
+      {"label": "Affordable luxury", "description": "Premium positioning at accessible price points. Ship catalog this week."},
+      {"label": "True luxury", "description": "High-end positioning. Requires brand investment Otto may not have bandwidth for."},
+      {"label": "Kill Abura focus", "description": "It's commission-based. Deprioritize entirely and focus on IAM/Oopuo."}
+    ],
+    "urgency": "this_week"
+  }
+}

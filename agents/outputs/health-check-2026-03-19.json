@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-03-19T08:51:00Z",
+  "agent": "Operator",
+  "status": "warning",
+  "summary": "System is operational with warnings: PM2 'whisper' stopped, and multiple Docker containers (lidaros-frontend, omiximo-email-automation) are reporting unhealthy status.",
+  "checks": {
+    "pm2": {
+      "status": "warning",
+      "total_processes": 15,
+      "online": 14,
+      "stopped": ["whisper"],
+      "critical_alerts": []
+    },
+    "docker": {
+      "status": "warning",
+      "total_containers": 21,
+      "unhealthy": [
+        "lidaros-frontend-1",
+        "omiximo-email-automation"
+      ]
+    },
+    "resources": {
+      "disk_usage_percent": 69,
+      "memory_used_mb": 11674,
+      "memory_total_mb": 27532,
+      "gpu_memory_used_mib": 20550,
+      "gpu_memory_total_mib": 24564
+    },
+    "gateway": {
+      "status": "ok",
+      "warnings": [
+        "Telegram/WhatsApp group policy allowlists are empty (group messages dropped)."
+      ]
+    }
+  }
+}

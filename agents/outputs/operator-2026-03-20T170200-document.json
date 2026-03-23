@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T17:02:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-20",
+    "filename": "infra-health-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report \u2014 2026-03-20 17:02 UTC\n\n## Summary\nInfrastructure is healthy. All primary services are online. Recent unhealthy states in Docker and PM2 have been resolved via automated intervention.\n\n## Service Status\n\n### PM2 Processes\n- **Online:** 15/15 processes online.\n- **Resolved:** `whisper` (id: 25) was found stopped and has been restarted. Current memory: 1.5GB.\n\n### Docker Containers\n- **Healthy/Up:** 21 containers active.\n- **Resolved:** `lidaros-frontend-1` and `omiximo-email-automation` were found unhealthy and have been restarted. Both are currently in `Up (health: starting)` status.\n\n### OpenClaw Gateway\n- **Status:** Running (RPC ok).\n- **Warnings:** Channel group policy warnings exist for Telegram/WhatsApp (allowlist but empty). Interaction with group chats is currently blocked by config.\n\n## Resource Usage\n- **Disk:** 70% used (205GB free on `/`).\n- **RAM:** ~48% used (Memory increased slightly after `whisper` restart).\n- **GPU:** RTX 4090 @ 43\u00b0C. Memory usage at 83% (20.5GB / 24.5GB) due to `VLLM::EngineCore`.\n\n## Actions Taken\n- Restarted `whisper` PM2 process.\n- Restarted `lidaros-frontend-1` Docker container.\n- Restarted `omiximo-email-automation` Docker container."
+  }
+}

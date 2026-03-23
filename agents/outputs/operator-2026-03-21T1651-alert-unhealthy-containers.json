@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T16:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Unhealthy Docker containers detected: lidaros-frontend-1, omiximo-email-automation",
+    "action": "Investigate health check failures for lidaros-frontend-1 and omiximo-email-automation. Manual restart may be required if they don't recover."
+  }
+}

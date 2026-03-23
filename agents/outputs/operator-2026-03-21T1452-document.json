@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T14:52:00Z",
+  "document": {
+    "title": "Infrastructure Health Report - 2026-03-21",
+    "filename": "health-report-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report\n\n**Date:** 2026-03-21 14:52 UTC\n**Status:** ⚠️ CONCERNING\n\n## 1. PM2 Services\n- **Total Services:** 15\n- **Online:** 15\n- **Issues:** `whisper` (ID 25) is in a heavy restart loop (868,000+ restarts, uptime 0s). Immediate intervention required.\n\n## 2. Docker Containers\n- **Total Containers:** 21\n- **Unhealthy:**\n  - `lidaros-frontend-1`: unhealthy (Up 22 hours)\n  - `omiximo-email-automation`: unhealthy (Up 22 hours)\n- **Active Stack:** `postgres`, `scribe-service`, `nextjs-server`, `neo4j`, `lidaros`, `inventree`, `langfuse`, `omiximo`, `evolution_api`, `ollama`, `n8n`.\n\n## 3. System Resources\n- **Disk:** 70% used (457G/662G). Status: OK.\n- **RAM:** 45% used (12.4GB/27.5GB). Status: OK.\n- **GPU (RTX 4090):** 83% Memory used (20.5GB/24.5GB) by `VLLM::EngineCore`. Temp 38C. Status: OK (Heavy load but within limits).\n\n## 4. OpenClaw Gateway\n- **Status:** Running (PID 3411437).\n- **Doctor Warnings:** Multiple warnings regarding `groupPolicy: allowlist` with empty allowlists for Telegram and WhatsApp channels. Group messages will be dropped.\n\n## 5. Summary\nInfrastructure is mostly functional, but `whisper` service failure and Docker health checks on `lidaros` and `omiximo` need attention. High VRAM usage is expected for LLM operations."
+  }
+}

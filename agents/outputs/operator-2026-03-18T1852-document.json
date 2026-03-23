@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T18:52:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-18 (Updated)",
+    "filename": "health-report-2026-03-18-updated.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-18 (Updated)\n\n## Summary\nCritical infrastructure remains in a **Failing** state. Emergency mitigation steps were taken to stop a PM2 crash loop, but core services remain down due to resource contention.\n\n## Interventions Taken\n- **OpenClaw Gateway:** Deleted the PM2 process for `openclaw-gateway` (id: 42). It was in a crash loop because the gateway is already managed by systemd. The systemd instance (pid 1168492) is healthy; the PM2 duplicate was causing 100% CPU spikes and lock errors. PM2 state saved to prevent recurrence.\n- **Whisper:** Attempted restart failed. Service is currently **Stopped**.\n- **Docker:** `lidaros-frontend-1` and `omiximo-email-automation` were restarted. `omiximo-email-automation` is starting; `lidaros-frontend-1` is still reporting **unhealthy**.\n\n## Blocking Issues\n- **GPU Memory Exhaustion:** `whisper` is crashing with `RuntimeError: CUDA failed with error out of memory`. `VLLM::EngineCore` (pid 1686041) has reserved 20.5GB of the 24GB VRAM on the RTX 4090, leaving insufficient space for Whisper's model loading.\n- **LidarOS Frontend:** Remains unhealthy despite restart. Possible configuration or upstream dependency failure.\n\n## Current Status\n- **PM2:** All web/bridge services online except Whisper.\n- **Docker:** Core stack (postgres, neo4j, n8n, ollama) is healthy.\n- **Gateway:** Systemd instance is active and RPC probe is OK.\n\n## Action Items\n1. **Critical:** Adjust VLLM memory reservation or stop non-essential GPU processes to allow Whisper to load.\n2. **Critical:** Check `docker logs lidaros-frontend-1` to diagnose health check failures.\n3. **Notice:** Monitor `omiximo-email-automation` to see if it clears the 'starting' state."
+  }
+}

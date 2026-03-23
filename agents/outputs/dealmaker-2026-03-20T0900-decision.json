@@ -1,0 +1,20 @@
+{
+  "type": "decision",
+  "agent": "dealmaker",
+  "timestamp": "2026-03-20T09:00:00Z",
+  "decision": {
+    "question": "Adopt €12/employee/month SaaS + €5,500 Hardware pricing for ZenithCred?",
+    "recommendation": "Adopt - Validated vs Headspace/Wellable. Hardware creates switching costs and de-risks pure-software competition.",
+    "evidence": [
+      "€31,420 Year 1 deal value (€21,366 Gross Profit)",
+      "2.5x LTV:CAC with path to 3.5x",
+      "78% SaaS gross margins validated by benchmark models"
+    ],
+    "options": [
+      {"label": "Adopt €12 SaaS / €5,500 HW", "description": "Primary model with 68% blended margin"},
+      {"label": "Lower SaaS / Higher HW", "description": "Slower ARR growth, faster HW payback"},
+      {"label": "Lease Model", "description": "Reduce upfront barrier but higher financing cost"}
+    ],
+    "urgency": "high"
+  }
+}

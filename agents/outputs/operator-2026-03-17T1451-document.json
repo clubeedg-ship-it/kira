@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T14:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-17",
+    "filename": "health-report-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-17\n\n## Summary\nCritical issues detected with high restart counts for key services and several unhealthy/restarting Docker containers. Resource usage is within acceptable limits.\n\n## PM2 Status\n- **Critical**: `openclaw-gateway` has **581 restarts** and was only up for 5 seconds.\n- **Critical**: `whisper` has **119 restarts** and was just restarted (0s uptime).\n- Other services (iam-chat-proxy, kira-dashboard, etc.) appear stable with reasonable uptimes.\n\n## Docker Status\n- **Alert**: `langfuse_langfuse-web_1` is in a **Restarting** state.\n- **Warning**: `lidaros-frontend-1` is **unhealthy**.\n- **Warning**: `omiximo-email-automation` is **unhealthy**.\n- Database containers (Postgres, Redis, Neo4j) are healthy.\n\n## System Resources\n- **Disk**: 69% usage (454G used of 662G). **Stable.**\n- **RAM**: 13.6G used of 27G. ~50% available. **Stable.**\n- **GPU**: RTX 4090 memory usage at 85% (20.9GB / 24.5GB). Utilized by VLLM and whisper. **Under load but operational.**\n\n## OpenClaw Gateway\n- **Status**: Running (pid 1704618).\n- **Warnings**: Several doctor warnings regarding empty group allowlists for WhatsApp and Telegram.\n\n## Recommendations\n1. Check logs for `openclaw-gateway` (`pm2 logs openclaw-gateway`) to see why it is looping.\n2. Check logs for `whisper` service.\n3. Investigate `langfuse` container failure (`docker logs langfuse_langfuse-web_1`).\n4. Perform health check on `lidaros-frontend` and `omiximo-email-automation`."
+  }
+}

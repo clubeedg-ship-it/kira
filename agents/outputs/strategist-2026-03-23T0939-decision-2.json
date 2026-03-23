@@ -1,0 +1,20 @@
+{
+  "type": "decision",
+  "agent": "strategist",
+  "timestamp": "2026-03-23T09:39:00Z",
+  "decision": {
+    "question": "Oopuo website contact form has been broken for 5 days. Provide HubSpot formId or use alternative lead capture?",
+    "recommendation": "This is a 5-minute fix that's been blocking lead capture since March 18. Either provide the formId today or let Kira set up a Formspree/email fallback.",
+    "evidence": [
+      "Flagged in daily logs on March 20, 21, 22 — still unresolved",
+      "Every website visitor hitting the contact form gets a silent failure",
+      "HubSpot funnel was carefully designed (Form 1 → auto email → Form 2 → booking) but step 1 is broken"
+    ],
+    "options": [
+      {"label": "Provide formId now", "description": "Go to HubSpot → Marketing → Forms → copy the form GUID"},
+      {"label": "Fallback to mailto", "description": "Replace form with mailto:otto@oopuo.com temporarily"},
+      {"label": "Kira creates new HubSpot form", "description": "If Otto shares HubSpot access, Kira can create the form and wire it"}
+    ],
+    "urgency": "today"
+  }
+}

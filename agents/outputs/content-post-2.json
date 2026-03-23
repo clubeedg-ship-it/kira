@@ -1,27 +1,25 @@
 {
   "type": "decision",
   "agent": "content",
-  "timestamp": "2026-03-17T08:35:00Z",
   "decision": {
-    "question": "Post about MiCA regulation and Oopuo tokenomics?",
-    "recommendation": "Use this to position Otto as a forward-thinking founder building compliant infrastructure, not just 'another crypto project'. High 'Swiss Cyberpunk' vibe.",
+    "question": "Post about the ZenithCred 'Pilot Readiness' pivot?",
+    "recommendation": "Use the ZenithCred pitch deck update to talk about 'Investor Honesty'. Pivot from 'faking it' to 'systematizing it'. Frame as: 'We're not claiming we have 100 paying customers for ZenithCred yet. We're claiming we've built the engine that will run them.'",
     "evidence": [
-      "Completed deep research on MiCA (EU crypto regulation).",
-      "Strategic pivot to 'non-transferable platform credits' and 'verifiable credentials' to bypass early compliance costs.",
-      "Shows Oopuo is building for the long term (tokenized impact economy)."
+      "Based on: ZenithCred Pitch Deck v2.0 'Pilot Readiness' update",
+      "Based on: 2026-03-21 daily log outcome #3"
     ],
     "options": [
       {
-        "label": "Twitter Thread: Building in the Shadows",
-        "description": "Text draft: 'Building a tokenized impact economy in Europe means dealing with MiCA.\n\nMost projects run from regulation. We’re building into it.\n\nOur strategy:\n1. Non-transferable credits first (outside MiCA scope).\n2. Verifiable credentials for impact proof (soulbound, not financial instruments).\n3. Selective tokenization when the business justifies the €50k-€100k compliance cost.\n\nInfrastructure that can't be killed is infrastructure that follows the rules where they matter.'"
+        "label": "Post as text",
+        "description": "Too many founders lie on Slide 6.\n\nUpdating the ZenithCred pitch deck tonight and I made a call: no fluff. \n\nInstead of claiming we're 'scaling' when we haven't hit the first pilot, I’m framing it as 'Pilot Readiness'. We have the engine, we have the evidence plan, and we have the target organizations.\n\nHonesty is a competitive advantage. If you don't have the traction yet, sell the process of how you'll get it.\n\nInvestors respect the math more than the dream."
       },
       {
-        "label": "LinkedIn: Real Innovation vs. Regulation",
-        "description": "Text draft: 'MiCA isn't a wall. It's a roadmap.\n\nSpent the last few days deep-diving into EU crypto regulation for Oopuo. The takeaway: You can build a decentralized impact economy today if you're smart about classification.\n\nWe’re using verifiable credentials for our impact proofs—proving carbon reduction without triggering financial laws. \n\nCompliance is a competitive advantage if you understand it before your competitors do.'"
+        "label": "Record video",
+        "description": "Record a 30s selfie video. Script: 'I’m looking at the traction slide for ZenithCred. It’s easy to exaggerate, but we’re going the other way. I’m labeling it \"Pilot Readiness.\" We’ve built the system, and now we’re showing investors exactly how the next 6 months of data will look. Don't lie about where you are—prove you know where you’re going.'"
       },
       {
         "label": "Skip",
-        "description": "Too technical for general audience."
+        "description": "Keep this for investor DMs only."
       }
     ],
     "urgency": "today"

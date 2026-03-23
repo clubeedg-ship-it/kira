@@ -1,0 +1,12 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-17T18:56:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-17",
+    "filename": "health-report-2026-03-17.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — March 17, 2026\n\n## Summary\nCritical instability detected in several key services. While the main OpenClaw gateway is technically reachable via RPC, the PM2 logs show extreme restart counts for multiple processes. Several Docker containers are also reporting unhealthy or stuck in restart loops.\n\n## Service Status (PM2)\n| Service | Status | Restarts | Note |\n|---------|--------|----------|------|\n| openclaw-gateway | online | 603,000+ | **Critical Flapping** |\n| whisper | online | 181,000+ | **Critical Flapping** |\n| others | online | <100 | Stable |\n\n## Container Status (Docker)\n- **langfuse_langfuse-web_1**: Restarting (Looping)\n- **lidaros-frontend-1**: Unhealthy\n- **omiximo-email-automation**: Unhealthy\n- **All others**: Up and Healthy\n\n## System Resources\n- **Disk**: 69% Used (207GB Avail) — **OK**\n- **Memory**: 16GB Used / 27GB Total (11GB Available) — **OK**\n- **GPU**: RTX 4090 @ 90% Memory Usage (22GB/24GB). VLLM and Whisper active. — **OK**\n\n## OpenClaw Gateway\n- **Status**: Running (PID 3742972)\n- **RPC**: OK\n- **Warnings**: Multiple `groupPolicy` allowlist warnings (group messages will be dropped). Multiple legacy/duplicate systemd services detected (clawdbot-*).\n\n## Recommendations\n1. **Inspect Logs**: Check `pm2 logs openclaw-gateway` and `pm2 logs whisper` to identify cause of restart loops.\n2. **Fix Containers**: Investigate `langfuse` restart loop and `lidaros`/`omiximo` health check failures.\n3. **Cleanup**: Remove legacy `clawdbot-*` systemd services to avoid port/config conflicts.\n4. **Config**: Update group allowlists for Telegram/WhatsApp to resolve dropped message warnings.",
+    "replaces": null
+  }
+}

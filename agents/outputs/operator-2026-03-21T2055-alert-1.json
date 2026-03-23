@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T20:55:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Service 'whisper' is stopped in PM2.",
+    "action": "Investigate if 'whisper' should be online or if it was intentionally stopped (it has 932 restarts, suggesting a crash loop)."
+  }
+}

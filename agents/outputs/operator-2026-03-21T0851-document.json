@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T08:51:00Z",
+  "document": {
+    "title": "System Health Check — 2026-03-21",
+    "filename": "health-check-2026-03-21.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-21\n\n## Summary\nOverall system is stable. PM2 services are online. Resource usage is within acceptable limits. Two Docker containers are reporting unhealthy status.\n\n## PM2 Status\n- **Total Services:** 15\n- **Online:** 15\n- **Issues:** None. `whisper` (PID 2138518) has a high restart count (773k) but is currently online with 0s uptime, suggesting it may be flapping or recently restarted.\n\n## Docker Status\n- **Healthy/Up:** 14 containers (including postgres, neo4j, n8n, ollama, etc.)\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 16 hours, unhealthy)\n  - `omiximo-email-automation` (Up 16 hours, unhealthy)\n- **Exited:** 18 containers (mostly kira-test stack and bouwer services)\n\n## System Resources\n- **Disk Space:** 70% used (457G/662G). Available: 205G.\n- **Memory:** 48% used (13.4GB/27.5GB). Available: 14.1GB.\n- **GPU (RTX 4090):** \n  - **Temp:** 40°C\n  - **Memory:** 85% used (20.9GB/24.5GB) — VLLM::EngineCore consuming 20.5GB.\n  - **Utilization:** 0%\n\n## OpenClaw Gateway\n- **Status:** Running (PID 3411437)\n- **RPC:** OK\n- **Warnings:** Several 'groupPolicy' allowlist warnings for WhatsApp and Telegram accounts. Messages from unauthorized groups will be dropped.\n\n## Recommendations\n1. Check logs for `lidaros-frontend-1` and `omiximo-email-automation` to resolve unhealthy status.\n2. Monitor `whisper` PM2 process due to high restart count.\n3. Address OpenClaw group policy warnings if group communication is expected."
+  }
+}

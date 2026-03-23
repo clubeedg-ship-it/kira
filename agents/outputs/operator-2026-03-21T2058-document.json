@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-21T20:58:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-21",
+    "filename": "infra-health-2026-03-21.md",
+    "category": "maintenance",
+    "content": "# Infrastructure Health Report — 2026-03-21 20:58 UTC\n\n## Summary\nOverall infrastructure is stable with 14/15 PM2 processes online and 19/21 Docker containers running. Key services like `oopuo-website`, `iam-website`, and `kira-app` are healthy.\n\n## PM2 Status\n- **Online:** 14 processes (agent-log, client-ops-api, gpu-router, etc.)\n- **Stopped:** `whisper` (id: 25) - 932 restarts recorded. Needs investigation.\n\n## Docker Status\n- **Healthy:** 19 containers running.\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 28 hours, unhealthy)\n  - `omiximo-email-automation` (Up 28 hours, unhealthy)\n\n## System Resources\n- **Disk:** 457G / 662G (70% used). Within safe limits (<85%).\n- **RAM:** 11.9GB / 27.5GB used (43% used). Plenty of overhead.\n- **GPU:** RTX 4090 active. 20.5GB / 24.5GB VRAM used (VLLM EngineCore). Temp: 41C.\n\n## OpenClaw Gateway\n- **Status:** Running (pid 3411437).\n- **Doctor Warnings:** Multiple group policy allowlist warnings for Telegram and WhatsApp. If group messaging is expected, these policies need updating.\n\n## Alerts Triggered\n1. `whisper` service stopped.\n2. Docker health check failures for Lidaros and Omiximo Email Automation."
+  }
+}

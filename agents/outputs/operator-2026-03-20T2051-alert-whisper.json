@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T20:51:00Z",
+  "alert": {
+    "severity": "warning",
+    "message": "Service 'whisper' (PM2 id 25) is under 100% CPU load and has 5,810+ restarts.",
+    "action": "Investigate whisper service logs and resource allocation. Check for crash loops or heavy processing backlog."
+  }
+}

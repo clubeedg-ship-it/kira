@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T08:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is stopped and 'iam-website' shows high restart count (39).",
+    "action": "Investigate whisper stop reason and check iam-website logs for crash loops."
+  }
+}

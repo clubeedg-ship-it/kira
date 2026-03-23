@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-20T14:55:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-20",
+    "filename": "health-report-2026-03-20.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report\n\n**Date:** 2026-03-20 14:51 UTC\n**Host:** oopuopu-cloud\n\n## Summary\nOverall system is operational but with several critical service failures and configuration warnings that require attention.\n\n## System Resources\n- **Disk:** 70% used (457G/662G). **Status: OK**\n- **Memory:** 11.7GB used / 27.5GB total. **Status: OK**\n- **GPU:** RTX 4090 @ 44°C. 20.5GB/24.5GB VRAM used (VLLM Engine). **Status: OK**\n\n## Service Status\n### PM2\n- **Online:** 14 services (agent-log, client-ops-api, gpu-router, etc.)\n- **Stopped/Failing:** \n  - `whisper` (id: 25) is **STOPPED** with 518 restarts. Likely a crash loop or resource conflict.\n\n### Docker\n- **Healthy:** 12 containers (postgres, neo4j, n8n, etc.)\n- **Unhealthy:**\n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n\n### OpenClaw Gateway\n- **Status:** Running (PID 3411437)\n- **Warnings:**\n  - Multiple gateway-related systemd services detected (potential conflict between `clawdbot` and `openclaw` units).\n  - Channel policies (Telegram/WhatsApp) are set to `allowlist` but lists are empty, meaning group messages are being dropped.\n\n## Alerts Sent\n- High severity alert generated for failing services (`whisper`, `lidaros-frontend`, `omiximo-email-automation`).\n"
+  }
+}

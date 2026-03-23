@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T22:58:00Z",
+  "document": {
+    "title": "Infrastructure Health Check — 2026-03-18",
+    "filename": "health-check-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Check — 2026-03-18\n\n**Status Summary:** Mostly healthy, with minor alerts regarding stopped/unhealthy services.\n\n## System Resources\n- **Disk Usage:** 69% (456GB Used / 662GB Total). Healthy (<85%).\n- **Memory Usage:** 43% used (11.8GB / 27.5GB). Healthy.\n- **GPU (RTX 4090):** 84% Memory Usage (20.5GB / 24.5GB), primarily VLLM::EngineCore. 0% load currently.\n\n## Services (PM2)\n- 14/15 services online.\n- **Alert:** `whisper` (ID 25) is stopped.\n- `kira-app` shows 46 restarts, which may indicate recent instability but is currently online.\n\n## Containers (Docker)\n- 21 containers active.\n- **Alert:** `lidaros-frontend-1` and `omiximo-email-automation` are reporting **unhealthy**.\n\n## OpenClaw Gateway\n- **Status:** Running (RPC probe ok).\n- **Warnings:** Several channel group policies are set to 'allowlist' but have empty 'groupAllowFrom', which will drop all group messages.\n\n## Security & SIEM\n- Wazuh status not checked in this run (Operator SOUL.md mentions it, but initial tool execution focused on standard resource check)."
+  }
+}

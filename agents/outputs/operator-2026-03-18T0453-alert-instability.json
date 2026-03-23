@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T04:53:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical instability in PM2 processes: openclaw-gateway and whisper show extremely low uptimes and high restart counts.",
+    "action": "Investigate logs for PM2 IDs 42 (openclaw-gateway) and 25 (whisper) to identify crash causes. Check for port conflicts or memory pressure."
+  }
+}

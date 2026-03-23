@@ -1,0 +1,504 @@
+# Mem0 Extracted Facts
+
+*Auto-synced from Mem0 history database*
+
+- [2026-03-21] Chimera technical breakthrough: "Consultant-Savant" model enabling blind compute where nodes process data they cannot see
+- [2026-03-21] Content positioning for ZenithCred: "Honest Traction" founder angle emphasizing rigorous pilot design and hardware foundations (IAM) over inflated projections
+- [2026-03-21] Action required: Configure group allowlists for OpenClaw accounts
+- [2026-03-21] CEO decided to pursue and close Babilou as a client ('Laten we deze binnenhalen')
+- [2026-03-21] Proposal targets rollout across 159 KDV locations to differentiate from competition via central decision with local deployment
+- [2026-03-21] InterActiveMove offers interactive floor and wall projectors for childcare at €199/month all-in lease pricing
+- [2026-03-21] Target contact at Babilou NL: Directie NL or Operations Manager (to be found via babilou-family.nl)
+- [2026-03-21] Babilou already uses interactive play technology in France and UK; leverage this existing adoption for Dutch pitch
+- [2026-03-21] Babilou Family is French PE-backed, operates in 12 countries, with 302 locations in Netherlands across brands BLOS, Zein, BijdeHandjes, Zonnekinderen
+- [2026-03-21] Health check report saved to `memory/omiximo-health/2026-03-21.md`
+- [2026-03-21] Omiximo email automation container (`omiximo-email-automation`) is unhealthy after 13 hours uptime
+- [2026-03-21] OpenClaw channel group policies potentially dropping group messages unintentionally.
+- [2026-03-21] High-severity alert issued and documented in `~/kira/agents/outputs/`.
+- [2026-03-21] Infrastructure health check completed on March 21st, 2026 with CAUTION status.
+- [2026-03-20] Action taken: Messaged Otto via Telegram requesting investigation of 'Clawd' integration permissions in Notion
+- [2026-03-20] Notion pages for projects Abura, Chimera, and IAM are inaccessible to the integration
+- [2026-03-20] Critical blocker identified: Massive Notion 404 errors preventing integration access to project pages
+- [2026-03-20] VDR Agent v2 run completed successfully (50 tasks processed)
+- [2026-03-20] Critical resource issue: System at 100% CPU usage with 613 service restarts
+- [2026-03-20] Critical system alert: Whisper service instability
+- [2026-03-20] Published 3rd OttoGen case study content
+- [2026-03-20] oopuo-website confirmed running static implementation on port 8090
+- [2026-03-20] Critical blocker: oopuo-website contact form non-functional due to missing HubSpot formId in js/main.js
+- [2026-03-20] Full health report saved to ~/kira/agents/outputs/operator-2026-03-20T1851-document.json
+- [2026-03-20] Health check alert output saved to ~/kira/agents/outputs/operator-2026-03-20T1851-alert.json
+- [2026-03-20] Alert issued for unhealthy containers
+- [2026-03-20] Tomorrow's operational focus is on revenue generation and closing deals
+- [2026-03-20] Strategic shift from research phase to tangible asset delivery (deck visuals, whitepaper, public repository)
+- [2026-03-20] Chimera repository public preparation (README, License, CI) scheduled for completion tomorrow
+- [2026-03-20] Priority objective for tomorrow: Close first paid client from W07 outreach
+- [2026-03-20] VM health audit completed and Telegram alerts deployed
+- [2026-03-20] Health check document saved to ~/kira/agents/outputs/operator-2026-03-20T170200-document.json
+- [2026-03-20] Recommendation issued to investigate whisper logs and unhealthy Docker containers immediately
+- [2026-03-20] Documentation generated: `~/kira/agents/outputs/operator-2026-03-20T145500-document.json`
+- [2026-03-20] Alert generated: `~/kira/agents/outputs/operator-2026-03-20T145500-alert.json`
+- [2026-03-20] Otto notified via Telegram that overdue P1 tasks are the primary current risk
+- [2026-03-20] No tasks currently marked as 'Blocked'
+- [2026-03-20] 323 task creations failed to sync due to Notion permission issues
+- [2026-03-20] Approved pricing model projects 68% blended gross margin and 36-month runway post-seed
+- [2026-03-20] ZenithCred target deal value is €31.4K Year 1 (€25.9K SaaS ACV + €5.5K hardware)
+- [2026-03-20] Closing 5 paying ZenithCred customers is the hard trigger for Tranche 2 funding
+- [2026-03-20] Immediate priority: Personalize and send first outreach batch to 5-8 Tier 1 VCs including LUMO Labs, Newion, and Peak
+- [2026-03-20] Proposed content angle for Kira: 'One Brain' positioning as persistent unified entity across devices rather than fragmented tools
+- [2026-03-20] Kira architecture unified: Dashboard and Telegram brains merged into single Mem0 core containing 44k+ entities
+- [2026-03-20] Proposed content angle for IAM: 'Real-world infrastructure vs. AI hype' emphasizing critical backend work enabling Oopuo's school deployments
+- [2026-03-20] IAM team optimized interactive floor videos from 92MB to 26MB and cleaned up product media across 5 lines
+- [2026-03-20] Investment outreach strategy requires Context-First messaging explaining why reaching out now, offering 3 specific time slots plus Calendly link, and attaching deck upon acceptance
+- [2026-03-20] Required deliverables: /docs/architecture/critic-loop.md documenting failure modes and exit conditions, and updated ROADMAP.md reflecting Phase 3 milestones and regulatory checks
+- [2026-03-20] Must consolidate ZenithCred and SentinAgro technical specs
+- [2026-03-20] Next 90-day timeline must maintain 60/30/10 revenue-focus ratio
+- [2026-03-20] Must perform gap analysis on MiCA compliance for tokens as part of regulatory alignment
+- [2026-03-20] Phase 3 Impact Layer involving tokens/distributed AI targets $1B revenue by October 2026
+- [2026-03-20] Must contact Heutink, Nienhuis Montessori, and Rolf Groep (top Dutch edu-suppliers) to secure distribution for InteractiveMove projectors in NL kindergarten market; value proposition is Passive Revenue from Hardware-as-a-Service; target contacts are Head of Innovation/Procurement
+- [2026-03-20] Chimera infrastructure requires agentic self-correction loop design with Producer (generation), Critic (evaluation), and Orchestrator (loop control) roles; evaluation dimensions are Correctness, Security, and Style; exit conditions are Pass, Max Iterations (default 3), or Human Escalation; multi-critic setups reduce hallucination in critiques
+- [2026-03-20] Four P1 tasks are overdue: producer/critic loop architecture documentation, investor intro calls for ZenithCred/Oopuo, distribution partner outreach for InteractiveMove, and Phase 3 specs review with roadmap update
+- [2026-03-20] Email subject line used: 'Humanistische pedagogiek + interactief spelen — een logische match?'
+- [2026-03-20] Product capabilities: Accommodates 4-12 children simultaneously, inclusive of children with special needs, automatic content updates
+- [2026-03-20] Strategic value alignment: Product supports humanistic pedagogy through active, child-led discovery rather than passive screen time
+- [2026-03-20] Proposal details: Free demonstration offered at one location, one morning, no obligations
+- [2026-03-20] Campaign pricing offer: €199/month all-in subscription model
+- [2026-03-20] Product specification: Interactive floor projectors for children aged 4-12
+- [2026-03-20] Outreach sender identity: Otto from InterActiveMove (interactivemove.nl)
+- [2026-03-20] Target decision-maker role: Head of Pedagogy or Director at Humankind
+- [2026-03-20] Immediate focus: Prioritizing cash flow/receivables
+- [2026-03-20] Strategic objective: Building trust layers through active projects
+- [2026-03-20] Active project allocation: IAM Rebrand (40%), OttoGen.io (20%)
+- [2026-03-20] Top priorities: Invoicing CuttingEdge projects, IAM kindergarten follow-ups, OttoGen content/outreach
+- [2026-03-20] Full system report and alerts logged to `~/kira/agents/output/`.
+- [2026-03-20] Medium priority alert generated: `operator-20260320-0451-alert-docker.json`.
+- [2026-03-20] High priority alert generated: `operator-20260320-0451-alert-whisper.json`.
+- [2026-03-19] Chimera security audit strategy pending: community vs basic approach
+- [2026-03-19] ZenithCred partnership: Signed agreement with Interactive Move (critical dependency confirmed)
+- [2026-03-19] Security alert: Multiple group policy allowlist warnings detected on gateway
+- [2026-03-19] Worklog data current through February 12 (8 records processed)
+- [2026-03-19] Active projects tracked in worklog system: Chimera, IAM, Kira, and CuttingEdge
+- [2026-03-19] Branding decision pending for AI services: retain 'oopuo' or pivot to OttoLabs/OttoWorks
+- [2026-03-19] CuttingEdge brand identity ('Pragmatic Luxury') lacks concrete origin story and defined brand purpose
+- [2026-03-19] Tomorrow: Consolidate Chimera Protocol Whitepaper chapters
+- [2026-03-19] Tomorrow: Generate ZenithCred Pitch Deck Visuals (Draft 1)
+- [2026-03-19] Current priority focus is ZenithCred funding assets
+- [2026-03-19] System audit of all cron jobs completed
+- [2026-03-19] Graph-backed memory integrated into main session context
+- [2026-03-19] System disk usage at 70% (205GB remaining)
+- [2026-03-19] Data quality issue identified: Cross-document duplicates between SentinAgro and ZenithCred documents indicate untailored placeholder data
+- [2026-03-19] Pending CEO approval: GREEN/YELLOW/RED autonomy levels in system design
+- [2026-03-19] Pending CEO approval: Kira triage engine and input queue implementation (TASK-016/017)
+- [2026-03-19] ZenithCred MVP status unclear; need to confirm current demo-ability for seed round
+- [2026-03-19] VDR Agent v2 completed analysis of 73 files, identifying 323 actions, 106 questions, and 151 gaps
+- [2026-03-19] Unified memory system is fully synchronized and ready for next interval
+- [2026-03-19] Processed tracking column added to episodes table; all 502 historical entries marked as reviewed
+- [2026-03-19] Database migration completed: 635 entities, 1,053 facts, and 502 episodes migrated to unified.db
+- [2026-03-19] Worklog system modeled after Victor Taelin's '1% overhead' approach using hourly Telegram check-ins
+- [2026-03-19] VDR Agent v2 and ZenithCred reporting workflows experienced recurring failures in late February due to SQL schema mismatches and Notion database permission errors
+- [2026-03-19] Action required: Switch whisper to CPU mode or adjust/configure VLLM memory limits to free GPU resources for whisper
+- [2026-03-19] Waiting for: Response from Rob regarding VVE Overtoom
+- [2026-03-19] Action required: Schedule appointment with Richie regarding subsidies for Domme Kar project
+- [2026-03-19] Action required: Check with Rotterdam lawyer and Legacy Builders
+- [2026-03-19] CuttingEdge messaging strategy flagged: Pragmatic Luxury is too abstract, needs concrete Origin Story to build trust
+- [2026-03-19] Chimera implementation gap: job queue system documented in vdr/queue/ architecture is not implemented
+- [2026-03-19] Full health report generated: operator-2026-03-19T0651-document.json
+- [2026-03-19] High-severity alert generated: operator-2026-03-19T0651-alert.json
+- [2026-03-19] Critical service outage: whisper (PM2) and langfuse-web (Docker) are down
+- [2026-03-19] Oopuo Redesign legal compliance and V2 tracking are now live
+- [2026-03-19] CuttingEdge currently in growth phase with active metrics monitoring
+- [2026-03-19] Immediate priority: book follow-up calls with hot leads from recent workshop (identified as revenue driver)
+- [2026-03-19] Deadline: Oopuo morning content must be posted by 10am CET today
+- [2026-03-19] Oopuo transitioning from OttoGen; scaling social outreach targeting services/AI/NL tech sector
+- [2026-03-19] IAM resolved projector media misalignment; kindergarten lease strategy content published on blog
+- [2026-03-19] Kira One-Brain Unification Phase 1 completed (Dashboard brain removal)
+- [2026-03-19] Blocker: ZenithCred cannot proceed with visuals due to missing signed agreement with IAM
+- [2026-03-19] Omiximo health report logged at `~/kira/memory/omiximo-health/2026-03-19.md`
+- [2026-03-19] No alert sent to Otto for Omiximo; failure count (0) below critical threshold (>5)
+- [2026-03-19] Omiximo internal cron job appears idle or stalled; `/app/data/last_run.txt` not updating
+- [2026-03-19] Omiximo container is running but status flagged as "unhealthy" due to stale last-run timestamp (March 9th)
+- [2026-03-19] Monitoring outputs written: operator-2026-03-19T0451-alert.json and operator-2026-03-19T0451-document.json in ~/kira/agents/outputs/
+- [2026-03-19] Task and goal management is conducted in Notion
+- [2026-03-19] Current strategic goals are linked to $700 MMR revenue target and infrastructure milestones (Chimera peer discovery, memory system)
+- [2026-03-19] Memory system is a key infrastructure milestone
+- [2026-03-19] Chimera infrastructure milestone involves peer discovery capability
+- [2026-03-19] IAM project requires cold outreach email templates in Dutch (NL) and English (EN)
+- [2026-03-19] OttoGen project requires landing page copy, estimated 3 hours effort
+- [2026-03-19] Docker containers 'lidaros-frontend-1' and 'omiximo-email-automation' are unhealthy and need investigation
+- [2026-03-19] Service 'whisper' is stopped and requires restart via PM2
+- [2026-03-19] Infrastructure health check completed 2026-03-19 02:51 UTC
+- [2026-03-18] Mem0 integration replaced legacy heuristic extraction as the primary semantic layer for chat-postprocess.ts
+- [2026-03-18] 16 critical cron jobs including Morning Briefs and Health Checks were recently restored after being non-functional for several weeks
+- [2026-03-18] Otto mandated Sequential Agent architecture: spawn one agent per precise task with fresh context instead of multi-tasking within single sessions
+- [2026-03-18] Daily VDR analysis scheduled for 23:00 UTC (Job ID: 27780ec4-912d-4a73-aee1-5c5d40532ac6)
+- [2026-03-18] CuttingEdge missing founder "Origin Story" and UX personality definition
+- [2026-03-18] Abura brand positioning decision pending: Affordable vs. True Luxury
+- [2026-03-18] Generated alerts and documentation saved to `~/kira/agents/outputs/`: whisper service alert (operator-2026-03-18T2255-alert-whisper.json), docker unhealthy alert (operator-2026-03-18T2256-alert-docker-unhealthy.json), status document (operator-2026-03-18T2258-document.json)
+- [2026-03-18] PM2 service degradation: 14/15 services online, `whisper` service stopped requires restart
+- [2026-03-18] Infrastructure health check completed 2026-03-18: System resources healthy (Disk 69%, RAM 43%)
+- [2026-03-18] Notion task 'Update IAM Blog with March 2026 Strategy Content' marked as complete
+- [2026-03-18] ZenithCred Pitch Deck v2.0 and MVP Specification audited and ready for pitch deck visuals generation
+- [2026-03-18] IAM blog content updated to focus on €199/month kindergarten lease model
+- [2026-03-18] Health reports saved to `~/kira/agents/outputs/` with timestamp 2026-03-18T2051
+- [2026-03-18] High severity alert generated for Whisper failure; medium severity alert for Docker containers
+- [2026-03-18] Docker containers `lidaros-frontend-1` and `omiximo-email-automation` are unhealthy (19/21 containers up)
+- [2026-03-18] Outstanding action items exist with Mark and Richie requiring follow-up
+- [2026-03-18] Grid reinforcement (netverzwaring) request to Liander must be submitted tomorrow (critical path: 18-26 weeks lead time)
+- [2026-03-18] Brand documentation gap: No VDR documents exist for 'OttoGen' following the company's rebrand to Oopuo
+- [2026-03-18] Strategic documents lack standardized 'Next Steps' sections, hindering automated tracking capabilities
+- [2026-03-18] Chimera Architecture references `vdr/queue/` for job persistence, but physical implementation/logic is unconfirmed in the VDR
+- [2026-03-18] ZenithCred Business Model and MVP Spec documentation is stalled, blocked by missing founder input on advisors, IP/Patents, and pilot pipelines
+- [2026-03-18] Core business websites Oopuo, IAM, and ZenithCred are online and operational
+- [2026-03-18] Infrastructure is in a degraded state due to resource contention and configuration overlaps
+- [2026-03-18] Infrastructure status is DEGRADED
+- [2026-03-18] Summary notification sent to CEO's Telegram
+- [2026-03-18] Full infrastructure report available at `~/kira/agents/outputs/infra-health-2026-03-18.md`
+- [2026-03-18] Instruction in effect: Maintain silence on Telegram
+- [2026-03-18] As of March 18th, no high-priority (P0/P1) items are blocked or at-risk
+- [2026-03-18] Otto's Tasks DB is the system used to track high-priority (P0/P1) task status and blockers
+- [2026-03-18] Otto was notified of top 5 critical gaps and VDR summary via Telegram.
+- [2026-03-18] Notion task synchronization is failing with 404 errors; Clawd integration requires permission audit or database ID updates.
+- [2026-03-18] SentinAgro and ZenithCred financial targets contain verbatim overlaps, indicating insufficient localization of business cases.
+- [2026-03-18] ZenithCred's business model relies on an IAM partnership and specific pricing assumptions that have not been documented as validated.
+- [2026-03-18] PM2 logs being investigated to diagnose crashing services
+- [2026-03-18] Strategic content approach: "Building in Public" to support billion-dollar portfolio narrative
+- [2026-03-18] Brand identity positioning: "Kira" as shadow-worker representing operational excellence that supports vision
+- [2026-03-18] Rob (contact for VVE Overtoom) has not yet responded
+- [2026-03-18] Batch processing pipeline is not ingesting data from current logging locations (markdown files, knowledge graph), rendering the automated processor effectively stale
+- [2026-03-18] Recent operational activity (IAM website refactor, Paperclip deployment planning) is being captured in daily markdown logs (memory/2026-03-17.md) and knowledge graph instead of the unified.db worklog table
+- [2026-03-18] Worklog batch processor has not received new entries since 2026-02-12, indicating a data flow gap
+- [2026-03-18] Health report logged to `~/kira/memory/omiximo-health/2026-03-18.md`
+- [2026-03-18] Full health report saved to ~/kira/agents/outputs/health-report-2026-03-18.md
+- [2026-03-18] Infrastructure health check outputs saved to ~/kira/agents/outputs/ (operator-2026-03-18T0251-alert.json and operator-2026-03-18T0251-document.json)
+- [2026-03-18] GPU (RTX 4090) memory utilization at 85% capacity running VLLM/Whisper workloads
+- [2026-03-18] Dutch kindergarten market size standardized to ~9,300 kinderdagverblijven (CBS verified data)
+- [2026-03-18] Lead generation tooling changed from Apollo.io to Saleshandy
+- [2026-03-18] File structure updated: vdr/ottogen/ folder renamed to vdr/otto/
+- [2026-03-18] Brand architecture clarified: Otto (personal brand) separated from Oopuo (company)
+- [2026-03-18] Revenue projections assume 60/40 split between Purchase and Lease models
+- [2026-03-18] Lease model pricing: €199–€299/month
+- [2026-03-18] Purchase model pricing: €8.5k–€15k
+- [2026-03-18] Pricing converted to Dutch market: EUR only (USD references removed)
+- [2026-03-18] IAM (InterActiveMove) VDR documentation audit completed with localization fixes
+- [2026-03-18] Pending decision: Next VDR audit target is either Oopuo (holding/services documents) or ZenithCred (funding tier)
+- [2026-03-18] IAM VDR cleaned: stale February tasks deleted, website-refactor.md removed
+- [2026-03-18] IAM market size standardized to ~9,300 KDV (CBS verified)
+- [2026-03-18] IAM tech stack change: Apollo.io replaced with Saleshandy across all VDR references
+- [2026-03-18] IAM folder structure: OttoGen moved to `vdr/otto/` (personal brand), Oopuo represents the company entity
+- [2026-03-18] IAM revenue projections based on 60/40 mix (Purchase/Lease)
+- [2026-03-18] IAM dual pricing model documented: Purchase (€8,500–€15,000 + software subscription) and Lease (€199–€299/month all-inclusive)
+- [2026-03-18] IAM pricing switched to EUR only; competitive analysis repriced with recommended tiers in EUR
+- [2026-03-18] IAM VDR audit completed
+- [2026-03-18] Health monitoring outputs generated: Critical service alerts, Docker warnings, and system summary reports saved to ~/kira/agents/outputs/ with timestamp 2026-03-18T0051
+- [2026-03-18] 12 other PM2 services remain online and stable
+- [2026-03-18] Port conflict identified on port 18789: systemd-managed openclaw-gateway instance blocking PM2 instance, causing repeated crashes
+- [2026-03-17] Git commit 3ab9210 (feat: build proper blog listing and single post view) pushed to iam-website repository
+- [2026-03-17] Updated js/blog-carousel.js to use new blog.html?post=slug URL format for post links
+- [2026-03-17] Created new file js/blog-renderer.js to handle blog UI logic, article rendering, related posts section, and language switcher integration
+- [2026-03-17] Blog system now supports bilingual content rendering (Dutch/English) using localStorage or ?lang= URL parameter
+- [2026-03-17] Blog.html implemented with dynamic routing: displays List View by default and Single Post View via ?post=slug URL parameter
+- [2026-03-17] Language toggle functional across all blog pages
+- [2026-03-17] Blog listing page (/blog without parameters) displays clean grid of all posts
+- [2026-03-17] Blog post detail pages render: feature image, title, date, tags, full content (Dutch/English), 'Back to blog' link, and related posts section
+- [2026-03-17] Individual blog posts accessible via URL pattern: blog.html?post={slug}
+- [2026-03-17] Blog page feature is complete and deployed
+- [2026-03-17] Detailed report saved to ~/kira/vdr/reports/night-shift-2026-03-17.md
+- [2026-03-17] Chimera whitepaper architecture chapters consolidated (Infrastructure initiative)
+- [2026-03-17] ZenithCred pitch deck visuals and core flow definitions prepared (Funding initiative)
+- [2026-03-17] IAM blog strategy updates initialized for March 2026 (Revenue initiative)
+- [2026-03-17] Infrastructure health check reports and two alert files written to ~/kira/agents/outputs/
+- [2026-03-17] OpenClaw Gateway systemd service is running and RPC probe reports OK status (divergence from PM2 crash loop state)
+- [2026-03-17] Latest data extraction run on unified.db yielded no significant patterns or new data
+- [2026-03-17] Immediate action required: Check pm2 logs for openclaw-gateway and whisper to diagnose restart loop causes
+- [2026-03-17] Full health report generated at ~/kira/agents/outputs/operator-2026-03-17T1856-document.json
+- [2026-03-17] High-severity alert written to ~/kira/agents/outputs/operator-2026-03-17T1855-alert.json
+- [2026-03-17] Future action required: Will need specific asset list for manual download to complete full migration of game content later.
+- [2026-03-17] Blocker: interactivemove.nl game subpages (e.g., /3d-spellen) returning 404 errors, preventing content extraction from this source.
+- [2026-03-17] Decision: Retained placeholder images instead of using real game assets due to 404 errors and restricted access preventing image downloads, prioritizing site visual quality.
+- [2026-03-17] Identified real games from interactive-software.pro source: Hockey, Halloween, Bugs, Catch the Frog, and Underwater Adventure.
+- [2026-03-17] Completed: Added category filtering functionality to the Interactieve Vloer (Interactive Floor) product page.
+- [2026-03-17] Action required: Investigate the `openclaw-gateway` restart reason.
+- [2026-03-17] Action required: Consider offloading or restarting the `VLLM` engine to free up GPU headroom.
+- [2026-03-17] Action required: Check `pm2 logs whisper` to confirm VRAM OOM.
+- [2026-03-17] High GPU VRAM usage is likely causing `whisper` crashes.
+- [2026-03-17] Services `openclaw-gateway` and `whisper` are in rapid restart loops (service flapping).
+- [2026-03-17] Critical infrastructure instability detected in health check.
+- [2026-03-17] Full VDR audit located at `~/kira/vdr/.vdr-questions.md`
+- [2026-03-17] Duplicate target detected: '15 paying customers' appears in both SentinAgro and ZenithCred files
+- [2026-03-17] Top 5 critical gaps flagged to Otto (@7985502241): ZenithCred partnership status, €12 pricing validation, Kira TASK-016 priority, Oopuo vs. OttoWorks naming conflict, Chimera queue persistence
+- [2026-03-17] Stale file identified: `iam/website-refactor.md` has not been updated in 400+ days
+- [2026-03-17] VDR Agent v2 scan completed: 72 files processed, found 356 tasks, 102 questions, and 149 gaps
+- [2026-03-17] start.sh script launches both services with one command
+- [2026-03-17] Main server (server.js) runs on port 3007 with static file serving, URL routing, gzip, and security headers
+- [2026-03-17] Git commit: refactor: replace Docker with pure Node.js static server
+- [2026-03-17] Start commands: npm run start:all or ./start.sh
+- [2026-03-17] 301 redirects implemented from old Dutch URLs to new English paths
+- [2026-03-17] Action required: rebuild nginx container using command `docker compose up -d --force-recreate nginx` to apply configuration changes
+- [2026-03-17] Internal links updated across all HTML files and sitemap regenerated
+- [2026-03-17] 301 redirects implemented to permanently route old Dutch URLs to new English equivalents
+- [2026-03-17] URL structure migrated from Dutch to English clean URLs for all site pages (/about, /pricing, /blog, /education, /healthcare, /entertainment) and product pages (/products/interactive-floor, /products/interactive-wall, etc.) - changes committed
+- [2026-03-17] Verification confirmed no internal .html links remain in the codebase
+- [2026-03-17] Pages like algemene-voorwaarden.html excluded from current migration mapping
+- [2026-03-17] Git commit completed: bb69075 (feat: clean English URLs with nginx rewrites + update all internal links)
+- [2026-03-17] Utility script created at tools/update_urls.py for future URL migrations when adding new pages
+- [2026-03-17] HTMX partial loading preserved to continue using .html file extensions internally
+- [2026-03-17] Physical .html files on disk were NOT renamed; changes implemented via nginx rewrites only
+- [2026-03-17] Internal links migrated across all .html, .js, and sitemap.xml files to root-relative English URLs
+- [2026-03-17] Nginx configuration (docker/nginx/default.conf) updated with 301 redirects from old Dutch URLs to preserve SEO
+- [2026-03-17] IAM website migrated from Dutch clean URLs to English clean URLs (e.g., /over-ons → /about)
+- [2026-03-17] Action required: Hard refresh and switch to English language to verify translations
+- [2026-03-17] Cache version updated to v=20260317b
+- [2026-03-17] Brand names preserved intact during translation process
+- [2026-03-17] 11 blog posts fully translated to English including titles, excerpts, HTML content, and tags
+- [2026-03-17] Git commit: feat: i18n blog data structure + verify completeness from live site
+- [2026-03-17] Verified all featured images exist in media/blog/ directory
+- [2026-03-17] Applied tag translation mapping (Dutch to English: e.g., 'Onderwijs' → 'Education')
+- [2026-03-17] Fixed incomplete content for 'Plaswijck Park Rotterdam' post (ID 1971)
+- [2026-03-17] Completed blog internationalization (i18n) migration for Interactive Move (IAM) website
+- [2026-03-17] Redesign currently using 3 placeholder posts pending scrape agent completion
+- [2026-03-17] Blog scrape agent still in development to pull real posts from live WordPress site
+- [2026-03-17] Blog redesign completed with Groq-style layout: random featured hero post on page load, 4-column grid, warm off-white background, brand yellow accents, monospace metadata
+- [2026-03-17] Maintained existing features: full NL/EN language support, mobile responsiveness, and post routing
+- [2026-03-17] Committed changes to git with message: `redesign: Groq-inspired blog layout with random featured hero`
+- [2026-03-17] Applied color palette: warm off-white background (`#f5f3ef`) with IAM brand yellow (`#feba04`) accents
+- [2026-03-17] Implemented dynamic hero featuring randomly selected post on each page load
+- [2026-03-17] Redesigned blog page at `~/iam-website/blog.html` with Groq-inspired aesthetic
+- [2026-03-17] Tasks for Tuesday, March 17th are on track
+- [2026-03-17] Recent activity patterns (mid-February) show strong focus on Kira app's multi-tenant backend and deployment
+- [2026-03-17] Recent activity patterns (mid-February) show strong focus on Chimera's knowledge graph architecture
+- [2026-03-17] PM2 process `whisper` is consuming 100% CPU (active processing).
+- [2026-03-17] Contact form includes mailto fallback mechanism for HubSpot API failures to ensure uninterrupted lead capture
+- [2026-03-17] Chat functionality secured via Node.js proxy with OpenRouter API key handled server-side only (not exposed to client)
+- [2026-03-17] Blog content now served from local static data supporting Dutch and English languages, eliminating Ghost Content API dependency
+- [2026-03-17] Removed Ghost CMS and MySQL dependencies entirely from infrastructure
+- [2026-03-17] All infrastructure changes committed to repository
+- [2026-03-17] Nginx configuration cleaned by removing Ghost proxy routes
+- [2026-03-17] Contact form implements mailto: fallback for HubSpot failures
+- [2026-03-17] Chat widget API key secured behind Node proxy using environment variables
+- [2026-03-17] Docker-compose stack simplified to nginx + chat proxy only
+- [2026-03-17] IAM website migrated to pure static architecture (Ghost + MySQL removed)
+- [2026-03-17] Gas scenario: €72-90K investment, €0 net result, no cooling, Energy label C/D
+- [2026-03-17] Air-to-air provides Energy label A/A+ and cooling functionality (key selling point for attic floor)
+- [2026-03-17] Air-to-air financials: €63-108K investment, ~€10K additional costs, +€170K net result
+- [2026-03-17] Document ready for sharing with Priscilla and Michael for final decision-making
+- [2026-03-17] Project achieves energy label A++, positioning as future-proof per Amsterdam standards and attractive to young buyers/investors
+- [2026-03-17] Subsidies secured: ISDE 2026 (~€25,000 total) and MIA/Vamil tax benefits for BV
+- [2026-03-17] Immediate action required: Apply for 9x 3x25A connections to prevent delivery delays
+- [2026-03-17] Net financial improvement: over €91,000
+- [2026-03-17] Net additional costs for making 9 units gas-free: €88,400 (after subsidies)
+- [2026-03-17] Created professional decision document for Overtoom 209C gas-free transformation and saved as ~/kira-demo/overtoom-gasloos-beslisdocument.md
+- [2026-03-17] Pending decision on document delivery format (Telegram vs PDF file) and whether to add company logo or BV name for distribution
+- [2026-03-17] Document includes management summary, scenario comparison tables, pros/cons analysis, power/grid consequences (Liander), subsidies, timeline comparison, and complete financial overview
+- [2026-03-17] Three immediate decisions required: (1) approve approximately €113,000 extra investment, (2) assign all-electric design to installer, (3) immediately submit grid reinforcement request to Liander
+- [2026-03-17] Financial analysis shows net positive result of €10,200 per unit (€91,600 total) for gasless option despite €9,800 per unit (€88,400 total) in additional net costs, due to €20,000 per unit (€180,000 total) increased sales value
+- [2026-03-17] Infrastructure stability is compromised by multiple critical service failures
+- [2026-03-17] Oopuo strategic approach: Using verifiable credentials and non-transferable credits to build compliant decentralized system and bypass regulatory friction
+- [2026-03-17] Legal trajectories for Rotterdam and Legacy Builders ongoing via attorney
+- [2026-03-17] Administrative task: Complete balances with Mark and send financial figures to accountant
+- [2026-03-17] Need to schedule meeting with Richie to discuss growth plan and Domme Kar subsidies
+- [2026-03-17] Considering calling municipality to check status on Overtoom Bibob application
+- [2026-03-17] Bibob screening for Overtoom project has been pending at municipality for 3 weeks
+- [2026-03-17] Step-by-step guides for today's priority tasks sent to Otto via Telegram
+- [2026-03-17] Infrastructure status summary notification sent to Otto via Telegram
+- [2026-03-17] System health check documented at `~/kira/agents/outputs/operator-2026-03-17T0051-document.json`
+- [2026-03-17] High-severity alert issued for failing services and documented at `~/kira/agents/outputs/operator-2026-03-17T0051-alert.json`
+- [2026-03-16] Work pattern: Concentrated on Tier 1 Revenue (IAM/OttoGen) and regulatory compliance for Tier 2 Funding
+- [2026-03-16] Infrastructure: Cron/Memory visibility architecture designed (documented in MEMORY-AUTOMATION-PLAN.md)
+- [2026-03-16] Action required: Inspect Docker healthcheck configurations for omiximo-email-automation and lidaros-frontend-1 containers
+- [2026-03-16] Action required: Determine if 'whisper' service is needed and restart if business-critical
+- [2026-03-16] Action required: Execute 'pm2 stop 42' to terminate the gateway crash loop
+- [2026-03-16] Three system alerts have been generated and detailed health status document saved to ~/kira/agents/outputs/
+- [2026-03-16] Tomorrow: Prototype first critic agent for code review
+- [2026-03-16] Apollo.io configured for IAM lead tracking
+- [2026-03-16] Health report generated: `health-check-2026-03-16.md` via `operator-2026-03-16T1451-document.json`.
+- [2026-03-16] Alert file generated: `operator-2026-03-16T1451-alert.json`.
+- [2026-03-16] Infrastructure health check completed for Monday, March 16th, 2026.
+- [2026-03-16] Strategische voordelen: Snellere verkoop, toekomstbestendig, geen gasaansluitkosten
+- [2026-03-16] Financiële conclusie: Meerkosten ~€12K per unit verdienen terug via €20K hogere verkoopprijs + €2-4K subsidie
+- [2026-03-16] Timeline: 2-4 weken extra voorbereiding, 8-12 weken levertijd warmtepompen
+- [2026-03-16] URGENTE ACTIE: Liander netverzwaring NU aanvragen vanwege wachttijden in Amsterdam
+- [2026-03-16] Systeemkeuze: Compacte lucht-water warmtepomp + vloerverwarming + inductie
+- [2026-03-16] Subsidies beschikbaar: ISDE totaal ~€22,5K, MIA/Vamil fiscaal voordeel via BV, mogelijk lening Aardgasvrij Amsterdam
+- [2026-03-16] Meerwaarde verkoop: ~€20K per appartement door energielabel A++, verwachte verkoopprijs ~€400K per unit
+- [2026-03-16] Investering gasloos: €17K-€25K per appartement (totaal €154K-€227K), waarvan €9K-€15K meerprijs ten opzichte van gas
+- [2026-03-16] Besluit genomen: Gasloos (all-electric) uitvoeren - investering is rendabel
+- [2026-03-16] Project: 9 appartementen (40m²) aan Overtoom 209C, Amsterdam (1054HT), bestemd voor verkoop
+- [2026-03-16] Analysis document ready for decision making and consultation with Priscilla and Michael
+- [2026-03-16] CRITICAL: Apply for Liander grid reinforcement (netverzwaring) immediately after Bibob procedure completion - this is the main bottleneck
+- [2026-03-16] ISDE subsidy 2026: €2,100 - €3,800 per heat pump (9 units total)
+- [2026-03-16] ROI: Energy label A++ yields approximately €20,000 extra sale value per unit in Amsterdam-West (1054HT), covering the additional investment
+- [2026-03-16] Investment cost: €17,100 - €25,200 per apartment (9 units total, 40m² each)
+- [2026-03-16] Recommendation for Overtoom 209C: Choose All-Electric (Volledig Gasloos) with compact heat pumps
+- [2026-03-16] Overtoom 209C gasless analysis completed and saved in `overtoom-gasloos-analyse.md`
+- [2026-03-16] Action sequence: (1) Request DuMo (Duurzaam Monumenten) advice immediately, (2) Submit SVOH + ISDE before contractor assignment, (3) Document construction progress with photos and invoices, (4) Register MIA/Vamil within 3 months post-investment, (5) Request final subsidy determination after project completion
+- [2026-03-16] SDAG 2026 status: Budget over-allocated, remaining funds must be verified with municipality
+- [2026-03-16] SFT subsidy excluded: Only available for social housing when municipality applies (not applicable to free sector)
+- [2026-03-16] Warmtenet subsidy: €3,775 per connection available
+- [2026-03-16] SVn loan: Below-market interest rate available via municipality, requires municipal allocation letter
+- [2026-03-16] MIA/Vamil: Up to 45% additional tax deduction - must register within 3 months after investment date
+- [2026-03-16] ISDE Zakelijk: €2,000+ per device for heat pumps/solar boilers - must apply before signing contractor quotes
+- [2026-03-16] Full report includes action plan and combination matrix
+- [2026-03-16] Overtoom 371 and 373 are Rijksmonumenten (national monuments), enabling additional insulation subsidy opportunities
+- [2026-03-16] Subsidy application must be submitted before contractor starts work because total amount (€135,000) exceeds €25,000 threshold
+- [2026-03-16] SVOH-regeling (renewed January 1, 2026) identified as best opportunity with €135,000 potential subsidy for 9 apartments
+- [2026-03-16] Subsidiescan for Overtoom updated with March 2026 data, located at ~/kira-demo/overtoom-subsidiescan-2026.md
+- [2026-03-16] Overdue items from February remain in "Todo" status in Notion Tasks database
+- [2026-03-16] OpenClaw gateway has a stale PM2 entry attempting to spawn a duplicate instance (failing)
+- [2026-03-16] Approval requested from Otto (@coringa_dfato) to trigger first wave of outreach; awaiting explicit "Go" signal to execute
+- [2026-03-16] Outreach automation engine built and ready but locked in Dry Run mode to prevent unauthorized messaging
+- [2026-03-16] 17 high-priority prospects staged including Soho House, Skins Cosmetics, and Bijenkorf
+- [2026-03-16] Strategy pivot confirmed: target channels are (1) Independent Spa Retail, (2) Indie Beauty Retailers (NL/EU), (3) Corporate Gifting (Discovery Sets)
+- [2026-03-16] Abura Cosmetics B2B spa channel expansion limited to retail sales (100ml bottles) until professional backbar sizes (250ml+) are developed
+- [2026-03-16] Strategic assessment: Infrastructure is mature and must now be leveraged for revenue and funding generation
+- [2026-03-16] ZenithCred action item: Launch investor outreach to 5 VCs for €1.1M seed round
+- [2026-03-16] IAM action item: Conduct outreach to first 10 'Whale' targets including Partou and Humankind for pilot installations
+- [2026-03-16] Decision made: Implement 14-Day Sales Blitz with total halt on internal infrastructure work to force 100% focus on sales outreach
+- [2026-03-16] Project IAM is stalled on revenue
+- [2026-03-16] Project OttoGen is stalled on revenue
+- [2026-03-16] Project Kira is technically on track
+- [2026-03-16] Project Chimera is technically on track
+- [2026-03-16] March 2026 is critical pivot point to avoid rent stress
+- [2026-03-16] February revenue targets were missed
+- [2026-03-16] Company is caught in an 'Infrastructure Trap' due to prioritizing building tools over selling products
+- [2026-03-16] Oopuo OS (Kira system) contains 208K facts and 44K entities
+- [2026-03-16] Strategist Weekly Review completed on 2026-03-16
+- [2026-03-16] Strategic content angle: positioning AI as revenue engine for traditional businesses (not just chatbots) and 'prodigy builder' speed over agency model
+- [2026-03-16] Solyx Energy project completed March 4th: built full 5-page site with SVG animations, voice agents, i18n, custom physics animations, and Vapi integration in 3 hours
+- [2026-03-16] IAM project results: 2,500 leads identified, 47% open rates, achieved scaling without hiring
+- [2026-03-16] Completed 1,500-word case study on Saturday titled 'The IAM Transformation' covering kindergarten projector hardware business
+- [2026-03-16] Decision pending: Whether to restart unhealthy Docker containers or investigate `whisper` service logs immediately
+- [2026-03-16] Infrastructure health check outputs generated: `operator-2026-03-16T0651-alert.json` (high-severity) and `operator-2026-03-16T0651-document.json` (detailed report)
+- [2026-03-16] No tasks currently marked as "Blocked" in Notion Tasks DB
+- [2026-03-16] Kira Ops task: VM Monitoring
+- [2026-03-16] Top P1 tasks identified for: CuttingEdge, IAM, OttoGen, ZenithCred, and Kira Ops (VM Monitoring)
+- [2026-03-16] ZenithCred (Pilot IDs) status: Green
+- [2026-03-16] IAM (Leads) status: Green
+- [2026-03-16] CuttingEdge (Invoicing) status: Green
+- [2026-03-16] Chimera status: Yellow - has pending actions requiring attention
+- [2026-03-16] OttoGen (Content/Follow-ups) status: Yellow - has pending actions requiring attention
+- [2026-03-16] March revenue target is $700 MRR; current strategy prioritizes collections and demos to hit this goal
+- [2026-03-16] Notion Projects DB is currently unreachable (404 error); using `USER.md` portfolio data as fallback
+- [2026-03-16] Otto has been alerted via Telegram about the Omiximo health issue
+- [2026-03-16] Service `openclaw-gateway` has critical stability issue with 389,000 restarts requiring immediate investigation
+- [2026-03-16] Action recommended: Investigate logs for `whisper` and `langfuse` services to resolve interruptions
+- [2026-03-16] Health report generated at `~/kira/agents/outputs/operator-2026-03-16T0251-document.json`
+- [2026-03-16] High-severity alert written to `~/kira/agents/outputs/operator-2026-03-16T0251-alert.json`
+- [2026-03-16] Health check detailed outputs saved to ~/kira/agents/outputs/operator-2026-03-16T0051-alert.json and operator-2026-03-16T0051-document.json
+- [2026-03-15] High-severity alert and detailed health report written to ~/kira/agents/outputs/
+- [2026-03-15] Lightweight sqlite-backed monitoring daemon designed for cron health tracking; marked as in progress.
+- [2026-03-15] "Compliance by Design" roadmap adopted for Oopuo portfolio to address MiCA regulation across token usage, gamification, and impact mechanisms.
+- [2026-03-15] Notion tracking schema defined for lead generation workflow.
+- [2026-03-15] Dutch kindergarten chains identified as target market for IAM lead generation with Tier 1-3 prospect classification mapped to Apollo.io enrichment requirements.
+- [2026-03-14] Gateway is operational
+- [2026-03-14] System health check output saved to ~/kira/agents/outputs/operator-2026-03-14T2051-document.json
+- [2026-03-14] Health check report saved to ~/kira/agents/outputs/operator-2026-03-14T1851-document.json
+- [2026-03-14] OpenClaw gateway is running but has group policy warnings
+- [2026-03-14] Health check completed: all critical services are online with no outages
+- [2026-03-14] Post 2 'Shopfront vs Factory' urgency: this week. Based on OttoGen/Oopuo brand separation framework about branding mistake with 8 companies.
+- [2026-03-14] Post 1 'One Product, One Brand' urgency: today (March 14). Based on Solyx Energy brand moodboard comparing single-product focus strategies of tado°, Nest, Ring, Sonos. Features Otto advising Solyx Energy energy startup at age 20.
+- [2026-03-14] Two content posts drafted for March 14 awaiting Otto's approval before publication. Both posts have completed text drafts and 30-second video scripts. Draft files saved to ~/kira/agents/outputs/content-post-1.json and ~/kira/agents/outputs/content-post-2.json. Content publication blocked pending explicit approval from Otto.
+- [2026-03-14] Short, warm reminder message about the 75th birthday sent this morning
+- [2026-03-14] Hannelore is on her last day of vacation in Phuket
+- [2026-03-14] Hannelore's mother turns 75 on March 14
+- [2026-03-14] Critical alert sent to Otto regarding the email processing failure
+- [2026-03-14] InvenTree containers are running but marked unhealthy
+- [2026-03-14] Cron job cannot resolve InvenTree URL despite network connectivity being functional between containers
+- [2026-03-14] InvenTree email automation has been silently failing for 5 days due to missing 'InvenTree URL' environment variable
+- [2026-03-14] No data enrichment occurred in current run due to database access permissions
+- [2026-03-14] Action required: Share all three databases with Clawd integration in Notion via Connections settings (click "..." → Connections → add Clawd)
+- [2026-03-14] Clawd integration lacks access to three Notion databases (returning 404 errors)
+- [2026-03-14] All identified issues added to TODO.md with priority rankings
+- [2026-03-14] Portfolio page references projects (ZenithCred, SentinAgro) without corresponding images
+- [2026-03-14] Missing SEO infrastructure: no robots.txt, sitemap.xml, or Open Graph tags implemented
+- [2026-03-14] Cookie consent banner is hardcoded in English and does not use the i18n system
+- [2026-03-14] HubSpot already embedded with portal ID 147967707; recommended solution is wiring contact form to HubSpot Forms API
+- [2026-03-14] Documentation created for oopuo-website project in ~/kira/projects/oopuo-website/: README.md, docs/DEPLOYMENT.md (includes Hostinger production steps), docs/TODO.md (prioritized), docs/ARCHITECTURE.md
+- [2026-03-14] Project structure: 6 pages, 6 JS modules, CSS with dark/light sections using custom properties
+- [2026-03-14] Portfolio page references projects without images: ZenithCred and SentinAgro
+- [2026-03-14] Missing SEO infrastructure: no robots.txt, sitemap.xml, or Open Graph meta tags
+- [2026-03-14] Cookie consent banner text is hardcoded in English - does not use i18n system
+- [2026-03-14] Recommended contact form solution: HubSpot Forms API (leverages existing HubSpot integration)
+- [2026-03-14] HubSpot tracking script already embedded with portal ID 147967707
+- [2026-03-14] LinkedIn integration exists but is untested
+- [2026-03-14] YouTube link returns 404 error - broken link needs fixing
+- [2026-03-14] Google Analytics 4 currently uses placeholder ID - needs replacement with real tracking ID
+- [2026-03-14] Contact form is client-side only with fake success message - not connected to backend
+- [2026-03-14] Production deployment target: Hostinger (Cloudflare Pages is alternative option)
+- [2026-03-14] Current staging setup: npx serve on port 8090, deployed to Cloudflare (zenithcred.com)
+- [2026-03-14] Created 4 documentation files: README.md, docs/DEPLOYMENT.md, docs/TODO.md, docs/ARCHITECTURE.md
+- [2026-03-13] Health check output saved to ~/kira/agents/outputs/operator-2026-03-13T2251-document.json
+- [2026-03-13] Night shift wrap-up: 4 tasks completed across all three priority tiers.
+- [2026-03-13] Notion task status: Marked memory retrieval testing as completed.
+- [2026-03-13] All outputs stored in VDR (Virtual Data Room).
+- [2026-03-13] Workflow decision: Deployed 3 sub-agents for research-heavy tasks; handled memory test directly.
+- [2026-03-13] Infrastructure task completed: Validated memory retrieval after context compaction; identified 'client ops platform' search fails for recent content due to embedding lag.
+- [2026-03-13] Funding task completed: Researched MiCA regulation impact on ZenithCred token economics.
+- [2026-03-13] Revenue task completed: Drafted social media branding strategy for OttoGen.
+- [2026-03-13] Revenue task completed: Drafted portfolio website content for CuttingEdge.
+- [2026-03-13] Time allocation strategy set to 60% Revenue, 30% Funding, 10% Infrastructure.
+- [2026-03-13] Health check output written to agents/outputs/
+- [2026-03-13] Estimated 2-3 hours of coding agent work required to fix P0 blockers
+- [2026-03-13] Encryption negative test coverage gaps exist (Kimi finding)
+- [2026-03-13] DeploymentTarget.status incorrectly typed as String instead of enum (Kimi finding)
+- [2026-03-13] BrandingService code duplication exists (Kimi finding)
+- [2026-03-13] .env file committed with credentials in repository (Kimi finding)
+- [2026-03-13] ServiceCatalogService.updateServiceStatus has cross-tenant vulnerability (Opus finding)
+- [2026-03-13] SupportService.updateRequestStatus has cross-tenant vulnerability (Opus finding)
+- [2026-03-13] Cross-tenant write isolation gaps identified as P0 blocker requiring fix before API layer development
+- [2026-03-13] User committed to begin fixing P0 items immediately; API layer deemed unsafe for production use until P0 issues resolved
+- [2026-03-13] Kimi identified issues missed by Opus: .env file committed with credentials, DeploymentTarget.status uses String instead of enum, encryption negative test coverage gaps
+- [2026-03-13] Code review comparison completed between Opus and Kimi; both assigned B+ rating with identical top priority issues
+- [2026-03-13] Plan: Fix critical items immediately after Sonnet comparison completes, before proceeding to UI development
+- [2026-03-13] Sonnet comparison subagent running to produce unified fix priority list
+- [2026-03-13] Additional issues found: canEditContent dead code, getAccess DRY violation, release version race condition
+- [2026-03-13] Codebase covers Phases 1-5 implementation; security gaps must be resolved before Phase 6 (API layer) development begins
+- [2026-03-13] Race condition identified in content block version increment logic
+- [2026-03-13] Testing gap: No cross-tenant isolation tests exist despite being roadmap's #1 non-negotiable priority
+- [2026-03-13] Code duplication issue: `getAccess()` pattern duplicated across 5 services
+- [2026-03-13] Functional bug: `canEditContent` is defined but never used, preventing editors from editing content blocks despite the role existing for this purpose
+- [2026-03-13] High severity security issue: `IntegrationService.updateStatus` lacks access control
+- [2026-03-13] High severity security issue: Secret decryption methods lack access control
+- [2026-03-13] Critical security vulnerability: `transitionReleaseStatus`, `transitionJobStatus`, and `transitionBackupStatus` accept `organizationId` parameter but do not use it for scoping, allowing potential cross-tenant state manipulation
+- [2026-03-13] Codebase grade: B+ (solid foundation, clean code, good test coverage)
+- [2026-03-13] Code review completed for client-ops-platform project, written to `/home/adminuser/kira/projects/client-ops-platform/CODE-REVIEW.md`
+- [2026-03-13] Review covers: 35% velocity, per-company health scores, carried-over high-priority items, and flags stale DB IDs in cron config
+- [2026-03-13] Weekly review sent to Otto via Telegram
+- [2026-03-13] DB IDs in cron config are incorrect/stale; correct IDs have been identified and need to be updated
+- [2026-03-13] Monitoring reports generated: operator-2026-03-13T1251-alert.json and operator-2026-03-13T1251-document.json
+- [2026-03-13] System status files written to ~/kira/agents/outputs/ with timestamp 2026-03-13T1051
+- [2026-03-13] Analysis outputs saved to ~/kira/agents/outputs/: dealmaker-2026-03-13T090-document.json, dealmaker-2026-03-13T090-task.json, dealmaker-2026-03-13T090-decision.json
+- [2026-03-13] Critical gap identified: No CRM-style source of truth exists for leads, calls, proposals, invoices, investor replies, or pilot status
+- [2026-03-13] ZenithCred investor outreach should focus on top-priority funds only, avoiding broad spraying
+- [2026-03-13] ZenithCred has 3 pilot LOIs that need to be converted into paying pilots
+- [2026-03-13] ZenithCred is pre-revenue with strong fundraising collateral but lacks visible live pipeline data (sent outreach, booked meetings, committed capital)
+- [2026-03-13] OttoGen revenue strategy: Prioritize selling SIGNAL first, then selectively upsell AMPLIFY
+- [2026-03-13] OttoGen is the nearest path to cash with defined packages, clear pricing, and a delivery-ready offer
+- [2026-03-13] Disk and RAM resources are within acceptable thresholds
+- [2026-03-13] Created status files: `/home/adminuser/kira/agents/outputs/operator-2026-03-13T0851-alert.json` and `/home/adminuser/kira/agents/outputs/operator-2026-03-13T0851-document.json`
+- [2026-03-13] Strategic insight: First branded content posts perform better with point of view and concrete example from real work vs generic intro
+- [2026-03-13] Strategic insight: Pilot outreach should emphasize low risk and mutual learning with lightweight ask (15-20 min call), not full commitment
+- [2026-03-13] Strategic insight: Closing paid clients requires narrowing the offer with concrete price/scope/timeline, not adding more explanation
+- [2026-03-13] Strategic insight: Warm intros beat cold investor outreach; specific time slots reduce friction more than open-ended scheduling
+- [2026-03-13] Strategic insight: Roadmaps should be based on dependencies and outcomes, not feature wishlists; best updates usually involve subtraction of low-leverage items
+- [2026-03-13] Strategic insight: Structured critique beats freeform critique in producer/critic loops because it makes revisions measurable; multi-critic setups only help if each has distinct role
+- [2026-03-13] Ignored junk Clarify/flag_for_human_review entries in Notion; focused on real Otto tasks only
+- [2026-03-13] Otto alert system triggers on container-down events or when daily new failures exceed 5
+- [2026-03-13] Alert documents written to `/home/adminuser/kira/agents/outputs/operator-2026-03-13T0451-alert.json`, `/home/adminuser/kira/agents/outputs/operator-2026-03-13T0451-alert-gateway.json`, and `/home/adminuser/kira/agents/outputs/operator-2026-03-13T0451-document.json`
+- [2026-03-13] System health check identified critical infrastructure failures
+- [2026-03-13] Available next step options: Convert enrichment to Notion-ready import JSON, create shorter executive summaries, or apply aggressive/OKR-style wording
+- [2026-03-13] Goal 5 - 100+ activity content library: Positioned as reusable IP asset and delivery leverage; key results include structured repository with metadata, taxonomy system, templates, and quality standards; risks include prioritizing quantity over quality, content duplication, poor categorization, and low findability
+- [2026-03-13] Goal 4 - 15 investor meetings: Reframed as feedback collection and relationship-building rather than pure fundraising; key results require completed meetings, CRM tracking, objection logging, follow-up system, and narrative refinement; risks include low-fit investor calls, weak targeting, and inadequate follow-up
+- [2026-03-13] Goal 3 - Content pipeline: Target 2 posts/week for authority compounding; key results include repeatable workflow, content backlog, editorial calendar, templates, metrics tracking, and ownership assignment; risks include publishing inconsistency, generic content, and lack of repurposing system
+- [2026-03-13] Goal 2 - 5 distribution partners: Framed as leverage play for faster revenue/market access; key results require longlist development, scored shortlist with contact info, fit assessment, deal model definition, and clear next actions; risks include logo-chasing without fit, strategic misalignment, long sales cycles, and channel overreliance
+- [2026-03-13] Goal 1 - ottogen.io launch: Positioned as trust/conversion front door; key results include live site, core pages, analytics tracking, CTAs, and mobile readiness; execution risks include unclear offer messaging, weak social proof, poor mobile UX, and brand confusion
+- [2026-03-13] Updated 10 Notion items: 5 tasks with Notes, 5 goals with why/key results/risks
+- [2026-03-13] Added missing 'Notes' property to accessible Tasks DB in Notion to enable future filtering
+- [2026-03-13] Health check outputs written to /home/adminuser/kira/agents/outputs/operator-2026-03-13T0251-alert.json and /home/adminuser/kira/agents/outputs/operator-2026-03-13T0251-document.json
+- [2026-03-13] Corrected 85 metadata-contaminated embeddings to resolve data quality issues
+- [2026-03-13] Operator outputs written to ~/kira/agents/outputs/ with timestamp 2026-03-13T0051: alert-whisper-stopped.json, alert-containers.json, alert-openclaw-gateway.json, document.json
+- [2026-03-13] Accidentally triggered SIGUSR1 restart of OpenClaw gateway during diagnostic check
+- [2026-03-12] Notion task 310a6c94-88ca-81d9-92f9-c07641a2b6af marked complete
+- [2026-03-12] Value judgment established: honest investor materials preferred over inflated traction claims to avoid "fragile lies"
+- [2026-03-12] Decision made to prioritize internal deliverables (funding docs, file-based assets) over external revenue actions when operating without authorization
+- [2026-03-12] Revenue task queue heavily constrained by external action approval requirements (DMs, proposals, invoices, account creation); prioritized internal file-based deliverables instead
+- [2026-03-12] ZenithCred investor deck v2 completed with honest pilot-readiness data; removed unverified pilot LOI/customer claims that contradicted other internal files
+- [2026-03-12] Tomorrow: Create wholesale catalog (PDF format)

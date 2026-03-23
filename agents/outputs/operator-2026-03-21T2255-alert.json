@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T22:55:00Z",
+  "alert": {
+    "severity": "medium",
+    "message": "Service 'whisper' is stopped and 'lidaros-frontend'/'omiximo-email-automation' containers are unhealthy.",
+    "action": "Investigate pm2 logs for whisper and container health for LidarOS/Omiximo."
+  }
+}

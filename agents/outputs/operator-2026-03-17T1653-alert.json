@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-17T16:53:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services flapping and unhealthy containers detected",
+    "action": "Investigate PM2 flapping for openclaw-gateway/whisper and unhealthy Docker containers (lidaros-frontend, omiximo-email-automation, langfuse-web)"
+  }
+}

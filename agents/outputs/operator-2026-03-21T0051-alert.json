@@ -1,0 +1,19 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T00:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service instability and unhealthy containers detected",
+    "action": "Investigate 'whisper' PM2 restart loop and 'unhealthy' docker containers (lidaros-frontend, omiximo-email-automation).",
+    "details": {
+      "pm2_whisper": "Restarting continuously (645k+ restarts, 0s uptime)",
+      "docker_unhealthy": ["lidaros-frontend-1", "omiximo-email-automation"],
+      "system_resources": {
+        "disk_use": "70%",
+        "ram_use": "45%",
+        "gpu_vram": "20.9GB/24.5GB (85%)"
+      }
+    }
+  }
+}

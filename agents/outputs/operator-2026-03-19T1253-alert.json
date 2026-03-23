@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T12:53:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services unhealthy or stopped",
+    "action": "Investigate 'whisper' (PM2 stopped), 'lidaros-frontend' (Docker unhealthy), and 'omiximo-email-automation' (Docker unhealthy)."
+  }
+}

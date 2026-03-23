@@ -1,0 +1,19 @@
+{
+  "type": "task",
+  "agent": "operator",
+  "timestamp": "2026-03-18T12:51:00Z",
+  "task": {
+    "title": "Resolve PM2 Redundancy and Service Loops",
+    "description": "PM2 services 'openclaw-gateway' and 'whisper' were stopped as they were in high-restart loops due to port/process conflicts. Systemd and other gateway services are likely redundant.",
+    "priority": "high",
+    "sourceContext": "PM2 list showed hundreds of restarts; logs confirmed port 18789 is already in use by PID 3491996.",
+    "keyPoints": [
+      "PM2 ID 42 (openclaw-gateway) and ID 25 (whisper) are now STOPPED.",
+      "A healthy OpenClaw gateway is already running under PID 3491996.",
+      "Recommendation: Remove these services from PM2 to prevent further loops.",
+      "Recommendation: Clean up redundant systemd gateway services (openclaw-gateway, clawdbot-gateway)."
+    ],
+    "assignee": "user",
+    "project": "infrastructure"
+  }
+}

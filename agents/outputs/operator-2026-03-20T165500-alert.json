@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T16:55:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services down or unhealthy: whisper (stopped), lidaros-frontend (unhealthy), omiximo-email-automation (unhealthy)",
+    "action": "Investigate whisper PM2 logs and Docker health checks for LidarOS and Omiximo. Restarting services may be required."
+  }
+}

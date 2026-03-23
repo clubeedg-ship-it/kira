@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T18:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-18",
+    "filename": "health-report-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report — 2026-03-18\n\n## Summary\nOverall system health is **Degraded**. While core websites and several bridges are online, critical infrastructure components (Whisper, OpenClaw Gateway) and specific Docker services are experiencing failures.\n\n## PM2 Process Status\n- **Online:** agent-log, client-ops-api, gpu-router, iam-chat-proxy, iam-website, kira-admin, kira-app, kira-dashboard, oopuo-website, openclaw-bridge, openclaw-gateway (flapping), paperclip, stella-tax, whatsapp-bridge, zenithcred-website.\n- **Stopped:** `whisper` (id: 25). This is a critical service for voice processing.\n- **Issue:** `openclaw-gateway` (id: 42) shows 737 restarts and 100% CPU usage, indicating a crash loop or heavy resource contention.\n\n## Docker Container Status\n- **Unhealthy:** \n  - `lidaros-frontend-1` (Up 2 hours, unhealthy)\n  - `omiximo-email-automation` (Up 2 hours, unhealthy)\n- **Healthy:** postgres:16-alpine (client-ops), lidaros-backend, inventree stack (server, worker, db, redis), langfuse stack, omiximo-bridge.\n\n## Resource Usage\n- **Disk:** 69% used (457G/662G). Healthy.\n- **Memory:** 11.6GB used / 27GB total (~42% usage). Healthy.\n- **GPU:** NVIDIA RTX 4090 at 42°C. 20.5GB/24.5GB VRAM used (VLLM EngineCore). GPU utility at 0% (idle but memory reserved).\n\n## OpenClaw Gateway Status\n- **Status:** Running via systemd.\n- **Warnings:** Multiple 'groupPolicy' allowlist warnings for Telegram and WhatsApp accounts. No IDs are currently allowed, which will drop all group messages.\n- **Loopback:** Gateway is restricted to 127.0.0.1.\n\n## Action Items\n1. Restart and verify `whisper` service.\n2. Troubleshoot `openclaw-gateway` restart loop.\n3. Inspect logs for `lidaros-frontend` and `omiximo-email-automation` to resolve unhealthy status.\n4. Configure `groupAllowFrom` IDs for messaging channels to enable group functionality."
+  }
+}

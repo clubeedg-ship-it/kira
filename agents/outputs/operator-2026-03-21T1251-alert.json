@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-21T12:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical service 'whisper' is in a rapid crash loop (837k+ restarts) and 'lidaros-frontend'/'omiximo-email-automation' are unhealthy.",
+    "action": "Investigate whisper logs (pm2 logs whisper) and check Docker health logs for unhealthy containers."
+  }
+}

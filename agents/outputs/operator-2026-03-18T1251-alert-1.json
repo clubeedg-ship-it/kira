@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-18T12:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical PM2 services (whisper, openclaw-gateway) showing extremely high restart counts and low uptimes.",
+    "action": "Investigate logs for PM2 process IDs 42 (openclaw-gateway) and 25 (whisper) to identify crash causes."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-19T04:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Critical services are down or unhealthy",
+    "details": {
+      "pm2": [
+        {
+          "service": "whisper",
+          "status": "stopped",
+          "restarts": 518
+        }
+      ],
+      "docker": [
+        {
+          "container": "lidaros-frontend-1",
+          "status": "unhealthy"
+        },
+        {
+          "container": "omiximo-email-automation",
+          "status": "unhealthy"
+        }
+      ]
+    },
+    "action": "Investigate Whisper restart loop and LidarOS/Omiximo container health checks."
+  }
+}

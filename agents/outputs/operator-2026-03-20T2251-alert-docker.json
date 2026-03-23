@@ -1,0 +1,10 @@
+{
+  "type": "alert",
+  "agent": "operator",
+  "timestamp": "2026-03-20T22:51:00Z",
+  "alert": {
+    "severity": "high",
+    "message": "Docker containers 'lidaros-frontend-1' and 'omiximo-email-automation' are UNHEALTHY.",
+    "action": "Check container logs (docker logs) and restart if necessary."
+  }
+}

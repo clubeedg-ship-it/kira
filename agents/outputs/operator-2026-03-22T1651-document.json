@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-22T16:51:00Z",
+  "document": {
+    "title": "Health Check — 2026-03-22 16:51 UTC",
+    "filename": "health-check-2026-03-22.md",
+    "category": "ops",
+    "content": "# Health Check — Sun Mar 22, 2026 16:51 UTC\n\n## Summary: ⚠️ Minor Issues\n\n### PM2 Services (14 total)\n- **13 online** — all healthy\n- **1 stopped:** `whisper` (932+ restarts, pid 0) — has been down persistently\n\n### Docker Containers (21 total)\n- **18 healthy/running**\n- **2 unhealthy:**\n  - `lidaros-frontend-1` — up 2 days but marked unhealthy\n  - `omiximo-email-automation` — up 2 days but marked unhealthy\n- **1 no healthcheck:** `kali-osint` (sleep infinity, expected)\n\n### Disk\n- `/` — 457G/662G used (70%) ✅\n\n### RAM\n- 11.5G / 27.5G used (42%) ✅\n- No swap configured\n\n### GPU (RTX 4090)\n- VRAM: 20550/24564 MiB (84%) — VLLM engine running\n- Temp: 43°C, Power: 21W/450W (idle) ✅\n\n### OpenClaw Gateway\n- **Running** (pid 133437) ✅\n- RPC probe: OK\n- Doctor warnings: group allowlists empty on all Telegram/WhatsApp accounts (groups silently dropped)\n\n## Action Items\n- `whisper` service has been stopped with 932+ restart attempts — likely needs investigation or should be disabled if unused\n- `lidaros-frontend` and `omiximo-email-automation` unhealthy — check container logs\n- Gateway group policies: intentional or needs config update?"
+  }
+}

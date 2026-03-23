@@ -1,0 +1,11 @@
+{
+  "type": "document",
+  "agent": "operator",
+  "timestamp": "2026-03-18T12:51:00Z",
+  "document": {
+    "title": "Infrastructure Health Report — 2026-03-18",
+    "filename": "infra-health-2026-03-18.md",
+    "category": "infrastructure",
+    "content": "# Infrastructure Health Report - 2026-03-18\n\n## System Overview\n- **Disk**: 69% used (206G available). OK.\n- **Memory**: 12.6GB / 27.5GB used. OK.\n- **GPU**: RTX 4090 - 20.5GB / 24.5GB VRAM used (VLLM EngineCore active). OK.\n\n## PM2 Services\n- **Total Services**: 16\n- **Status**: All marked 'online', but critical stability issues detected.\n- **Critical Issues**:\n  - `openclaw-gateway` (ID 42): 704 restarts, uptime 1s. **Action required.**\n  - `whisper` (ID 25): 457 restarts, uptime 0s. **Action required.**\n\n## Docker Containers\n- **Total Containers**: 21\n- **Status**: 19 Up, 2 Unhealthy.\n- **Unhealthy**:\n  - `lidaros-frontend-1`\n  - `omiximo-email-automation`\n\n## OpenClaw Gateway\n- **Status**: Running (PID 3491996).\n- **Doctor Warnings**: Multiple groupPolicy 'allowlist' warnings for Telegram/WhatsApp accounts. Group messages are being dropped.\n\n## Alerts Summary\n1. `openclaw-gateway` and `whisper` crash looping in PM2 (High Severity).\n2. `lidaros-frontend-1` and `omiximo-email-automation` unhealthy in Docker (Medium Severity).\n"
+  }
+}
