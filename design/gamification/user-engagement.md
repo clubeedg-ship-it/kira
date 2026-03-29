@@ -1,6 +1,8 @@
 # User Engagement & Gamification System
 
 > Kira's gamification makes productivity feel like progress in an RPG — rewarding without being patronizing, visible without being distracting.
+>
+> **Updated:** SOP Engine integration (Section 6), Agent XP (Section 7)
 
 ---
 
@@ -238,8 +240,8 @@ Delivered Sunday evening (configurable) via agent message:
 ⬆️ Leveled up to Builder (Lv 14)!
 🔥 Streak: 14 days and counting
 
-💡 Tip: You completed most tasks on Tuesday 
-   and Thursday. Consider batching deep work 
+💡 Tip: You completed most tasks on Tuesday
+   and Thursday. Consider batching deep work
    on those days.
 
 Next week's focus: 3 tasks due for ZenithCred
@@ -248,3 +250,102 @@ Next week's focus: 3 tasks due for ZenithCred
 ### Design Philosophy
 
 > **Rewarding, not annoying.** Every gamification element should make the user think *"Nice, I'm making progress"* — never *"Ugh, another popup."* If in doubt, make it less visible. The best gamification is the kind you notice when you want to, and forget about when you're focused.
+
+---
+
+## 6. SOP Engine Integration 🔵 NEW
+
+XP sources now map to the SOP hierarchy. Every layer of the hierarchy generates XP, creating a natural incentive to use the full system.
+
+### SOP-Specific XP Sources
+
+| Action | XP | Layer |
+|--------|-----|-------|
+| Complete a task (L4) | 10-50 | Task |
+| Complete a milestone | 100 | Project |
+| Complete a project (L3) | 250 | Project |
+| Achieve an objective (L2) | 750 | Objective |
+| Hit a key result target | 200 | Objective |
+| Process input queue item | 15 | Input Queue |
+| Complete daily review | 30 | Review |
+| Complete weekly review | 100 | Review |
+| Complete quarterly planning | 500 | Review |
+| Create a new principle | 50 | Principles |
+| Log a decision | 25 | Decisions |
+| Decision outcome validated | 40 | Decisions |
+| Clear all pending input queue items | 75 | Input Queue |
+
+### SOP Achievements
+
+| Achievement | Description | Rarity | XP |
+|---|---|---|---|
+| First Principle | Create your first operating principle | Common | 50 |
+| Principled Leader | 25 principles with confidence > 0.7 | Epic | 500 |
+| Decision Maker | Log 50 decisions | Rare | 200 |
+| Quarterly Champion | Score 80%+ on all quarterly objectives | Epic | 1,000 |
+| Zero Queue | Process all input queue items in under 10 minutes | Rare | 150 |
+| Review Ritual | Complete 4 consecutive weekly reviews | Rare | 250 |
+| Cadence Master | Complete daily reviews for 30 straight days | Epic | 500 |
+| Area Expert | Complete 10 projects in a single area | Epic | 750 |
+| Full Stack CEO | Have active objectives in every area | Rare | 300 |
+
+### Level Milestones Tied to SOP
+
+Level titles gain meaningful context:
+
+| Level | SOP Milestone |
+|-------|--------------|
+| 5 (Explorer) | "You've completed your first 3 projects" |
+| 10 (Builder) | "You've maintained a 30-day review cadence" |
+| 20 (Master) | "You've completed 100 tasks and 10 projects" |
+| 30 (Architect) | "You've run 4 quarterly planning cycles" |
+
+---
+
+## 7. Agent XP & Leaderboard 🔵 NEW
+
+Agents also earn XP and "level up" based on performance. This is fun, motivating, and provides a quick signal of agent reliability.
+
+### Agent XP Sources
+
+| Action | XP |
+|--------|-----|
+| Task completed successfully | 20 |
+| Task approved by user (verify → approve) | 30 |
+| Task rejected (redo/dismiss) | -10 |
+| Project completed | 150 |
+| Decision option chosen by user | 15 |
+| Fast completion (under estimated time) | +10 bonus |
+
+### Agent Levels
+
+Same curve as user XP. Agent level shown in agent monitor and agent cards.
+
+```
+Level 1-3:   Rookie Agent 🌱
+Level 4-7:   Capable Agent 🧭
+Level 8-12:  Reliable Agent 🔨
+Level 13-18: Expert Agent ⚡
+Level 19+:   Elite Agent 👑
+```
+
+### Agent Leaderboard
+
+Shown in Agent Monitor as a fun sidebar widget:
+
+```
+🏆 Agent Leaderboard (this week)
+1. 🤖 research-agent  — 340 XP  ⚡ Expert
+2. 🤖 comms-agent     — 280 XP  🔨 Reliable
+3. 🤖 code-agent      — 190 XP  🧭 Capable
+```
+
+Metrics: approval rate, avg completion time, tasks completed, cost efficiency.
+
+### Agent Performance in Reviews
+
+Weekly review includes agent performance section: which agents were most productive, which had highest approval rates, which were most cost-efficient. Uses agent XP as a quick summary metric.
+
+---
+
+*Gamification drives engagement. SOP integration makes it meaningful. Agent XP makes it fun. The whole system rewards doing the right things consistently.*
